@@ -1,0 +1,198 @@
+[section label="1. Hero" bg_color="#f5f0e8" padding="92px" padding__sm="57px" class="dsc dsc-hero"]
+
+[row width="custom" custom_width="1210px" v_align="middle" class="dsc-row"]
+
+[col span="6" span__md="12" span__sm="12"]
+
+[ux_html label="Hero – nội dung"]
+<div class="dsc-hero-copy">
+<div class="dsc-eyebrow"><span class="dsc-dot"></span> Bài test tính cách miễn phí</div>
+<h1 class="dsc-h1">Bạn hành động<br><span>theo cách nào?</span></h1>
+<p class="dsc-lead">Khám phá xu hướng hành vi nổi bật của bạn qua bài trắc nghiệm DISC ngắn gọn, dễ làm và dễ hiểu.</p>
+<div class="dsc-actions">
+<a class="dsc-btn" href="https://tracnghiemplus.com/bai-thi/test-disc/">Làm bài test DISC <b aria-hidden="true">→</b></a>
+<a class="dsc-textbtn" href="#about">Tìm hiểu mô hình <b aria-hidden="true">↓</b></a>
+</div>
+<div class="dsc-trust">
+<div class="dsc-avatars" aria-hidden="true"><div>D</div><div>I</div><div>S</div><div>C</div></div>
+<div><strong>Miễn phí trên Trắc Nghiệm Plus</strong><small>Tham khảo để hiểu mình và hiểu người</small></div>
+</div>
+<div class="dsc-foot"><div>01</div><i></i><div>Chọn phương án gần với bạn nhất</div></div>
+</div>
+[/ux_html]
+
+[/col]
+[col span="6" span__md="12" span__sm="12"]
+
+[ux_html label="Hero – minh họa DISC"]
+<div class="dsc-art" aria-label="Minh họa bốn nhóm tính cách DISC">
+<div class="dsc-art-shadow"></div>
+<div class="dsc-person is-d"><div class="dsc-initial">D</div><div class="dsc-pname">Quyết đoán</div><div class="dsc-psub">Hướng mục tiêu</div></div>
+<div class="dsc-person is-i"><div class="dsc-initial">I</div><div class="dsc-pname">Ảnh hưởng</div><div class="dsc-psub">Truyền cảm hứng</div></div>
+<div class="dsc-person is-s"><div class="dsc-initial">S</div><div class="dsc-pname">Ổn định</div><div class="dsc-psub">Biết lắng nghe</div></div>
+<div class="dsc-person is-c"><div class="dsc-initial">C</div><div class="dsc-pname">Cẩn trọng</div><div class="dsc-psub">Chú ý chi tiết</div></div>
+<div class="dsc-disc"><strong>DISC</strong><small>HIỂU MÌNH · HIỂU NGƯỜI</small></div>
+<div class="dsc-orbit is-a"></div><div class="dsc-orbit is-b"></div>
+<div class="dsc-spark is-a">✦</div><div class="dsc-spark is-b">✳</div><div class="dsc-spark is-c">•</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="2. Bắt đầu bài test" bg_color="#fbfaf7" padding="112px" padding__sm="76px" class="dsc dsc-picker"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="Bắt đầu – tiêu đề"]
+<div id="test-picker" class="dsc-anchor"></div>
+<div class="dsc-head is-center">
+<div class="dsc-eyebrow"><span class="dsc-dot"></span> Sẵn sàng khám phá</div>
+<h2 class="dsc-h2">Bắt đầu bài test DISC</h2>
+<p>Không có đáp án đúng hay sai. Hãy chọn theo phản ứng tự nhiên của bạn.</p>
+</div>
+[/ux_html]
+
+[ux_html label="Bắt đầu – 3 thẻ"]
+<div class="dsc-cards">
+<div class="dsc-card">
+<div class="dsc-card-top"><div class="dsc-card-num">01</div><div class="dsc-pill">Tìm hiểu</div></div>
+<div class="dsc-count"><strong>4</strong><span>nhóm tính cách</span></div>
+<h3>Mô hình DISC</h3>
+<div class="dsc-card-desc">Hiểu bốn nhóm D · I · S · C trước khi làm bài.</div>
+<ul><li>Dominance – Quyết đoán</li><li>Influence – Ảnh hưởng</li><li>Steadiness – Ổn định</li><li>Conscientiousness – Cẩn trọng</li></ul>
+<a class="dsc-choose" href="#about">Xem 4 nhóm DISC <b>→</b></a>
+</div>
+<div class="dsc-card is-featured">
+<div class="dsc-popular">Bài test chính</div>
+<div class="dsc-card-top"><div class="dsc-card-num">02</div><div class="dsc-pill">Miễn phí</div></div>
+<div class="dsc-count"><strong>DISC</strong></div>
+<h3>Trắc nghiệm tính cách DISC</h3>
+<div class="dsc-card-desc">Trả lời theo cách bạn thường hành động để xem nhóm nổi bật của mình.</div>
+<ul><li>Làm bài trực tuyến</li><li>Xem kết quả theo bốn nhóm D · I · S · C</li><li>Có thể làm lại nhiều lần</li></ul>
+<a class="dsc-choose" href="https://tracnghiemplus.com/bai-thi/test-disc/">Làm bài test ngay <b>→</b></a>
+</div>
+<div class="dsc-card">
+<div class="dsc-card-top"><div class="dsc-card-num">03</div><div class="dsc-pill">Hướng dẫn</div></div>
+<div class="dsc-count"><strong>4</strong><span>lưu ý</span></div>
+<h3>Trước khi bắt đầu</h3>
+<div class="dsc-card-desc">Vài mẹo nhỏ để kết quả gần với bạn nhất.</div>
+<ul><li>Chọn theo phản ứng tự nhiên</li><li>Không chọn theo hình mẫu lý tưởng</li><li>Đừng suy nghĩ quá lâu ở một câu</li></ul>
+<a class="dsc-choose" href="#guide">Đọc hướng dẫn <b>→</b></a>
+</div>
+</div>
+<div class="dsc-strip" aria-label="Bốn nhóm tính cách DISC">
+<div class="dsc-strip-item"><div class="dsc-letter is-d">D</div><div><strong>Dominance</strong><small>Quyết đoán · Thử thách</small></div></div>
+<div class="dsc-strip-item"><div class="dsc-letter is-i">I</div><div><strong>Influence</strong><small>Cởi mở · Kết nối</small></div></div>
+<div class="dsc-strip-item"><div class="dsc-letter is-s">S</div><div><strong>Steadiness</strong><small>Ổn định · Hài hòa</small></div></div>
+<div class="dsc-strip-item"><div class="dsc-letter is-c">C</div><div><strong>Conscientiousness</strong><small>Phân tích · Chính xác</small></div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="3. DISC là gì" bg_color="#fbfaf7" padding="107px" padding__sm="76px" class="dsc dsc-about"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="DISC là gì"]
+<div id="about" class="dsc-anchor"></div>
+<div class="dsc-info">
+<div class="dsc-head"><div class="dsc-eyebrow"><span class="dsc-dot"></span> Một mô hình, bốn sắc thái</div><h2 class="dsc-h2">DISC giúp bạn nhìn thấy điều gì?</h2></div>
+<div class="dsc-info-copy"><p>DISC là mô hình mô tả xu hướng hành vi thông qua bốn nhóm chính. Mỗi người thường là sự kết hợp của nhiều nhóm, trong đó một hoặc hai nhóm có thể nổi bật hơn tùy hoàn cảnh.</p><a class="dsc-inline" href="#guide">Xem cách làm bài <b>↗</b></a></div>
+</div>
+<div class="dsc-panels">
+<div class="dsc-panel is-d"><div class="dsc-panel-letter">D</div><h3>Dominance</h3><div class="dsc-panel-desc">Chủ động, nhanh, hướng mục tiêu và sẵn sàng đối mặt thử thách.</div><div class="dsc-panel-word">HÀNH ĐỘNG</div></div>
+<div class="dsc-panel is-i"><div class="dsc-panel-letter">I</div><h3>Influence</h3><div class="dsc-panel-desc">Cởi mở, giao tiếp tốt, giàu năng lượng và tạo ảnh hưởng tích cực.</div><div class="dsc-panel-word">KẾT NỐI</div></div>
+<div class="dsc-panel is-s"><div class="dsc-panel-letter">S</div><h3>Steadiness</h3><div class="dsc-panel-desc">Kiên nhẫn, ổn định, biết lắng nghe và coi trọng sự hài hòa.</div><div class="dsc-panel-word">GẮN KẾT</div></div>
+<div class="dsc-panel is-c"><div class="dsc-panel-letter">C</div><h3>Conscientiousness</h3><div class="dsc-panel-desc">Phân tích, cẩn trọng, chú ý tiêu chuẩn, chất lượng và độ chính xác.</div><div class="dsc-panel-word">CHUẨN XÁC</div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="4. Hướng dẫn" bg_color="#20242d" dark="true" padding="100px" padding__sm="76px" class="dsc dsc-guide-sec"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="Hướng dẫn làm bài"]
+<div id="guide" class="dsc-anchor"></div>
+<div class="dsc-guide">
+<div><div class="dsc-eyebrow is-light"><span class="dsc-dot"></span> Trước khi bắt đầu</div><h2>Để kết quả<br><span>gần với bạn nhất</span></h2></div>
+<div class="dsc-guide-list">
+<div class="dsc-guide-row"><div class="dsc-guide-num">01</div><div class="dsc-guide-text">Chọn phương án gần với phản ứng tự nhiên của bạn nhất.</div></div>
+<div class="dsc-guide-row"><div class="dsc-guide-num">02</div><div class="dsc-guide-text">Trả lời theo cách bạn thường hành động, không phải hình mẫu lý tưởng.</div></div>
+<div class="dsc-guide-row"><div class="dsc-guide-num">03</div><div class="dsc-guide-text">Đừng suy nghĩ quá lâu ở từng câu; lựa chọn đầu tiên thường rõ ràng hơn.</div></div>
+<div class="dsc-guide-row"><div class="dsc-guide-num">04</div><div class="dsc-guide-text">Hoàn thành toàn bộ câu hỏi trước khi xem kết quả.</div></div>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="5. FAQ" bg_color="#fbfaf7" padding="112px" padding__sm="76px" class="dsc dsc-faq-sec"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="FAQ"]
+<div id="faq" class="dsc-anchor"></div>
+<div class="dsc-head is-center"><div class="dsc-eyebrow"><span class="dsc-dot"></span> Giải đáp nhanh</div><h2 class="dsc-h2">Một vài điều bạn có thể muốn biết</h2></div>
+<div class="dsc-faq-list">
+<details class="dsc-faq" open><summary>Bài test DISC có đáp án đúng hay sai không? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">Không. Đây là bài đánh giá xu hướng hành vi, vì vậy phương án phù hợp nhất là phương án phản ánh bạn rõ nhất.</div></details>
+<details class="dsc-faq"><summary>Làm bài test DISC ở đâu? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">Bạn bấm nút "Làm bài test DISC" trên trang này hoặc truy cập trực tiếp <a href="https://tracnghiemplus.com/bai-thi/test-disc/">bài thi DISC</a> để bắt đầu.</div></details>
+<details class="dsc-faq"><summary>Kết quả DISC có phải chẩn đoán tâm lý không? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">Không. Kết quả chỉ mang tính tham khảo để phát triển bản thân, không thay thế đánh giá tâm lý hoặc tư vấn chuyên môn.</div></details>
+<details class="dsc-faq"><summary>Tôi có thể làm lại bài test không? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">Có. Bạn có thể làm lại để so sánh kết quả trong những bối cảnh khác nhau.</div></details>
+<details class="dsc-faq"><summary>Nên kết hợp DISC với bài test nào? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">DISC mô tả cách bạn hành động. Để định hướng nghề nghiệp toàn diện hơn, bạn có thể làm thêm <a href="https://tracnghiemplus.com/bai-thi/test-holland/">test Holland</a> và <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/">test MBTI</a>.</div></details>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="6. CTA" bg_color="#fbfaf7" padding="0px" padding__sm="0px" class="dsc dsc-cta-sec"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="CTA"]
+<div class="dsc-cta">
+<div><div class="dsc-eyebrow is-light"><span class="dsc-dot"></span> Sẵn sàng khám phá?</div><h2>Bắt đầu với lựa chọn<br>đầu tiên của bạn.</h2></div>
+<div class="dsc-cta-actions">
+<a class="dsc-btn is-light" href="https://tracnghiemplus.com/bai-thi/test-disc/">Làm bài test DISC <b>→</b></a>
+<a class="dsc-textbtn" href="https://tracnghiemplus.com/trac-nghiem-nghe-nghiep/">Xem thêm trắc nghiệm nghề nghiệp <b>↗</b></a>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]

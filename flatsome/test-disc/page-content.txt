@@ -1,0 +1,202 @@
+[ux_html label="CSS trang Test DISC (có thể chuyển sang Flatsome > Advanced > Custom CSS)"]
+<style id="dsc-css">@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');.dsc{--ink:#20242d;--muted:#777b86;--paper:#fbfaf7;--cream:#f5f0e8;--orange:#f45b42;--orange-dark:#dc4837;--yellow:#f6c95c;--teal:#3caea3;--purple:#8e81d5;--line:#e7e1d9;--shadow:0 24px 70px rgba(36,31,24,.10);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;font-size:16px;-webkit-font-smoothing:antialiased}.dsc *,.dsc *:before,.dsc *:after{box-sizing:border-box}html{scroll-behavior:smooth}.dsc-anchor{display:block;position:relative;top:-90px;visibility:hidden;height:0}.dsc br{display:none}.dsc h1 br,.dsc h2 br{display:inline}.dsc p:empty{display:none}.dsc h1,.dsc h2,.dsc h3{color:var(--ink);text-transform:none;margin-top:0}.dsc p{margin-top:0}.dsc a{text-decoration:none;color:inherit}.dsc ul{margin:0;padding:0;list-style:none}.dsc ul li{margin:0}.dsc .dsc-row>.col{padding-bottom:0}.dsc .dsc-sg{font-family:"Space Grotesk",sans-serif}.dsc .dsc-eyebrow{display:flex;align-items:center;gap:9px;color:#6d6f75;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}.dsc .dsc-dot{display:inline-block;width:7px;height:7px;background:var(--orange);border-radius:50%}.dsc .dsc-eyebrow.is-light{color:#b8bac0}.dsc .dsc-eyebrow.is-light .dsc-dot{background:var(--yellow)}.dsc .dsc-head.is-center{text-align:center}.dsc .dsc-head.is-center .dsc-eyebrow{justify-content:center}.dsc h1.dsc-h1,.dsc h2.dsc-h2,.dsc .dsc-guide h2,.dsc .dsc-cta h2{font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:-.065em;line-height:.98;margin:22px 0 20px}.dsc h2.dsc-h2{font-size:clamp(35px,4.3vw,57px);margin-top:18px}.dsc .dsc-head p{color:var(--muted);font-size:15px;margin:0 auto;line-height:1.65}.dsc .dsc-btn{display:inline-flex;align-items:center;justify-content:center;gap:19px;border:0;background:var(--orange);color:#fff;font-weight:700;border-radius:99px;padding:15px 20px 15px 22px;font-size:14px;line-height:1.2;box-shadow:0 8px 20px rgba(244,91,66,.2);transition:transform .2s,background .2s,box-shadow .2s}.dsc .dsc-btn:hover{background:var(--orange-dark);color:#fff;transform:translateY(-2px);box-shadow:0 12px 24px rgba(244,91,66,.26)}.dsc .dsc-btn b{font-size:22px;line-height:10px;font-weight:400}.dsc .dsc-btn.is-light{background:#fff;color:var(--ink);box-shadow:none;position:relative;z-index:1}.dsc .dsc-btn.is-light:hover{background:var(--cream);color:var(--orange)}.dsc .dsc-textbtn{font-size:13px;font-weight:700;color:#5e5e64}.dsc .dsc-textbtn b{font-size:18px;margin-left:7px;color:var(--orange)}.dsc-hero{position:relative;overflow:hidden;isolation:isolate;background:var(--cream)!important}.dsc-hero:before,.dsc-hero:after{content:"";position:absolute;border-radius:50%;z-index:-1;pointer-events:none}.dsc-hero:before{width:230px;height:230px;background:#f6c95c;opacity:.18;top:-95px;right:13%}.dsc-hero:after{width:280px;height:280px;background:#3caea3;opacity:.08;left:-180px;bottom:-180px}.dsc-hero .section-content{position:relative;z-index:1}.dsc .dsc-hero-copy{padding-bottom:20px}.dsc h1.dsc-h1{font-size:clamp(55px,6.4vw,92px)}.dsc h1.dsc-h1 span,.dsc .dsc-guide h2 span{color:var(--orange)}.dsc .dsc-lead{max-width:450px;color:#686a70;line-height:1.7;font-size:16px;margin:0}.dsc .dsc-actions{display:flex;align-items:center;flex-wrap:wrap;gap:25px;margin-top:32px}.dsc .dsc-trust{display:flex;align-items:center;gap:12px;margin-top:64px}.dsc .dsc-trust strong,.dsc .dsc-trust small{display:block}.dsc .dsc-trust strong{font-size:12px}.dsc .dsc-trust small{color:#898881;font-size:11px;margin-top:4px}.dsc .dsc-avatars{display:flex}.dsc .dsc-avatars div{width:28px;height:28px;border:2px solid var(--cream);border-radius:50%;display:grid;place-items:center;margin-left:-6px;font-size:9px;font-weight:700;color:#fff}.dsc .dsc-avatars div:nth-child(1){margin-left:0;background:var(--orange)}.dsc .dsc-avatars div:nth-child(2){background:#d9a92c}.dsc .dsc-avatars div:nth-child(3){background:var(--teal)}.dsc .dsc-avatars div:nth-child(4){background:var(--purple)}.dsc .dsc-art{height:480px;position:relative;max-width:560px;margin:auto;width:100%}.dsc .dsc-art-shadow{position:absolute;width:375px;height:375px;left:50%;top:54px;transform:translateX(-50%);border-radius:50%;background:rgba(244,91,66,.14);filter:blur(3px)}.dsc .dsc-disc{position:absolute;width:260px;height:260px;left:50%;top:105px;transform:translateX(-50%) rotate(-8deg);border-radius:50%;background:var(--orange);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;box-shadow:13px 17px 0 #f6c95c}.dsc .dsc-disc strong{font:700 59px/.95 "Space Grotesk",sans-serif;letter-spacing:-.1em;margin-left:-9px}.dsc .dsc-disc small{max-width:150px;font-size:11px;letter-spacing:.18em;text-align:center;line-height:1.7;margin-top:16px}.dsc .dsc-orbit{position:absolute;border:1px solid rgba(244,91,66,.42);border-radius:50%;left:50%;top:72px;transform:translateX(-50%) rotate(18deg)}.dsc .dsc-orbit.is-a{width:365px;height:280px}.dsc .dsc-orbit.is-b{width:430px;height:330px;transform:translateX(-50%) rotate(-31deg);border-color:rgba(60,174,163,.34)}.dsc .dsc-person{position:absolute;z-index:2;display:flex;flex-direction:column;gap:4px;background:rgba(255,255,255,.87);border:1px solid rgba(255,255,255,.9);padding:10px 13px 11px;border-radius:14px;box-shadow:0 9px 22px rgba(59,48,35,.09);min-width:136px}.dsc .dsc-pname{font:700 13px "Space Grotesk",sans-serif}.dsc .dsc-psub{font-size:10px;color:#8b8a86}.dsc .dsc-initial{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;font:700 13px "Space Grotesk",sans-serif;color:#fff}.dsc .dsc-person.is-d{top:58px;left:10px;transform:rotate(-7deg)}.dsc .is-d .dsc-initial{background:var(--orange)}.dsc .dsc-person.is-i{top:22px;right:21px;transform:rotate(6deg)}.dsc .is-i .dsc-initial{background:var(--yellow);color:#564319}.dsc .dsc-person.is-s{bottom:44px;left:24px;transform:rotate(4deg)}.dsc .is-s .dsc-initial{background:var(--teal)}.dsc .dsc-person.is-c{bottom:23px;right:8px;transform:rotate(-6deg)}.dsc .is-c .dsc-initial{background:var(--purple)}.dsc .dsc-spark{position:absolute;color:var(--orange);font-size:26px}.dsc .dsc-spark.is-a{top:18px;left:45%}.dsc .dsc-spark.is-b{bottom:10px;right:36%;font-size:19px;color:var(--teal)}.dsc .dsc-spark.is-c{top:102px;right:4%;font-size:31px;color:var(--yellow)}.dsc .dsc-foot{display:flex;align-items:center;gap:14px;color:#9a968d;font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-top:28px}.dsc .dsc-foot i{height:1px;width:45px;background:#b7b0a5;display:block}.dsc .dsc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px;align-items:start}.dsc .dsc-card{position:relative;background:#fff;border:1px solid var(--line);padding:28px 25px 23px;min-height:395px;display:flex;flex-direction:column;box-shadow:0 8px 22px rgba(38,31,19,.025);transition:transform .2s,box-shadow .2s}.dsc .dsc-card:hover{box-shadow:var(--shadow)}.dsc .dsc-card.is-featured{border:2px solid var(--orange);box-shadow:var(--shadow);transform:translateY(-10px)}.dsc .dsc-popular{position:absolute;top:-14px;left:22px;padding:6px 13px;background:var(--orange);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border-radius:99px}.dsc .dsc-card-top{display:flex;justify-content:space-between;align-items:center;color:#a6a29a}.dsc .dsc-card-num{font:700 12px "Space Grotesk",sans-serif;letter-spacing:.1em}.dsc .dsc-pill{font-size:10px;border:1px solid var(--line);padding:6px 9px;border-radius:99px}.dsc .dsc-count{display:flex;align-items:baseline;gap:8px;margin-top:26px}.dsc .dsc-count strong{font:700 64px/.9 "Space Grotesk",sans-serif;letter-spacing:-.08em}.dsc .dsc-count span{font-size:12px;color:#99958c}.dsc .dsc-card h3{font:700 20px "Space Grotesk",sans-serif;margin:17px 0 8px}.dsc .dsc-card-desc{color:#85827d;font-size:12px;line-height:1.55;margin:0;min-height:38px}.dsc .dsc-card ul{margin:22px 0;font-size:11px;color:#5e5e62;line-height:2}.dsc .dsc-card li:before{content:"✓";color:var(--orange);font-weight:700;margin-right:8px}.dsc .dsc-choose{border-top:1px solid var(--line);padding:15px 0 0;font-size:12px;font-weight:700;color:var(--ink);margin-top:auto;display:flex;justify-content:space-between;align-items:center}.dsc .dsc-choose b{font-size:19px;color:var(--orange);transition:transform .2s;font-weight:400}.dsc .dsc-choose:hover b{transform:translateX(4px)}.dsc .is-featured .dsc-choose{border-top:0;padding:14px 18px;background:var(--orange);color:#fff;border-radius:99px}.dsc .is-featured .dsc-choose b{color:#fff}.dsc .is-featured .dsc-choose:hover{background:var(--orange-dark)}.dsc .dsc-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:74px;padding:24px 0}.dsc .dsc-strip-item{display:flex;align-items:center;gap:11px;padding:0 20px;border-right:1px solid var(--line)}.dsc .dsc-strip-item:first-child{padding-left:5px}.dsc .dsc-strip-item:last-child{border-right:0}.dsc .dsc-letter{width:37px;min-width:37px;height:37px;border-radius:12px;display:grid;place-items:center;font:700 16px "Space Grotesk",sans-serif}.dsc .dsc-letter.is-d{background:#ffebe6;color:var(--orange)}.dsc .dsc-letter.is-i{background:#fff5d8;color:#b88900}.dsc .dsc-letter.is-s{background:#e4f5f2;color:#28988d}.dsc .dsc-letter.is-c{background:#eeebff;color:#7466c2}.dsc .dsc-strip-item strong,.dsc .dsc-strip-item small{display:block}.dsc .dsc-strip-item strong{font:700 12px "Space Grotesk",sans-serif}.dsc .dsc-strip-item small{font-size:10px;color:#99958c;margin-top:3px}.dsc .dsc-info{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}.dsc .dsc-info-copy{padding-bottom:5px}.dsc .dsc-info-copy p{color:#74767e;font-size:16px;line-height:1.75;max-width:440px;margin:0 0 22px}.dsc .dsc-inline{font-size:12px;font-weight:700;border-bottom:1px solid var(--orange);padding-bottom:5px}.dsc .dsc-inline b{color:var(--orange);margin-left:8px}.dsc .dsc-panels{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:56px}.dsc .dsc-panel{min-height:285px;padding:24px 20px;position:relative;overflow:hidden;transition:transform .25s}.dsc .dsc-panel:hover{transform:translateY(-6px)}.dsc .dsc-panel-letter{font:700 80px/.8 "Space Grotesk",sans-serif;opacity:.25;display:block;margin-bottom:40px}.dsc .dsc-panel h3{font:700 17px "Space Grotesk",sans-serif;margin:0 0 11px}.dsc .dsc-panel-desc{font-size:12px;line-height:1.6;margin:0;color:rgba(32,36,45,.67)}.dsc .dsc-panel-word{position:absolute;bottom:19px;left:20px;font-size:9px;letter-spacing:.13em;font-weight:700;opacity:.55}.dsc .dsc-panel.is-d{background:#f8c2b5}.dsc .is-d .dsc-panel-letter{color:#ba4939}.dsc .dsc-panel.is-i{background:#fae6a6}.dsc .is-i .dsc-panel-letter{color:#c3941c}.dsc .dsc-panel.is-s{background:#bce2d8}.dsc .is-s .dsc-panel-letter{color:#268b7f}.dsc .dsc-panel.is-c{background:#d6d0f6}.dsc .is-c .dsc-panel-letter{color:#7063b8}.dsc-guide-sec{position:relative;overflow:hidden;background:var(--ink)!important}.dsc-guide-sec:after{content:"DISC";position:absolute;right:-5px;bottom:-50px;font:700 190px/.8 "Space Grotesk",sans-serif;color:rgba(255,255,255,.035);letter-spacing:-.1em;pointer-events:none}.dsc-guide-sec .section-content{position:relative;z-index:1}.dsc .dsc-guide{display:grid;grid-template-columns:.8fr 1.2fr;gap:120px}.dsc .dsc-guide h2{color:#fff;font-size:clamp(42px,5vw,68px);margin-top:25px}.dsc .dsc-guide-list{border-top:1px solid rgba(255,255,255,.2)}.dsc .dsc-guide-row{display:grid;grid-template-columns:40px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.2);align-items:start}.dsc .dsc-guide-num{font:700 12px "Space Grotesk",sans-serif;color:var(--yellow);padding-top:2px}.dsc .dsc-guide-text{font-size:16px;line-height:1.5;color:#e3e2df;max-width:480px}.dsc .dsc-faq-list{max-width:780px;margin:52px auto 0;border-top:1px solid var(--line)}.dsc .dsc-faq{border-bottom:1px solid var(--line);padding:0 3px;margin:0}.dsc .dsc-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font:700 15px "Space Grotesk",sans-serif;color:var(--ink)}.dsc .dsc-faq summary::-webkit-details-marker{display:none}.dsc .dsc-faq summary:before,.dsc .dsc-faq summary:after{display:none}.dsc .dsc-plus{font:400 23px/1 Arial,sans-serif;color:var(--orange);transition:transform .2s}.dsc .dsc-faq[open] .dsc-plus{transform:rotate(45deg)}.dsc .dsc-faq-body{color:var(--muted);font-size:13px;line-height:1.6;margin:-5px 34px 22px 0}.dsc .dsc-faq-body a{color:var(--orange);font-weight:700}.dsc .dsc-cta{background:var(--orange);color:#fff;padding:62px 70px;display:flex;justify-content:space-between;align-items:center;gap:30px;position:relative;overflow:hidden}.dsc .dsc-cta:after{content:"?";position:absolute;right:25%;bottom:-85px;font:700 260px/.8 "Space Grotesk",sans-serif;color:rgba(255,255,255,.12);pointer-events:none}.dsc .dsc-cta h2{color:#fff;font-size:clamp(36px,4vw,54px);margin-bottom:0}.dsc .dsc-cta-actions{display:flex;flex-direction:column;align-items:flex-end;gap:14px;position:relative;z-index:1}.dsc .dsc-cta-actions .dsc-textbtn{color:#fff}.dsc .dsc-cta-actions .dsc-textbtn b{color:#fff}.dsc-cta-sec{padding-bottom:100px!important}@media (max-width:849px){.dsc .dsc-row>.col{padding-bottom:30px}.dsc .dsc-row>.col:last-child{padding-bottom:0}.dsc .dsc-hero-copy{text-align:center}.dsc .dsc-hero-copy .dsc-eyebrow,.dsc .dsc-actions,.dsc .dsc-trust,.dsc .dsc-foot{justify-content:center}.dsc .dsc-lead{margin-left:auto;margin-right:auto}.dsc .dsc-info,.dsc .dsc-guide{grid-template-columns:1fr;gap:35px}.dsc .dsc-guide{gap:45px}.dsc .dsc-panels{grid-template-columns:repeat(2,1fr)}.dsc .dsc-cards{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto;gap:28px}.dsc .dsc-card{min-height:0}.dsc .dsc-card.is-featured{transform:none;order:-1}.dsc .dsc-strip{grid-template-columns:1fr 1fr;gap:20px}.dsc .dsc-strip-item{border:0;padding:0!important}}@media (max-width:549px){.dsc h1.dsc-h1{font-size:52px}.dsc .dsc-lead{font-size:14px}.dsc .dsc-actions{gap:16px;margin-top:27px}.dsc .dsc-btn{font-size:13px;padding:14px 17px}.dsc .dsc-trust{margin-top:43px}.dsc .dsc-art{height:360px;transform:scale(.78);transform-origin:top center;margin-bottom:-70px;max-width:440px;left:50%;margin-left:-220px;width:440px}.dsc .dsc-foot{margin-top:10px;font-size:8px;gap:9px}.dsc h2.dsc-h2{font-size:37px}.dsc .dsc-head p{font-size:13px}.dsc .dsc-card{padding:24px 21px}.dsc .dsc-strip{margin-top:54px}.dsc .dsc-info{gap:10px}.dsc .dsc-info-copy p{font-size:14px}.dsc .dsc-panels{gap:8px;margin-top:40px}.dsc .dsc-panel{min-height:230px;padding:18px 15px}.dsc .dsc-panel-letter{font-size:65px;margin-bottom:28px}.dsc .dsc-panel h3{font-size:14px}.dsc .dsc-panel-desc{font-size:11px}.dsc .dsc-panel-word{left:15px;font-size:8px}.dsc .dsc-guide h2{font-size:45px}.dsc .dsc-guide-row{grid-template-columns:28px 1fr;gap:12px;padding:18px 0}.dsc .dsc-guide-text{font-size:14px}.dsc .dsc-faq-list{margin-top:36px}.dsc .dsc-cta{padding:39px 25px;display:block}.dsc .dsc-cta h2{font-size:37px;margin:18px 0 28px}.dsc .dsc-cta-actions{align-items:flex-start}.dsc-cta-sec{padding-bottom:70px!important}}@media (prefers-reduced-motion:reduce){.dsc *,.dsc *:before,.dsc *:after{transition:none!important}}</style>
+[/ux_html]
+
+[section label="1. Hero" bg_color="#f5f0e8" padding="92px" padding__sm="57px" class="dsc dsc-hero"]
+
+[row width="custom" custom_width="1210px" v_align="middle" class="dsc-row"]
+
+[col span="6" span__md="12" span__sm="12"]
+
+[ux_html label="Hero – nội dung"]
+<div class="dsc-hero-copy">
+<div class="dsc-eyebrow"><span class="dsc-dot"></span> Bài test tính cách miễn phí</div>
+<h1 class="dsc-h1">Bạn hành động<br><span>theo cách nào?</span></h1>
+<p class="dsc-lead">Khám phá xu hướng hành vi nổi bật của bạn qua bài trắc nghiệm DISC ngắn gọn, dễ làm và dễ hiểu.</p>
+<div class="dsc-actions">
+<a class="dsc-btn" href="https://tracnghiemplus.com/bai-thi/test-disc/">Làm bài test DISC <b aria-hidden="true">→</b></a>
+<a class="dsc-textbtn" href="#about">Tìm hiểu mô hình <b aria-hidden="true">↓</b></a>
+</div>
+<div class="dsc-trust">
+<div class="dsc-avatars" aria-hidden="true"><div>D</div><div>I</div><div>S</div><div>C</div></div>
+<div><strong>Miễn phí trên Trắc Nghiệm Plus</strong><small>Tham khảo để hiểu mình và hiểu người</small></div>
+</div>
+<div class="dsc-foot"><div>01</div><i></i><div>Chọn phương án gần với bạn nhất</div></div>
+</div>
+[/ux_html]
+
+[/col]
+[col span="6" span__md="12" span__sm="12"]
+
+[ux_html label="Hero – minh họa DISC"]
+<div class="dsc-art" aria-label="Minh họa bốn nhóm tính cách DISC">
+<div class="dsc-art-shadow"></div>
+<div class="dsc-person is-d"><div class="dsc-initial">D</div><div class="dsc-pname">Quyết đoán</div><div class="dsc-psub">Hướng mục tiêu</div></div>
+<div class="dsc-person is-i"><div class="dsc-initial">I</div><div class="dsc-pname">Ảnh hưởng</div><div class="dsc-psub">Truyền cảm hứng</div></div>
+<div class="dsc-person is-s"><div class="dsc-initial">S</div><div class="dsc-pname">Ổn định</div><div class="dsc-psub">Biết lắng nghe</div></div>
+<div class="dsc-person is-c"><div class="dsc-initial">C</div><div class="dsc-pname">Cẩn trọng</div><div class="dsc-psub">Chú ý chi tiết</div></div>
+<div class="dsc-disc"><strong>DISC</strong><small>HIỂU MÌNH · HIỂU NGƯỜI</small></div>
+<div class="dsc-orbit is-a"></div><div class="dsc-orbit is-b"></div>
+<div class="dsc-spark is-a">✦</div><div class="dsc-spark is-b">✳</div><div class="dsc-spark is-c">•</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="2. Bắt đầu bài test" bg_color="#fbfaf7" padding="112px" padding__sm="76px" class="dsc dsc-picker"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="Bắt đầu – tiêu đề"]
+<div id="test-picker" class="dsc-anchor"></div>
+<div class="dsc-head is-center">
+<div class="dsc-eyebrow"><span class="dsc-dot"></span> Sẵn sàng khám phá</div>
+<h2 class="dsc-h2">Bắt đầu bài test DISC</h2>
+<p>Không có đáp án đúng hay sai. Hãy chọn theo phản ứng tự nhiên của bạn.</p>
+</div>
+[/ux_html]
+
+[ux_html label="Bắt đầu – 3 thẻ"]
+<div class="dsc-cards">
+<div class="dsc-card">
+<div class="dsc-card-top"><div class="dsc-card-num">01</div><div class="dsc-pill">Tìm hiểu</div></div>
+<div class="dsc-count"><strong>4</strong><span>nhóm tính cách</span></div>
+<h3>Mô hình DISC</h3>
+<div class="dsc-card-desc">Hiểu bốn nhóm D · I · S · C trước khi làm bài.</div>
+<ul><li>Dominance – Quyết đoán</li><li>Influence – Ảnh hưởng</li><li>Steadiness – Ổn định</li><li>Conscientiousness – Cẩn trọng</li></ul>
+<a class="dsc-choose" href="#about">Xem 4 nhóm DISC <b>→</b></a>
+</div>
+<div class="dsc-card is-featured">
+<div class="dsc-popular">Bài test chính</div>
+<div class="dsc-card-top"><div class="dsc-card-num">02</div><div class="dsc-pill">Miễn phí</div></div>
+<div class="dsc-count"><strong>DISC</strong></div>
+<h3>Trắc nghiệm tính cách DISC</h3>
+<div class="dsc-card-desc">Trả lời theo cách bạn thường hành động để xem nhóm nổi bật của mình.</div>
+<ul><li>Làm bài trực tuyến</li><li>Xem kết quả theo bốn nhóm D · I · S · C</li><li>Có thể làm lại nhiều lần</li></ul>
+<a class="dsc-choose" href="https://tracnghiemplus.com/bai-thi/test-disc/">Làm bài test ngay <b>→</b></a>
+</div>
+<div class="dsc-card">
+<div class="dsc-card-top"><div class="dsc-card-num">03</div><div class="dsc-pill">Hướng dẫn</div></div>
+<div class="dsc-count"><strong>4</strong><span>lưu ý</span></div>
+<h3>Trước khi bắt đầu</h3>
+<div class="dsc-card-desc">Vài mẹo nhỏ để kết quả gần với bạn nhất.</div>
+<ul><li>Chọn theo phản ứng tự nhiên</li><li>Không chọn theo hình mẫu lý tưởng</li><li>Đừng suy nghĩ quá lâu ở một câu</li></ul>
+<a class="dsc-choose" href="#guide">Đọc hướng dẫn <b>→</b></a>
+</div>
+</div>
+<div class="dsc-strip" aria-label="Bốn nhóm tính cách DISC">
+<div class="dsc-strip-item"><div class="dsc-letter is-d">D</div><div><strong>Dominance</strong><small>Quyết đoán · Thử thách</small></div></div>
+<div class="dsc-strip-item"><div class="dsc-letter is-i">I</div><div><strong>Influence</strong><small>Cởi mở · Kết nối</small></div></div>
+<div class="dsc-strip-item"><div class="dsc-letter is-s">S</div><div><strong>Steadiness</strong><small>Ổn định · Hài hòa</small></div></div>
+<div class="dsc-strip-item"><div class="dsc-letter is-c">C</div><div><strong>Conscientiousness</strong><small>Phân tích · Chính xác</small></div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="3. DISC là gì" bg_color="#fbfaf7" padding="107px" padding__sm="76px" class="dsc dsc-about"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="DISC là gì"]
+<div id="about" class="dsc-anchor"></div>
+<div class="dsc-info">
+<div class="dsc-head"><div class="dsc-eyebrow"><span class="dsc-dot"></span> Một mô hình, bốn sắc thái</div><h2 class="dsc-h2">DISC giúp bạn nhìn thấy điều gì?</h2></div>
+<div class="dsc-info-copy"><p>DISC là mô hình mô tả xu hướng hành vi thông qua bốn nhóm chính. Mỗi người thường là sự kết hợp của nhiều nhóm, trong đó một hoặc hai nhóm có thể nổi bật hơn tùy hoàn cảnh.</p><a class="dsc-inline" href="#guide">Xem cách làm bài <b>↗</b></a></div>
+</div>
+<div class="dsc-panels">
+<div class="dsc-panel is-d"><div class="dsc-panel-letter">D</div><h3>Dominance</h3><div class="dsc-panel-desc">Chủ động, nhanh, hướng mục tiêu và sẵn sàng đối mặt thử thách.</div><div class="dsc-panel-word">HÀNH ĐỘNG</div></div>
+<div class="dsc-panel is-i"><div class="dsc-panel-letter">I</div><h3>Influence</h3><div class="dsc-panel-desc">Cởi mở, giao tiếp tốt, giàu năng lượng và tạo ảnh hưởng tích cực.</div><div class="dsc-panel-word">KẾT NỐI</div></div>
+<div class="dsc-panel is-s"><div class="dsc-panel-letter">S</div><h3>Steadiness</h3><div class="dsc-panel-desc">Kiên nhẫn, ổn định, biết lắng nghe và coi trọng sự hài hòa.</div><div class="dsc-panel-word">GẮN KẾT</div></div>
+<div class="dsc-panel is-c"><div class="dsc-panel-letter">C</div><h3>Conscientiousness</h3><div class="dsc-panel-desc">Phân tích, cẩn trọng, chú ý tiêu chuẩn, chất lượng và độ chính xác.</div><div class="dsc-panel-word">CHUẨN XÁC</div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="4. Hướng dẫn" bg_color="#20242d" dark="true" padding="100px" padding__sm="76px" class="dsc dsc-guide-sec"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="Hướng dẫn làm bài"]
+<div id="guide" class="dsc-anchor"></div>
+<div class="dsc-guide">
+<div><div class="dsc-eyebrow is-light"><span class="dsc-dot"></span> Trước khi bắt đầu</div><h2>Để kết quả<br><span>gần với bạn nhất</span></h2></div>
+<div class="dsc-guide-list">
+<div class="dsc-guide-row"><div class="dsc-guide-num">01</div><div class="dsc-guide-text">Chọn phương án gần với phản ứng tự nhiên của bạn nhất.</div></div>
+<div class="dsc-guide-row"><div class="dsc-guide-num">02</div><div class="dsc-guide-text">Trả lời theo cách bạn thường hành động, không phải hình mẫu lý tưởng.</div></div>
+<div class="dsc-guide-row"><div class="dsc-guide-num">03</div><div class="dsc-guide-text">Đừng suy nghĩ quá lâu ở từng câu; lựa chọn đầu tiên thường rõ ràng hơn.</div></div>
+<div class="dsc-guide-row"><div class="dsc-guide-num">04</div><div class="dsc-guide-text">Hoàn thành toàn bộ câu hỏi trước khi xem kết quả.</div></div>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="5. FAQ" bg_color="#fbfaf7" padding="112px" padding__sm="76px" class="dsc dsc-faq-sec"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="FAQ"]
+<div id="faq" class="dsc-anchor"></div>
+<div class="dsc-head is-center"><div class="dsc-eyebrow"><span class="dsc-dot"></span> Giải đáp nhanh</div><h2 class="dsc-h2">Một vài điều bạn có thể muốn biết</h2></div>
+<div class="dsc-faq-list">
+<details class="dsc-faq" open><summary>Bài test DISC có đáp án đúng hay sai không? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">Không. Đây là bài đánh giá xu hướng hành vi, vì vậy phương án phù hợp nhất là phương án phản ánh bạn rõ nhất.</div></details>
+<details class="dsc-faq"><summary>Làm bài test DISC ở đâu? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">Bạn bấm nút "Làm bài test DISC" trên trang này hoặc truy cập trực tiếp <a href="https://tracnghiemplus.com/bai-thi/test-disc/">bài thi DISC</a> để bắt đầu.</div></details>
+<details class="dsc-faq"><summary>Kết quả DISC có phải chẩn đoán tâm lý không? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">Không. Kết quả chỉ mang tính tham khảo để phát triển bản thân, không thay thế đánh giá tâm lý hoặc tư vấn chuyên môn.</div></details>
+<details class="dsc-faq"><summary>Tôi có thể làm lại bài test không? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">Có. Bạn có thể làm lại để so sánh kết quả trong những bối cảnh khác nhau.</div></details>
+<details class="dsc-faq"><summary>Nên kết hợp DISC với bài test nào? <span class="dsc-plus">+</span></summary><div class="dsc-faq-body">DISC mô tả cách bạn hành động. Để định hướng nghề nghiệp toàn diện hơn, bạn có thể làm thêm <a href="https://tracnghiemplus.com/bai-thi/test-holland/">test Holland</a> và <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/">test MBTI</a>.</div></details>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="6. CTA" bg_color="#fbfaf7" padding="0px" padding__sm="0px" class="dsc dsc-cta-sec"]
+
+[row width="custom" custom_width="1210px" class="dsc-row"]
+
+[col span="12"]
+
+[ux_html label="CTA"]
+<div class="dsc-cta">
+<div><div class="dsc-eyebrow is-light"><span class="dsc-dot"></span> Sẵn sàng khám phá?</div><h2>Bắt đầu với lựa chọn<br>đầu tiên của bạn.</h2></div>
+<div class="dsc-cta-actions">
+<a class="dsc-btn is-light" href="https://tracnghiemplus.com/bai-thi/test-disc/">Làm bài test DISC <b>→</b></a>
+<a class="dsc-textbtn" href="https://tracnghiemplus.com/trac-nghiem-nghe-nghiep/">Xem thêm trắc nghiệm nghề nghiệp <b>↗</b></a>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
