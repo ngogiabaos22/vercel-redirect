@@ -113,6 +113,9 @@ html{scroll-behavior:smooth}
 .dh-src .ts-portal-start-btn{margin-top:10px;border-radius:8px;background:var(--red);color:#fff!important;padding:8px;font-weight:700;font-size:13px}
 .dh-src .ts-portal-empty{grid-column:1/-1;text-align:center;color:var(--muted);background:var(--card);border:1px dashed #d8d0bf;border-radius:12px;padding:18px}
 .dh-src .ts-portal-empty p{margin:6px 0 0}
+/* Đang chuyển sang trang môn (URL /dai-hoc/<môn>/) */
+.dh-routing .section.dh{visibility:hidden}
+.dh-routing #content{min-height:70vh}
 /* Responsive */
 @media (max-width:849px){
 .dh .dh-row>.col{padding-bottom:26px}.dh .dh-row>.col:last-child{padding-bottom:0}

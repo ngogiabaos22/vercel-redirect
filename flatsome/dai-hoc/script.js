@@ -1,5 +1,7 @@
 /* Đại học – trang chính (lọc/tìm môn) + trang môn (dựng danh sách đề từ TestSpace). Không dùng ký tự "nhỏ hơn" và dòng trống để WordPress không làm hỏng mã. */
 (function () {
+  var ROUTE = (function () { var p = location.pathname.replace(/\/+$/, '').split('/'); return (p.length === 3 && p[1] === 'dai-hoc' && p[2]) ? decodeURIComponent(p[2]) : ''; })();
+  if (ROUTE) document.documentElement.classList.add('dh-routing');
   function norm(s) { s = (s || '').toLowerCase().normalize('NFD'); var o = ''; for (var i = 0; i !== s.length; i++) { var c = s.charCodeAt(i); if (c >= 768 && 879 >= c) continue; o += s[i]; } return o.replace(/đ/g, 'd').trim(); }
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
   function fmt(n) { return Number(n || 0).toLocaleString('vi-VN'); }
@@ -139,6 +141,32 @@
       each(document.querySelectorAll('[data-dh-schools]'), function (b) { b.style.display = 'none'; });
     }
   }
-  function init() { initHub(); initSubject(); }
+  /* ---------- Dự phòng: WordPress trả trang chính cho URL /dai-hoc/ten-mon/ (do quy tắc URL của plugin) ---------- */
+  function routeDone() { document.documentElement.classList.remove('dh-routing'); }
+  function route() {
+    fetch('/wp-json/wp/v2/pages?slug=' + encodeURIComponent(ROUTE) + '&_fields=title,content', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (list) {
+        var page = list && list[0], hub = document.querySelectorAll('.section.dh');
+        if (!page || !page.content || !hub.length) { initHub(); routeDone(); return; }
+        var wrap = el('div', 'dh-routed');
+        wrap.innerHTML = page.content.rendered;
+        each(wrap.querySelectorAll('script, .block-edit-link, #dh-css'), function (n) { n.parentNode.removeChild(n); });
+        hub[0].parentNode.insertBefore(wrap, hub[0]);
+        each(hub, function (sec) { sec.parentNode.removeChild(sec); });
+        var t = el('div'); t.innerHTML = page.title ? page.title.rendered : '';
+        if (t.textContent) document.title = t.textContent + ' – ' + document.title.split(/\s[–|-]\s/).pop();
+        initSubject();
+        routeDone();
+        if (location.hash) { var h = document.getElementById(location.hash.slice(1)); if (h) h.scrollIntoView(); }
+      })
+      .catch(function () { initHub(); routeDone(); });
+  }
+  function init() {
+    if (ROUTE && !document.querySelector('.dh-src')) { route(); return; }
+    routeDone();
+    initHub();
+    initSubject();
+  }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

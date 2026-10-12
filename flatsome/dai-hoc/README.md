@@ -41,3 +41,10 @@ JS đọc các thẻ `.ts-portal-card` mà plugin xuất ra rồi dựng lại t
 2. Trong `subjects.json` thêm `page_id` cho môn đó rồi chạy `python3 build.py`, dán lại `page-dai-hoc.txt` vào trang 423 (hoặc trong UX Builder sửa thẻ môn "Sắp có" thành thẻ có link).
 
 `preview-dai-hoc.html`, `preview-mon-hoc.html`: bản xem thử offline (mô phỏng Flatsome + wpautop, dữ liệu mẫu 2 đề TTHCM).
+
+## Lỗi URL `/dai-hoc/<môn>/` hiện trang chính (đã xử lý tạm)
+Trên site có một quy tắc URL (rewrite rule) bắt **mọi** đường dẫn `/dai-hoc/...` về trang "Đại học" (423) – kiểm tra bằng oEmbed: `/dai-hoc/khong-ton-tai/` cũng trả về "Đại học", còn `/thi-thu-vstep/khong-ton-tai/` thì 404.
+Nhiều khả năng do TestSpace (`[tqp_category_landing]` từng đặt trên trang Đại học) hoặc code thêm trong `functions.php`.
+
+- **Xử lý tạm (đang chạy):** JS trong UX Block nhận ra URL `/dai-hoc/<slug>/` mà trang trả về lại là trang chính → lấy nội dung trang con qua `/wp-json/wp/v2/pages?slug=<slug>` (đã render sẵn shortcode TestSpace) và hiển thị thay thế, đổi luôn tiêu đề tab.
+- **Sửa gốc:** WP Admin → *Cài đặt › Đường dẫn tĩnh* → bấm **Lưu thay đổi** (xóa cache rewrite). Nếu vẫn lỗi: xem cài đặt TestSpace có mục trang landing/portal trỏ tới "Đại học" không, hoặc tìm `add_rewrite_rule` có chữ `dai-hoc` trong `functions.php`. Khi đã sửa, trang con tự hiển thị trực tiếp, JS dự phòng không làm gì.
