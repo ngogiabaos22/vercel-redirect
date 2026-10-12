@@ -5,7 +5,7 @@
 [col span="6" span__md="12" span__sm="12" class="lbn-hero-copy"]
 
 [ux_html label="Hero – nội dung"]
-<span id="trang-chu" class="lbn-anchor"></span>
+<div id="trang-chu" class="lbn-anchor"></div>
 <div class="lbn-hero-pill"><span></span> Định hướng nghề nghiệp bắt đầu từ bạn</div>
 <h1>Hiểu mình hơn.<br>Chọn <span class="lbn-highlight">đúng hướng.</span></h1>
 <p class="lbn-hero-lead">Giữa rất nhiều lựa chọn ngành nghề, điều quan trọng không phải là tìm con đường hoàn hảo — mà là tìm con đường phù hợp với chính mình. Bắt đầu với hai bài trắc nghiệm nghề nghiệp miễn phí: Holland và MBTI.</p>
@@ -22,7 +22,7 @@
 [ux_html label="Hero – minh họa la bàn"]
 <div class="lbn-hero-art" aria-label="Minh họa la bàn định hướng nghề nghiệp">
 <div class="lbn-art-blob"></div><div class="lbn-orbit"></div>
-<span class="lbn-spark one">✳</span><span class="lbn-spark two">✦</span>
+<div class="lbn-spark one">✳</div><div class="lbn-spark two">✦</div>
 <div class="lbn-main-card">
 <div class="lbn-card-top"><span>HÀNH TRÌNH CỦA BẠN</span><span class="lbn-dots"><i></i><i></i><i></i></span></div>
 <div class="lbn-compass"><svg viewBox="0 0 180 180" fill="none" aria-hidden="true"><circle cx="90" cy="90" r="76" fill="#F0F6F0" stroke="#C8DCCF" stroke-width="2"/><circle cx="90" cy="90" r="62" stroke="#C8DCCF" stroke-dasharray="3 6"/><path d="M90 4v16M90 160v16M4 90h16M160 90h16" stroke="#79A89A" stroke-width="2" stroke-linecap="round"/><path d="m110 70-11 29-29 11 11-29 29-11Z" fill="#ED854E"/><path d="m110 70-11 29-18-18 29-11Z" fill="#116B68"/><circle cx="90" cy="90" r="5" fill="white"/><text x="85" y="40" fill="#116B68" font-family="sans-serif" font-size="11" font-weight="700">N</text><text x="136" y="95" fill="#116B68" font-family="sans-serif" font-size="11" font-weight="700">E</text><text x="86" y="148" fill="#116B68" font-family="sans-serif" font-size="11" font-weight="700">S</text><text x="36" y="95" fill="#116B68" font-family="sans-serif" font-size="11" font-weight="700">W</text></svg></div>
@@ -31,7 +31,7 @@
 <div class="lbn-card-progress"><span></span></div>
 </div>
 <div class="lbn-float lbn-float-holland"><div class="lbn-mini-label">SỞ THÍCH NGHỀ NGHIỆP</div><div class="lbn-type-dots"><b style="background:#34765c">R</b><b style="background:#477b91">I</b><b style="background:#cf775e">A</b><b style="background:#9c6b96">S</b><b style="background:#c98643">E</b><b style="background:#6d7cad">C</b></div></div>
-<div class="lbn-float lbn-float-mbti"><strong>INFP</strong><div class="lbn-mini-label">TÍNH CÁCH CỦA BẠN</div></div>
+<div class="lbn-float lbn-float-mbti"><div class="lbn-mbti-code">INFP</div><div class="lbn-mini-label">TÍNH CÁCH CỦA BẠN</div></div>
 </div>
 [/ux_html]
 
@@ -69,9 +69,9 @@
 [col span="12"]
 
 [ux_html label="Tiêu đề"]
-<span id="phuong-phap" class="lbn-anchor"></span>
+<div id="phuong-phap" class="lbn-anchor"></div>
 <div class="lbn-heading">
-<span class="lbn-eyebrow">Bắt đầu từ đâu?</span>
+<div class="lbn-eyebrow">Bắt đầu từ đâu?</div>
 <h2>Hai góc nhìn, một hành trình hiểu bản thân</h2>
 <p>Holland nhìn vào điều bạn thích làm. MBTI khám phá cách bạn suy nghĩ và tương tác. Cùng nhau, chúng mở ra một bức tranh đầy đủ hơn về bạn.</p>
 </div>
@@ -92,7 +92,7 @@
 <div class="lbn-wheel-label b">6 nhóm nghề nghiệp ↗</div>
 </div>
 <div class="lbn-method-body">
-<span class="lbn-method-kicker">01 / Khám phá sở thích</span>
+<div class="lbn-method-kicker">01 / Khám phá sở thích</div>
 <h3>Phương pháp Holland</h3>
 <p>Bạn hứng thú với việc sáng tạo, giúp đỡ người khác hay giải quyết vấn đề? Mô hình Holland kết nối sở thích của bạn với những môi trường nghề nghiệp tương ứng.</p>
 <div class="lbn-method-meta"><span>6 nhóm sở thích RIASEC</span><span>Gợi mở lĩnh vực nghề nghiệp</span></div>
@@ -113,7 +113,7 @@
 <div class="lbn-mbti-tiles"><span>M</span><span>B</span><span>T</span><span>I</span></div>
 </div>
 <div class="lbn-method-body">
-<span class="lbn-method-kicker">02 / Khám phá tính cách</span>
+<div class="lbn-method-kicker">02 / Khám phá tính cách</div>
 <h3>Phương pháp MBTI</h3>
 <p>Bạn nạp năng lượng ra sao, tiếp nhận thông tin và đưa ra quyết định thế nào? MBTI giúp bạn gọi tên những khuynh hướng tự nhiên trong cách mình làm việc.</p>
 <div class="lbn-method-meta"><span>4 cặp xu hướng</span><span>16 nhóm tính cách</span></div>
@@ -138,9 +138,9 @@
 [col span="5" span__md="12" span__sm="12"]
 
 [ux_html label="Holland – nội dung"]
-<span id="holland" class="lbn-anchor"></span>
+<div id="holland" class="lbn-anchor"></div>
 <div class="lbn-detail-copy">
-<span class="lbn-eyebrow">Phương pháp 01 / Holland</span>
+<div class="lbn-eyebrow">Phương pháp 01 / Holland</div>
 <h2>Bạn thích làm gì mỗi ngày?</h2>
 <p>Được phát triển bởi nhà tâm lý học John L. Holland, mô hình RIASEC chia sở thích nghề nghiệp thành 6 nhóm. Bạn có thể mang đặc điểm của nhiều nhóm; sự kết hợp nổi trội sẽ giúp bạn tìm hiểu các môi trường làm việc đáng cân nhắc.</p>
 <ul class="lbn-points">
@@ -186,15 +186,15 @@
 [col span="7" span__md="12" span__sm="12" class="lbn-mbti-board-col"]
 
 [ux_html label="MBTI – 4 chiều"]
-<span id="mbti" class="lbn-anchor"></span>
+<div id="mbti" class="lbn-anchor"></div>
 <div class="lbn-dim-board">
 <h3>4 chiều xu hướng của MBTI</h3>
 <p>Mỗi cặp mô tả một khía cạnh trong cách bạn trải nghiệm thế giới.</p>
-<div class="lbn-dim-row"><div class="lbn-dim-side"><b>E</b> Hướng ngoại</div><span>↔</span><div class="lbn-dim-side"><b>I</b> Hướng nội</div></div>
-<div class="lbn-dim-row"><div class="lbn-dim-side"><b>S</b> Giác quan</div><span>↔</span><div class="lbn-dim-side"><b>N</b> Trực giác</div></div>
-<div class="lbn-dim-row"><div class="lbn-dim-side"><b>T</b> Lý trí</div><span>↔</span><div class="lbn-dim-side"><b>F</b> Cảm xúc</div></div>
-<div class="lbn-dim-row"><div class="lbn-dim-side"><b>J</b> Nguyên tắc</div><span>↔</span><div class="lbn-dim-side"><b>P</b> Linh hoạt</div></div>
-<span class="lbn-bottom-tag">4 lựa chọn kết hợp thành một mã tính cách, ví dụ: ENFP</span>
+<div class="lbn-dim-row"><div class="lbn-dim-side"><b>E</b> Hướng ngoại</div><div class="lbn-dim-arrow">↔</div><div class="lbn-dim-side"><b>I</b> Hướng nội</div></div>
+<div class="lbn-dim-row"><div class="lbn-dim-side"><b>S</b> Giác quan</div><div class="lbn-dim-arrow">↔</div><div class="lbn-dim-side"><b>N</b> Trực giác</div></div>
+<div class="lbn-dim-row"><div class="lbn-dim-side"><b>T</b> Lý trí</div><div class="lbn-dim-arrow">↔</div><div class="lbn-dim-side"><b>F</b> Cảm xúc</div></div>
+<div class="lbn-dim-row"><div class="lbn-dim-side"><b>J</b> Nguyên tắc</div><div class="lbn-dim-arrow">↔</div><div class="lbn-dim-side"><b>P</b> Linh hoạt</div></div>
+<div class="lbn-bottom-tag">4 lựa chọn kết hợp thành một mã tính cách, ví dụ: ENFP</div>
 </div>
 [/ux_html]
 
@@ -203,7 +203,7 @@
 
 [ux_html label="MBTI – nội dung"]
 <div class="lbn-detail-copy is-mbti">
-<span class="lbn-eyebrow" style="color:#bf6c42">Phương pháp 02 / MBTI</span>
+<div class="lbn-eyebrow" style="color:#bf6c42">Phương pháp 02 / MBTI</div>
 <h2>Bạn vận hành theo cách nào?</h2>
 <p>MBTI (Myers–Briggs Type Indicator) mô tả những xu hướng trong cách bạn tiếp nhận năng lượng, xử lý thông tin, ra quyết định và tổ chức cuộc sống. Đây là một ngôn ngữ để tự quan sát, không phải chiếc hộp giới hạn bạn.</p>
 <ul class="lbn-points">
@@ -231,9 +231,9 @@
 [col span="4" span__md="12" span__sm="12"]
 
 [ux_html label="Khám phá – giới thiệu"]
-<span id="kham-pha" class="lbn-anchor"></span>
+<div id="kham-pha" class="lbn-anchor"></div>
 <div class="lbn-explore-intro">
-<span class="lbn-eyebrow">Thử ngay tại đây</span>
+<div class="lbn-eyebrow">Thử ngay tại đây</div>
 <h2>Một chút tò mò. Một bước hiểu mình.</h2>
 <p>Chọn những điều gần với bạn để xem một gợi ý khám phá nhanh. Không áp lực, không cần suy nghĩ quá lâu — hãy chọn theo cảm nhận tự nhiên của mình.</p>
 <div class="lbn-disclaimer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#87999A" stroke-width="1.7"/><path d="M12 11v5m0-8h.01" stroke="#87999A" stroke-width="1.7" stroke-linecap="round"/></svg><span>Hoạt động này chỉ mang tính minh họa. Để có kết quả đầy đủ, hãy làm <a href="https://tracnghiemplus.com/bai-thi/test-holland/"><b>test Holland</b></a> và <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/"><b>test MBTI</b></a>.</span></div>
@@ -311,8 +311,8 @@
 [col span="5" span__md="12" span__sm="12"]
 
 [ux_html label="FAQ – tiêu đề"]
-<span id="cau-hoi" class="lbn-anchor"></span>
-<div class="lbn-faq-intro"><span class="lbn-eyebrow">Bạn có thể đang thắc mắc</span><h2>Câu hỏi thường gặp</h2><p class="lbn-muted">Định hướng nghề nghiệp là quá trình khám phá liên tục. Bắt đầu bằng một vài câu hỏi đơn giản nhé.</p></div>
+<div id="cau-hoi" class="lbn-anchor"></div>
+<div class="lbn-faq-intro"><div class="lbn-eyebrow">Bạn có thể đang thắc mắc</div><h2>Câu hỏi thường gặp</h2><p class="lbn-muted">Định hướng nghề nghiệp là quá trình khám phá liên tục. Bắt đầu bằng một vài câu hỏi đơn giản nhé.</p></div>
 [/ux_html]
 
 [/col]

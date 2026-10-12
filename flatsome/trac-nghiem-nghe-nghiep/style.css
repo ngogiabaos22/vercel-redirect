@@ -3,7 +3,9 @@
 .lbn{--ink:#172b36;--muted:#64737b;--teal:#116b68;--teal-dark:#0c514f;--mint:#e7f3ed;--orange:#ed854e;--peach:#fff0e5;--paper:#f8f7f3;--line:#e7e9e5;--shadow:0 22px 65px rgba(22,48,51,.09);color:var(--ink);font-family:"Be Vietnam Pro",sans-serif;-webkit-font-smoothing:antialiased}
 .lbn *,.lbn *:before,.lbn *:after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-.lbn-anchor{display:block;position:relative;top:-95px;visibility:hidden}
+.lbn-anchor{display:block;position:relative;top:-95px;visibility:hidden;height:0}
+/* Chống WordPress tự chèn <p>/<br> (wpautop) làm vỡ bố cục */
+.lbn br{display:none}.lbn h1 br,.lbn h2 br{display:inline}.lbn p:empty{display:none}
 
 /* Reset nhẹ các style mặc định của Flatsome trong phạm vi trang */
 .lbn h1,.lbn h2,.lbn h3,.lbn h4{font-family:inherit;color:var(--ink);letter-spacing:-.045em;margin-top:0;text-transform:none}
@@ -62,7 +64,7 @@ html{scroll-behavior:smooth}
 .lbn .lbn-mini-label{font-size:10px;font-weight:700;color:#748786;margin-bottom:10px}
 .lbn .lbn-type-dots{display:flex;gap:5px}
 .lbn .lbn-type-dots b{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;color:#fff;font-size:11px}
-.lbn .lbn-float-mbti strong{font-size:22px;color:var(--teal);letter-spacing:.02em}
+.lbn .lbn-mbti-code{font-size:22px;font-weight:700;line-height:1.2;color:var(--teal);letter-spacing:.02em}
 .lbn .lbn-float-mbti .lbn-mini-label{margin:5px 0 0}
 .lbn .lbn-spark{position:absolute;color:var(--orange);font-size:28px;font-weight:400;z-index:4}
 .lbn .lbn-spark.one{right:48px;top:34px}
@@ -139,7 +141,7 @@ html{scroll-behavior:smooth}
 .lbn .lbn-dim-row{display:grid;grid-template-columns:1fr 46px 1fr;align-items:center;gap:7px;margin-top:10px}
 .lbn .lbn-dim-side{background:#fff;border:1px solid #f0e9e3;border-radius:10px;padding:10px 11px;display:flex;align-items:center;gap:8px;min-height:46px;font-size:10px;font-weight:600;color:#53636a}
 .lbn .lbn-dim-side b{font-size:16px;color:#c57650}
-.lbn .lbn-dim-row>span{text-align:center;font-size:10px;color:#a8a9a5}
+.lbn .lbn-dim-arrow{text-align:center;font-size:10px;color:#a8a9a5}
 .lbn .lbn-bottom-tag{display:inline-block;margin-top:21px;font-size:10px;color:#9f6c51;background:#ffede1;border-radius:7px;padding:8px 10px;font-weight:700}
 
 /* ---------- Khám phá nhanh ---------- */
