@@ -1,0 +1,94 @@
+[section label="1. Giới thiệu" bg_color="#f6f3ec" padding="56px" padding__sm="30px" class="tc tc-hero"]
+
+[row width="custom" custom_width="1200px" v_align="middle" class="tc-row"]
+
+[col span="7" span__md="12" span__sm="12"]
+
+[block id="toeic-assets"]
+
+[ux_html label="Giới thiệu"]
+<div class="tc-crumb"><a href="https://tracnghiemplus.com/">⌂ Trang chủ</a><i>›</i><b>Thi thử TOEIC</b></div>
+<div class="tc-badge">Đề TOEIC Listening &amp; Reading</div>
+<h1 class="tc-h1">Đề Thi Thử<br><span>TOEIC Online</span><br><em>Miễn Phí</em></h1>
+<p class="tc-lead">Bộ đề TOEIC Listening &amp; Reading theo đúng cấu trúc đề thi thật: <b>7 Part</b>, Listening 100 câu – 45 phút, Reading 100 câu – 75 phút. Giao diện mô phỏng phòng thi, làm bài trực tuyến và xem kết quả ngay sau khi nộp.</p>
+<div class="tc-actions"><a class="tc-btn tc-btn-blue" href="#kho-de" data-tc-first="all">Bắt đầu thi ngay →</a><a class="tc-btn tc-btn-white" href="https://tracnghiemplus.com/toeic-listening/">Luyện Listening</a></div>
+<div class="tc-stats"><div class="tc-stat"><strong data-tc-stat="total">–</strong><span>đề thi thử</span></div><div class="tc-stat"><strong data-tc-stat="listening">–</strong><span>đề Listening</span></div><div class="tc-stat"><strong data-tc-stat="reading">–</strong><span>đề Reading</span></div></div>
+[/ux_html]
+
+[/col]
+[col span="5" span__md="12" span__sm="12"]
+
+[ux_html label="Minh họa phòng thi"]
+<div class="tc-mock" aria-hidden="true">
+<div class="tc-mock-bar"><div class="tc-live"></div><div>TOEIC Test – Đề 1 · LISTENING</div><div class="tc-q">Câu 47/100</div><div class="tc-timer">⏱ 32:14</div></div>
+<div class="tc-mock-body">
+<div class="tc-mock-part">Part 3 – Conversations</div>
+<div class="tc-audio"><div class="tc-play">▶</div><div class="tc-track"><div></div></div><small>0:31</small></div>
+<div class="tc-mock-qtext"><span>47.</span>What does the man ask the woman to do?</div>
+<div class="tc-opt"><b>A</b>Contact some customers</div>
+<div class="tc-opt"><b>B</b>Attend a meeting</div>
+<div class="tc-opt is-on"><b>C</b>Prepare a schedule</div>
+<div class="tc-opt"><b>D</b>Visit another branch</div>
+</div>
+<div class="tc-float"><div class="tc-ok">✓</div><div><strong>Xem kết quả ngay</strong><small>Sau khi nộp bài</small></div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="2. Cấu trúc đề thi" bg_color="#f6f3ec" padding="60px" padding__sm="40px" class="tc tc-page"]
+
+[row width="custom" custom_width="1200px" class="tc-row"]
+
+[col span="12"]
+
+[ux_html label="Cấu trúc đề thi"]
+<div class="tc-head"><div class="tc-badge">Cấu trúc đề thi thật</div><h2 class="tc-h2">Đề thi đúng chuẩn ETS – 200 câu, 7 Part, 120 phút</h2><p class="tc-sub">Mỗi đề thi thử được trình bày theo đúng thứ tự, số câu và Directions của bài thi TOEIC Listening &amp; Reading thực tế.</p></div>
+<div class="tc-struct">
+<div class="tc-skill"><div class="tc-skill-head"><div class="tc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1v-6h3zM3 19a2 2 0 002 2h1v-6H3z"/></svg></div><div><h3>Listening <span>· Nghe hiểu</span></h3><small>Câu 1 – 100 · 45 phút · Điểm 5 – 495</small></div></div><a class="tc-link" href="https://tracnghiemplus.com/toeic-listening/">Luyện Listening →</a>
+<div class="tc-part"><div class="tc-part-no">P1</div><div><div class="tc-part-name">Photographs <span>– Mô tả tranh</span></div><div class="tc-part-desc">Nghe 4 câu mô tả và chọn câu đúng nhất với bức ảnh.</div></div><div class="tc-part-n">6 câu<small>1–6</small></div></div>
+<div class="tc-part"><div class="tc-part-no">P2</div><div><div class="tc-part-name">Question–Response <span>– Hỏi – Đáp</span></div><div class="tc-part-desc">Nghe 1 câu hỏi/câu nói và 3 câu trả lời, chọn câu đáp lại hợp lý.</div></div><div class="tc-part-n">25 câu<small>7–31</small></div></div>
+<div class="tc-part"><div class="tc-part-no">P3</div><div><div class="tc-part-name">Conversations <span>– Hội thoại</span></div><div class="tc-part-desc">13 đoạn hội thoại 2–3 người, mỗi đoạn 3 câu hỏi; có câu hỏi kèm bảng biểu.</div></div><div class="tc-part-n">39 câu<small>32–70</small></div></div>
+<div class="tc-part"><div class="tc-part-no">P4</div><div><div class="tc-part-name">Talks <span>– Bài nói ngắn</span></div><div class="tc-part-desc">10 bài nói đơn (thông báo, quảng cáo, voicemail…), mỗi bài 3 câu hỏi.</div></div><div class="tc-part-n">30 câu<small>71–100</small></div></div>
+</div>
+<div class="tc-skill"><div class="tc-skill-head"><div class="tc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h7a3 3 0 013 3v13a2 2 0 00-2-2H2zM22 4h-7a3 3 0 00-3 3v13a2 2 0 012-2h8z"/></svg></div><div><h3>Reading <span>· Đọc hiểu</span></h3><small>Câu 101 – 200 · 75 phút · Điểm 5 – 495</small></div></div><a class="tc-link" href="https://tracnghiemplus.com/toeic-reading/">Luyện Reading →</a>
+<div class="tc-part"><div class="tc-part-no">P5</div><div><div class="tc-part-name">Incomplete Sentences <span>– Hoàn thành câu</span></div><div class="tc-part-desc">Chọn từ/cụm từ đúng ngữ pháp – từ vựng để hoàn thành câu.</div></div><div class="tc-part-n">30 câu<small>101–130</small></div></div>
+<div class="tc-part"><div class="tc-part-no">P6</div><div><div class="tc-part-name">Text Completion <span>– Hoàn thành đoạn văn</span></div><div class="tc-part-desc">4 đoạn văn, mỗi đoạn 4 chỗ trống, trong đó có 1 câu hoàn chỉnh cần chèn.</div></div><div class="tc-part-n">16 câu<small>131–146</small></div></div>
+<div class="tc-part"><div class="tc-part-no">P7</div><div><div class="tc-part-name">Reading Comprehension <span>– Đọc hiểu</span></div><div class="tc-part-desc">Đoạn đơn (29 câu), đoạn đôi (10 câu) và đoạn ba (15 câu).</div></div><div class="tc-part-n">54 câu<small>147–200</small></div></div>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="3. Kho đề thi thử" bg_color="#f6f3ec" padding="50px" padding__sm="36px" class="tc tc-page"]
+
+[row width="custom" custom_width="1200px" class="tc-row"]
+
+[col span="12"]
+
+[ux_html label="Kho đề – tiêu đề + thẻ đề (tự dựng từ TestSpace)"]
+<div id="kho-de" class="tc-anchor"></div>
+<div class="tc-head"><div class="tc-badge">Ngân hàng đề</div><h2 class="tc-h2">Đề Thi Thử TOEIC</h2><p class="tc-sub">Chọn đề Listening hoặc Reading để luyện. Mỗi đề làm trực tuyến, chấm điểm và xem kết quả ngay sau khi nộp bài.</p></div>
+<div class="tc-tabs" data-target="#tc-cards-main"><div class="tc-tab" data-skill="listening">Listening</div><div class="tc-tab" data-skill="reading">Reading</div><div class="tc-tab is-active" data-skill="all">Tất cả</div></div>
+<div class="tc-cards" id="tc-cards-main" data-skill="all"><div class="tc-empty">Đang tải danh sách đề…</div></div>
+[/ux_html]
+
+[/col]
+[col span="12" class="tc-src"]
+
+[tqp_category_landing category="TOEIC"]
+
+[/col]
+
+[/row]
+
+[/section]

@@ -1,0 +1,72 @@
+[section label="1. Giới thiệu Reading" bg_color="#f6f3ec" padding="56px" padding__sm="30px" class="tc tc-hero"]
+
+[row width="custom" custom_width="1200px" v_align="middle" class="tc-row"]
+
+[col span="7" span__md="12" span__sm="12"]
+
+[block id="toeic-assets"]
+
+[ux_html label="Giới thiệu Reading"]
+<div class="tc-crumb"><a href="https://tracnghiemplus.com/">⌂ Trang chủ</a><i>›</i><a href="https://tracnghiemplus.com/thi-thu-toeic/">Thi thử TOEIC</a><i>›</i><b>Reading TOEIC</b></div>
+<div class="tc-badge">Câu 101 – 200 · 75 phút</div>
+<h1 class="tc-h1 tc-h1-icon"><span class="tc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h7a3 3 0 013 3v13a2 2 0 00-2-2H2zM22 4h-7a3 3 0 00-3 3v13a2 2 0 012-2h8z"/></svg></span><span>Reading</span> TOEIC</h1>
+<p class="tc-lead">Luyện đọc TOEIC theo đúng 3 Part của đề thật: ngữ pháp – từ vựng, hoàn thành đoạn văn và đọc hiểu. Quản lý 75 phút cho 100 câu như khi thi thật.</p>
+<div class="tc-actions"><a class="tc-btn tc-btn-blue" href="#kho-de" data-tc-first="reading">Thi thử Reading TOEIC ngay →</a><a class="tc-btn tc-btn-white" href="https://tracnghiemplus.com/toeic-listening/">Đề Listening TOEIC</a></div>
+[/ux_html]
+
+[/col]
+[col span="5" span__md="12" span__sm="12"]
+
+[ux_html label="Thông số Reading"]
+<div class="tc-statbox"><div class="tc-stats"><div class="tc-stat"><strong>100</strong><span>câu hỏi</span></div><div class="tc-stat"><strong>75′</strong><span>thời gian</span></div><div class="tc-stat"><strong>495</strong><span>điểm tối đa</span></div></div><div class="tc-statbox-foot">Gợi ý phân bổ: Part 5 ~10 phút · Part 6 ~10 phút · Part 7 ~55 phút · <b data-tc-stat="reading">–</b> đề đang có</div></div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="2. 3 Part" bg_color="#f6f3ec" padding="56px" padding__sm="36px" class="tc tc-page"]
+
+[row width="custom" custom_width="1200px" class="tc-row"]
+
+[col span="12"]
+
+[ux_html label="Các Part của Reading"]
+<div class="tc-head"><div class="tc-badge">Cấu trúc</div><h2 class="tc-h2">3 Part của Reading TOEIC</h2><p class="tc-sub">Nắm vững từng Part để luyện đúng trọng tâm và phân bổ thời gian hợp lý.</p></div>
+<div class="tc-parts">
+<div class="tc-pcard"><div class="tc-pcard-top"><div class="tc-part-no">P5</div><div><h3>Incomplete Sentences <span>– Hoàn thành câu</span></h3><div class="tc-pcard-range">Câu 101–130</div></div></div><div class="tc-pcard-meta">30 câu</div><p>Chọn từ/cụm từ đúng ngữ pháp – từ vựng để hoàn thành câu.</p><div class="tc-tip">💡 Xác định loại từ cần điền trước khi xét nghĩa của các đáp án.</div></div>
+<div class="tc-pcard"><div class="tc-pcard-top"><div class="tc-part-no">P6</div><div><h3>Text Completion <span>– Hoàn thành đoạn văn</span></h3><div class="tc-pcard-range">Câu 131–146</div></div></div><div class="tc-pcard-meta">16 câu</div><p>4 đoạn văn, mỗi đoạn 4 chỗ trống, trong đó có 1 câu hoàn chỉnh cần chèn.</p><div class="tc-tip">💡 Đọc cả câu trước và sau chỗ trống để chọn câu phù hợp ngữ cảnh.</div></div>
+<div class="tc-pcard"><div class="tc-pcard-top"><div class="tc-part-no">P7</div><div><h3>Reading Comprehension <span>– Đọc hiểu</span></h3><div class="tc-pcard-range">Câu 147–200</div></div></div><div class="tc-pcard-meta">54 câu</div><p>Đoạn đơn (29 câu), đoạn đôi (10 câu) và đoạn ba (15 câu).</p><div class="tc-tip">💡 Đọc câu hỏi trước, dò từ khóa (scanning) và dành khoảng 55 phút cho Part 7.</div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="3. Đề thi" bg_color="#f6f3ec" padding="40px" padding__sm="30px" class="tc tc-page"]
+
+[row width="custom" custom_width="1200px" class="tc-row"]
+
+[col span="12"]
+
+[ux_html label="Kho đề – tiêu đề + thẻ đề (tự dựng từ TestSpace)"]
+<div id="kho-de" class="tc-anchor"></div>
+<div class="tc-head"><div class="tc-badge">Ngân hàng đề</div><h2 class="tc-h2">Đề Reading TOEIC – 100 câu</h2><p class="tc-sub">Mỗi đề gồm 100 câu Reading, làm trực tuyến và xem kết quả ngay sau khi nộp bài.</p></div>
+<div class="tc-cards" id="tc-cards-main" data-skill="reading"><div class="tc-empty">Đang tải danh sách đề…</div></div>
+[/ux_html]
+
+[/col]
+[col span="12" class="tc-src"]
+
+[tqp_category_landing category="TOEIC"]
+
+[/col]
+
+[/row]
+
+[/section]

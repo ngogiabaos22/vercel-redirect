@@ -1,0 +1,104 @@
+[ux_html label="CSS + JS trang TOEIC (dùng chung)"]
+<style id="tc-css">@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@0,600;0,700;1,500;1,600&display=swap');.tc{--bg:#f6f3ec;--card:#fff;--soft:#f3efe6;--ink:#141a2e;--text:#3d4356;--muted:#7b8090;--line:#e8e2d5;--blue:#2a3eb1;--blue-2:#3b52d6;--blue-soft:#e9edfc;--amber:#f5b83d;--green:#1f9d6b;color:var(--text);font-family:'Be Vietnam Pro',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.6}.tc *,.tc *:before,.tc *:after{box-sizing:border-box}html{scroll-behavior:smooth}.tc br{display:none}.tc h1 br,.tc h2 br{display:inline}.tc p:empty{display:none}.tc h1,.tc h2,.tc h3{font-family:'Lora',Georgia,serif;color:var(--ink);text-transform:none;letter-spacing:-.01em;margin-top:0}.tc p{margin-top:0}.tc a{text-decoration:none}.tc .tc-row>.col{padding-bottom:0}.tc-anchor{display:block;position:relative;top:-110px;visibility:hidden;height:0}.tc-page{background:var(--bg)!important}.tc-hero{position:relative;overflow:hidden;background-color:var(--bg)!important;background-image:radial-gradient(520px 300px at 0 100%,rgba(245,184,61,.18),transparent 70%),radial-gradient(620px 340px at 100% 0,rgba(59,82,214,.10),transparent 70%),linear-gradient(rgba(20,26,46,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(20,26,46,.045) 1px,transparent 1px)!important;background-size:auto,auto,32px 32px,32px 32px!important}.tc .tc-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:20px}.tc .tc-crumb a{color:var(--muted)}.tc .tc-crumb a:hover{color:var(--blue)}.tc .tc-crumb b{color:var(--ink);font-weight:600}.tc .tc-crumb i{font-style:normal;opacity:.6}.tc .tc-badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue-soft);color:var(--blue);font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:99px;padding:5px 12px}.tc .tc-badge:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}.tc .tc-badge.is-amber{background:#fdf1d8;color:#a8690c}.tc h1.tc-h1{font-size:clamp(36px,5vw,60px);font-weight:700;line-height:1.08;margin:18px 0 16px}.tc h1.tc-h1 span{color:var(--blue)}.tc h1.tc-h1 em{font-style:italic;font-weight:500;color:var(--ink)}.tc .tc-h1-icon{display:flex;align-items:center;gap:16px}.tc .tc-h1-icon .tc-ico{width:56px;height:56px;flex:none;border-radius:16px;background:var(--blue);color:#fff;display:grid;place-items:center}.tc .tc-lead{font-size:16px;line-height:1.75;margin:0;max-width:600px}.tc .tc-lead b{color:var(--ink)}.tc .tc-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.tc .tc-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:14px 22px;font-weight:700;font-size:15px;line-height:1.2;transition:all .2s}.tc .tc-btn-blue{background:var(--blue);color:#fff;box-shadow:0 14px 26px -14px rgba(42,62,177,.8)}.tc .tc-btn-blue:hover{background:#22339a;color:#fff;transform:translateY(-1px)}.tc .tc-btn-white{background:#fff;color:var(--blue);border:1px solid var(--line)}.tc .tc-btn-white:hover{border-color:var(--blue);color:var(--blue)}.tc .tc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;max-width:520px}.tc .tc-stat strong{display:block;font:700 30px/1.1 'Lora',serif;color:var(--ink)}.tc .tc-stat span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}.tc .tc-statbox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:0 18px 40px -30px rgba(20,26,46,.5);max-width:560px;margin-top:28px}.tc .tc-statbox .tc-stats{margin-top:0}.tc .tc-statbox-foot{border-top:1px solid var(--line);margin-top:14px;padding-top:12px;font-size:12.5px;color:var(--muted)}.tc .tc-mock{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:visible;box-shadow:0 30px 60px -36px rgba(20,26,46,.55);max-width:520px;margin:0 auto}.tc .tc-mock-bar{display:flex;align-items:center;gap:10px;background:var(--ink);color:#e6e8f2;border-radius:20px 20px 0 0;padding:12px 16px;font-size:12px;font-weight:600}.tc .tc-mock-bar .tc-live{width:8px;height:8px;border-radius:50%;background:#34d399;flex:none}.tc .tc-mock-bar .tc-q{margin-left:auto;color:#9aa1bd}.tc .tc-mock-bar .tc-timer{background:#232b48;border-radius:8px;padding:3px 8px;color:#fff}.tc .tc-mock-body{padding:18px 18px 46px}.tc .tc-mock-part{font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--blue);text-transform:uppercase}.tc .tc-audio{display:flex;align-items:center;gap:12px;background:var(--soft);border-radius:14px;padding:10px 14px;margin:12px 0}.tc .tc-audio .tc-play{width:34px;height:34px;flex:none;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:12px}.tc .tc-audio .tc-track{flex:1;height:5px;border-radius:9px;background:#e2dccd;overflow:hidden}.tc .tc-audio .tc-track div{width:46%;height:100%;background:var(--blue)}.tc .tc-audio small{font-size:11px;color:var(--muted)}.tc .tc-mock-qtext{font-weight:600;color:var(--ink);font-size:14px;margin:6px 0 10px}.tc .tc-mock-qtext span{color:var(--muted);margin-right:6px}.tc .tc-opt{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:9px 12px;margin-top:8px;font-size:13.5px}.tc .tc-opt b{width:24px;height:24px;flex:none;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:11px}.tc .tc-opt.is-on{background:var(--blue-soft);border-color:#b9c4f5;color:var(--blue);font-weight:600}.tc .tc-opt.is-on b{background:var(--blue);border-color:var(--blue);color:#fff}.tc .tc-float{position:absolute;left:-18px;bottom:-22px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:0 18px 34px -20px rgba(20,26,46,.5)}.tc .tc-float .tc-ok{width:32px;height:32px;border-radius:10px;background:#dff5ea;color:var(--green);display:grid;place-items:center;font-weight:700}.tc .tc-float strong{display:block;font-size:13px;color:var(--ink)}.tc .tc-float small{display:block;font-size:11px;color:var(--muted)}.tc .tc-head{max-width:720px;margin-bottom:28px}.tc h2.tc-h2{font-size:clamp(26px,3.2vw,38px);font-weight:700;line-height:1.2;margin:14px 0 10px}.tc .tc-sub{color:var(--muted);font-size:15px;line-height:1.7;margin:0}.tc .tc-struct{display:grid;grid-template-columns:1fr 1fr;gap:22px}.tc .tc-skill{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 20px 44px -34px rgba(20,26,46,.5)}.tc .tc-skill-head{display:flex;align-items:center;gap:14px}.tc .tc-skill-head .tc-ico{width:48px;height:48px;flex:none;border-radius:14px;background:var(--blue);color:#fff;display:grid;place-items:center}.tc .tc-skill-head h3{font-size:22px;font-weight:700;margin:0;line-height:1.25}.tc .tc-skill-head h3 span{color:var(--blue);font-weight:600}.tc .tc-skill-head small{display:block;font-size:12.5px;color:var(--muted)}.tc .tc-link{display:inline-flex;align-items:center;gap:6px;margin:14px 0 6px;border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-size:13px;font-weight:700;color:var(--blue)}.tc .tc-link:hover{border-color:var(--blue);color:var(--blue)}.tc .tc-part{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.tc .tc-part:last-child{border-bottom:0;padding-bottom:0}.tc .tc-part-no{font:700 20px 'Lora',serif;color:var(--blue)}.tc .tc-part-name{font-weight:700;color:var(--ink);font-size:14px}.tc .tc-part-name span{color:var(--muted);font-weight:500}.tc .tc-part-desc{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:2px}.tc .tc-part-n{text-align:right;font-weight:700;color:var(--ink);font-size:14px;white-space:nowrap}.tc .tc-part-n small{display:block;font-weight:500;color:var(--muted);font-size:11px}.tc .tc-parts{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.tc .tc-pcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 18px 40px -34px rgba(20,26,46,.5)}.tc .tc-pcard-top{display:flex;align-items:baseline;gap:12px}.tc .tc-pcard-top .tc-part-no{font-size:30px}.tc .tc-pcard h3{font-size:19px;font-weight:700;margin:0}.tc .tc-pcard h3 span{font-style:italic;font-weight:500;color:var(--muted);font-size:15px}.tc .tc-pcard-range{font-size:11.5px;color:var(--muted)}.tc .tc-pcard-meta{display:inline-flex;gap:8px;margin:10px 0;font-size:12px;color:var(--text);background:var(--soft);border-radius:8px;padding:3px 10px}.tc .tc-pcard p{font-size:14px;margin:0 0 12px;color:var(--text)}.tc .tc-tip{display:flex;gap:8px;background:#fdf6e4;border:1px solid #f3e2b4;border-radius:12px;padding:10px 12px;font-size:13px;color:#7a5410}.tc .tc-tabs{display:inline-flex;flex-wrap:wrap;gap:6px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px;margin-bottom:22px}.tc .tc-tab{border-radius:10px;padding:8px 16px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .2s}.tc .tc-tab:hover{color:var(--ink)}.tc .tc-tab.is-active{background:var(--ink);color:#fff}.tc .tc-tab small{font-weight:600;opacity:.7;margin-left:4px;letter-spacing:0}.tc .tc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.tc .tc-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 16px 36px -30px rgba(20,26,46,.5);transition:transform .2s,box-shadow .2s}.tc .tc-card:hover{transform:translateY(-3px);box-shadow:0 24px 44px -30px rgba(20,26,46,.6)}.tc .tc-card-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.tc .tc-pill{background:var(--blue-soft);color:var(--blue);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:3px 8px}.tc .tc-pill.is-reading{background:#e3f3ea;color:#1c7a52}.tc .tc-card-no{font-size:11.5px;color:var(--muted);font-weight:600}.tc .tc-card h3{font-size:19px;font-weight:700;margin:12px 0 14px;line-height:1.3}.tc .tc-card-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.tc .tc-card-stats div{background:var(--soft);border-radius:10px;padding:8px 10px}.tc .tc-card-stats small{display:block;font-size:11px;color:var(--muted)}.tc .tc-card-stats b{display:block;font-size:13.5px;color:var(--ink)}.tc .tc-card-parts-label{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}.tc .tc-card-parts{display:flex;flex-wrap:wrap;gap:6px}.tc .tc-card-parts span{border:1px solid var(--line);border-radius:8px;padding:3px 9px;font-size:12px;color:var(--text);background:#fff}.tc .tc-card-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:16px;border-top:1px dashed var(--line);margin-top:16px;font-size:12.5px;color:var(--muted)}.tc .tc-card-foot b{color:var(--ink)}.tc .tc-go{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;border-radius:10px;padding:8px 14px;font-weight:700;font-size:13px}.tc .tc-go:hover{background:#22339a;color:#fff}.tc .tc-empty{grid-column:1/-1;background:#fff;border:1px dashed #d9d1bf;border-radius:16px;padding:22px;text-align:center;color:var(--muted)}.tc-src.is-built,.tc-src.is-built .ts-portal-grid{display:none!important}.tc-src .ts-portal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tc-src .ts-portal-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:0}.tc-src .ts-portal-card-title{font:700 16px/1.35 'Lora',serif;color:var(--ink);margin:0 0 8px}.tc-src .ts-portal-card-meta{display:flex;gap:12px;font-size:12px;color:var(--muted)}.tc-src .ts-portal-start-btn{margin-top:12px;border-radius:10px;background:var(--blue);color:#fff!important;padding:9px;font-weight:700;font-size:13px}@media (max-width:849px){.tc .tc-row>.col{padding-bottom:30px}.tc .tc-row>.col:last-child{padding-bottom:0}.tc .tc-struct,.tc .tc-parts{grid-template-columns:1fr}.tc .tc-cards,.tc-src .ts-portal-grid{grid-template-columns:1fr 1fr}.tc .tc-float{left:8px}}@media (max-width:549px){.tc h1.tc-h1{font-size:38px}.tc .tc-cards,.tc-src .ts-portal-grid{grid-template-columns:1fr}.tc .tc-btn{flex:1}.tc .tc-stat strong{font-size:24px}.tc .tc-skill,.tc .tc-pcard{padding:18px}.tc .tc-part{grid-template-columns:34px 1fr auto;gap:10px}.tc .tc-tabs{display:flex}.tc .tc-tab{flex:1;text-align:center;padding:8px 6px}.tc .tc-mock-bar .tc-q{display:none}}</style>
+<script id="tc-js">
+/* TOEIC – dựng thẻ đề từ dữ liệu TestSpace ([tqp_category_landing category="TOEIC"]). Không dùng ký tự "nhỏ hơn" và dòng trống để WordPress không làm hỏng mã. */
+(function () {
+  function norm(s) { s = (s || '').toLowerCase().normalize('NFD'); var o = ''; for (var i = 0; i !== s.length; i++) { var c = s.charCodeAt(i); if (c >= 768 && 879 >= c) continue; o += s[i]; } return o.replace(/đ/g, 'd').trim(); }
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+  function fmt(n) { return Number(n || 0).toLocaleString('vi-VN'); }
+  function setStat(name, val) { each(document.querySelectorAll('[data-tc-stat="' + name + '"]'), function (n) { n.textContent = val; }); }
+  var SKILL = {
+    listening: { label: 'TOEIC Listening', pill: '', kn: 'Nghe', parts: ['Part 1', 'Part 2', 'Part 3', 'Part 4'], partsLabel: 'Listening · Part 1–4' },
+    reading: { label: 'TOEIC Reading', pill: ' is-reading', kn: 'Đọc', parts: ['Part 5', 'Part 6', 'Part 7'], partsLabel: 'Reading · Part 5–7' },
+    general: { label: 'TOEIC', pill: '', kn: 'Nghe + Đọc', parts: [], partsLabel: '' }
+  };
+  function readCards() {
+    var out = [];
+    each(document.querySelectorAll('.tc-src .ts-portal-card'), function (card) {
+      var h = card.querySelector('.ts-portal-card-title'), a = card.querySelector('a[href]');
+      if (!h || !a) return;
+      var d = { title: h.textContent.replace(/\s+/g, ' ').trim(), href: a.href, min: 0, q: 0 };
+      each(card.querySelectorAll('.ts-portal-meta-item'), function (it) {
+        var s = it.querySelector('strong'), n = s ? parseInt(s.textContent, 10) || 0 : 0, t = norm(it.textContent);
+        if (t.indexOf('phut') !== -1) d.min = n; else if (t.indexOf('cau') !== -1) d.q = n;
+      });
+      var t = norm(d.title), m = t.match(/de\s*#?\s*(\d+)/);
+      d.no = m ? parseInt(m[1], 10) : 0;
+      d.skill = t.indexOf('listening') !== -1 ? 'listening' : (t.indexOf('reading') !== -1 ? 'reading' : 'general');
+      d.name = d.title.replace(/\s+-\s+(listening|reading)\s*$/i, '').replace(/\s+-\s+/g, ' – ');
+      if (d.no && d.skill !== 'general') d.name = 'TOEIC ' + (d.skill === 'listening' ? 'Listening' : 'Reading') + ' – Đề ' + d.no;
+      out.push(d);
+    });
+    var order = { listening: 1, reading: 2, general: 3 };
+    out.sort(function (a, b) { return (order[a.skill] - order[b.skill]) || (a.no - b.no) || a.title.localeCompare(b.title, 'vi'); });
+    return out;
+  }
+  function card(d) {
+    var k = SKILL[d.skill], c = el('div', 'tc-card');
+    c.setAttribute('data-skill', d.skill);
+    var top = el('div', 'tc-card-top');
+    top.appendChild(el('span', 'tc-pill' + k.pill, k.label));
+    if (d.no) top.appendChild(el('span', 'tc-card-no', 'Đề ' + d.no));
+    c.appendChild(top);
+    c.appendChild(el('h3', '', d.name));
+    var st = el('div', 'tc-card-stats');
+    [['Số câu', d.q ? d.q + ' câu' : '–'], ['Thời gian', d.min ? d.min + ' phút' : '–'], ['Kỹ năng', k.kn]].forEach(function (x) {
+      var b = el('div'); b.appendChild(el('small', '', x[0])); b.appendChild(el('b', '', x[1])); st.appendChild(b);
+    });
+    c.appendChild(st);
+    if (k.parts.length) {
+      c.appendChild(el('div', 'tc-card-parts-label', k.partsLabel));
+      var ps = el('div', 'tc-card-parts');
+      k.parts.forEach(function (p) { ps.appendChild(el('span', '', p)); });
+      c.appendChild(ps);
+    }
+    var foot = el('div', 'tc-card-foot'), kn = el('span', '', 'Kỹ năng: ');
+    kn.appendChild(el('b', '', k.kn));
+    foot.appendChild(kn);
+    var go = el('a', 'tc-go', 'Làm bài →');
+    go.href = d.href;
+    foot.appendChild(go);
+    c.appendChild(foot);
+    return c;
+  }
+  function init() {
+    var src = document.querySelectorAll('.tc-src');
+    if (!src.length) return;
+    var all = readCards();
+    var by = { listening: [], reading: [], general: [] };
+    all.forEach(function (d) { by[d.skill].push(d); });
+    setStat('total', fmt(all.length));
+    setStat('listening', fmt(by.listening.length));
+    setStat('reading', fmt(by.reading.length));
+    each(document.querySelectorAll('.tc-cards'), function (box) {
+      var want = box.getAttribute('data-skill') || 'all';
+      var list = want === 'all' ? all : (by[want] || []);
+      while (box.firstChild) box.removeChild(box.firstChild);
+      list.forEach(function (d) { box.appendChild(card(d)); });
+      if (!list.length) box.appendChild(el('div', 'tc-empty', 'Đề thi đang được cập nhật. Bạn quay lại sau nhé!'));
+    });
+    each(document.querySelectorAll('.tc-tabs'), function (tabs) {
+      var box = document.querySelector(tabs.getAttribute('data-target') || '.tc-cards');
+      var buttons = tabs.querySelectorAll('.tc-tab');
+      each(buttons, function (b) {
+        var sk = b.getAttribute('data-skill');
+        var n = sk === 'all' ? all.length : (by[sk] || []).length;
+        b.appendChild(el('small', '', '(' + n + ')'));
+        b.addEventListener('click', function () {
+          each(buttons, function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          if (box) each(box.querySelectorAll('.tc-card'), function (c) { c.style.display = (sk === 'all' || c.getAttribute('data-skill') === sk) ? '' : 'none'; });
+        });
+      });
+    });
+    each(document.querySelectorAll('[data-tc-first]'), function (b) {
+      var sk = b.getAttribute('data-tc-first'), list = sk === 'all' || !sk ? all : (by[sk] || []);
+      if (list[0]) b.href = list[0].href;
+    });
+    each(src, function (s) { s.classList.add('is-built'); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+[/ux_html]
