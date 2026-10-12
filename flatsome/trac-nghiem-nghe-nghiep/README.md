@@ -1,14 +1,15 @@
-# Trang Trắc nghiệm nghề nghiệp – tracnghiemplus.com/trac-nghiem-nghe-nghiep/
+# Trang Trắc nghiệm nghề nghiệp (giao diện "La Bàn Nghề Nghiệp")
+URL: https://tracnghiemplus.com/trac-nghiem-nghe-nghiep/ (page ID 609, template "Page - Full Width")
 
-| File | Dán vào đâu |
+| File | Dùng để |
 |---|---|
-| `ux-builder.txt` | Trang `trac-nghiem-nghe-nghiep` → Edit with UX Builder → menu ⋯ → **Edit Content** → dán → Apply → Update |
-| `style.css` | Nơi bạn muốn đặt CSS: Flatsome → Advanced → Custom CSS, Giao diện → Tùy biến → CSS bổ sung, hoặc `style.css` của child theme |
-| `script.js` | Flatsome → Advanced → Global Settings → **Footer Scripts** (bọc trong `<script>...</script>`), hoặc enqueue trong child theme. Script chỉ chạy khi trang có `#tnn-hot` |
-| `preview.html` | Chỉ để xem trước giao diện trên trình duyệt, không cần đưa lên site |
+| `page-content.txt` | Nội dung **đang chạy trên site**: code UX Builder + CSS + JS nhúng sẵn trong 2 khối `[ux_html]` đầu/cuối |
+| `ux-builder.txt` | Chỉ phần kéo thả (không CSS/JS) – dùng nếu chuyển CSS/JS ra ngoài |
+| `style.css` | CSS riêng – có thể dán vào Flatsome → Advanced → Custom CSS |
+| `script.js` | JS riêng – có thể dán vào Flatsome → Advanced → Global Settings → Footer Scripts (bọc `<script>…</script>`) |
+| `preview.html` | Xem trước offline |
 
-Ảnh dùng từ thư viện Media của tracnghiemplus.com:
-- Hero: ảnh ID 611 `2026/10/trac-nghiem-nghe-nghiep.png`
-- Ngành HOT: các ảnh môn học trong `2026/08/` (khai báo trong `script.js` và ảnh mặc định trong `ux-builder.txt`)
+Nếu chuyển CSS/JS ra Flatsome → Advanced: dán `style.css` + `script.js` vào đó rồi **xóa 2 khối HTML "CSS trang" và "JS trang"** trong UX Builder để không bị nạp 2 lần.
 
-Mọi class đều có tiền tố `tnn-` nên CSS chỉ tác động lên trang này.
+Link bài test: Holland `https://tracnghiemplus.com/bai-thi/test-holland/`, MBTI `https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/`.
+Mọi class có tiền tố `lbn-` nên không ảnh hưởng trang khác.
