@@ -1,0 +1,152 @@
+[block id="dai-hoc-assets"]
+
+
+
+[section label="1. Giới thiệu" bg_color="#f5f1e8" padding="48px" padding__sm="28px" class="dh dh-hero"]
+
+[row width="custom" custom_width="1200px" v_align="middle" class="dh-row"]
+
+[col span="7" span__md="12" span__sm="12"]
+
+[ux_html label="Giới thiệu – nội dung + tìm kiếm"]
+<div class="dh-crumb"><a href="https://tracnghiemplus.com/">⌂ Trang chủ</a><i>›</i><b>Đại học</b></div>
+<div class="dh-kicker">Kho đề trắc nghiệm online</div>
+<h1 class="dh-h1">Đề trắc nghiệm các môn <u>Đại học</u></h1>
+<p class="dh-lead">Kho đề trắc nghiệm các môn học cấp Đại học, bao gồm các môn <b>Chính trị</b> (Triết học Mác – Lênin, Lịch sử Đảng…), môn <b>Đại cương</b> và môn <b>Chuyên ngành</b>. Mỗi môn có đề tổng hợp, đề theo chương và đề thi của các trường đại học – thi thử online miễn phí.</p>
+<form class="dh-search" role="search" onsubmit="return false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input type="search" placeholder="Tìm môn học: pháp luật, marketing…" aria-label="Tìm môn học"><button type="submit">Tìm kiếm</button></form>
+<div class="dh-popular"><span>Phổ biến:</span><div class="dh-chip" data-q="Pháp luật đại cương">Pháp luật đại cương</div><div class="dh-chip" data-q="Triết học Mác Lênin">Triết học Mác Lênin</div><div class="dh-chip" data-q="Tư tưởng Hồ Chí Minh">Tư tưởng Hồ Chí Minh</div><div class="dh-chip" data-q="Tin học đại cương">Tin học đại cương</div><div class="dh-chip" data-q="Kinh tế vi mô">Kinh tế vi mô</div><div class="dh-chip" data-q="Marketing căn bản">Marketing căn bản</div></div>
+[/ux_html]
+
+[/col]
+[col span="5" span__md="12" span__sm="12"]
+
+[ux_html label="Thống kê kho đề (tự đếm)"]
+<div class="dh-statcard">
+<div class="dh-stamp"><div><b data-dh-stat="total">0</b>môn học</div></div>
+<div class="dh-statcard-label">Thống kê kho đề</div>
+<div class="dh-tiles">
+<div class="dh-tile"><small>Môn học</small><strong data-dh-stat="total">0</strong></div>
+<div class="dh-tile"><small>Đã có trang đề</small><strong data-dh-stat="open">0</strong></div>
+<div class="dh-tile"><small>Nhóm môn</small><strong>3</strong></div>
+<div class="dh-tile"><small>Thi thử</small><strong>Miễn phí</strong></div>
+</div>
+<div class="dh-mini"><div><b data-dh-stat="chinh-tri">0</b><span>chính trị</span></div><div><b data-dh-stat="dai-cuong">0</b><span>đại cương</span></div><div><b data-dh-stat="chuyen-nganh">0</b><span>chuyên ngành</span></div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="2. Thanh lọc (dính khi cuộn)" bg_color="#f5f1e8" padding="0px" class="dh dh-tabs-sec"]
+
+[row width="custom" custom_width="1200px" class="dh-row"]
+
+[col span="12"]
+
+[ux_html label="Tab nhóm môn"]
+<div class="dh-tabs"><div class="dh-tab is-active" data-group="all">Tất cả</div><div class="dh-tab" data-group="chinh-tri">Môn chính trị</div><div class="dh-tab" data-group="dai-cuong">Môn đại cương</div><div class="dh-tab" data-group="chuyen-nganh">Môn chuyên ngành</div></div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="3. Môn chính trị" bg_color="#f5f1e8" padding="46px" padding__sm="34px" class="dh dh-page dh-group dh-g-chinh-tri"]
+
+[row width="custom" custom_width="1200px" class="dh-row"]
+
+[col span="12"]
+
+[ux_html label="Môn chính trị – danh sách môn"]
+<div id="chinh-tri" class="dh-anchor"></div>
+<div class="dh-ghead"><div class="dh-kicker"><span data-dh-stat="chinh-tri">6</span> môn học</div><div class="dh-gtitle"><div class="dh-gicon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-6 10 6"/></svg></div><h2 class="dh-h2">Môn chính trị</h2></div><div class="dh-gdesc">Các học phần lý luận chính trị bắt buộc với mọi sinh viên đại học.</div></div>
+<div class="dh-subjects">
+<div class="dh-subject is-link" data-group="chinh-tri"><div class="dh-tag ">Lý luận chính trị</div><h3><a class="dh-cover" href="https://tracnghiemplus.com/dai-hoc/trac-nghiem-tu-tuong-ho-chi-minh/">Tư tưởng Hồ Chí Minh</a></h3><div class="dh-subject-foot"><span>Đề tổng hợp · theo chương</span><b>Xem tất cả →</b></div></div>
+<div class="dh-subject is-link" data-group="chinh-tri"><div class="dh-tag ">Lý luận chính trị</div><h3><a class="dh-cover" href="https://tracnghiemplus.com/dai-hoc/trac-nghiem-triet-hoc-mac-lenin/">Triết học Mác – Lênin</a></h3><div class="dh-subject-foot"><span>Đề tổng hợp · theo chương</span><b>Xem tất cả →</b></div></div>
+<div class="dh-subject is-link" data-group="chinh-tri"><div class="dh-tag ">Lý luận chính trị</div><h3><a class="dh-cover" href="https://tracnghiemplus.com/dai-hoc/trac-nghiem-kinh-te-chinh-tri/">Kinh tế chính trị Mác – Lênin</a></h3><div class="dh-subject-foot"><span>Đề tổng hợp · theo chương</span><b>Xem tất cả →</b></div></div>
+<div class="dh-subject is-link" data-group="chinh-tri"><div class="dh-tag ">Lý luận chính trị</div><h3><a class="dh-cover" href="https://tracnghiemplus.com/dai-hoc/trac-nghiem-lich-su-dang/">Lịch sử Đảng Cộng sản Việt Nam</a></h3><div class="dh-subject-foot"><span>Đề tổng hợp · theo chương</span><b>Xem tất cả →</b></div></div>
+<div class="dh-subject is-link" data-group="chinh-tri"><div class="dh-tag ">Lý luận chính trị</div><h3><a class="dh-cover" href="https://tracnghiemplus.com/dai-hoc/trac-nghiem-phap-luat-dai-cuong/">Pháp luật đại cương</a></h3><div class="dh-subject-foot"><span>Đề tổng hợp · theo chương</span><b>Xem tất cả →</b></div></div>
+<div class="dh-subject is-soon" data-group="chinh-tri"><div class="dh-tag ">Lý luận chính trị</div><h3>Chủ nghĩa xã hội khoa học</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="4. Môn đại cương" bg_color="#f5f1e8" padding="46px" padding__sm="34px" class="dh dh-page dh-group dh-g-dai-cuong"]
+
+[row width="custom" custom_width="1200px" class="dh-row"]
+
+[col span="12"]
+
+[ux_html label="Môn đại cương – danh sách môn"]
+<div id="dai-cuong" class="dh-anchor"></div>
+<div class="dh-ghead"><div class="dh-kicker"><span data-dh-stat="dai-cuong">9</span> môn học</div><div class="dh-gtitle"><div class="dh-gicon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"/></svg></div><h2 class="dh-h2">Môn đại cương</h2></div><div class="dh-gdesc">Khối kiến thức giáo dục đại cương, nền tảng cho các môn chuyên ngành.</div></div>
+<div class="dh-subjects">
+<div class="dh-subject is-link" data-group="dai-cuong"><div class="dh-tag t-blue">Công nghệ</div><h3><a class="dh-cover" href="https://tracnghiemplus.com/dai-hoc/trac-nghiem-tin-hoc-dai-cuong/">Tin học đại cương</a></h3><div class="dh-subject-foot"><span>Đề tổng hợp · theo chương</span><b>Xem tất cả →</b></div></div>
+<div class="dh-subject is-soon" data-group="dai-cuong"><div class="dh-tag t-purple">Khoa học tự nhiên</div><h3>Xác suất thống kê</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="dai-cuong"><div class="dh-tag t-purple">Khoa học tự nhiên</div><h3>Toán cao cấp</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="dai-cuong"><div class="dh-tag t-purple">Khoa học tự nhiên</div><h3>Vật lý đại cương</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="dai-cuong"><div class="dh-tag t-green">Kinh tế – Quản trị</div><h3>Kinh tế vi mô</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="dai-cuong"><div class="dh-tag t-green">Kinh tế – Quản trị</div><h3>Kinh tế vĩ mô</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="dai-cuong"><div class="dh-tag t-amber">Xã hội – Nhân văn</div><h3>Cơ sở văn hóa Việt Nam</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="dai-cuong"><div class="dh-tag t-amber">Xã hội – Nhân văn</div><h3>Tâm lý học đại cương</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="dai-cuong"><div class="dh-tag t-amber">Xã hội – Nhân văn</div><h3>Logic học</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="5. Môn chuyên ngành" bg_color="#f5f1e8" padding="46px" padding__sm="34px" class="dh dh-page dh-group dh-g-chuyen-nganh"]
+
+[row width="custom" custom_width="1200px" class="dh-row"]
+
+[col span="12"]
+
+[ux_html label="Môn chuyên ngành – danh sách môn"]
+<div id="chuyen-nganh" class="dh-anchor"></div>
+<div class="dh-ghead"><div class="dh-kicker"><span data-dh-stat="chuyen-nganh">6</span> môn học</div><div class="dh-gtitle"><div class="dh-gicon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><h2 class="dh-h2">Môn chuyên ngành</h2></div><div class="dh-gdesc">Các học phần cơ sở ngành và chuyên ngành phổ biến.</div></div>
+<div class="dh-subjects">
+<div class="dh-subject is-soon" data-group="chuyen-nganh"><div class="dh-tag t-green">Kinh tế – Quản trị</div><h3>Marketing căn bản</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="chuyen-nganh"><div class="dh-tag t-green">Kinh tế – Quản trị</div><h3>Quản trị học</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="chuyen-nganh"><div class="dh-tag t-green">Kinh tế – Quản trị</div><h3>Quản trị nguồn nhân lực</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="chuyen-nganh"><div class="dh-tag t-blue">Tài chính – Kế toán</div><h3>Nguyên lý kế toán</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="chuyen-nganh"><div class="dh-tag t-blue">Tài chính – Kế toán</div><h3>Tài chính – Tiền tệ</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+<div class="dh-subject is-soon" data-group="chuyen-nganh"><div class="dh-tag t-amber">Luật</div><h3>Luật kinh tế</h3><div class="dh-subject-foot"><span>Đang biên soạn đề</span><b>Sắp có</b></div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="6. Không tìm thấy" bg_color="#f5f1e8" padding="0px" class="dh dh-page"]
+
+[row width="custom" custom_width="1200px" class="dh-row"]
+
+[col span="12"]
+
+[ux_html label="Thông báo không có kết quả"]
+<div class="dh-noresult">Không tìm thấy môn học phù hợp. Hãy thử từ khóa khác.</div>
+<div style="height:40px"></div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]

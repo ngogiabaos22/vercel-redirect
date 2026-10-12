@@ -1,0 +1,99 @@
+[block id="dai-hoc-assets"]
+
+[section label="1. Giới thiệu môn" bg_color="#f5f1e8" padding="44px" padding__sm="28px" class="dh dh-hero"]
+
+[row width="custom" custom_width="1200px" v_align="middle" class="dh-row"]
+
+[col span="7" span__md="12" span__sm="12"]
+
+[ux_html label="Giới thiệu môn"]
+<div class="dh-crumb"><a href="https://tracnghiemplus.com/">⌂ Trang chủ</a><i>›</i><a href="https://tracnghiemplus.com/dai-hoc/">Đại học</a><i>›</i><b>Trắc nghiệm Lịch sử Đảng Cộng sản Việt Nam</b></div>
+<div class="dh-badges"><div class="dh-tag ">Lý luận chính trị</div><div class="dh-pill">Môn chính trị</div></div>
+<h1 class="dh-h1">Trắc nghiệm Lịch sử Đảng Cộng sản Việt Nam</h1>
+<p class="dh-lead"><b>Trắc nghiệm Lịch sử Đảng Cộng sản Việt Nam</b> bao gồm các bài tập, bài kiểm tra và đề thi thử môn Lịch sử Đảng Cộng sản Việt Nam, nằm trong kho tài liệu <a href="https://tracnghiemplus.com/dai-hoc/">trắc nghiệm đại học</a>. Đây là học phần lý luận chính trị bắt buộc trong chương trình đại học. Bộ câu hỏi tập trung vào các chủ đề cốt lõi: <b>Đảng ra đời và lãnh đạo đấu tranh giành chính quyền (1930–1945); lãnh đạo hai cuộc kháng chiến, hoàn thành giải phóng dân tộc, thống nhất đất nước (1945–1975); lãnh đạo cả nước quá độ lên chủ nghĩa xã hội và tiến hành công cuộc đổi mới (từ 1975)</b>.</p>
+<div class="dh-actions"><a class="dh-btn dh-btn-red" href="#de-thi" data-dh-first>▶ Làm đề số 1 ngay</a><a class="dh-btn dh-btn-white" href="#de-truong" data-dh-schools>🏛 Đề của các trường</a></div>
+[/ux_html]
+
+[/col]
+[col span="5" span__md="12" span__sm="12"]
+
+[ux_html label="Thống kê (tự đếm từ TestSpace)"]
+<div class="dh-kpis">
+<div class="dh-kpi"><small>📄 Tổng số đề</small><strong data-dh-stat="de">–</strong></div>
+<div class="dh-kpi"><small>☰ Câu hỏi</small><strong data-dh-stat="cau">–</strong></div>
+<div class="dh-kpi"><small>📚 Đề theo chương</small><strong data-dh-stat="chuong">–</strong></div>
+<div class="dh-kpi"><small>🏛 Đề các trường</small><strong data-dh-stat="truong">–</strong></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="2. Nhóm đề 1 – theo môn học" bg_color="#f5f1e8" padding="44px" padding__sm="30px" class="dh dh-page"]
+
+[row width="custom" custom_width="1200px" class="dh-row"]
+
+[col span="12"]
+
+[ux_html label="Nhóm đề 1 – tiêu đề + danh sách"]
+<div id="de-thi" class="dh-anchor"></div>
+<div class="dh-ghead"><div class="dh-kicker">Nhóm đề 1</div><h2 class="dh-h2">Đề trắc nghiệm theo môn học</h2><div class="dh-gdesc">Bộ đề tổng hợp và đề theo từng chương của môn Lịch sử Đảng Cộng sản Việt Nam, bám sát giáo trình chuẩn.</div></div>
+<div class="dh-count" data-dh-stat="mon">…</div>
+<div class="dh-panel"><div class="dh-panel-title">Trắc nghiệm Lịch sử Đảng Cộng sản Việt Nam – đề tổng hợp <span data-dh-count="dh-list-tonghop"></span></div><div class="dh-list" id="dh-list-tonghop"></div></div>
+<div class="dh-panel"><div class="dh-panel-title">Trắc nghiệm Lịch sử Đảng Cộng sản Việt Nam theo chương <span data-dh-count="dh-list-chuong"></span></div><div class="dh-list" id="dh-list-chuong"></div></div>
+<div class="dh-empty" id="dh-empty-mon" style="display:none">Đề trắc nghiệm môn này đang được cập nhật. Bạn quay lại sau nhé!</div>
+[/ux_html]
+
+[/col]
+[col span="12" class="dh-src dh-src-mon"]
+
+[tqp_category_landing category="Lịch sử Đảng"]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="3. Nhóm đề 2 – đề các trường" bg_color="#f5f1e8" padding="44px" padding__sm="30px" class="dh dh-page dh-g-truong"]
+
+[row width="custom" custom_width="1200px" class="dh-row"]
+
+[col span="12"]
+
+[ux_html label="Nhóm đề 2 – tiêu đề + danh sách"]
+<div id="de-truong" class="dh-anchor"></div>
+<div class="dh-ghead"><div class="dh-kicker">Nhóm đề 2</div><h2 class="dh-h2">Đề trắc nghiệm Lịch sử Đảng Cộng sản Việt Nam của các trường đại học</h2><div class="dh-gdesc">Đề thi giữa kỳ, cuối kỳ được sưu tầm từ các trường đại học – phù hợp để luyện sát cấu trúc đề của trường bạn.</div></div>
+<div class="dh-count" data-dh-stat="truong-count">…</div>
+<div class="dh-panel"><div class="dh-list" id="dh-list-truong"></div></div>
+[/ux_html]
+
+[/col]
+[col span="12" class="dh-src dh-src-truong"]
+
+[tqp_category_landing category="Lịch sử Đảng - Đề các trường"]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="4. Môn khác" bg_color="#f5f1e8" padding="10px" padding__sm="10px" class="dh dh-page"]
+
+[row width="custom" custom_width="1200px" class="dh-row"]
+
+[col span="12"]
+
+[ux_html label="Quay lại kho đề"]
+<div class="dh-actions" style="justify-content:center;margin:0 0 50px"><a class="dh-btn dh-btn-white" href="https://tracnghiemplus.com/dai-hoc/">← Xem tất cả môn đại học</a></div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
