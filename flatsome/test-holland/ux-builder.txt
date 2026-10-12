@@ -1,0 +1,232 @@
+[section label="1. Hero" bg_color="#0f172a" dark="true" padding="110px" padding__sm="70px" class="hld hld-hero"]
+
+[row width="custom" custom_width="1336px" v_align="middle" class="hld-row hld-hero-row"]
+
+[col span="6" span__md="12" span__sm="12"]
+
+[ux_html label="Hero – nội dung"]
+<div class="hld-pill"><span class="hld-pill-dot"></span> Trắc nghiệm định hướng nghề nghiệp</div>
+<h1>Bài test Holland<br><span class="hld-grad-text">Khám phá nghề nghiệp</span> phù hợp với bạn</h1>
+<p class="hld-hero-p">Dựa trên lý thuyết RIASEC của nhà tâm lý học John Holland, bài test giúp bạn xác định 6 nhóm sở thích nghề nghiệp và gợi ý con đường sự nghiệp phù hợp nhất với bản thân.</p>
+<div class="hld-actions">
+<a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="hld-btn hld-btn-grad">Bắt đầu test ngay <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a href="#about" class="hld-btn hld-btn-glass">Tìm hiểu thêm</a>
+</div>
+<div class="hld-stats">
+<div><div class="hld-stat-num">6</div><div class="hld-stat-label">Nhóm RIASEC</div></div>
+<div><div class="hld-stat-num">3</div><div class="hld-stat-label">Chữ cái mã Holland</div></div>
+<div><div class="hld-stat-num">100%</div><div class="hld-stat-label">Miễn phí</div></div>
+</div>
+[/ux_html]
+
+[/col]
+[col span="6" span__md="12" span__sm="12"]
+
+[ux_html label="Hero – lục giác RIASEC"]
+<div class="hld-hex" aria-hidden="true">
+<svg viewBox="0 0 400 400"><defs><linearGradient id="hldhexg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa" stop-opacity=".35"/><stop offset="1" stop-color="#ec4899" stop-opacity=".25"/></linearGradient></defs><polygon points="200,40 338,120 338,280 200,360 62,280 62,120" fill="url(#hldhexg)" stroke="rgba(255,255,255,.35)" stroke-width="2"/><polygon points="200,100 286,150 286,250 200,300 114,250 114,150" fill="none" stroke="rgba(255,255,255,.2)" stroke-dasharray="4 6"/><polygon points="200,160 234,180 234,220 200,240 166,220 166,180" fill="none" stroke="rgba(255,255,255,.15)"/><g stroke="rgba(255,255,255,.15)"><line x1="200" y1="40" x2="200" y2="360"/><line x1="62" y1="120" x2="338" y2="280"/><line x1="338" y1="120" x2="62" y2="280"/></g><polygon class="hld-hex-poly" points="200,90 300,142 290,250 200,330 110,250 120,142" fill="rgba(168,85,247,.35)" stroke="#f472b6" stroke-width="2.5"/></svg>
+<div class="hld-tile t-r hld-float">R</div><div class="hld-tile t-i hld-float2">I</div><div class="hld-tile t-a hld-float">A</div><div class="hld-tile t-s hld-float2">S</div><div class="hld-tile t-e hld-float">E</div><div class="hld-tile t-c hld-float2">C</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="2. Dải chạy chữ" bg_color="#ffffff" padding="0px" class="hld hld-strip"]
+
+[ux_html label="Chạy chữ"]
+<div class="hld-marquee"><div>✦ Dựa trên lý thuyết RIASEC của John Holland</div><div>✦ Xác định mã Holland 3 chữ cái</div><div>✦ Gợi ý nhóm ngành phù hợp</div><div>✦ Kết quả miễn phí</div><div>✦ Kết hợp với MBTI để định hướng toàn diện</div><div>✦ Dựa trên lý thuyết RIASEC của John Holland</div><div>✦ Xác định mã Holland 3 chữ cái</div><div>✦ Gợi ý nhóm ngành phù hợp</div><div>✦ Kết quả miễn phí</div><div>✦ Kết hợp với MBTI để định hướng toàn diện</div></div>
+[/ux_html]
+
+[/section]
+
+[section label="3. Về bài test" bg_color="#f8fafc" padding="110px" padding__sm="72px" class="hld hld-about-sec"]
+
+[row width="custom" custom_width="1336px" v_align="middle" class="hld-row hld-about-row"]
+
+[col span="6" span__md="12" span__sm="12"]
+
+[ux_html label="Về bài test – nội dung"]
+<div id="about" class="hld-anchor"></div>
+<div class="hld-about">
+<div class="hld-kicker">Về bài test</div>
+<h2 class="hld-h2">Trắc nghiệm Holland là gì?</h2>
+<p>Mô hình Holland (hay mã Holland – RIASEC) được nhà tâm lý học John L. Holland xây dựng năm 1959. Ông cho rằng con người và môi trường làm việc có thể được phân thành 6 nhóm: <strong>Kỹ thuật (R)</strong>, <strong>Nghiên cứu (I)</strong>, <strong>Nghệ thuật (A)</strong>, <strong>Xã hội (S)</strong>, <strong>Quản lý (E)</strong> và <strong>Nghiệp vụ (C)</strong>.</p>
+<p>Khi sở thích của bạn tương thích với môi trường làm việc, bạn sẽ dễ gắn bó và thành công hơn. Kết quả test cho ra một mã 3 chữ cái (ví dụ: <span class="hld-em">IAS</span>) thể hiện 3 nhóm nổi trội nhất của bạn.</p>
+<ul class="hld-checks">
+<li><div class="hld-tick">✓</div><div>Được áp dụng rộng rãi trong tư vấn hướng nghiệp trên toàn thế giới</div></li>
+<li><div class="hld-tick">✓</div><div>Phù hợp cho học sinh THPT, sinh viên và người muốn chuyển ngành</div></li>
+<li><div class="hld-tick">✓</div><div>Kết hợp cùng <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="hld-em">MBTI</a> để có bức tranh toàn diện về bản thân</div></li>
+</ul>
+</div>
+[/ux_html]
+
+[/col]
+[col span="6" span__md="12" span__sm="12"]
+
+[ux_html label="Về bài test – 4 thẻ"]
+<div class="hld-feat">
+<div class="hld-feat-card hld-card"><div class="hld-feat-ico" style="background:#e0e7ff;color:#4f46e5">🎯</div><h3>Khoa học</h3><p>Dựa trên mô hình RIASEC được dùng phổ biến trong tư vấn hướng nghiệp.</p></div>
+<div class="hld-feat-card hld-card"><div class="hld-feat-ico" style="background:#fce7f3;color:#db2777">⚡</div><h3>Nhanh chóng</h3><p>Làm bài trực tuyến, nhận kết quả ngay sau khi hoàn thành.</p></div>
+<div class="hld-feat-card hld-card"><div class="hld-feat-ico" style="background:#fef3c7;color:#d97706">💼</div><h3>Gợi ý nghề nghiệp</h3><p>Danh sách ngành học và công việc phù hợp với mã Holland của bạn.</p></div>
+<div class="hld-feat-card hld-card"><div class="hld-feat-ico" style="background:#d1fae5;color:#059669">🎁</div><h3>Miễn phí</h3><p>Làm bài hoàn toàn miễn phí trên Trắc Nghiệm Plus.</p></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="4. 6 nhóm RIASEC" bg_color="#ffffff" padding="110px" padding__sm="72px" class="hld hld-types"]
+
+[row width="custom" custom_width="1336px" class="hld-row"]
+
+[col span="12"]
+
+[ux_html label="6 nhóm – tiêu đề"]
+<div id="types" class="hld-anchor"></div>
+<div class="hld-head">
+<div class="hld-kicker">Mô hình RIASEC</div>
+<h2 class="hld-h2">6 nhóm tính cách nghề nghiệp</h2>
+<p class="hld-lead">Mỗi người thường là sự kết hợp của 2–3 nhóm. Hãy xem bạn thuộc nhóm nào nhé!</p>
+</div>
+[/ux_html]
+
+[ux_html label="6 nhóm – thẻ"]
+<div class="hld-type-grid">
+<div class="hld-type k-r hld-card"><div class="hld-type-top"><div class="hld-type-ico">🔧</div><div class="hld-type-badge">R</div></div><h3>Kỹ thuật <small>(Realistic)</small></h3><div class="hld-type-tag">Người thực tế</div><div class="hld-type-desc">Thích làm việc với máy móc, công cụ, thiên nhiên. Thực tế, kiên trì, giỏi vận động và kỹ năng tay chân.</div><div class="hld-traits"><div>Thực tế</div><div>Kiên trì</div><div>Khéo tay</div><div>Độc lập</div></div><div class="hld-type-jobs"><b>Nghề tiêu biểu:</b> Kỹ sư cơ khí, Kiến trúc sư, Điện – điện tử…</div></div>
+<div class="hld-type k-i hld-card"><div class="hld-type-top"><div class="hld-type-ico">🔬</div><div class="hld-type-badge">I</div></div><h3>Nghiên cứu <small>(Investigative)</small></h3><div class="hld-type-tag">Người tư duy</div><div class="hld-type-desc">Thích quan sát, phân tích, giải quyết vấn đề. Tò mò, logic, độc lập và thích khám phá tri thức.</div><div class="hld-traits"><div>Phân tích</div><div>Tò mò</div><div>Logic</div><div>Chính xác</div></div><div class="hld-type-jobs"><b>Nghề tiêu biểu:</b> Bác sĩ, Khoa học dữ liệu, Lập trình viên…</div></div>
+<div class="hld-type k-a hld-card"><div class="hld-type-top"><div class="hld-type-ico">🎨</div><div class="hld-type-badge">A</div></div><h3>Nghệ thuật <small>(Artistic)</small></h3><div class="hld-type-tag">Người sáng tạo</div><div class="hld-type-desc">Thích sáng tạo, thể hiện bản thân qua nghệ thuật. Giàu trí tưởng tượng, độc đáo, không thích khuôn khổ.</div><div class="hld-traits"><div>Sáng tạo</div><div>Cảm xúc</div><div>Độc đáo</div><div>Tự do</div></div><div class="hld-type-jobs"><b>Nghề tiêu biểu:</b> Designer, Nhà văn, Nhạc sĩ…</div></div>
+<div class="hld-type k-s hld-card"><div class="hld-type-top"><div class="hld-type-ico">🤝</div><div class="hld-type-badge">S</div></div><h3>Xã hội <small>(Social)</small></h3><div class="hld-type-tag">Người giúp đỡ</div><div class="hld-type-desc">Thích giúp đỡ, giảng dạy, chăm sóc người khác. Thân thiện, đồng cảm, giỏi giao tiếp và hợp tác.</div><div class="hld-traits"><div>Đồng cảm</div><div>Giao tiếp</div><div>Hợp tác</div><div>Kiên nhẫn</div></div><div class="hld-type-jobs"><b>Nghề tiêu biểu:</b> Giáo viên, Tâm lý học, Điều dưỡng…</div></div>
+<div class="hld-type k-e hld-card"><div class="hld-type-top"><div class="hld-type-ico">🚀</div><div class="hld-type-badge">E</div></div><h3>Quản lý <small>(Enterprising)</small></h3><div class="hld-type-tag">Người thuyết phục</div><div class="hld-type-desc">Thích lãnh đạo, thuyết phục, kinh doanh. Tự tin, tham vọng, năng động và thích thử thách.</div><div class="hld-traits"><div>Lãnh đạo</div><div>Tự tin</div><div>Tham vọng</div><div>Năng động</div></div><div class="hld-type-jobs"><b>Nghề tiêu biểu:</b> Doanh nhân, Marketing, Sales…</div></div>
+<div class="hld-type k-c hld-card"><div class="hld-type-top"><div class="hld-type-ico">📊</div><div class="hld-type-badge">C</div></div><h3>Nghiệp vụ <small>(Conventional)</small></h3><div class="hld-type-tag">Người tổ chức</div><div class="hld-type-desc">Thích làm việc với số liệu, quy trình, dữ liệu. Cẩn thận, ngăn nắp, đáng tin cậy và tuân thủ.</div><div class="hld-traits"><div>Cẩn thận</div><div>Ngăn nắp</div><div>Tin cậy</div><div>Kỷ luật</div></div><div class="hld-type-jobs"><b>Nghề tiêu biểu:</b> Kế toán, Kiểm toán, Ngân hàng…</div></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="5. Cách làm bài" bg_color="#f8fafc" padding="110px" padding__sm="72px" class="hld hld-how"]
+
+[row width="custom" custom_width="1336px" class="hld-row"]
+
+[col span="12"]
+
+[ux_html label="Quy trình"]
+<div class="hld-head">
+<div class="hld-kicker">Quy trình</div>
+<h2 class="hld-h2">Cách làm bài test</h2>
+</div>
+<div class="hld-steps">
+<div class="hld-step"><div class="hld-step-num">1</div><h3>Trả lời câu hỏi</h3><p>Đánh giá mức độ yêu thích của bạn với từng hoạt động, chọn theo cảm nhận thật.</p></div>
+<div class="hld-step"><div class="hld-step-num">2</div><h3>Nhận mã Holland</h3><p>Hệ thống phân tích và cho ra mã 3 chữ cái thể hiện 3 nhóm nổi trội nhất.</p></div>
+<div class="hld-step"><div class="hld-step-num">3</div><h3>Khám phá nghề nghiệp</h3><p>Xem gợi ý ngành học, nghề nghiệp và môi trường làm việc phù hợp.</p></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="6. Làm bài test" bg_color="#eef2ff" padding="110px" padding__sm="72px" class="hld hld-test"]
+
+[row width="custom" custom_width="1022px" class="hld-row"]
+
+[col span="12"]
+
+[ux_html label="Làm bài – khối chính"]
+<div id="test" class="hld-anchor"></div>
+<div class="hld-head">
+<div class="hld-kicker">Bắt đầu</div>
+<h2 class="hld-h2">Làm bài test Holland</h2>
+<p class="hld-lead">Hãy trả lời thành thật theo cảm nhận của bạn, không có đáp án đúng hay sai.</p>
+</div>
+<div class="hld-test-card">
+<div class="hld-test-intro">
+<div class="hld-test-ico">🧭</div>
+<h3>Sẵn sàng khám phá bản thân?</h3>
+<p>Với mỗi câu hỏi về một hoạt động, bạn chọn mức độ yêu thích từ <b>Rất không thích</b> đến <b>Rất thích</b>. Kết thúc bài, bạn nhận ngay mã Holland và gợi ý nghề nghiệp.</p>
+<div class="hld-chips"><div>⏱ Làm nhanh</div><div>📝 Trực tuyến</div><div>🎁 Miễn phí</div></div>
+<a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="hld-btn hld-btn-grad">Bắt đầu ngay <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+<div class="hld-sample">
+<div class="hld-sample-label">Kết quả bạn sẽ nhận (ví dụ)</div>
+<div class="hld-code"><div style="background:#3b82f6;box-shadow:0 16px 30px -10px #3b82f6">I</div><div style="background:#a855f7;box-shadow:0 16px 30px -10px #a855f7">A</div><div style="background:#f59e0b;box-shadow:0 16px 30px -10px #f59e0b">S</div></div>
+<div class="hld-sample-title">IAS – Nghiên cứu · Nghệ thuật · Xã hội</div>
+<div class="hld-bars">
+<div><div class="hld-bar-top"><div class="hld-bar-name"><div class="hld-bar-k" style="background:#3b82f6">I</div>Nghiên cứu</div><div style="color:#3b82f6">88%</div></div><div class="hld-bar"><div style="width:88%;background:#3b82f6"></div></div></div>
+<div><div class="hld-bar-top"><div class="hld-bar-name"><div class="hld-bar-k" style="background:#a855f7">A</div>Nghệ thuật</div><div style="color:#a855f7">80%</div></div><div class="hld-bar"><div style="width:80%;background:#a855f7"></div></div></div>
+<div><div class="hld-bar-top"><div class="hld-bar-name"><div class="hld-bar-k" style="background:#f59e0b">S</div>Xã hội</div><div style="color:#f59e0b">72%</div></div><div class="hld-bar"><div style="width:72%;background:#f59e0b"></div></div></div>
+<div><div class="hld-bar-top"><div class="hld-bar-name"><div class="hld-bar-k" style="background:#10b981">E</div>Quản lý</div><div style="color:#10b981">54%</div></div><div class="hld-bar"><div style="width:54%;background:#10b981"></div></div></div>
+<div><div class="hld-bar-top"><div class="hld-bar-name"><div class="hld-bar-k" style="background:#6366f1">C</div>Nghiệp vụ</div><div style="color:#6366f1">41%</div></div><div class="hld-bar"><div style="width:41%;background:#6366f1"></div></div></div>
+<div><div class="hld-bar-top"><div class="hld-bar-name"><div class="hld-bar-k" style="background:#ef4444">R</div>Kỹ thuật</div><div style="color:#ef4444">35%</div></div><div class="hld-bar"><div style="width:35%;background:#ef4444"></div></div></div>
+</div>
+<div class="hld-sample-note">Minh họa – kết quả thật phụ thuộc câu trả lời của bạn</div>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="7. FAQ" bg_color="#ffffff" padding="110px" padding__sm="72px" class="hld hld-faq-sec"]
+
+[row width="custom" custom_width="798px" class="hld-row"]
+
+[col span="12"]
+
+[ux_html label="FAQ"]
+<div id="faq" class="hld-anchor"></div>
+<div class="hld-head">
+<div class="hld-kicker">FAQ</div>
+<h2 class="hld-h2">Câu hỏi thường gặp</h2>
+</div>
+<div class="hld-faq-list">
+<details class="hld-faq"><summary>Test Holland khác gì test MBTI? <svg class="hld-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary><div class="hld-faq-body">MBTI mô tả cách bạn nhận thức và ra quyết định (tính cách), trong khi Holland tập trung vào <b>sở thích nghề nghiệp</b> và môi trường làm việc phù hợp. Kết hợp cả hai sẽ cho bạn góc nhìn toàn diện hơn. Bạn có thể làm thêm <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/">test MBTI miễn phí</a>.</div></details>
+<details class="hld-faq"><summary>Kết quả test có chính xác không? <svg class="hld-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary><div class="hld-faq-body">Kết quả phản ánh tốt nhất khi bạn trả lời trung thực. Tuy nhiên, đây là công cụ tham khảo — hãy kết hợp với trải nghiệm thực tế, sở trường và điều kiện của bản thân để đưa ra quyết định.</div></details>
+<details class="hld-faq"><summary>Mã 3 chữ cái có ý nghĩa gì? <svg class="hld-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary><div class="hld-faq-body">Mã Holland gồm 3 chữ cái xếp theo thứ tự điểm số từ cao đến thấp. Ví dụ "SAE" có nghĩa nhóm Xã hội nổi trội nhất, tiếp đến là Nghệ thuật và Quản lý. Các nghề phù hợp thường là những nghề có mã tương tự.</div></details>
+<details class="hld-faq"><summary>Tôi có thể làm lại bài test không? <svg class="hld-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary><div class="hld-faq-body">Hoàn toàn có thể. Sở thích có thể thay đổi theo thời gian, vì vậy bạn nên làm lại sau 6–12 tháng để theo dõi sự thay đổi của bản thân.</div></details>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="8. CTA" bg_color="#ffffff" padding="0px" padding__sm="0px" class="hld hld-cta"]
+
+[row width="custom" custom_width="1054px" class="hld-row"]
+
+[col span="12"]
+
+[ux_html label="CTA"]
+<div class="hld-cta-box">
+<h2>Chưa biết chọn ngành gì?<br>Hãy bắt đầu từ chính bạn.</h2>
+<p>Holland và MBTI là hai công cụ phổ biến giúp bạn hiểu sở thích và tính cách của mình. Đến lượt bạn!</p>
+<div class="hld-actions">
+<a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="hld-btn hld-btn-grad">Làm test Holland</a>
+<a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="hld-btn hld-btn-glass">Làm test MBTI</a>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
