@@ -29,300 +29,56 @@ ul{list-style:disc}li{margin-bottom:.6em}ul li{margin-left:1.3em}
 .accordion-item.active .toggle{transform:rotate(180deg)}
 .accordion-inner{display:none;padding:0 0 1em 32px}.accordion-item.active .accordion-inner{display:block}
 .preview-bar{background:#111827;color:#e5e7eb;font-size:13px;padding:8px 16px;text-align:center}
-</style><style>#s0{padding:78px 0}@media(max-width:549px){#s0{padding:49px 0}}#s1{padding:0px 0}@media(max-width:549px){#s1{padding:0px 0}}#s2{padding:112px 0}@media(max-width:549px){#s2{padding:72px 0}}#s3{padding:97px 0}@media(max-width:549px){#s3{padding:72px 0}}#s4{padding:97px 0}@media(max-width:549px){#s4{padding:72px 0}}#s5{padding:104px 0}@media(max-width:549px){#s5{padding:72px 0}}#s6{padding:74px 0}@media(max-width:549px){#s6{padding:59px 0}}#s7{padding:96px 0}@media(max-width:549px){#s7{padding:72px 0}}</style><style>/* ===== La Bàn Nghề Nghiệp – tracnghiemplus.com/trac-nghiem-nghe-nghiep/ ===== */
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
-.lbn{--ink:#172b36;--muted:#64737b;--teal:#116b68;--teal-dark:#0c514f;--mint:#e7f3ed;--orange:#ed854e;--peach:#fff0e5;--paper:#f8f7f3;--line:#e7e9e5;--shadow:0 22px 65px rgba(22,48,51,.09);color:var(--ink);font-family:"Be Vietnam Pro",sans-serif;-webkit-font-smoothing:antialiased}
-.lbn *,.lbn *:before,.lbn *:after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-.lbn-anchor{display:block;position:relative;top:-95px;visibility:hidden;height:0}
-/* Chống WordPress tự chèn <p>/<br> (wpautop) làm vỡ bố cục */
-.lbn br{display:none}.lbn h1 br,.lbn h2 br{display:inline}.lbn p:empty{display:none}
-
-/* Reset nhẹ các style mặc định của Flatsome trong phạm vi trang */
-.lbn h1,.lbn h2,.lbn h3,.lbn h4{font-family:inherit;color:var(--ink);letter-spacing:-.045em;margin-top:0;text-transform:none}
-.lbn h2{font-size:clamp(30px,4vw,49px);line-height:1.22;font-weight:700;margin-bottom:.5em}
-.lbn p{line-height:1.85;margin-top:0}
-.lbn a{color:inherit;text-decoration:none}
-.lbn button{font:inherit;cursor:pointer;margin:0;text-transform:none;letter-spacing:normal;line-height:inherit;min-height:0;max-width:none;text-shadow:none;vertical-align:baseline}
-.lbn ul{margin:0;padding:0}.lbn ul li{margin:0}
-.lbn button:focus-visible,.lbn a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
-.lbn ::selection{background:#c8e9d7}
-.lbn .lbn-row>.col{padding-bottom:0}
-.lbn-muted{color:var(--muted)}
-
-.lbn .lbn-eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.lbn .lbn-eyebrow:before{content:"";width:23px;height:2px;background:currentColor}
-.lbn .lbn-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 23px;border-radius:12px;border:1px solid transparent;font-weight:700;font-size:14px;line-height:1.2;transition:transform .25s,box-shadow .25s,background .25s;white-space:nowrap}
-.lbn .lbn-btn:hover{transform:translateY(-3px)}
-.lbn .lbn-btn-primary{color:#fff;background:var(--teal);box-shadow:0 12px 25px rgba(17,107,104,.16)}
-.lbn .lbn-btn-primary:hover{color:#fff;background:var(--teal-dark);box-shadow:0 16px 30px rgba(17,107,104,.22)}
-.lbn .lbn-btn-outline{border-color:#cbd6d3;color:var(--ink);background:transparent}
-.lbn .lbn-btn-outline:hover{background:#fff}
-.lbn .lbn-arrow{font-size:19px;line-height:1;font-family:sans-serif;font-weight:400}
-
-/* ---------- Hero ---------- */
-.lbn-hero{position:relative;overflow:hidden}
-.lbn-hero:before{content:"";position:absolute;top:-220px;right:-210px;width:740px;height:740px;border:1px solid #e9e6df;border-radius:50%;pointer-events:none}
-.lbn-hero:after{content:"";position:absolute;top:-115px;right:-100px;width:530px;height:530px;border:1px solid #e9e6df;border-radius:50%;pointer-events:none}
-.lbn-hero .section-content{position:relative;z-index:1}
-.lbn .lbn-hero-row>.col{padding-left:21px;padding-right:21px}
-.lbn .lbn-hero-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;background:#e8f1e9;color:var(--teal);border-radius:99px;font-size:11px;font-weight:700;margin-bottom:29px}
-.lbn .lbn-hero-pill span{width:7px;height:7px;border-radius:50%;background:#58ac78;box-shadow:0 0 0 4px rgba(88,172,120,.13)}
-.lbn h1{max-width:640px;font-size:clamp(43px,5.3vw,72px);line-height:1.15;margin-bottom:23px;font-weight:800}
-.lbn .lbn-highlight{color:var(--teal);position:relative;white-space:nowrap}
-.lbn .lbn-highlight:after{content:"";position:absolute;height:11px;border-radius:50%;border-top:3px solid var(--orange);bottom:-10px;left:6%;width:90%;transform:rotate(-2deg)}
-.lbn .lbn-hero-lead{color:var(--muted);max-width:535px;font-size:15px;margin-bottom:32px}
-.lbn .lbn-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.lbn .lbn-hero-note{display:flex;align-items:center;gap:11px;color:#66777c;font-size:12px;margin-top:32px}
-.lbn .lbn-hero-note svg{color:var(--teal);flex:none}
-.lbn .lbn-hero-art{position:relative;height:505px;display:grid;place-items:center}
-.lbn .lbn-art-blob{position:absolute;width:435px;height:435px;max-width:95%;background:#e9efe7;border-radius:46% 54% 59% 41%/51% 41% 59% 49%;transform:rotate(-18deg)}
-.lbn .lbn-orbit{position:absolute;width:365px;height:365px;border:1px dashed #a5c0b7;border-radius:50%;transform:rotate(23deg)}
-.lbn .lbn-orbit:after{content:"";position:absolute;width:9px;height:9px;background:var(--orange);border-radius:50%;top:54px;right:48px}
-.lbn .lbn-main-card{width:305px;height:335px;position:relative;z-index:2;background:#fff;border-radius:26px;box-shadow:0 28px 65px rgba(17,67,66,.15);transform:rotate(-5deg);padding:24px}
-.lbn .lbn-card-top{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;color:#69817d}
-.lbn .lbn-dots{display:flex;gap:4px}
-.lbn .lbn-dots i{display:block;width:5px;height:5px;background:#b9c8c3;border-radius:50%}
-.lbn .lbn-compass{display:grid;place-items:center;margin:15px auto 11px;height:164px}
-.lbn .lbn-compass svg{width:175px;height:175px;filter:drop-shadow(0 10px 14px rgba(17,107,104,.12))}
-.lbn .lbn-main-card h3{font-size:17px;line-height:1.3;margin:0 0 6px}
-.lbn .lbn-main-card p{font-size:10px;color:var(--muted);line-height:1.6;margin-bottom:14px}
-.lbn .lbn-card-progress{height:5px;border-radius:9px;background:#e9efec}
-.lbn .lbn-card-progress span{display:block;width:68%;height:100%;background:var(--teal);border-radius:inherit}
-.lbn .lbn-float{position:absolute;z-index:3;background:#fff;border:1px solid rgba(24,63,60,.04);box-shadow:0 16px 38px rgba(30,66,60,.12);border-radius:17px}
-.lbn .lbn-float-holland{top:53px;left:4px;padding:15px 18px;transform:rotate(7deg)}
-.lbn .lbn-float-mbti{bottom:42px;right:-2px;padding:16px 18px;transform:rotate(6deg)}
-.lbn .lbn-mini-label{font-size:10px;font-weight:700;color:#748786;margin-bottom:10px}
-.lbn .lbn-type-dots{display:flex;gap:5px}
-.lbn .lbn-type-dots b{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;color:#fff;font-size:11px}
-.lbn .lbn-mbti-code{font-size:22px;font-weight:700;line-height:1.2;color:var(--teal);letter-spacing:.02em}
-.lbn .lbn-float-mbti .lbn-mini-label{margin:5px 0 0}
-.lbn .lbn-spark{position:absolute;color:var(--orange);font-size:28px;font-weight:400;z-index:4}
-.lbn .lbn-spark.one{right:48px;top:34px}
-.lbn .lbn-spark.two{left:70px;bottom:55px;font-size:21px}
-
-/* ---------- Dải giới thiệu ---------- */
-.lbn-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.lbn .lbn-strip-inner{display:grid;grid-template-columns:1.25fr repeat(3,1fr);align-items:center;min-height:104px}
-.lbn .lbn-strip-title{font-size:14px;font-weight:800;max-width:190px;line-height:1.55}
-.lbn .lbn-strip-item{display:flex;align-items:center;gap:11px;padding-left:28px;border-left:1px solid var(--line);font-size:12px;line-height:1.5;font-weight:600;color:#46595e}
-.lbn .lbn-strip-icon{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:10px;color:var(--teal);background:var(--mint);font-size:16px}
-
-/* ---------- Hai phương pháp ---------- */
-.lbn .lbn-heading{max-width:690px;margin:0 auto 47px;text-align:center}
-.lbn .lbn-heading .lbn-eyebrow{margin-bottom:15px}
-.lbn .lbn-heading p{color:var(--muted);font-size:14px;margin:0}
-.lbn .lbn-method-row>.col{padding-left:11px;padding-right:11px}
-.lbn .lbn-method-row>.col>.col-inner{height:100%}
-.lbn .lbn-method-card{height:100%;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:25px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
-.lbn .lbn-method-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.lbn .lbn-method-visual{height:228px;position:relative;display:grid;place-items:center;overflow:hidden}
-.lbn .lbn-holland-visual{background:#e5f1e9}
-.lbn .lbn-mbti-visual{background:#fff0e6}
-.lbn .lbn-method-visual:before,.lbn .lbn-method-visual:after{content:"";position:absolute;border:1px solid rgba(17,107,104,.13);border-radius:50%;width:315px;height:315px}
-.lbn .lbn-method-visual:before{left:-125px;top:-183px}
-.lbn .lbn-method-visual:after{right:-100px;bottom:-245px}
-.lbn .lbn-riasec-wheel{width:175px;height:175px;border-radius:50%;background:conic-gradient(#55917b 0 60deg,#87ad85 60deg 120deg,#e3a071 120deg 180deg,#d88368 180deg 240deg,#7b9da4 240deg 300deg,#3a7979 300deg 360deg);padding:22px;transform:rotate(-20deg);box-shadow:0 15px 28px rgba(22,78,64,.17)}
-.lbn .lbn-wheel-middle{width:100%;height:100%;border-radius:50%;background:#e5f1e9;display:grid;place-items:center;color:var(--teal);font-size:34px;font-weight:800;transform:rotate(20deg)}
-.lbn .lbn-wheel-label{position:absolute;z-index:2;background:#fff;border-radius:9px;box-shadow:0 7px 18px rgba(25,70,65,.1);padding:8px 12px;font-size:10px;font-weight:800;color:var(--teal)}
-.lbn .lbn-wheel-label.a{top:39px;left:16%;transform:rotate(-7deg)}
-.lbn .lbn-wheel-label.b{right:13%;bottom:42px;transform:rotate(6deg)}
-.lbn .lbn-mbti-tiles{display:grid;grid-template-columns:repeat(4,48px);gap:9px;transform:rotate(-8deg);filter:drop-shadow(0 12px 18px rgba(146,87,50,.12))}
-.lbn .lbn-mbti-tiles span{height:58px;background:#fff;border-radius:11px;display:grid;place-items:center;color:#bb7254;font-size:24px;font-weight:800}
-.lbn .lbn-mbti-tiles span:nth-child(2),.lbn .lbn-mbti-tiles span:nth-child(4){transform:translateY(13px);background:#ed854e;color:#fff}
-.lbn .lbn-method-body{padding:30px 32px 32px;flex:1;display:flex;flex-direction:column}
-.lbn .lbn-method-kicker{font-size:10px;letter-spacing:.12em;font-weight:800;text-transform:uppercase;color:var(--teal);margin-bottom:9px}
-.lbn .lbn-method-body h3{font-size:26px;margin-bottom:11px}
-.lbn .lbn-method-body>p{font-size:13px;color:var(--muted);margin-bottom:20px}
-.lbn .lbn-method-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.lbn .lbn-method-meta span{padding:8px 10px;background:#f3f6f3;border-radius:7px;font-size:10px;color:#4f6865;font-weight:700}
-.lbn .lbn-links{display:flex;gap:22px;flex-wrap:wrap;margin-top:auto}
-.lbn .lbn-text-link{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-weight:800;font-size:13px;width:fit-content;transition:gap .2s}
-.lbn .lbn-text-link:hover{gap:13px;color:var(--teal)}
-.lbn .lbn-text-link.is-soft{color:#64737b}
-.lbn .is-mbti .lbn-method-kicker,.lbn .is-mbti .lbn-text-link:not(.is-soft){color:#bf6c42}
-.lbn .is-mbti .lbn-method-meta span{background:#fff5ed;color:#9c6c50}
-
-/* ---------- Chi tiết Holland & MBTI ---------- */
-.lbn .lbn-detail-row>.col{padding-left:41px;padding-right:41px}
-.lbn .lbn-detail-copy .lbn-eyebrow{margin-bottom:18px}
-.lbn .lbn-detail-copy h2{margin-bottom:20px}
-.lbn .lbn-detail-copy>p{font-size:14px;color:var(--muted);margin-bottom:23px}
-.lbn .lbn-points{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:13px}
-.lbn .lbn-points li{display:flex;gap:11px;font-size:12px;line-height:1.7;font-weight:600;margin:0}
-.lbn .lbn-check{width:21px;height:21px;display:grid;place-items:center;border-radius:50%;flex:none;color:var(--teal);background:#d5e9dc;font-size:12px}
-.lbn .is-mbti .lbn-check{color:#be704b;background:#ffecdf}
-.lbn .lbn-detail-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.lbn .lbn-holland-board{background:#fff;padding:29px;border-radius:23px;box-shadow:0 18px 45px rgba(21,78,62,.07)}
-.lbn .lbn-board-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:19px}
-.lbn .lbn-board-head strong{font-size:14px}
-.lbn .lbn-board-head span{font-size:10px;font-weight:700;color:var(--teal);background:var(--mint);border-radius:99px;padding:7px 10px}
-.lbn .lbn-types{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.lbn .lbn-tile{min-height:110px;border-radius:12px;padding:15px 11px}
-.lbn .lbn-tile b{display:block;font-size:23px;line-height:1;margin-bottom:9px}
-.lbn .lbn-tile strong{display:block;font-size:11px;margin-bottom:3px}
-.lbn .lbn-tile small{font-size:9px;color:#64737b;line-height:1.4}
-.lbn .tile-r{background:#e9f2ec;color:#34765c}.lbn .tile-i{background:#eaf1f5;color:#477b91}.lbn .tile-a{background:#fceee9;color:#cf775e}
-.lbn .tile-s{background:#f5ecf3;color:#9c6b96}.lbn .tile-e{background:#fff1e3;color:#c98643}.lbn .tile-c{background:#edf0fa;color:#6d7cad}
-.lbn .lbn-board-foot{display:flex;gap:9px;align-items:flex-start;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:10px;line-height:1.6}
-.lbn .lbn-board-foot span{color:var(--orange);font-size:16px}
-.lbn .lbn-dim-board{background:#fbf8f5;border:1px solid #f1e9e2;border-radius:23px;padding:31px;box-shadow:0 18px 45px rgba(113,76,46,.05)}
-.lbn .lbn-dim-board h3{font-size:18px;margin-bottom:7px}
-.lbn .lbn-dim-board>p{color:var(--muted);font-size:11px;margin-bottom:22px}
-.lbn .lbn-dim-row{display:grid;grid-template-columns:1fr 46px 1fr;align-items:center;gap:7px;margin-top:10px}
-.lbn .lbn-dim-side{background:#fff;border:1px solid #f0e9e3;border-radius:10px;padding:10px 11px;display:flex;align-items:center;gap:8px;min-height:46px;font-size:10px;font-weight:600;color:#53636a}
-.lbn .lbn-dim-side b{font-size:16px;color:#c57650}
-.lbn .lbn-dim-arrow{text-align:center;font-size:10px;color:#a8a9a5}
-.lbn .lbn-bottom-tag{display:inline-block;margin-top:21px;font-size:10px;color:#9f6c51;background:#ffede1;border-radius:7px;padding:8px 10px;font-weight:700}
-
-/* ---------- Khám phá nhanh ---------- */
-.lbn .lbn-explore-row>.col{padding-left:22px;padding-right:22px}
-.lbn .lbn-explore-intro{position:sticky;top:110px}
-.lbn .lbn-explore-intro .lbn-eyebrow{margin-bottom:17px}
-.lbn .lbn-explore-intro h2{margin-bottom:18px}
-.lbn .lbn-explore-intro p{color:var(--muted);font-size:13px}
-.lbn .lbn-disclaimer{display:flex;gap:10px;border-top:1px solid var(--line);padding-top:20px;margin-top:27px;font-size:11px;line-height:1.7;color:#788387}
-.lbn .lbn-disclaimer svg{flex:none;margin-top:2px}
-.lbn .lbn-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 14px 36px rgba(27,53,54,.04)}
-.lbn .lbn-tabs{display:flex;gap:6px;background:#f3f5f2;border-radius:11px;padding:5px;margin-bottom:27px}
-.lbn .lbn-tabs button{border:0;background:transparent;border-radius:8px;padding:11px 15px;flex:1;color:#67777b;font-size:12px;font-weight:700}
-.lbn .lbn-tabs button.active{background:#fff;color:var(--teal);box-shadow:0 3px 12px rgba(20,53,49,.08)}
-.lbn .lbn-tab-panel[hidden]{display:none}
-.lbn .lbn-tab-panel h3{font-size:18px;margin-bottom:5px}
-.lbn .lbn-tab-panel>p{font-size:11px;color:var(--muted);margin-bottom:18px}
-.lbn .lbn-interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.lbn .lbn-interest{text-align:left;border:1px solid var(--line);background:#fff;border-radius:11px;min-height:92px;padding:12px;color:var(--ink);font-weight:400;transition:border .2s,background .2s,transform .2s}
-.lbn .lbn-interest:hover{transform:translateY(-2px);border-color:#a7c6b6}
-.lbn .lbn-interest.selected{background:#eaf4ed;border-color:#68a684}
-.lbn .lbn-interest strong{display:block;font-size:11px;margin-bottom:5px}
-.lbn .lbn-interest small{display:block;font-size:9px;line-height:1.55;color:var(--muted)}
-.lbn .lbn-interest .lbn-letter{display:inline-grid;place-items:center;width:24px;height:24px;background:var(--mint);border-radius:6px;color:var(--teal);font-size:11px;font-weight:800;margin-bottom:7px}
-.lbn .lbn-result{min-height:61px;display:block;padding:13px 15px;margin-top:17px;background:#f4f8f5;border-radius:10px;color:#4e6963;font-size:11px;line-height:1.65}
-.lbn .lbn-result b{color:var(--teal)}
-.lbn .lbn-result a{color:var(--teal);font-weight:800;text-decoration:underline}
-.lbn .lbn-q{margin-bottom:15px}
-.lbn .lbn-q>strong{display:block;font-size:11px;margin-bottom:8px}
-.lbn .lbn-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.lbn .lbn-pair button{text-align:left;border:1px solid var(--line);border-radius:9px;background:#fff;padding:11px;font-size:10px;font-weight:600;color:#647078;line-height:1.55}
-.lbn .lbn-pair button b{color:#b86d49;font-size:13px;margin-right:5px}
-.lbn .lbn-pair button.selected{background:#fff1e7;border-color:#e8a77f;color:#7d5039}
-.lbn .lbn-result.is-mbti{background:#fff5ef;color:#895c42}
-.lbn .lbn-result.is-mbti b,.lbn .lbn-result.is-mbti a{color:#ba6844}
-.lbn .lbn-panel-cta{margin-top:16px;text-align:right;font-size:12px}
-
-/* ---------- Câu trích dẫn / CTA ---------- */
-.lbn-quote{position:relative;overflow:hidden}
-.lbn-quote:before{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(255,255,255,.12);border-radius:50%;top:-280px;right:8%;box-shadow:0 0 0 75px rgba(255,255,255,.025),0 0 0 150px rgba(255,255,255,.02)}
-.lbn .lbn-quote-layout{position:relative;display:flex;justify-content:space-between;align-items:center;gap:30px}
-.lbn .lbn-quote-layout h2{font-size:clamp(26px,3vw,39px);max-width:610px;margin:0;color:#fff}
-.lbn .lbn-quote-layout h2 span{color:#f3aa78}
-.lbn .lbn-quote-layout p{color:#c1d5d0;font-size:12px;margin:13px 0 0}
-.lbn .lbn-quote-actions{display:flex;gap:12px;flex-wrap:wrap}
-.lbn .lbn-btn-light{background:#fff;color:var(--teal)}
-.lbn .lbn-btn-light:hover{background:#eef7ef;color:var(--teal)}
-.lbn .lbn-btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
-.lbn .lbn-btn-ghost:hover{background:rgba(255,255,255,.08);color:#fff}
-
-/* ---------- FAQ ---------- */
-.lbn .lbn-faq-row>.col{padding-left:40px;padding-right:40px}
-.lbn .lbn-faq-intro h2{margin:16px 0 10px}
-.lbn .lbn-faq-intro .lbn-muted{font-size:13px}
-.lbn .lbn-faq-list{border-top:1px solid var(--line)}
-.lbn .lbn-faq-item{border-bottom:1px solid var(--line)}
-.lbn .lbn-faq-item button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:20px;border:0;background:none;text-align:left;padding:21px 0;font-size:13px;font-weight:700;color:var(--ink)}
-.lbn .lbn-faq-item button span:last-child{display:grid;place-items:center;border-radius:50%;flex:none;width:24px;height:24px;background:#e8eeea;color:var(--teal);font-size:18px;font-weight:400;transition:transform .2s}
-.lbn .lbn-faq-item.open button span:last-child{transform:rotate(45deg)}
-.lbn .lbn-faq-answer{display:none;color:var(--muted);font-size:12px;padding:0 33px 20px 0;line-height:1.85}
-.lbn .lbn-faq-answer a{color:var(--teal);font-weight:700;text-decoration:underline}
-.lbn .lbn-faq-item.open .lbn-faq-answer{display:block}
-
-/* ---------- Responsive ---------- */
-@media (max-width:980px){
-  .lbn .lbn-hero-art{transform:scale(.88);transform-origin:center}
-  .lbn .lbn-detail-row>.col{padding-left:18px;padding-right:18px}
-  .lbn .lbn-method-body{padding:25px}
-}
-@media (max-width:849px){
-  .lbn .lbn-row>.col{padding-bottom:28px}
-  .lbn .lbn-row>.col:last-child{padding-bottom:0}
-  .lbn .lbn-hero-art{height:375px;transform:scale(.77);margin:-15px -40px -42px}
-  .lbn .lbn-float-holland{left:0}.lbn .lbn-float-mbti{right:0}
-  .lbn .lbn-strip-inner{grid-template-columns:1fr 1fr;padding:18px 0}
-  .lbn .lbn-strip-title{grid-column:1/-1;max-width:none;margin-bottom:15px}
-  .lbn .lbn-strip-item{padding:12px 10px 12px 0;border:0;font-size:10px}
-  .lbn .lbn-heading{margin-bottom:30px}
-  .lbn .lbn-detail-row>.col,.lbn .lbn-faq-row>.col,.lbn .lbn-explore-row>.col{padding-left:15px;padding-right:15px}
-  .lbn .lbn-explore-intro{position:static}
-  .lbn .lbn-quote-layout{align-items:flex-start;flex-direction:column}
-  .lbn .lbn-mbti-board-col{order:2}
-}
-@media (max-width:549px){
-  .lbn h1{font-size:clamp(39px,9.4vw,58px)}
-  .lbn .lbn-hero-lead{font-size:13px}
-}
-@media (max-width:390px){
-  .lbn .lbn-hero-actions .lbn-btn{width:100%}
-  .lbn .lbn-hero-art{transform:scale(.67);margin:-35px -55px -55px}
-  .lbn .lbn-interest-grid{grid-template-columns:repeat(2,1fr)}
-  .lbn .lbn-panel{padding:18px}
-  .lbn .lbn-dim-board,.lbn .lbn-holland-board{padding:20px}
-  .lbn .lbn-dim-side{padding:8px;font-size:9px}
-  .lbn .lbn-tile{padding:10px 8px}
-}
-@media (prefers-reduced-motion:reduce){
-  .lbn *,.lbn *:before,.lbn *:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-}
-</style></head><body>
+</style><style>#s0{padding:30px 0}@media(max-width:549px){#s0{padding:49px 0}}#s1{padding:0px 0}@media(max-width:549px){#s1{padding:0px 0}}#s2{padding:112px 0}@media(max-width:549px){#s2{padding:72px 0}}#s3{padding:97px 0}@media(max-width:549px){#s3{padding:72px 0}}#s4{padding:97px 0}@media(max-width:549px){#s4{padding:72px 0}}#s5{padding:104px 0}@media(max-width:549px){#s5{padding:72px 0}}#s6{padding:100px 0}@media(max-width:549px){#s6{padding:72px 0}}#s7{padding:74px 0}@media(max-width:549px){#s7{padding:59px 0}}#s8{padding:96px 0}@media(max-width:549px){#s8{padding:72px 0}}</style><style></style></head><body>
 <div class="preview-bar">Bản xem trước mô phỏng giao diện Flatsome (màu nút primary/secondary lấy theo mặc định Flatsome, trên site sẽ theo màu bạn cài đặt)</div>
-<main><section id="s0" class="section lbn lbn-hero" style="background-color:#f8f7f3"><div class="section-content">
+<main>
+<style id="lbn-css">@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');.lbn{--ink:#172b36;--muted:#64737b;--teal:#116b68;--teal-dark:#0c514f;--mint:#e7f3ed;--orange:#ed854e;--peach:#fff0e5;--paper:#f8f7f3;--line:#e7e9e5;--shadow:0 22px 65px rgba(22,48,51,.09);color:var(--ink);font-family:"Be Vietnam Pro",sans-serif;-webkit-font-smoothing:antialiased}.lbn *,.lbn *:before,.lbn *:after{box-sizing:border-box}html{scroll-behavior:smooth}.lbn-anchor{display:block;position:relative;top:-95px;visibility:hidden;height:0}.lbn br{display:none}.lbn h1 br,.lbn h2 br{display:inline}.lbn p:empty{display:none}.lbn h1,.lbn h2,.lbn h3,.lbn h4{font-family:inherit;color:var(--ink);letter-spacing:-.045em;margin-top:0;text-transform:none}.lbn h2{font-size:clamp(30px,4vw,49px);line-height:1.22;font-weight:700;margin-bottom:.5em}.lbn p{line-height:1.85;margin-top:0}.lbn a{color:inherit;text-decoration:none}.lbn button{font:inherit;cursor:pointer;margin:0;text-transform:none;letter-spacing:normal;line-height:inherit;min-height:0;max-width:none;text-shadow:none;vertical-align:baseline}.lbn ul{margin:0;padding:0}.lbn ul li{margin:0}.lbn button:focus-visible,.lbn a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}.lbn ::selection{background:#c8e9d7}.lbn .lbn-row>.col{padding-bottom:0}.lbn-muted{color:var(--muted)}.lbn .lbn-eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.lbn .lbn-eyebrow:before{content:"";width:23px;height:2px;background:currentColor}.lbn .lbn-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 23px;border-radius:12px;border:1px solid transparent;font-weight:700;font-size:14px;line-height:1.2;transition:transform .25s,box-shadow .25s,background .25s;white-space:nowrap}.lbn .lbn-btn:hover{transform:translateY(-3px)}.lbn .lbn-btn-primary{color:#fff;background:var(--teal);box-shadow:0 12px 25px rgba(17,107,104,.16)}.lbn .lbn-btn-primary:hover{color:#fff;background:var(--teal-dark);box-shadow:0 16px 30px rgba(17,107,104,.22)}.lbn .lbn-btn-outline{border-color:#cbd6d3;color:var(--ink);background:transparent}.lbn .lbn-btn-outline:hover{background:#fff}.lbn .lbn-arrow{font-size:19px;line-height:1;font-family:sans-serif;font-weight:400}.lbn-hero{position:relative;overflow:hidden}.lbn-hero:before{content:"";position:absolute;top:-220px;right:-210px;width:740px;height:740px;border:1px solid #e9e6df;border-radius:50%;pointer-events:none}.lbn-hero:after{content:"";position:absolute;top:-115px;right:-100px;width:530px;height:530px;border:1px solid #e9e6df;border-radius:50%;pointer-events:none}.lbn-hero .section-content{position:relative;z-index:1}.lbn .lbn-hero-row>.col{padding-left:21px;padding-right:21px}.lbn .lbn-hero-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;background:#e8f1e9;color:var(--teal);border-radius:99px;font-size:11px;font-weight:700;margin-bottom:29px}.lbn .lbn-hero-pill span{width:7px;height:7px;border-radius:50%;background:#58ac78;box-shadow:0 0 0 4px rgba(88,172,120,.13)}.lbn h1{max-width:640px;font-size:clamp(43px,5.3vw,72px);line-height:1.15;margin-bottom:23px;font-weight:800}.lbn .lbn-highlight{color:var(--teal);position:relative;white-space:nowrap}.lbn .lbn-highlight:after{content:"";position:absolute;height:11px;border-radius:50%;border-top:3px solid var(--orange);bottom:-10px;left:6%;width:90%;transform:rotate(-2deg)}.lbn .lbn-hero-lead{color:var(--muted);max-width:535px;font-size:15px;margin-bottom:32px}.lbn .lbn-hero-actions{display:flex;gap:12px;flex-wrap:wrap}.lbn .lbn-hero-note{display:flex;align-items:center;gap:11px;color:#66777c;font-size:12px;margin-top:32px}.lbn .lbn-hero-note svg{color:var(--teal);flex:none}.lbn .lbn-hero-art{position:relative;height:505px;display:grid;place-items:center}.lbn .lbn-art-blob{position:absolute;width:435px;height:435px;max-width:95%;background:#e9efe7;border-radius:46% 54% 59% 41%/51% 41% 59% 49%;transform:rotate(-18deg)}.lbn .lbn-orbit{position:absolute;width:365px;height:365px;border:1px dashed #a5c0b7;border-radius:50%;transform:rotate(23deg)}.lbn .lbn-orbit:after{content:"";position:absolute;width:9px;height:9px;background:var(--orange);border-radius:50%;top:54px;right:48px}.lbn .lbn-main-card{width:305px;height:335px;position:relative;z-index:2;background:#fff;border-radius:26px;box-shadow:0 28px 65px rgba(17,67,66,.15);transform:rotate(-5deg);padding:24px}.lbn .lbn-card-top{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;color:#69817d}.lbn .lbn-dots{display:flex;gap:4px}.lbn .lbn-dots i{display:block;width:5px;height:5px;background:#b9c8c3;border-radius:50%}.lbn .lbn-compass{display:grid;place-items:center;margin:15px auto 11px;height:164px}.lbn .lbn-compass svg{width:175px;height:175px;filter:drop-shadow(0 10px 14px rgba(17,107,104,.12))}.lbn .lbn-main-card h3{font-size:17px;line-height:1.3;margin:0 0 6px}.lbn .lbn-main-card p{font-size:10px;color:var(--muted);line-height:1.6;margin-bottom:14px}.lbn .lbn-card-progress{height:5px;border-radius:9px;background:#e9efec}.lbn .lbn-card-progress span{display:block;width:68%;height:100%;background:var(--teal);border-radius:inherit}.lbn .lbn-float{position:absolute;z-index:3;background:#fff;border:1px solid rgba(24,63,60,.04);box-shadow:0 16px 38px rgba(30,66,60,.12);border-radius:17px}.lbn .lbn-float-holland{top:53px;left:4px;padding:15px 18px;transform:rotate(7deg)}.lbn .lbn-float-mbti{bottom:42px;right:-2px;padding:16px 18px;transform:rotate(6deg)}.lbn .lbn-mini-label{font-size:10px;font-weight:700;color:#748786;margin-bottom:10px}.lbn .lbn-type-dots{display:flex;gap:5px}.lbn .lbn-type-dots b{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;color:#fff;font-size:11px}.lbn .lbn-mbti-code{font-size:22px;font-weight:700;line-height:1.2;color:var(--teal);letter-spacing:.02em}.lbn .lbn-float-mbti .lbn-mini-label{margin:5px 0 0}.lbn .lbn-spark{position:absolute;color:var(--orange);font-size:28px;font-weight:400;z-index:4}.lbn .lbn-spark.one{right:48px;top:34px}.lbn .lbn-spark.two{left:70px;bottom:55px;font-size:21px}.lbn-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.lbn .lbn-strip-inner{display:grid;grid-template-columns:1.25fr repeat(3,1fr);align-items:center;min-height:104px}.lbn .lbn-strip-title{font-size:14px;font-weight:800;max-width:190px;line-height:1.55}.lbn .lbn-strip-item{display:flex;align-items:center;gap:11px;padding-left:28px;border-left:1px solid var(--line);font-size:12px;line-height:1.5;font-weight:600;color:#46595e}.lbn .lbn-strip-icon{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:10px;color:var(--teal);background:var(--mint);font-size:16px}.lbn .lbn-heading{max-width:690px;margin:0 auto 47px;text-align:center}.lbn .lbn-heading .lbn-eyebrow{margin-bottom:15px}.lbn .lbn-heading p{color:var(--muted);font-size:14px;margin:0}.lbn .lbn-method-row>.col{padding-left:11px;padding-right:11px}.lbn .lbn-method-row>.col>.col-inner{height:100%}.lbn .lbn-method-card{height:100%;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:25px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}.lbn .lbn-method-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}.lbn .lbn-method-visual{height:228px;position:relative;display:grid;place-items:center;overflow:hidden}.lbn .lbn-holland-visual{background:#e5f1e9}.lbn .lbn-mbti-visual{background:#fff0e6}.lbn .lbn-method-visual:before,.lbn .lbn-method-visual:after{content:"";position:absolute;border:1px solid rgba(17,107,104,.13);border-radius:50%;width:315px;height:315px}.lbn .lbn-method-visual:before{left:-125px;top:-183px}.lbn .lbn-method-visual:after{right:-100px;bottom:-245px}.lbn .lbn-riasec-wheel{width:175px;height:175px;border-radius:50%;background:conic-gradient(#55917b 0 60deg,#87ad85 60deg 120deg,#e3a071 120deg 180deg,#d88368 180deg 240deg,#7b9da4 240deg 300deg,#3a7979 300deg 360deg);padding:22px;transform:rotate(-20deg);box-shadow:0 15px 28px rgba(22,78,64,.17)}.lbn .lbn-wheel-middle{width:100%;height:100%;border-radius:50%;background:#e5f1e9;display:grid;place-items:center;color:var(--teal);font-size:34px;font-weight:800;transform:rotate(20deg)}.lbn .lbn-wheel-label{position:absolute;z-index:2;background:#fff;border-radius:9px;box-shadow:0 7px 18px rgba(25,70,65,.1);padding:8px 12px;font-size:10px;font-weight:800;color:var(--teal)}.lbn .lbn-wheel-label.a{top:39px;left:16%;transform:rotate(-7deg)}.lbn .lbn-wheel-label.b{right:13%;bottom:42px;transform:rotate(6deg)}.lbn .lbn-mbti-tiles{display:grid;grid-template-columns:repeat(4,48px);gap:9px;transform:rotate(-8deg);filter:drop-shadow(0 12px 18px rgba(146,87,50,.12))}.lbn .lbn-mbti-tiles span{height:58px;background:#fff;border-radius:11px;display:grid;place-items:center;color:#bb7254;font-size:24px;font-weight:800}.lbn .lbn-mbti-tiles span:nth-child(2),.lbn .lbn-mbti-tiles span:nth-child(4){transform:translateY(13px);background:#ed854e;color:#fff}.lbn .lbn-method-body{padding:30px 32px 32px;flex:1;display:flex;flex-direction:column}.lbn .lbn-method-kicker{font-size:10px;letter-spacing:.12em;font-weight:800;text-transform:uppercase;color:var(--teal);margin-bottom:9px}.lbn .lbn-method-body h3{font-size:26px;margin-bottom:11px}.lbn .lbn-method-body>p{font-size:13px;color:var(--muted);margin-bottom:20px}.lbn .lbn-method-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}.lbn .lbn-method-meta span{padding:8px 10px;background:#f3f6f3;border-radius:7px;font-size:10px;color:#4f6865;font-weight:700}.lbn .lbn-links{display:flex;gap:22px;flex-wrap:wrap;margin-top:auto}.lbn .lbn-text-link{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-weight:800;font-size:13px;width:fit-content;transition:gap .2s}.lbn .lbn-text-link:hover{gap:13px;color:var(--teal)}.lbn .lbn-text-link.is-soft{color:#64737b}.lbn .is-mbti .lbn-method-kicker,.lbn .is-mbti .lbn-text-link:not(.is-soft){color:#bf6c42}.lbn .is-mbti .lbn-method-meta span{background:#fff5ed;color:#9c6c50}.lbn .lbn-detail-row>.col{padding-left:41px;padding-right:41px}.lbn .lbn-detail-copy .lbn-eyebrow{margin-bottom:18px}.lbn .lbn-detail-copy h2{margin-bottom:20px}.lbn .lbn-detail-copy>p{font-size:14px;color:var(--muted);margin-bottom:23px}.lbn .lbn-points{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:13px}.lbn .lbn-points li{display:flex;gap:11px;font-size:12px;line-height:1.7;font-weight:600;margin:0}.lbn .lbn-check{width:21px;height:21px;display:grid;place-items:center;border-radius:50%;flex:none;color:var(--teal);background:#d5e9dc;font-size:12px}.lbn .is-mbti .lbn-check{color:#be704b;background:#ffecdf}.lbn .lbn-detail-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.lbn .lbn-holland-board{background:#fff;padding:29px;border-radius:23px;box-shadow:0 18px 45px rgba(21,78,62,.07)}.lbn .lbn-board-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:19px}.lbn .lbn-board-head strong{font-size:14px}.lbn .lbn-board-head span{font-size:10px;font-weight:700;color:var(--teal);background:var(--mint);border-radius:99px;padding:7px 10px}.lbn .lbn-types{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.lbn .lbn-tile{min-height:110px;border-radius:12px;padding:15px 11px}.lbn .lbn-tile b{display:block;font-size:23px;line-height:1;margin-bottom:9px}.lbn .lbn-tile strong{display:block;font-size:11px;margin-bottom:3px}.lbn .lbn-tile small{font-size:9px;color:#64737b;line-height:1.4}.lbn .tile-r{background:#e9f2ec;color:#34765c}.lbn .tile-i{background:#eaf1f5;color:#477b91}.lbn .tile-a{background:#fceee9;color:#cf775e}.lbn .tile-s{background:#f5ecf3;color:#9c6b96}.lbn .tile-e{background:#fff1e3;color:#c98643}.lbn .tile-c{background:#edf0fa;color:#6d7cad}.lbn .lbn-board-foot{display:flex;gap:9px;align-items:flex-start;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:10px;line-height:1.6}.lbn .lbn-board-foot span{color:var(--orange);font-size:16px}.lbn .lbn-dim-board{background:#fbf8f5;border:1px solid #f1e9e2;border-radius:23px;padding:31px;box-shadow:0 18px 45px rgba(113,76,46,.05)}.lbn .lbn-dim-board h3{font-size:18px;margin-bottom:7px}.lbn .lbn-dim-board>p{color:var(--muted);font-size:11px;margin-bottom:22px}.lbn .lbn-dim-row{display:grid;grid-template-columns:1fr 46px 1fr;align-items:center;gap:7px;margin-top:10px}.lbn .lbn-dim-side{background:#fff;border:1px solid #f0e9e3;border-radius:10px;padding:10px 11px;display:flex;align-items:center;gap:8px;min-height:46px;font-size:10px;font-weight:600;color:#53636a}.lbn .lbn-dim-side b{font-size:16px;color:#c57650}.lbn .lbn-dim-arrow{text-align:center;font-size:10px;color:#a8a9a5}.lbn .lbn-bottom-tag{display:inline-block;margin-top:21px;font-size:10px;color:#9f6c51;background:#ffede1;border-radius:7px;padding:8px 10px;font-weight:700}.lbn .lbn-explore-row>.col{padding-left:22px;padding-right:22px}.lbn .lbn-explore-intro{position:sticky;top:110px}.lbn .lbn-explore-intro .lbn-eyebrow{margin-bottom:17px}.lbn .lbn-explore-intro h2{margin-bottom:18px}.lbn .lbn-explore-intro p{color:var(--muted);font-size:13px}.lbn .lbn-disclaimer{display:flex;gap:10px;border-top:1px solid var(--line);padding-top:20px;margin-top:27px;font-size:11px;line-height:1.7;color:#788387}.lbn .lbn-disclaimer svg{flex:none;margin-top:2px}.lbn .lbn-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 14px 36px rgba(27,53,54,.04)}.lbn .lbn-tabs{display:flex;gap:6px;background:#f3f5f2;border-radius:11px;padding:5px;margin-bottom:27px}.lbn .lbn-tabs button{border:0;background:transparent;border-radius:8px;padding:11px 15px;flex:1;color:#67777b;font-size:12px;font-weight:700}.lbn .lbn-tabs button.active{background:#fff;color:var(--teal);box-shadow:0 3px 12px rgba(20,53,49,.08)}.lbn .lbn-tab-panel[hidden]{display:none}.lbn .lbn-tab-panel h3{font-size:18px;margin-bottom:5px}.lbn .lbn-tab-panel>p{font-size:11px;color:var(--muted);margin-bottom:18px}.lbn .lbn-interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.lbn .lbn-interest{text-align:left;border:1px solid var(--line);background:#fff;border-radius:11px;min-height:92px;padding:12px;color:var(--ink);font-weight:400;transition:border .2s,background .2s,transform .2s}.lbn .lbn-interest:hover{transform:translateY(-2px);border-color:#a7c6b6}.lbn .lbn-interest.selected{background:#eaf4ed;border-color:#68a684}.lbn .lbn-interest strong{display:block;font-size:11px;margin-bottom:5px}.lbn .lbn-interest small{display:block;font-size:9px;line-height:1.55;color:var(--muted)}.lbn .lbn-interest .lbn-letter{display:inline-grid;place-items:center;width:24px;height:24px;background:var(--mint);border-radius:6px;color:var(--teal);font-size:11px;font-weight:800;margin-bottom:7px}.lbn .lbn-result{min-height:61px;display:block;padding:13px 15px;margin-top:17px;background:#f4f8f5;border-radius:10px;color:#4e6963;font-size:11px;line-height:1.65}.lbn .lbn-result b{color:var(--teal)}.lbn .lbn-result a{color:var(--teal);font-weight:800;text-decoration:underline}.lbn .lbn-q{margin-bottom:15px}.lbn .lbn-q>strong{display:block;font-size:11px;margin-bottom:8px}.lbn .lbn-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}.lbn .lbn-pair button{text-align:left;border:1px solid var(--line);border-radius:9px;background:#fff;padding:11px;font-size:10px;font-weight:600;color:#647078;line-height:1.55}.lbn .lbn-pair button b{color:#b86d49;font-size:13px;margin-right:5px}.lbn .lbn-pair button.selected{background:#fff1e7;border-color:#e8a77f;color:#7d5039}.lbn .lbn-result.is-mbti{background:#fff5ef;color:#895c42}.lbn .lbn-result.is-mbti b,.lbn .lbn-result.is-mbti a{color:#ba6844}.lbn .lbn-panel-cta{margin-top:16px;text-align:right;font-size:12px}.lbn-quote{position:relative;overflow:hidden}.lbn-quote:before{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(255,255,255,.12);border-radius:50%;top:-280px;right:8%;box-shadow:0 0 0 75px rgba(255,255,255,.025),0 0 0 150px rgba(255,255,255,.02)}.lbn .lbn-quote-layout{position:relative;display:flex;justify-content:space-between;align-items:center;gap:30px}.lbn .lbn-quote-layout h2{font-size:clamp(26px,3vw,39px);max-width:610px;margin:0;color:#fff}.lbn .lbn-quote-layout h2 span{color:#f3aa78}.lbn .lbn-quote-layout p{color:#c1d5d0;font-size:12px;margin:13px 0 0}.lbn .lbn-quote-actions{display:flex;gap:12px;flex-wrap:wrap}.lbn .lbn-btn-light{background:#fff;color:var(--teal)}.lbn .lbn-btn-light:hover{background:#eef7ef;color:var(--teal)}.lbn .lbn-btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}.lbn .lbn-btn-ghost:hover{background:rgba(255,255,255,.08);color:#fff}.lbn .lbn-faq-row>.col{padding-left:40px;padding-right:40px}.lbn .lbn-faq-intro h2{margin:16px 0 10px}.lbn .lbn-faq-intro .lbn-muted{font-size:13px}.lbn .lbn-faq-list{border-top:1px solid var(--line)}.lbn .lbn-faq-item{border-bottom:1px solid var(--line)}.lbn .lbn-faq-item button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:20px;border:0;background:none;text-align:left;padding:21px 0;font-size:13px;font-weight:700;color:var(--ink)}.lbn .lbn-faq-item button span:last-child{display:grid;place-items:center;border-radius:50%;flex:none;width:24px;height:24px;background:#e8eeea;color:var(--teal);font-size:18px;font-weight:400;transition:transform .2s}.lbn .lbn-faq-item.open button span:last-child{transform:rotate(45deg)}.lbn .lbn-faq-answer{display:none;color:var(--muted);font-size:12px;padding:0 33px 20px 0;line-height:1.85}.lbn .lbn-faq-answer a{color:var(--teal);font-weight:700;text-decoration:underline}.lbn .lbn-faq-item.open .lbn-faq-answer{display:block}.lbn-hot-sec{background:radial-gradient(circle at 0 0,rgba(17,107,104,.06) 0 180px,transparent 182px),radial-gradient(circle at 100% 0,rgba(237,133,78,.08) 0 220px,transparent 222px),#fff!important}.lbn .lbn-hot-word{color:var(--orange)}.lbn .lbn-hot{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:stretch}.lbn .lbn-hot-side,.lbn .lbn-hot-card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 36px rgba(27,53,54,.05)}.lbn .lbn-hot-side{padding:26px 22px;display:flex;flex-direction:column;background:#fbfaf7}.lbn .lbn-hot-side h3{font-size:19px;margin:0 0 6px}.lbn .lbn-hot-side>p{font-size:12px;color:var(--muted);margin:0 0 18px}.lbn .lbn-job-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}.lbn .lbn-job{position:relative;display:flex;align-items:center;gap:10px;min-height:64px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);text-align:left;font-size:12px;font-weight:700;line-height:1.35;transition:border .2s,background .2s,transform .2s}.lbn .lbn-job:hover{transform:translateY(-2px);border-color:#a7c6b6}.lbn .lbn-job.is-active{background:#eaf4ed;border-color:#68a684;box-shadow:0 8px 18px rgba(17,107,104,.1)}.lbn .lbn-job.is-active:after{content:"✓";position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:11px;display:grid;place-items:center}.lbn .lbn-job-ico{width:36px;min-width:36px;height:36px;border-radius:10px;background:var(--mint);display:grid;place-items:center;font-size:18px}.lbn .lbn-side-note{margin-top:auto;display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:12px;background:#f1f6f2;font-size:11px;line-height:1.6;color:#5d6f72}.lbn .lbn-side-i{width:22px;min-width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center}.lbn .lbn-hot-card{overflow:hidden;display:flex;flex-direction:column}.lbn .lbn-hot-card.is-swap .lbn-hot-body,.lbn .lbn-hot-card.is-swap .lbn-hot-media img{animation:lbnFade .45s ease}@keyframes lbnFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.lbn .lbn-hot-media{position:relative;height:200px;background:#e9efe7;overflow:hidden}.lbn .lbn-hot-imgwrap,.lbn .lbn-hot-media p{height:100%;margin:0}.lbn .lbn-hot-media img{width:100%;height:100%;object-fit:cover;display:block}.lbn .lbn-hot-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(21,62,66,.55))}.lbn .lbn-hot-tag{position:absolute;left:22px;bottom:16px;z-index:1;padding:6px 13px;border-radius:99px;background:var(--peach);color:#bf6c42;font-size:12px;font-weight:800}.lbn .lbn-hot-body{padding:24px 26px 26px}.lbn .lbn-hot-body>h3{font-size:26px;margin:0 0 8px}.lbn .lbn-hot-body>p{font-size:13px;color:var(--muted);margin:0 0 20px}.lbn .lbn-index{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}.lbn .lbn-index-box{border-radius:14px;padding:16px;border:1px solid var(--line)}.lbn .lbn-index-box.is-holland{background:#f3f8f4;border-color:#d7e8dd}.lbn .lbn-index-box.is-mbti{background:#fff7f1;border-color:#f3e1d4}.lbn .lbn-index-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px}.lbn .lbn-index-label{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6a7c7e}.lbn .lbn-index-code{font-size:18px;font-weight:800;color:var(--teal);letter-spacing:.02em}.lbn .is-mbti .lbn-index-code{color:#bf6c42}.lbn .lbn-riasec-chips{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}.lbn .lbn-chip{border-radius:9px;background:#fff;border:1px solid #e1e8e3;color:#9aa8a6;text-align:center;padding:8px 2px 6px;font-size:16px;font-weight:800;line-height:1.1;transition:all .25s}.lbn .lbn-chip small{display:block;font-size:8px;font-weight:600;margin-top:4px;line-height:1.2}.lbn .lbn-chip.is-on{background:var(--teal);border-color:var(--teal);color:#fff;transform:translateY(-2px);box-shadow:0 6px 14px rgba(17,107,104,.18)}.lbn .lbn-mbti-pairs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.lbn .lbn-mp{display:grid;grid-template-rows:1fr 1fr;gap:4px;background:#fff;border:1px solid #f0e3d9;border-radius:10px;padding:5px}.lbn .lbn-mp-l{border-radius:7px;text-align:center;padding:5px 0;font-size:15px;font-weight:800;color:#c9b5a8;transition:all .25s}.lbn .lbn-mp-l.is-on{background:var(--orange);color:#fff}.lbn .lbn-detail2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.lbn .lbn-detail2-box{border:1px solid var(--line);border-radius:14px;padding:16px 18px}.lbn .lbn-detail2-box h4{font-size:14px;margin:0 0 10px;color:var(--ink);letter-spacing:-.02em}.lbn .lbn-detail2-box ul{list-style:none;margin:0;padding:0}.lbn .lbn-detail2-box li{position:relative;padding:6px 0 6px 22px;border-bottom:1px dashed var(--line);font-size:12px;line-height:1.5;color:#53636a}.lbn .lbn-detail2-box li:last-child{border-bottom:0}.lbn .lbn-detail2-box li:before{content:"✓";position:absolute;left:0;top:6px;color:var(--teal);font-weight:800}.lbn .lbn-pos{display:grid;grid-template-columns:1fr 1fr;gap:8px}.lbn .lbn-pos div{padding:10px;border-radius:9px;background:#f3f8f4;color:var(--teal);font-size:11px;font-weight:700;line-height:1.35}.lbn .lbn-hot-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.lbn .lbn-hot-actions .lbn-btn{flex:1}.lbn .lbn-hot-note{margin-top:22px;text-align:center;font-size:12px;color:#788387}@media (max-width:1100px){.lbn .lbn-hot{grid-template-columns:1fr}.lbn .lbn-job-grid{grid-template-columns:repeat(4,1fr)}}@media (max-width:849px){.lbn .lbn-job-grid{grid-template-columns:1fr 1fr}.lbn .lbn-index,.lbn .lbn-detail2{grid-template-columns:1fr}}@media (max-width:549px){.lbn .lbn-hot-body{padding:20px 16px}.lbn .lbn-hot-side{padding:20px 16px}.lbn .lbn-hot-body>h3{font-size:22px}.lbn .lbn-chip small{display:none}.lbn .lbn-hot-actions .lbn-btn{flex:1 1 100%;white-space:normal;text-align:center}}@media (max-width:980px){.lbn .lbn-hero-art{transform:scale(.88);transform-origin:center}.lbn .lbn-detail-row>.col{padding-left:18px;padding-right:18px}.lbn .lbn-method-body{padding:25px}}@media (max-width:849px){.lbn .lbn-row>.col{padding-bottom:28px}.lbn .lbn-row>.col:last-child{padding-bottom:0}.lbn .lbn-hero-art{height:375px;transform:scale(.77);margin:-15px -40px -42px}.lbn .lbn-float-holland{left:0}.lbn .lbn-float-mbti{right:0}.lbn .lbn-strip-inner{grid-template-columns:1fr 1fr;padding:18px 0}.lbn .lbn-strip-title{grid-column:1/-1;max-width:none;margin-bottom:15px}.lbn .lbn-strip-item{padding:12px 10px 12px 0;border:0;font-size:10px}.lbn .lbn-heading{margin-bottom:30px}.lbn .lbn-detail-row>.col,.lbn .lbn-faq-row>.col,.lbn .lbn-explore-row>.col{padding-left:15px;padding-right:15px}.lbn .lbn-explore-intro{position:static}.lbn .lbn-quote-layout{align-items:flex-start;flex-direction:column}.lbn .lbn-mbti-board-col{order:2}}@media (max-width:549px){.lbn h1{font-size:clamp(39px,9.4vw,58px)}.lbn .lbn-hero-lead{font-size:13px}}@media (max-width:390px){.lbn .lbn-hero-actions .lbn-btn{width:100%}.lbn .lbn-hero-art{transform:scale(.67);margin:-35px -55px -55px}.lbn .lbn-interest-grid{grid-template-columns:repeat(2,1fr)}.lbn .lbn-panel{padding:18px}.lbn .lbn-dim-board,.lbn .lbn-holland-board{padding:20px}.lbn .lbn-dim-side{padding:8px;font-size:9px}.lbn .lbn-tile{padding:10px 8px}}@media (prefers-reduced-motion:reduce){.lbn *,.lbn *:before,.lbn *:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}</style>
 
+<section id="s0" class="section lbn lbn-hero" style="background-color:"><div class="section-content">
 <div class="row align-middle lbn-row lbn-hero-row" style="max-width:1222px">
-
 <div class="col large-6 medium-12 small-12 lbn-hero-copy"><div class="col-inner">
-
 
 <div id="trang-chu" class="lbn-anchor"></div>
 <div class="lbn-hero-pill"><span></span> Định hướng nghề nghiệp bắt đầu từ bạn</div>
-<h1>Hiểu mình hơn.<br>Chọn <span class="lbn-highlight">đúng hướng.</span></h1>
+<h1>Trắc nghiệm <span class="lbn-highlight">nghề nghiệp</span></h1>
 <p class="lbn-hero-lead">Giữa rất nhiều lựa chọn ngành nghề, điều quan trọng không phải là tìm con đường hoàn hảo — mà là tìm con đường phù hợp với chính mình. Bắt đầu với hai bài trắc nghiệm nghề nghiệp miễn phí: Holland và MBTI.</p>
 <div class="lbn-hero-actions">
-<a class="lbn-btn lbn-btn-primary" href="https://tracnghiemplus.com/bai-thi/test-holland/">Làm test Holland <span class="lbn-arrow">↗</span></a>
+<a class="lbn-btn lbn-btn-primary" href="https://tracnghiemplus.com/bai-thi/test-holland/">Làm test Holland <span class="lbn-arrow">↗</span></a><br />
 <a class="lbn-btn lbn-btn-outline" href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/">Làm test MBTI <span class="lbn-arrow">→</span></a>
 </div>
 <div class="lbn-hero-note"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="m8 12 2.5 2.5L16 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Không có câu trả lời đúng hay sai — chỉ có một phiên bản bạn được hiểu rõ hơn.</div>
 
-
 </div></div>
 <div class="col large-6 medium-12 small-12 lbn-hero-visual"><div class="col-inner">
 
-
 <div class="lbn-hero-art" aria-label="Minh họa la bàn định hướng nghề nghiệp">
-<div class="lbn-art-blob"></div><div class="lbn-orbit"></div>
-<div class="lbn-spark one">✳</div><div class="lbn-spark two">✦</div>
+<div class="lbn-art-blob"></div>
+<div class="lbn-orbit"></div>
+<div class="lbn-spark one">✳</div>
+<div class="lbn-spark two">✦</div>
 <div class="lbn-main-card">
 <div class="lbn-card-top"><span>HÀNH TRÌNH CỦA BẠN</span><span class="lbn-dots"><i></i><i></i><i></i></span></div>
 <div class="lbn-compass"><svg viewBox="0 0 180 180" fill="none" aria-hidden="true"><circle cx="90" cy="90" r="76" fill="#F0F6F0" stroke="#C8DCCF" stroke-width="2"/><circle cx="90" cy="90" r="62" stroke="#C8DCCF" stroke-dasharray="3 6"/><path d="M90 4v16M90 160v16M4 90h16M160 90h16" stroke="#79A89A" stroke-width="2" stroke-linecap="round"/><path d="m110 70-11 29-29 11 11-29 29-11Z" fill="#ED854E"/><path d="m110 70-11 29-18-18 29-11Z" fill="#116B68"/><circle cx="90" cy="90" r="5" fill="white"/><text x="85" y="40" fill="#116B68" font-family="sans-serif" font-size="11" font-weight="700">N</text><text x="136" y="95" fill="#116B68" font-family="sans-serif" font-size="11" font-weight="700">E</text><text x="86" y="148" fill="#116B68" font-family="sans-serif" font-size="11" font-weight="700">S</text><text x="36" y="95" fill="#116B68" font-family="sans-serif" font-size="11" font-weight="700">W</text></svg></div>
-<h3>Đâu là hướng đi của bạn?</h3>
+<h3>Đâu là tương lai của bạn?</h3>
 <p>Mỗi khám phá nhỏ đều đưa bạn đến gần hơn với câu trả lời.</p>
 <div class="lbn-card-progress"><span></span></div>
 </div>
-<div class="lbn-float lbn-float-holland"><div class="lbn-mini-label">SỞ THÍCH NGHỀ NGHIỆP</div><div class="lbn-type-dots"><b style="background:#34765c">R</b><b style="background:#477b91">I</b><b style="background:#cf775e">A</b><b style="background:#9c6b96">S</b><b style="background:#c98643">E</b><b style="background:#6d7cad">C</b></div></div>
-<div class="lbn-float lbn-float-mbti"><div class="lbn-mbti-code">INFP</div><div class="lbn-mini-label">TÍNH CÁCH CỦA BẠN</div></div>
+<div class="lbn-float lbn-float-holland">
+<div class="lbn-mini-label">SỞ THÍCH NGHỀ NGHIỆP</div>
+<div class="lbn-type-dots"><b style="background:#34765c">R</b><b style="background:#477b91">I</b><b style="background:#cf775e">A</b><b style="background:#9c6b96">S</b><b style="background:#c98643">E</b><b style="background:#6d7cad">C</b></div>
 </div>
-
+<div class="lbn-float lbn-float-mbti">
+<div class="lbn-mbti-code">MBTI</div>
+<div class="lbn-mini-label">TÍNH CÁCH HỢP NGHỀ NGHIỆP</div>
+</div>
+</div>
 
 </div></div>
-
 </div>
-
 </div></section>
-
 <section id="s1" class="section lbn lbn-strip" style="background-color:#fffdfa"><div class="section-content">
-
 <div class="row lbn-row" style="max-width:1210px">
-
 <div class="col large-12 medium-12 small-12"><div class="col-inner">
-
 
 <div class="lbn-strip-inner">
 <div class="lbn-strip-title">Một lựa chọn phù hợp bắt đầu từ sự thấu hiểu.</div>
@@ -331,40 +87,31 @@ html{scroll-behavior:smooth}
 <div class="lbn-strip-item"><span class="lbn-strip-icon">↗</span> Tự tin hơn khi chọn ngành</div>
 </div>
 
-
 </div></div>
-
 </div>
-
 </div></section>
-
-<section id="s2" class="section lbn lbn-methods" style="background-color:#f8f7f3"><div class="section-content">
-
+<section id="s2" class="section lbn lbn-methods" style="background-color:"><div class="section-content">
 <div class="row lbn-row" style="max-width:1210px">
-
 <div class="col large-12 medium-12 small-12"><div class="col-inner">
-
 
 <div id="phuong-phap" class="lbn-anchor"></div>
 <div class="lbn-heading">
 <div class="lbn-eyebrow">Bắt đầu từ đâu?</div>
-<h2>Hai góc nhìn, một hành trình hiểu bản thân</h2>
-<p>Holland nhìn vào điều bạn thích làm. MBTI khám phá cách bạn suy nghĩ và tương tác. Cùng nhau, chúng mở ra một bức tranh đầy đủ hơn về bạn.</p>
+<h2>Phương pháp định hướng nghề nghiệp</h2>
+<p>Holland nhìn vào điều bạn thích làm. MBTI khám phá tính cách phù hợp với nghề nghiệp. Tracnghiemplus - phương pháp định hướng nghề nghiệp một cách khoa học, được thế giới công nhận</p>
 </div>
-
 
 </div></div>
-
 </div>
 <div class="row lbn-row lbn-method-row" style="max-width:1202px">
-
 <div class="col large-6 medium-12 small-12"><div class="col-inner">
-
 
 <article class="lbn-method-card">
 <div class="lbn-method-visual lbn-holland-visual">
 <div class="lbn-wheel-label a">Sở thích của bạn ✦</div>
-<div class="lbn-riasec-wheel"><div class="lbn-wheel-middle">RIASEC</div></div>
+<div class="lbn-riasec-wheel">
+<div class="lbn-wheel-middle">RIASEC</div>
+</div>
 <div class="lbn-wheel-label b">6 nhóm nghề nghiệp ↗</div>
 </div>
 <div class="lbn-method-body">
@@ -373,16 +120,14 @@ html{scroll-behavior:smooth}
 <p>Bạn hứng thú với việc sáng tạo, giúp đỡ người khác hay giải quyết vấn đề? Mô hình Holland kết nối sở thích của bạn với những môi trường nghề nghiệp tương ứng.</p>
 <div class="lbn-method-meta"><span>6 nhóm sở thích RIASEC</span><span>Gợi mở lĩnh vực nghề nghiệp</span></div>
 <div class="lbn-links">
-<a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="lbn-text-link">Làm test Holland <span class="lbn-arrow">→</span></a>
+<a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="lbn-text-link">Làm test Holland <span class="lbn-arrow">→</span></a><br />
 <a href="#holland" class="lbn-text-link is-soft">Tìm hiểu thêm <span class="lbn-arrow">↓</span></a>
 </div>
 </div>
 </article>
 
-
 </div></div>
 <div class="col large-6 medium-12 small-12"><div class="col-inner">
-
 
 <article class="lbn-method-card is-mbti">
 <div class="lbn-method-visual lbn-mbti-visual">
@@ -391,49 +136,40 @@ html{scroll-behavior:smooth}
 <div class="lbn-method-body">
 <div class="lbn-method-kicker">02 / Khám phá tính cách</div>
 <h3>Phương pháp MBTI</h3>
-<p>Bạn nạp năng lượng ra sao, tiếp nhận thông tin và đưa ra quyết định thế nào? MBTI giúp bạn gọi tên những khuynh hướng tự nhiên trong cách mình làm việc.</p>
+<p>Phương pháp xác định nghề nghiệp tương lai thông qua tính cách với 04 cặp cá tính đối lập: Hướng nội - Hướng ngoại, Trực giác - Cảm giác, Lý trí - Cảm xúc, Linh hoạt - Nguyên tắc.</p>
 <div class="lbn-method-meta"><span>4 cặp xu hướng</span><span>16 nhóm tính cách</span></div>
 <div class="lbn-links">
-<a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="lbn-text-link">Làm test MBTI <span class="lbn-arrow">→</span></a>
+<a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="lbn-text-link">Làm test MBTI <span class="lbn-arrow">→</span></a><br />
 <a href="#mbti" class="lbn-text-link is-soft">Tìm hiểu thêm <span class="lbn-arrow">↓</span></a>
 </div>
 </div>
 </article>
 
-
 </div></div>
-
 </div>
-
 </div></section>
-
 <section id="s3" class="section lbn lbn-holland" style="background-color:#eef4ef"><div class="section-content">
-
 <div class="row align-middle lbn-row lbn-detail-row" style="max-width:1262px">
-
 <div class="col large-5 medium-12 small-12"><div class="col-inner">
-
 
 <div id="holland" class="lbn-anchor"></div>
 <div class="lbn-detail-copy">
 <div class="lbn-eyebrow">Phương pháp 01 / Holland</div>
 <h2>Bạn thích làm gì mỗi ngày?</h2>
-<p>Được phát triển bởi nhà tâm lý học John L. Holland, mô hình RIASEC chia sở thích nghề nghiệp thành 6 nhóm. Bạn có thể mang đặc điểm của nhiều nhóm; sự kết hợp nổi trội sẽ giúp bạn tìm hiểu các môi trường làm việc đáng cân nhắc.</p>
+<p>Được phát triển bởi nhà tâm lý học John L. Holland, mô hình RIASEC chia sở thích nghề nghiệp thành 6 nhóm. Xác định nhóm sở thích nghề nghiệp để gợi ý ngành học và công việc phù hợp với sở thích của bạn.</p>
 <ul class="lbn-points">
 <li><span class="lbn-check">✓</span> Nhận ra loại hoạt động khiến bạn hứng thú và có động lực.</li>
 <li><span class="lbn-check">✓</span> Liên hệ sở thích với nhóm ngành và môi trường làm việc.</li>
 <li><span class="lbn-check">✓</span> Có thêm gợi ý để tìm hiểu nghề nghiệp một cách chủ động.</li>
 </ul>
 <div class="lbn-detail-actions">
-<a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="lbn-btn lbn-btn-primary">Làm test Holland miễn phí <span class="lbn-arrow">↗</span></a>
+<a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="lbn-btn lbn-btn-primary">Làm test Holland miễn phí <span class="lbn-arrow">↗</span></a><br />
 <a href="#kham-pha" class="lbn-text-link is-soft" data-open-tab="holland">Thử khám phá nhanh <span class="lbn-arrow">↓</span></a>
 </div>
 </div>
 
-
 </div></div>
 <div class="col large-7 medium-12 small-12"><div class="col-inner">
-
 
 <div class="lbn-holland-board">
 <div class="lbn-board-head"><strong>6 nhóm sở thích RIASEC</strong><span>Mỗi người là một sự kết hợp riêng</span></div>
@@ -448,64 +184,64 @@ html{scroll-behavior:smooth}
 <div class="lbn-board-foot"><span>✳</span> Không cần chỉ thuộc về một nhóm. Những sở thích nổi bật của bạn có thể kết hợp thành một “mã Holland” riêng.</div>
 </div>
 
-
 </div></div>
-
 </div>
-
 </div></section>
-
 <section id="s4" class="section lbn lbn-mbti" style="background-color:#ffffff"><div class="section-content">
-
 <div class="row align-middle lbn-row lbn-detail-row" style="max-width:1262px">
-
 <div class="col large-7 medium-12 small-12 lbn-mbti-board-col"><div class="col-inner">
-
 
 <div id="mbti" class="lbn-anchor"></div>
 <div class="lbn-dim-board">
 <h3>4 chiều xu hướng của MBTI</h3>
 <p>Mỗi cặp mô tả một khía cạnh trong cách bạn trải nghiệm thế giới.</p>
-<div class="lbn-dim-row"><div class="lbn-dim-side"><b>E</b> Hướng ngoại</div><div class="lbn-dim-arrow">↔</div><div class="lbn-dim-side"><b>I</b> Hướng nội</div></div>
-<div class="lbn-dim-row"><div class="lbn-dim-side"><b>S</b> Giác quan</div><div class="lbn-dim-arrow">↔</div><div class="lbn-dim-side"><b>N</b> Trực giác</div></div>
-<div class="lbn-dim-row"><div class="lbn-dim-side"><b>T</b> Lý trí</div><div class="lbn-dim-arrow">↔</div><div class="lbn-dim-side"><b>F</b> Cảm xúc</div></div>
-<div class="lbn-dim-row"><div class="lbn-dim-side"><b>J</b> Nguyên tắc</div><div class="lbn-dim-arrow">↔</div><div class="lbn-dim-side"><b>P</b> Linh hoạt</div></div>
+<div class="lbn-dim-row">
+<div class="lbn-dim-side"><b>E</b> Hướng ngoại</div>
+<div class="lbn-dim-arrow">↔</div>
+<div class="lbn-dim-side"><b>I</b> Hướng nội</div>
+</div>
+<div class="lbn-dim-row">
+<div class="lbn-dim-side"><b>S</b> Giác quan</div>
+<div class="lbn-dim-arrow">↔</div>
+<div class="lbn-dim-side"><b>N</b> Trực giác</div>
+</div>
+<div class="lbn-dim-row">
+<div class="lbn-dim-side"><b>T</b> Lý trí</div>
+<div class="lbn-dim-arrow">↔</div>
+<div class="lbn-dim-side"><b>F</b> Cảm xúc</div>
+</div>
+<div class="lbn-dim-row">
+<div class="lbn-dim-side"><b>J</b> Nguyên tắc</div>
+<div class="lbn-dim-arrow">↔</div>
+<div class="lbn-dim-side"><b>P</b> Linh hoạt</div>
+</div>
 <div class="lbn-bottom-tag">4 lựa chọn kết hợp thành một mã tính cách, ví dụ: ENFP</div>
 </div>
-
 
 </div></div>
 <div class="col large-5 medium-12 small-12"><div class="col-inner">
 
-
 <div class="lbn-detail-copy is-mbti">
 <div class="lbn-eyebrow" style="color:#bf6c42">Phương pháp 02 / MBTI</div>
 <h2>Bạn vận hành theo cách nào?</h2>
-<p>MBTI (Myers–Briggs Type Indicator) mô tả những xu hướng trong cách bạn tiếp nhận năng lượng, xử lý thông tin, ra quyết định và tổ chức cuộc sống. Đây là một ngôn ngữ để tự quan sát, không phải chiếc hộp giới hạn bạn.</p>
+<p>MBTI (Myers–Briggs Type Indicator) hiểu cách bạn suy nghĩ, giao tiếp và ra quyết định để chọn môi trường học tập và nghề nghiệp phù hợp.</p>
 <ul class="lbn-points">
 <li><span class="lbn-check">✓</span> Hiểu cách bạn giao tiếp và cộng tác với người khác.</li>
 <li><span class="lbn-check">✓</span> Nhận diện phong cách học tập và làm việc mình thấy tự nhiên.</li>
 <li><span class="lbn-check">✓</span> Khám phá điểm mạnh để phát triển bản thân.</li>
 </ul>
 <div class="lbn-detail-actions">
-<a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="lbn-btn lbn-btn-primary">Làm test MBTI miễn phí <span class="lbn-arrow">↗</span></a>
+<a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="lbn-btn lbn-btn-primary">Làm test MBTI miễn phí <span class="lbn-arrow">↗</span></a><br />
 <a href="#kham-pha" class="lbn-text-link is-soft" data-open-tab="mbti">Thử khám phá nhanh <span class="lbn-arrow">↓</span></a>
 </div>
 </div>
 
-
 </div></div>
-
 </div>
-
 </div></section>
-
 <section id="s5" class="section lbn lbn-explore" style="background-color:#f8f7f3"><div class="section-content">
-
 <div class="row lbn-row lbn-explore-row" style="max-width:1224px">
-
 <div class="col large-4 medium-12 small-12"><div class="col-inner">
-
 
 <div id="kham-pha" class="lbn-anchor"></div>
 <div class="lbn-explore-intro">
@@ -515,25 +251,23 @@ html{scroll-behavior:smooth}
 <div class="lbn-disclaimer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#87999A" stroke-width="1.7"/><path d="M12 11v5m0-8h.01" stroke="#87999A" stroke-width="1.7" stroke-linecap="round"/></svg><span>Hoạt động này chỉ mang tính minh họa. Để có kết quả đầy đủ, hãy làm <a href="https://tracnghiemplus.com/bai-thi/test-holland/"><b>test Holland</b></a> và <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/"><b>test MBTI</b></a>.</span></div>
 </div>
 
-
 </div></div>
 <div class="col large-8 medium-12 small-12"><div class="col-inner">
 
-
 <div class="lbn-panel" id="lbn-explore">
 <div class="lbn-tabs" role="tablist" aria-label="Chọn phương pháp khám phá">
-<button type="button" class="active" id="lbn-tab-holland" role="tab" aria-selected="true" aria-controls="lbn-panel-holland" data-tab="holland">Khám phá Holland</button>
+<button type="button" class="active" id="lbn-tab-holland" role="tab" aria-selected="true" aria-controls="lbn-panel-holland" data-tab="holland">Khám phá Holland</button><br />
 <button type="button" id="lbn-tab-mbti" role="tab" aria-selected="false" aria-controls="lbn-panel-mbti" data-tab="mbti">Khám phá MBTI</button>
 </div>
 <div id="lbn-panel-holland" class="lbn-tab-panel" role="tabpanel" aria-labelledby="lbn-tab-holland">
 <h3>Hoạt động nào khiến bạn hứng thú?</h3>
 <p>Chọn tối đa 3 nhóm bạn thấy gần gũi nhất.</p>
 <div class="lbn-interest-grid">
-<button type="button" class="lbn-interest" data-type="R" aria-pressed="false"><span class="lbn-letter">R</span><strong>Làm việc thực tế</strong><small>Chế tạo, sửa chữa, vận động</small></button>
-<button type="button" class="lbn-interest" data-type="I" aria-pressed="false"><span class="lbn-letter">I</span><strong>Tìm hiểu vấn đề</strong><small>Phân tích, khám phá, nghiên cứu</small></button>
-<button type="button" class="lbn-interest" data-type="A" aria-pressed="false"><span class="lbn-letter">A</span><strong>Sáng tạo ý tưởng</strong><small>Thiết kế, viết lách, nghệ thuật</small></button>
-<button type="button" class="lbn-interest" data-type="S" aria-pressed="false"><span class="lbn-letter">S</span><strong>Giúp đỡ mọi người</strong><small>Chia sẻ, hướng dẫn, chăm sóc</small></button>
-<button type="button" class="lbn-interest" data-type="E" aria-pressed="false"><span class="lbn-letter">E</span><strong>Dẫn dắt hoạt động</strong><small>Thuyết phục, kinh doanh, lãnh đạo</small></button>
+<button type="button" class="lbn-interest" data-type="R" aria-pressed="false"><span class="lbn-letter">R</span><strong>Làm việc thực tế</strong><small>Chế tạo, sửa chữa, vận động</small></button><br />
+<button type="button" class="lbn-interest" data-type="I" aria-pressed="false"><span class="lbn-letter">I</span><strong>Tìm hiểu vấn đề</strong><small>Phân tích, khám phá, nghiên cứu</small></button><br />
+<button type="button" class="lbn-interest" data-type="A" aria-pressed="false"><span class="lbn-letter">A</span><strong>Sáng tạo ý tưởng</strong><small>Thiết kế, viết lách, nghệ thuật</small></button><br />
+<button type="button" class="lbn-interest" data-type="S" aria-pressed="false"><span class="lbn-letter">S</span><strong>Giúp đỡ mọi người</strong><small>Chia sẻ, hướng dẫn, chăm sóc</small></button><br />
+<button type="button" class="lbn-interest" data-type="E" aria-pressed="false"><span class="lbn-letter">E</span><strong>Dẫn dắt hoạt động</strong><small>Thuyết phục, kinh doanh, lãnh đạo</small></button><br />
 <button type="button" class="lbn-interest" data-type="C" aria-pressed="false"><span class="lbn-letter">C</span><strong>Sắp xếp hệ thống</strong><small>Lập kế hoạch, quản lý dữ liệu</small></button>
 </div>
 <div class="lbn-result" id="lbn-holland-result" aria-live="polite">✦ Chọn một vài hoạt động để xem gợi ý về nhóm sở thích của bạn.</div>
@@ -542,72 +276,287 @@ html{scroll-behavior:smooth}
 <div id="lbn-panel-mbti" class="lbn-tab-panel" role="tabpanel" aria-labelledby="lbn-tab-mbti" hidden>
 <h3>Xu hướng nào giống bạn hơn?</h3>
 <p>Chọn một phương án ở mỗi cặp. Bạn luôn có thể thay đổi lựa chọn.</p>
-<div class="lbn-q"><strong>1. Bạn thường nạp lại năng lượng bằng cách...</strong><div class="lbn-pair" data-dimension="0"><button type="button" data-value="E" aria-pressed="false"><b>E</b> Tương tác, trò chuyện</button><button type="button" data-value="I" aria-pressed="false"><b>I</b> Có không gian riêng</button></div></div>
-<div class="lbn-q"><strong>2. Bạn thường chú ý nhiều hơn đến...</strong><div class="lbn-pair" data-dimension="1"><button type="button" data-value="S" aria-pressed="false"><b>S</b> Sự thật, chi tiết cụ thể</button><button type="button" data-value="N" aria-pressed="false"><b>N</b> Ý tưởng, khả năng mới</button></div></div>
-<div class="lbn-q"><strong>3. Khi quyết định, bạn thường ưu tiên...</strong><div class="lbn-pair" data-dimension="2"><button type="button" data-value="T" aria-pressed="false"><b>T</b> Logic, phân tích</button><button type="button" data-value="F" aria-pressed="false"><b>F</b> Giá trị, cảm nhận</button></div></div>
-<div class="lbn-q"><strong>4. Bạn thấy thoải mái hơn khi...</strong><div class="lbn-pair" data-dimension="3"><button type="button" data-value="J" aria-pressed="false"><b>J</b> Có kế hoạch rõ ràng</button><button type="button" data-value="P" aria-pressed="false"><b>P</b> Linh hoạt tùy tình huống</button></div></div>
+<div class="lbn-q"><strong>1. Bạn thường nạp lại năng lượng bằng cách...</strong></p>
+<div class="lbn-pair" data-dimension="0"><button type="button" data-value="E" aria-pressed="false"><b>E</b> Tương tác, trò chuyện</button><button type="button" data-value="I" aria-pressed="false"><b>I</b> Có không gian riêng</button></div>
+</div>
+<div class="lbn-q"><strong>2. Bạn thường chú ý nhiều hơn đến...</strong></p>
+<div class="lbn-pair" data-dimension="1"><button type="button" data-value="S" aria-pressed="false"><b>S</b> Sự thật, chi tiết cụ thể</button><button type="button" data-value="N" aria-pressed="false"><b>N</b> Ý tưởng, khả năng mới</button></div>
+</div>
+<div class="lbn-q"><strong>3. Khi quyết định, bạn thường ưu tiên...</strong></p>
+<div class="lbn-pair" data-dimension="2"><button type="button" data-value="T" aria-pressed="false"><b>T</b> Logic, phân tích</button><button type="button" data-value="F" aria-pressed="false"><b>F</b> Giá trị, cảm nhận</button></div>
+</div>
+<div class="lbn-q"><strong>4. Bạn thấy thoải mái hơn khi...</strong></p>
+<div class="lbn-pair" data-dimension="3"><button type="button" data-value="J" aria-pressed="false"><b>J</b> Có kế hoạch rõ ràng</button><button type="button" data-value="P" aria-pressed="false"><b>P</b> Linh hoạt tùy tình huống</button></div>
+</div>
 <div class="lbn-result is-mbti" id="lbn-mbti-result" aria-live="polite">✦ Chọn ở cả 4 cặp để xem mã xu hướng MBTI minh họa của bạn.</div>
 <div class="lbn-panel-cta is-mbti"><a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="lbn-text-link">Làm bài test MBTI đầy đủ <span class="lbn-arrow">→</span></a></div>
 </div>
 </div>
 
-
 </div></div>
-
 </div>
-
 </div></section>
-
-<section id="s6" class="section lbn lbn-quote" style="background-color:#153e42"><div class="section-content">
-
-<div class="row lbn-row" style="max-width:1210px">
-
+<section id="s6" class="section lbn lbn-hot-sec" style="background-color:#ffffff"><div class="section-content">
+<div class="row lbn-row" style="max-width:1222px">
 <div class="col large-12 medium-12 small-12"><div class="col-inner">
 
+<div id="nganh-hot" class="lbn-anchor"></div>
+<div class="lbn-heading">
+<div class="lbn-eyebrow">Ngành nghề xu hướng</div>
+<h2>Định hướng nghề nghiệp với những ngành <span class="lbn-hot-word">HOT</span> phù hợp với bạn</h2>
+<p>Chọn một ngành đang được quan tâm để xem ngành đó tương ứng với mã Holland nào và nhóm tính cách MBTI nào. Sau đó, làm 2 bài test để đối chiếu với kết quả của chính bạn.</p>
+</div>
+
+</div></div>
+<div class="col large-12 medium-12 small-12"><div class="col-inner">
+
+<div class="lbn-hot" id="lbn-hot">
+<div class="lbn-hot-side">
+<h3>🔥 Ngành nghề HOT hiện nay</h3>
+<p>Nhấp vào một ngành để xem chỉ số Holland &amp; MBTI phù hợp.</p>
+<div class="lbn-job-grid">
+<button type="button" class="lbn-job is-active" data-career="marketing"><span class="lbn-job-ico">📣</span><span class="lbn-job-name">Digital Marketing</span></button><br />
+<button type="button" class="lbn-job" data-career="it"><span class="lbn-job-ico">💻</span><span class="lbn-job-name">Công nghệ thông tin</span></button><br />
+<button type="button" class="lbn-job" data-career="ecommerce"><span class="lbn-job-ico">🛒</span><span class="lbn-job-name">Thương mại điện tử</span></button><br />
+<button type="button" class="lbn-job" data-career="logistics"><span class="lbn-job-ico">🚚</span><span class="lbn-job-name">Logistics</span></button><br />
+<button type="button" class="lbn-job" data-career="accounting"><span class="lbn-job-ico">🧮</span><span class="lbn-job-name">Kế toán – Kiểm toán</span></button><br />
+<button type="button" class="lbn-job" data-career="banking"><span class="lbn-job-ico">🏦</span><span class="lbn-job-name">Tài chính – Ngân hàng</span></button><br />
+<button type="button" class="lbn-job" data-career="business"><span class="lbn-job-ico">💼</span><span class="lbn-job-name">Quản trị kinh doanh</span></button><br />
+<button type="button" class="lbn-job" data-career="pr"><span class="lbn-job-ico">🎤</span><span class="lbn-job-name">Truyền thông – PR</span></button>
+</div>
+<div class="lbn-side-note">
+<div class="lbn-side-i">i</div>
+<div>Chỉ số mang tính tham khảo, dựa trên đặc điểm sở thích (Holland) và tính cách (MBTI) thường gặp ở người làm tốt trong ngành.</div>
+</div>
+</div>
+<div class="lbn-hot-card">
+<div class="lbn-hot-media">
+<div class="lbn-hot-imgwrap"><img id="lbn-hot-img" src="https://tracnghiemplus.com/wp-content/uploads/2026/08/Quan-tri-marketing.jpg" alt="Ngành Digital Marketing" loading="lazy"></div>
+<div class="lbn-hot-tag" id="lbn-hot-tag">Ngành sáng tạo</div>
+</div>
+<div class="lbn-hot-body">
+<h3 id="lbn-hot-title">Digital Marketing</h3>
+<p id="lbn-hot-desc">Phù hợp với người sáng tạo, giao tiếp tốt, thích tìm hiểu hành vi khách hàng và xây dựng nội dung, chiến dịch truyền thông trên các nền tảng số.</p>
+<div class="lbn-index">
+<div class="lbn-index-box is-holland">
+<div class="lbn-index-head">
+<div class="lbn-index-label">Mã Holland phù hợp</div>
+<div class="lbn-index-code" id="lbn-hot-hcode">A – E – S</div>
+</div>
+<div class="lbn-riasec-chips" id="lbn-hot-riasec">
+<div class="lbn-chip" data-l="R">R<small>Thực tế</small></div>
+<div class="lbn-chip" data-l="I">I<small>Nghiên cứu</small></div>
+<div class="lbn-chip is-on" data-l="A">A<small>Nghệ thuật</small></div>
+<div class="lbn-chip is-on" data-l="S">S<small>Xã hội</small></div>
+<div class="lbn-chip is-on" data-l="E">E<small>Quản lý</small></div>
+<div class="lbn-chip" data-l="C">C<small>Nghiệp vụ</small></div>
+</div>
+</div>
+<div class="lbn-index-box is-mbti">
+<div class="lbn-index-head">
+<div class="lbn-index-label">Xu hướng MBTI phù hợp</div>
+<div class="lbn-index-code" id="lbn-hot-mcode">ENFP · ENTP</div>
+</div>
+<div class="lbn-mbti-pairs" id="lbn-hot-pairs">
+<div class="lbn-mp">
+<div class="lbn-mp-l is-on">E</div>
+<div class="lbn-mp-l">I</div>
+</div>
+<div class="lbn-mp">
+<div class="lbn-mp-l">S</div>
+<div class="lbn-mp-l is-on">N</div>
+</div>
+<div class="lbn-mp">
+<div class="lbn-mp-l is-on">T</div>
+<div class="lbn-mp-l is-on">F</div>
+</div>
+<div class="lbn-mp">
+<div class="lbn-mp-l">J</div>
+<div class="lbn-mp-l is-on">P</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lbn-detail2">
+<div class="lbn-detail2-box">
+<h4>Tố chất cần có</h4>
+<ul id="lbn-hot-skills">
+<li>Sáng tạo nội dung, ý tưởng truyền thông</li>
+<li>Giao tiếp, thuyết phục, hiểu tâm lý khách hàng</li>
+<li>Đọc và phân tích số liệu quảng cáo</li>
+<li>Thích nghi nhanh với xu hướng mới</li>
+</ul>
+</div>
+<div class="lbn-detail2-box">
+<h4>Vị trí việc làm</h4>
+<div class="lbn-pos" id="lbn-hot-jobs">
+<div>Content Marketing</div>
+<div>Performance Marketing</div>
+<div>Social Media</div>
+<div>SEO Specialist</div>
+</div>
+</div>
+</div>
+<div class="lbn-hot-actions">
+<a class="lbn-btn lbn-btn-primary" href="https://tracnghiemplus.com/bai-thi/test-holland/">Đối chiếu bằng test Holland <span class="lbn-arrow">↗</span></a><br />
+<a class="lbn-btn lbn-btn-outline" href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/">Đối chiếu bằng test MBTI <span class="lbn-arrow">→</span></a>
+</div>
+</div>
+</div>
+</div>
+<div class="lbn-hot-note">✦ Không ngành nào chỉ dành cho một mã Holland hay một nhóm MBTI. Hãy xem đây là gợi ý để tìm hiểu thêm, kết hợp với năng lực và điều kiện thực tế của bạn.</div>
+
+</div></div>
+</div>
+</div></section>
+
+<script id="lbn-hot-js">
+/* Ngành HOT – đối chiếu Holland & MBTI. Chỉ chạy khi trang có #lbn-hot. */
+(function () {
+  var IMG = 'https://tracnghiemplus.com/wp-content/uploads/2026/08/';
+  /* holland: 3 chữ cái nổi bật; mbti: xu hướng ở 4 cặp (EI, SN, TF, JP), dùng "TF" nếu cả hai đều phù hợp */
+  var careers = {
+    marketing: { title: 'Digital Marketing', tag: 'Ngành sáng tạo', img: 'Quan-tri-marketing.jpg', holland: 'AES', mbti: ['E', 'N', 'TF', 'P'], types: 'ENFP · ENTP',
+      desc: 'Phù hợp với người sáng tạo, giao tiếp tốt, thích tìm hiểu hành vi khách hàng và xây dựng nội dung, chiến dịch truyền thông trên các nền tảng số.',
+      skills: ['Sáng tạo nội dung, ý tưởng truyền thông', 'Giao tiếp, thuyết phục, hiểu tâm lý khách hàng', 'Đọc và phân tích số liệu quảng cáo', 'Thích nghi nhanh với xu hướng mới'],
+      jobs: ['Content Marketing', 'Performance Marketing', 'Social Media', 'SEO Specialist'] },
+    it: { title: 'Công nghệ thông tin', tag: 'Ngành công nghệ', img: 'Tin-hoc-dai-cuong.jpg', holland: 'IRC', mbti: ['I', 'N', 'T', 'JP'], types: 'INTJ · INTP · ISTP',
+      desc: 'Phù hợp với người có tư duy logic, thích giải quyết vấn đề, kiên trì tìm lỗi và xây dựng sản phẩm số như website, ứng dụng, hệ thống dữ liệu.',
+      skills: ['Tư duy logic, nền tảng toán tốt', 'Kiên trì, tập trung khi xử lý vấn đề', 'Tự học nhanh công nghệ mới', 'Đọc hiểu tài liệu tiếng Anh chuyên ngành'],
+      jobs: ['Lập trình viên', 'Kỹ sư phần mềm', 'Phân tích dữ liệu', 'Kiểm thử phần mềm'] },
+    ecommerce: { title: 'Thương mại điện tử', tag: 'Ngành kinh tế số', img: 'Thuong-mai-dien-tu.jpg', holland: 'ECI', mbti: ['E', 'SN', 'T', 'JP'], types: 'ESTP · ENTJ · ESTJ',
+      desc: 'Kết hợp kinh doanh, marketing và công nghệ. Phù hợp với người nhạy bén thị trường, thích bán hàng online, vận hành gian hàng và phân tích dữ liệu khách hàng.',
+      skills: ['Nhạy bén kinh doanh, nắm bắt xu hướng', 'Sử dụng tốt công cụ số, sàn TMĐT', 'Phân tích số liệu bán hàng', 'Chăm sóc khách hàng, xử lý tình huống'],
+      jobs: ['Vận hành sàn TMĐT', 'Chuyên viên E-commerce', 'Quản lý gian hàng', 'Phân tích bán hàng'] },
+    logistics: { title: 'Logistics', tag: 'Ngành vận hành', img: 'Quan-tri-logistics.jpg', holland: 'CER', mbti: ['EI', 'S', 'T', 'J'], types: 'ESTJ · ISTJ',
+      desc: 'Phù hợp với người giỏi tổ chức, điều phối, quản lý quy trình, xử lý tình huống nhanh và tối ưu dòng hàng, chi phí, thời gian trong chuỗi cung ứng.',
+      skills: ['Tổ chức, điều phối công việc tốt', 'Quản lý thời gian và quy trình', 'Xử lý tình huống phát sinh nhanh', 'Tiếng Anh giao tiếp, chứng từ'],
+      jobs: ['Logistics Executive', 'Supply Chain', 'Chứng từ xuất nhập khẩu', 'Điều phối kho vận'] },
+    accounting: { title: 'Kế toán – Kiểm toán', tag: 'Ngành ổn định', img: 'Ke-toan-doanh-nghiep.jpg', holland: 'CIE', mbti: ['I', 'S', 'T', 'J'], types: 'ISTJ · ESTJ · ISFJ',
+      desc: 'Phù hợp với người cẩn thận, chính xác, thích làm việc với số liệu, tôn trọng nguyên tắc và quy trình. Đây là ngành doanh nghiệp nào cũng cần.',
+      skills: ['Cẩn thận, tỉ mỉ, chính xác', 'Tư duy số liệu tốt', 'Kỷ luật, tuân thủ quy định', 'Thành thạo Excel, phần mềm kế toán'],
+      jobs: ['Kế toán viên', 'Kế toán thuế', 'Kiểm toán viên', 'Kế toán tổng hợp'] },
+    banking: { title: 'Tài chính – Ngân hàng', tag: 'Ngành tài chính', img: 'Tai-chinh-ngan-hang.jpg', holland: 'CEI', mbti: ['E', 'S', 'T', 'J'], types: 'ESTJ · ENTJ · ISTJ',
+      desc: 'Phù hợp với người có tư duy phân tích, nhạy bén với con số và thị trường, giao tiếp tốt với khách hàng và chịu được áp lực chỉ tiêu.',
+      skills: ['Phân tích tài chính, rủi ro', 'Giao tiếp, tư vấn khách hàng', 'Chịu áp lực doanh số', 'Trung thực, cẩn trọng'],
+      jobs: ['Giao dịch viên', 'Chuyên viên tín dụng', 'Phân tích tài chính', 'Tư vấn đầu tư'] },
+    business: { title: 'Quản trị kinh doanh', tag: 'Ngành quản lý', img: 'Quan-tri-hoc.jpg', holland: 'ESC', mbti: ['E', 'SN', 'T', 'J'], types: 'ENTJ · ESTJ · ENFJ',
+      desc: 'Phù hợp với người có tư duy tổ chức, thích dẫn dắt, ra quyết định và làm việc với con người, thị trường và mục tiêu tăng trưởng.',
+      skills: ['Lập kế hoạch, tổ chức nguồn lực', 'Giao tiếp, đàm phán, thuyết phục', 'Ra quyết định nhanh', 'Tư duy chiến lược'],
+      jobs: ['Quản lý kinh doanh', 'Business Development', 'Quản lý vận hành', 'Khởi nghiệp'] },
+    pr: { title: 'Truyền thông – PR', tag: 'Ngành truyền thông', img: 'Quan-he-cong-chung-PR.jpg', holland: 'SAE', mbti: ['E', 'N', 'F', 'J'], types: 'ENFJ · ESFJ · ENFP',
+      desc: 'Phù hợp với người hoạt ngôn, tự tin, thích kết nối, tổ chức sự kiện và xây dựng hình ảnh thương hiệu cho doanh nghiệp, tổ chức.',
+      skills: ['Giao tiếp, thuyết trình tự tin', 'Viết tốt, kể chuyện hấp dẫn', 'Xây dựng mối quan hệ', 'Xử lý khủng hoảng truyền thông'],
+      jobs: ['Chuyên viên PR', 'Tổ chức sự kiện', 'Truyền thông nội bộ', 'Quản lý thương hiệu'] }
+  };
+  var PAIRS = [['E', 'I'], ['S', 'N'], ['T', 'F'], ['J', 'P']];
+  /* Tạo phần tử bằng DOM (không dùng chuỗi HTML) để WordPress wpautop không chèn thẻ p vào JS */
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function fill(box, items) {
+    while (box.firstChild) box.removeChild(box.firstChild);
+    items.forEach(function (n) { box.appendChild(n); });
+  }
+  function init() {
+    var root = document.getElementById('lbn-hot');
+    if (!root) return;
+    var q = function (id) { return document.getElementById(id); };
+    var card = root.querySelector('.lbn-hot-card');
+    var buttons = root.querySelectorAll('.lbn-job');
+    function render(key) {
+      var d = careers[key];
+      if (!d) return;
+      q('lbn-hot-img').src = IMG + d.img;
+      q('lbn-hot-img').alt = 'Ngành ' + d.title;
+      q('lbn-hot-tag').textContent = d.tag;
+      q('lbn-hot-title').textContent = d.title;
+      q('lbn-hot-desc').textContent = d.desc;
+      q('lbn-hot-hcode').textContent = d.holland.split('').join(' – ');
+      Array.prototype.forEach.call(q('lbn-hot-riasec').children, function (chip) {
+        chip.classList.toggle('is-on', d.holland.indexOf(chip.getAttribute('data-l')) !== -1);
+      });
+      q('lbn-hot-mcode').textContent = d.types;
+      fill(q('lbn-hot-pairs'), PAIRS.map(function (p, i) {
+        var pair = el('div', 'lbn-mp');
+        p.forEach(function (l) { pair.appendChild(el('div', 'lbn-mp-l' + (d.mbti[i].indexOf(l) !== -1 ? ' is-on' : ''), l)); });
+        return pair;
+      }));
+      fill(q('lbn-hot-skills'), d.skills.map(function (t) { return el('li', '', t); }));
+      fill(q('lbn-hot-jobs'), d.jobs.map(function (t) { return el('div', '', t); }));
+      card.classList.remove('is-swap');
+      void card.offsetWidth;
+      card.classList.add('is-swap');
+    }
+    Array.prototype.forEach.call(buttons, function (btn) {
+      btn.addEventListener('click', function () {
+        Array.prototype.forEach.call(buttons, function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        render(btn.getAttribute('data-career'));
+        if (window.innerWidth < 850) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script><br />
+
+<section id="s7" class="section lbn lbn-quote" style="background-color:#153e42"><div class="section-content">
+<div class="row lbn-row" style="max-width:1210px">
+<div class="col large-12 medium-12 small-12"><div class="col-inner">
 
 <div class="lbn-quote-layout">
-<div><h2>Không có một ngành “tốt nhất”.<br>Chỉ có hành trình <span>phù hợp với bạn.</span></h2><p>Hãy xem mỗi kết quả là điểm khởi đầu cho những cuộc tìm hiểu sâu hơn.</p></div>
+<div>
+<h2>Không có một ngành “tốt nhất”.<br />Chỉ có hành trình <span>phù hợp với bạn.</span></h2>
+<p>Hãy xem mỗi kết quả là điểm khởi đầu cho những cuộc tìm hiểu sâu hơn.</p>
+</div>
 <div class="lbn-quote-actions">
-<a class="lbn-btn lbn-btn-light" href="https://tracnghiemplus.com/bai-thi/test-holland/">Làm test Holland <span class="lbn-arrow">↗</span></a>
+<a class="lbn-btn lbn-btn-light" href="https://tracnghiemplus.com/bai-thi/test-holland/">Làm test Holland <span class="lbn-arrow">↗</span></a><br />
 <a class="lbn-btn lbn-btn-ghost" href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/">Làm test MBTI <span class="lbn-arrow">↗</span></a>
 </div>
 </div>
 
-
 </div></div>
-
 </div>
-
 </div></section>
-
-<section id="s7" class="section lbn lbn-faq" style="background-color:#f8f7f3"><div class="section-content">
-
+<section id="s8" class="section lbn lbn-faq" style="background-color:"><div class="section-content">
 <div class="row lbn-row lbn-faq-row" style="max-width:1260px">
-
 <div class="col large-5 medium-12 small-12"><div class="col-inner">
 
-
 <div id="cau-hoi" class="lbn-anchor"></div>
-<div class="lbn-faq-intro"><div class="lbn-eyebrow">Bạn có thể đang thắc mắc</div><h2>Câu hỏi thường gặp</h2><p class="lbn-muted">Định hướng nghề nghiệp là quá trình khám phá liên tục. Bắt đầu bằng một vài câu hỏi đơn giản nhé.</p></div>
-
+<div class="lbn-faq-intro">
+<div class="lbn-eyebrow">Bạn có thể đang thắc mắc</div>
+<h2>Câu hỏi thường gặp</h2>
+<p class="lbn-muted">Định hướng nghề nghiệp là quá trình khám phá liên tục. Bắt đầu bằng một vài câu hỏi đơn giản nhé.</p>
+</div>
 
 </div></div>
 <div class="col large-7 medium-12 small-12"><div class="col-inner">
 
-
 <div class="lbn-faq-list">
-<div class="lbn-faq-item open"><button type="button" aria-expanded="true"><span>Tôi nên bắt đầu với Holland hay MBTI?</span><span>+</span></button><div class="lbn-faq-answer">Nếu muốn tìm hiểu hoạt động và môi trường nghề nghiệp mình yêu thích, hãy bắt đầu với <a href="https://tracnghiemplus.com/bai-thi/test-holland/">test Holland</a>. Nếu muốn hiểu phong cách suy nghĩ, giao tiếp và làm việc, hãy làm <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/">test MBTI</a>. Bạn cũng có thể kết hợp cả hai.</div></div>
-<div class="lbn-faq-item"><button type="button" aria-expanded="false"><span>Kết quả có quyết định ngành nghề của tôi không?</span><span>+</span></button><div class="lbn-faq-answer">Không. Kết quả là thông tin tham khảo để bạn đặt thêm câu hỏi và tìm hiểu lựa chọn phù hợp. Hãy cân nhắc cả năng lực, giá trị cá nhân, điều kiện thực tế và trải nghiệm của chính mình.</div></div>
-<div class="lbn-faq-item"><button type="button" aria-expanded="false"><span>Làm trắc nghiệm nghề nghiệp có mất phí không?</span><span>+</span></button><div class="lbn-faq-answer">Không. Cả test Holland và test MBTI trên Trắc Nghiệm Plus đều miễn phí và có kết quả ngay sau khi hoàn thành.</div></div>
-<div class="lbn-faq-item"><button type="button" aria-expanded="false"><span>Sở thích và tính cách của tôi có thể thay đổi không?</span><span>+</span></button><div class="lbn-faq-answer">Có. Trải nghiệm, môi trường và giai đoạn phát triển có thể ảnh hưởng đến cách bạn nhìn nhận bản thân. Bạn nên xem lại các gợi ý theo thời gian và luôn giữ sự cởi mở với những khả năng mới.</div></div>
-<div class="lbn-faq-item"><button type="button" aria-expanded="false"><span>Có nên kết hợp kết quả với tư vấn hướng nghiệp?</span><span>+</span></button><div class="lbn-faq-answer">Có. Trao đổi với chuyên viên tư vấn hướng nghiệp, thầy cô, người đang làm trong ngành và tham gia trải nghiệm thực tế sẽ giúp bạn có góc nhìn đa chiều hơn trước khi lựa chọn.</div></div>
+<div class="lbn-faq-item open"><button type="button" aria-expanded="true"><span>Tôi nên bắt đầu với Holland hay MBTI?</span><span>+</span></button></p>
+<div class="lbn-faq-answer">Nếu muốn tìm hiểu hoạt động và môi trường nghề nghiệp mình yêu thích, hãy bắt đầu với <a href="https://tracnghiemplus.com/bai-thi/test-holland/">test Holland</a>. Nếu muốn hiểu phong cách suy nghĩ, giao tiếp và làm việc, hãy làm <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/">test MBTI</a>. Bạn cũng có thể kết hợp cả hai.</div>
 </div>
-
+<div class="lbn-faq-item"><button type="button" aria-expanded="false"><span>Kết quả có quyết định ngành nghề của tôi không?</span><span>+</span></button></p>
+<div class="lbn-faq-answer">Không. Kết quả là thông tin tham khảo để bạn đặt thêm câu hỏi và tìm hiểu lựa chọn phù hợp. Hãy cân nhắc cả năng lực, giá trị cá nhân, điều kiện thực tế và trải nghiệm của chính mình.</div>
+</div>
+<div class="lbn-faq-item"><button type="button" aria-expanded="false"><span>Làm trắc nghiệm nghề nghiệp có mất phí không?</span><span>+</span></button></p>
+<div class="lbn-faq-answer">Không. Cả test Holland và test MBTI trên Trắc Nghiệm Plus đều miễn phí và có kết quả ngay sau khi hoàn thành.</div>
+</div>
+<div class="lbn-faq-item"><button type="button" aria-expanded="false"><span>Sở thích và tính cách của tôi có thể thay đổi không?</span><span>+</span></button></p>
+<div class="lbn-faq-answer">Có. Trải nghiệm, môi trường và giai đoạn phát triển có thể ảnh hưởng đến cách bạn nhìn nhận bản thân. Bạn nên xem lại các gợi ý theo thời gian và luôn giữ sự cởi mở với những khả năng mới.</div>
+</div>
+<div class="lbn-faq-item"><button type="button" aria-expanded="false"><span>Có nên kết hợp kết quả với tư vấn hướng nghiệp?</span><span>+</span></button></p>
+<div class="lbn-faq-answer">Có. Trao đổi với chuyên viên tư vấn hướng nghiệp, thầy cô, người đang làm trong ngành và tham gia trải nghiệm thực tế sẽ giúp bạn có góc nhìn đa chiều hơn trước khi lựa chọn.</div>
+</div>
+</div>
 
 </div></div>
-
 </div>
-
 </div></section>
 </main>
 <script>document.querySelectorAll('.accordion-title').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();a.parentNode.classList.toggle('active')})});</script>

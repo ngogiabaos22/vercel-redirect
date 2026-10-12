@@ -1,0 +1,58 @@
+/* ---------- Ngành HOT ---------- */
+.lbn-hot-sec{background:radial-gradient(circle at 0 0,rgba(17,107,104,.06) 0 180px,transparent 182px),radial-gradient(circle at 100% 0,rgba(237,133,78,.08) 0 220px,transparent 222px),#fff!important}
+.lbn .lbn-hot-word{color:var(--orange)}
+.lbn .lbn-hot{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:stretch}
+.lbn .lbn-hot-side,.lbn .lbn-hot-card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 36px rgba(27,53,54,.05)}
+.lbn .lbn-hot-side{padding:26px 22px;display:flex;flex-direction:column;background:#fbfaf7}
+.lbn .lbn-hot-side h3{font-size:19px;margin:0 0 6px}
+.lbn .lbn-hot-side>p{font-size:12px;color:var(--muted);margin:0 0 18px}
+.lbn .lbn-job-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.lbn .lbn-job{position:relative;display:flex;align-items:center;gap:10px;min-height:64px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);text-align:left;font-size:12px;font-weight:700;line-height:1.35;transition:border .2s,background .2s,transform .2s}
+.lbn .lbn-job:hover{transform:translateY(-2px);border-color:#a7c6b6}
+.lbn .lbn-job.is-active{background:#eaf4ed;border-color:#68a684;box-shadow:0 8px 18px rgba(17,107,104,.1)}
+.lbn .lbn-job.is-active:after{content:"✓";position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:11px;display:grid;place-items:center}
+.lbn .lbn-job-ico{width:36px;min-width:36px;height:36px;border-radius:10px;background:var(--mint);display:grid;place-items:center;font-size:18px}
+.lbn .lbn-side-note{margin-top:auto;display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:12px;background:#f1f6f2;font-size:11px;line-height:1.6;color:#5d6f72}
+.lbn .lbn-side-i{width:22px;min-width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center}
+.lbn .lbn-hot-card{overflow:hidden;display:flex;flex-direction:column}
+.lbn .lbn-hot-card.is-swap .lbn-hot-body,.lbn .lbn-hot-card.is-swap .lbn-hot-media img{animation:lbnFade .45s ease}
+@keyframes lbnFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.lbn .lbn-hot-media{position:relative;height:200px;background:#e9efe7;overflow:hidden}
+.lbn .lbn-hot-imgwrap,.lbn .lbn-hot-media p{height:100%;margin:0}
+.lbn .lbn-hot-media img{width:100%;height:100%;object-fit:cover;display:block}
+.lbn .lbn-hot-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(21,62,66,.55))}
+.lbn .lbn-hot-tag{position:absolute;left:22px;bottom:16px;z-index:1;padding:6px 13px;border-radius:99px;background:var(--peach);color:#bf6c42;font-size:12px;font-weight:800}
+.lbn .lbn-hot-body{padding:24px 26px 26px}
+.lbn .lbn-hot-body>h3{font-size:26px;margin:0 0 8px}
+.lbn .lbn-hot-body>p{font-size:13px;color:var(--muted);margin:0 0 20px}
+.lbn .lbn-index{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.lbn .lbn-index-box{border-radius:14px;padding:16px;border:1px solid var(--line)}
+.lbn .lbn-index-box.is-holland{background:#f3f8f4;border-color:#d7e8dd}
+.lbn .lbn-index-box.is-mbti{background:#fff7f1;border-color:#f3e1d4}
+.lbn .lbn-index-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.lbn .lbn-index-label{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6a7c7e}
+.lbn .lbn-index-code{font-size:18px;font-weight:800;color:var(--teal);letter-spacing:.02em}
+.lbn .is-mbti .lbn-index-code{color:#bf6c42}
+.lbn .lbn-riasec-chips{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.lbn .lbn-chip{border-radius:9px;background:#fff;border:1px solid #e1e8e3;color:#9aa8a6;text-align:center;padding:8px 2px 6px;font-size:16px;font-weight:800;line-height:1.1;transition:all .25s}
+.lbn .lbn-chip small{display:block;font-size:8px;font-weight:600;margin-top:4px;line-height:1.2}
+.lbn .lbn-chip.is-on{background:var(--teal);border-color:var(--teal);color:#fff;transform:translateY(-2px);box-shadow:0 6px 14px rgba(17,107,104,.18)}
+.lbn .lbn-mbti-pairs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.lbn .lbn-mp{display:grid;grid-template-rows:1fr 1fr;gap:4px;background:#fff;border:1px solid #f0e3d9;border-radius:10px;padding:5px}
+.lbn .lbn-mp-l{border-radius:7px;text-align:center;padding:5px 0;font-size:15px;font-weight:800;color:#c9b5a8;transition:all .25s}
+.lbn .lbn-mp-l.is-on{background:var(--orange);color:#fff}
+.lbn .lbn-detail2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lbn .lbn-detail2-box{border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.lbn .lbn-detail2-box h4{font-size:14px;margin:0 0 10px;color:var(--ink);letter-spacing:-.02em}
+.lbn .lbn-detail2-box ul{list-style:none;margin:0;padding:0}
+.lbn .lbn-detail2-box li{position:relative;padding:6px 0 6px 22px;border-bottom:1px dashed var(--line);font-size:12px;line-height:1.5;color:#53636a}
+.lbn .lbn-detail2-box li:last-child{border-bottom:0}
+.lbn .lbn-detail2-box li:before{content:"✓";position:absolute;left:0;top:6px;color:var(--teal);font-weight:800}
+.lbn .lbn-pos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lbn .lbn-pos div{padding:10px;border-radius:9px;background:#f3f8f4;color:var(--teal);font-size:11px;font-weight:700;line-height:1.35}
+.lbn .lbn-hot-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.lbn .lbn-hot-actions .lbn-btn{flex:1}
+.lbn .lbn-hot-note{margin-top:22px;text-align:center;font-size:12px;color:#788387}
+@media (max-width:1100px){.lbn .lbn-hot{grid-template-columns:1fr}.lbn .lbn-job-grid{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:849px){.lbn .lbn-job-grid{grid-template-columns:1fr 1fr}.lbn .lbn-index,.lbn .lbn-detail2{grid-template-columns:1fr}}
+@media (max-width:549px){.lbn .lbn-hot-body{padding:20px 16px}.lbn .lbn-hot-side{padding:20px 16px}.lbn .lbn-hot-body>h3{font-size:22px}.lbn .lbn-chip small{display:none}.lbn .lbn-hot-actions .lbn-btn{flex:1 1 100%;white-space:normal;text-align:center}}
