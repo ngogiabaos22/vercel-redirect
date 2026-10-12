@@ -149,6 +149,8 @@
       .then(function (list) {
         var page = list && list[0], hub = document.querySelectorAll('.section.dh');
         if (!page || !page.content || !hub.length) { initHub(); routeDone(); return; }
+        var css = document.getElementById('dh-css');
+        if (css) document.head.appendChild(css);
         var wrap = el('div', 'dh-routed');
         wrap.innerHTML = page.content.rendered;
         each(wrap.querySelectorAll('script, .block-edit-link, #dh-css'), function (n) { n.parentNode.removeChild(n); });
