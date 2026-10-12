@@ -6,6 +6,7 @@ Giao diện theo mẫu `…vercel.app/dai-hoc` (nền kem, chữ navy, điểm n
 | Nội dung | Ở đâu | File |
 |---|---|---|
 | CSS + JS dùng chung | **UX Blocks › "Đại học – CSS + JS dùng chung"** (ID 671, slug `dai-hoc-assets`) | `block-dai-hoc-assets.txt` (sinh từ `style.css` + `script.js`) |
+| Sidebar môn học (trang môn) | **UX Blocks › "Đại học – Sidebar môn học"** (ID 720, slug `dai-hoc-sidebar`) | `block-dai-hoc-sidebar.txt` (sinh từ `sidebar.json`) |
 | Trang chính `/dai-hoc/` | Trang 423, template Page – Full Width | `page-dai-hoc.txt` |
 | 6 trang môn `/dai-hoc/…/` | Trang 584, 582, 590, 588, 580, 586 | `mon-hoc/*.txt` |
 
@@ -48,3 +49,8 @@ Nhiều khả năng do TestSpace (`[tqp_category_landing]` từng đặt trên t
 
 - **Xử lý tạm (đang chạy):** JS trong UX Block nhận ra URL `/dai-hoc/<slug>/` mà trang trả về lại là trang chính → lấy nội dung trang con qua `/wp-json/wp/v2/pages?slug=<slug>` (đã render sẵn shortcode TestSpace) và hiển thị thay thế, đổi luôn tiêu đề tab.
 - **Sửa gốc:** WP Admin → *Cài đặt › Đường dẫn tĩnh* → bấm **Lưu thay đổi** (xóa cache rewrite). Nếu vẫn lỗi: xem cài đặt TestSpace có mục trang landing/portal trỏ tới "Đại học" không, hoặc tìm `add_rewrite_rule` có chữ `dai-hoc` trong `functions.php`. Khi đã sửa, trang con tự hiển thị trực tiếp, JS dự phòng không làm gì.
+
+## Sidebar trang môn
+Trang môn chia 2 cột: danh sách đề (8/12) + sidebar (4/12, dính khi cuộn) gồm **Các môn học bắt buộc** và **Các môn học HOT**. Trên mobile sidebar tự xuống cuối trang.
+- Sửa danh sách: UX Blocks › "Đại học – Sidebar môn học" (hoặc sửa `sidebar.json` rồi `python3 build.py`).
+- JS tự đánh dấu môn đang xem và hỏi WordPress (`/wp-json/wp/v2/pages?slug=…`) xem trang có tồn tại không: môn chưa có trang hiện **"Sắp có"** (không bấm được). Tạo trang con của "Đại học" đúng slug (vd `trac-nghiem-marketing-can-ban`) là tự thành link.

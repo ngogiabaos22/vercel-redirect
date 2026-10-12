@@ -1,0 +1,19 @@
+{
+ "required": {"title": "Các môn học bắt buộc", "sub": "Học phần chung toàn trường", "items": [
+  ["Trắc nghiệm Pháp luật đại cương", "trac-nghiem-phap-luat-dai-cuong"],
+  ["Trắc nghiệm Triết học Mác Lênin", "trac-nghiem-triet-hoc-mac-lenin"],
+  ["Trắc nghiệm Tư tưởng Hồ Chí Minh", "trac-nghiem-tu-tuong-ho-chi-minh"],
+  ["Trắc nghiệm Tin học đại cương", "trac-nghiem-tin-hoc-dai-cuong"],
+  ["Trắc nghiệm Lịch sử Đảng", "trac-nghiem-lich-su-dang"],
+  ["Trắc nghiệm Kinh tế chính trị", "trac-nghiem-kinh-te-chinh-tri"]]},
+ "hot": {"title": "Các môn học HOT", "sub": "Được nhiều sinh viên ôn luyện", "items": [
+  ["Trắc nghiệm Marketing căn bản", "trac-nghiem-marketing-can-ban"],
+  ["Trắc nghiệm Quản trị nguồn nhân lực", "trac-nghiem-quan-tri-nguon-nhan-luc"],
+  ["Trắc nghiệm Kinh tế vĩ mô", "trac-nghiem-kinh-te-vi-mo"],
+  ["Trắc nghiệm Quản trị học", "trac-nghiem-quan-tri-hoc"],
+  ["Trắc nghiệm Luật kinh tế", "trac-nghiem-luat-kinh-te"],
+  ["Trắc nghiệm Luật kinh doanh", "trac-nghiem-luat-kinh-doanh"],
+  ["Trắc nghiệm Cơ sở văn hóa Việt Nam", "trac-nghiem-co-so-van-hoa-viet-nam"],
+  ["Trắc nghiệm Phương pháp nghiên cứu khoa học", "trac-nghiem-phuong-phap-nghien-cuu-khoa-hoc"],
+  ["Trắc nghiệm Tâm lý học", "trac-nghiem-tam-ly-hoc"]]}
+}

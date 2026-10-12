@@ -141,6 +141,26 @@
       each(document.querySelectorAll('[data-dh-schools]'), function (b) { b.style.display = 'none'; });
     }
   }
+  /* ---------- Sidebar: đánh dấu môn đang xem, môn chưa có trang thì "Sắp có" ---------- */
+  function initAside() {
+    var items = document.querySelectorAll('.dh-side-item[data-slug]');
+    if (!items.length) return;
+    var parts = location.pathname.replace(/\/+$/, '').split('/'), cur = decodeURIComponent(parts[parts.length - 1] || '');
+    var slugs = [];
+    each(items, function (it) { var sl = it.getAttribute('data-slug'); if (sl === cur) it.classList.add('is-current'); if (slugs.indexOf(sl) === -1) slugs.push(sl); });
+    fetch('/wp-json/wp/v2/pages?per_page=100&_fields=slug,link&slug=' + slugs.map(encodeURIComponent).join(','), { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (list) {
+        if (!list || !list.forEach) return;
+        var have = {};
+        list.forEach(function (pg) { have[pg.slug] = pg.link; });
+        each(items, function (it) {
+          var a = it.querySelector('a'), link = have[it.getAttribute('data-slug')];
+          if (link) { if (a) a.href = link; } else { it.classList.add('is-soon'); if (a) { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); } }
+        });
+      })
+      .catch(function () {});
+  }
   /* ---------- Dự phòng: WordPress trả trang chính cho URL /dai-hoc/ten-mon/ (do quy tắc URL của plugin) ---------- */
   function routeDone() { document.documentElement.classList.remove('dh-routing'); }
   function route() {
@@ -159,6 +179,7 @@
         var t = el('div'); t.innerHTML = page.title ? page.title.rendered : '';
         if (t.textContent) document.title = t.textContent + ' – ' + document.title.split(/\s[–|-]\s/).pop();
         initSubject();
+        initAside();
         routeDone();
         if (location.hash) { var h = document.getElementById(location.hash.slice(1)); if (h) h.scrollIntoView(); }
       })
@@ -169,6 +190,7 @@
     routeDone();
     initHub();
     initSubject();
+    initAside();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

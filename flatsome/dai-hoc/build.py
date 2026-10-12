@@ -11,6 +11,17 @@ assets = ('[ux_html label="CSS + JS trang Đại học (dùng chung)"]\n'
 open(f'{D}/block-dai-hoc-assets.txt', 'w', encoding='utf-8').write(assets)
 
 BLOCK = '[block id="dai-hoc-assets"]'
+
+# 1b) UX Block sidebar (danh sách môn bắt buộc + môn HOT)
+SB = json.load(open(f'{D}/sidebar.json', encoding='utf-8'))
+def side_card(key, cls, icon):
+    c = SB[key]
+    rows = ''.join(f'<div class="dh-side-item" data-slug="{slug}"><div class="dh-side-num">{i}</div><div class="dh-side-name"><a class="dh-cover" href="https://tracnghiemplus.com/dai-hoc/{slug}/">{name}</a></div><span class="dh-side-soon">Sắp có</span></div>\n'
+                   for i, (name, slug) in enumerate(c['items'], 1))
+    return (f'<div class="dh-side-card {cls}"><div class="dh-side-head"><div class="dh-side-icon">{icon}</div><div><div class="dh-side-title">{c["title"]}</div><div class="dh-side-sub">{c["sub"]}</div></div></div>\n'
+            f'<div class="dh-side-list">\n{rows}</div></div>\n')
+sidebar = ('[ux_html label="Sidebar: môn bắt buộc + môn HOT"]\n<div class="dh-aside">\n' + side_card('required', '', '📘') + side_card('hot', 'is-hot', '🔥') + '</div>\n[/ux_html]\n')
+open(f'{D}/block-dai-hoc-sidebar.txt', 'w', encoding='utf-8').write(sidebar)
 BASE = 'https://tracnghiemplus.com/dai-hoc/'
 SUBJECTS = json.load(open(f'{D}/subjects.json', encoding='utf-8'))
 ICONS = {
@@ -168,11 +179,11 @@ def subject(s):
 
 [/section]
 
-[section label="2. Nhóm đề 1 – theo môn học" bg_color="#f5f1e8" padding="44px" padding__sm="30px" class="dh dh-page"]
+[section label="2. Danh sách đề + sidebar môn học" bg_color="#f5f1e8" padding="44px" padding__sm="30px" class="dh dh-page"]
 
 [row width="custom" custom_width="1200px" class="dh-row"]
 
-[col span="12"]
+[col span="8" span__md="12" span__sm="12" class="dh-main-col"]
 
 [ux_html label="Nhóm đề 1 – tiêu đề + danh sách"]
 <div id="de-thi" class="dh-anchor"></div>
@@ -183,34 +194,39 @@ def subject(s):
 <div class="dh-empty" id="dh-empty-mon" style="display:none">Đề trắc nghiệm môn này đang được cập nhật. Bạn quay lại sau nhé!</div>
 [/ux_html]
 
-[/col]
-[col span="12" class="dh-src dh-src-mon"]
+[row_inner]
+
+[col_inner span="12" class="dh-src dh-src-mon"]
 
 [tqp_category_landing category="{cat}"]
 
-[/col]
+[/col_inner]
 
-[/row]
-
-[/section]
-
-[section label="3. Nhóm đề 2 – đề các trường" bg_color="#f5f1e8" padding="44px" padding__sm="30px" class="dh dh-page dh-g-truong"]
-
-[row width="custom" custom_width="1200px" class="dh-row"]
-
-[col span="12"]
+[/row_inner]
 
 [ux_html label="Nhóm đề 2 – tiêu đề + danh sách"]
+<div class="dh-g-truong" style="margin-top:30px">
 <div id="de-truong" class="dh-anchor"></div>
 <div class="dh-ghead"><div class="dh-kicker">Nhóm đề 2</div><h2 class="dh-h2">Đề trắc nghiệm {name} của các trường đại học</h2><div class="dh-gdesc">Đề thi giữa kỳ, cuối kỳ được sưu tầm từ các trường đại học – phù hợp để luyện sát cấu trúc đề của trường bạn.</div></div>
 <div class="dh-count" data-dh-stat="truong-count">…</div>
 <div class="dh-panel"><div class="dh-list" id="dh-list-truong"></div></div>
+</div>
 [/ux_html]
 
-[/col]
-[col span="12" class="dh-src dh-src-truong"]
+[row_inner]
+
+[col_inner span="12" class="dh-src dh-src-truong"]
 
 [tqp_category_landing category="{cat_tr}"]
+
+[/col_inner]
+
+[/row_inner]
+
+[/col]
+[col span="4" span__md="12" span__sm="12" class="dh-aside-col"]
+
+[block id="dai-hoc-sidebar"]
 
 [/col]
 

@@ -32,11 +32,11 @@
 
 [/section]
 
-[section label="2. Nhóm đề 1 – theo môn học" bg_color="#f5f1e8" padding="44px" padding__sm="30px" class="dh dh-page"]
+[section label="2. Danh sách đề + sidebar môn học" bg_color="#f5f1e8" padding="44px" padding__sm="30px" class="dh dh-page"]
 
 [row width="custom" custom_width="1200px" class="dh-row"]
 
-[col span="12"]
+[col span="8" span__md="12" span__sm="12" class="dh-main-col"]
 
 [ux_html label="Nhóm đề 1 – tiêu đề + danh sách"]
 <div id="de-thi" class="dh-anchor"></div>
@@ -47,34 +47,39 @@
 <div class="dh-empty" id="dh-empty-mon" style="display:none">Đề trắc nghiệm môn này đang được cập nhật. Bạn quay lại sau nhé!</div>
 [/ux_html]
 
-[/col]
-[col span="12" class="dh-src dh-src-mon"]
+[row_inner]
+
+[col_inner span="12" class="dh-src dh-src-mon"]
 
 [tqp_category_landing category="Tư tưởng Hồ Chí Minh"]
 
-[/col]
+[/col_inner]
 
-[/row]
-
-[/section]
-
-[section label="3. Nhóm đề 2 – đề các trường" bg_color="#f5f1e8" padding="44px" padding__sm="30px" class="dh dh-page dh-g-truong"]
-
-[row width="custom" custom_width="1200px" class="dh-row"]
-
-[col span="12"]
+[/row_inner]
 
 [ux_html label="Nhóm đề 2 – tiêu đề + danh sách"]
+<div class="dh-g-truong" style="margin-top:30px">
 <div id="de-truong" class="dh-anchor"></div>
 <div class="dh-ghead"><div class="dh-kicker">Nhóm đề 2</div><h2 class="dh-h2">Đề trắc nghiệm Tư tưởng Hồ Chí Minh của các trường đại học</h2><div class="dh-gdesc">Đề thi giữa kỳ, cuối kỳ được sưu tầm từ các trường đại học – phù hợp để luyện sát cấu trúc đề của trường bạn.</div></div>
 <div class="dh-count" data-dh-stat="truong-count">…</div>
 <div class="dh-panel"><div class="dh-list" id="dh-list-truong"></div></div>
+</div>
 [/ux_html]
 
-[/col]
-[col span="12" class="dh-src dh-src-truong"]
+[row_inner]
+
+[col_inner span="12" class="dh-src dh-src-truong"]
 
 [tqp_category_landing category="Tư tưởng Hồ Chí Minh - Đề các trường"]
+
+[/col_inner]
+
+[/row_inner]
+
+[/col]
+[col span="4" span__md="12" span__sm="12" class="dh-aside-col"]
+
+[block id="dai-hoc-sidebar"]
 
 [/col]
 
