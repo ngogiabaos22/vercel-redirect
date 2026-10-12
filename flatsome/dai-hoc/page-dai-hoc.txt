@@ -1,12 +1,10 @@
-[block id="dai-hoc-assets"]
-
-
-
 [section label="1. Giới thiệu" bg_color="#f5f1e8" padding="48px" padding__sm="28px" class="dh dh-hero"]
 
 [row width="custom" custom_width="1200px" v_align="middle" class="dh-row"]
 
 [col span="7" span__md="12" span__sm="12"]
+
+[block id="dai-hoc-assets"]
 
 [ux_html label="Giới thiệu – nội dung + tìm kiếm"]
 <div class="dh-crumb"><a href="https://tracnghiemplus.com/">⌂ Trang chủ</a><i>›</i><b>Đại học</b></div>

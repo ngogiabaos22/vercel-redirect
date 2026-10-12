@@ -9,7 +9,10 @@ Giao diện theo mẫu `…vercel.app/dai-hoc` (nền kem, chữ navy, điểm n
 | Trang chính `/dai-hoc/` | Trang 423, template Page – Full Width | `page-dai-hoc.txt` |
 | 6 trang môn `/dai-hoc/…/` | Trang 584, 582, 590, 588, 580, 586 | `mon-hoc/*.txt` |
 
-Mỗi trang bắt đầu bằng `[block id="dai-hoc-assets"]` → sửa CSS/JS một chỗ (trong UX Block) là áp dụng cho tất cả.
+Mỗi trang gọi `[block id="dai-hoc-assets"]` (nằm **trong cột đầu tiên** của section 1) → sửa CSS/JS một chỗ (trong UX Block) là áp dụng cho tất cả.
+
+> ⚠️ **Không xoá phần tử "Block – Đại học – CSS + JS dùng chung"** trong UX Builder. Nếu mất dòng này, trang sẽ hiện chữ thô, không có giao diện và danh sách đề.
+> Nên sửa trang bằng **UX Builder** hoặc tab **Văn bản (Text)** của Classic Editor; tab **Trực quan (Visual)** có thể tự xoá thẻ/thuộc tính.
 
 ## Kết nối dữ liệu TestSpace
 Trang môn dùng shortcode của plugin:

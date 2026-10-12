@@ -201,11 +201,11 @@ html{scroll-behavior:smooth}
 </div>
 <div class="dh-count" data-dh-stat="mon">…</div>
 <div class="dh-panel">
-<div class="dh-panel-title">Trắc nghiệm Tư tưởng Hồ Chí Minh – đề tổng hợp <span data-dh-count="dh-list-tonghop"></span></div>
+<div class="dh-panel-title">Trắc nghiệm Tư tưởng Hồ Chí Minh – đề tổng hợp</div>
 <div class="dh-list" id="dh-list-tonghop"></div>
 </div>
 <div class="dh-panel">
-<div class="dh-panel-title">Trắc nghiệm Tư tưởng Hồ Chí Minh theo chương <span data-dh-count="dh-list-chuong"></span></div>
+<div class="dh-panel-title">Trắc nghiệm Tư tưởng Hồ Chí Minh theo chương</div>
 <div class="dh-list" id="dh-list-chuong"></div>
 </div>
 <div class="dh-empty" id="dh-empty-mon" style="display:none">Đề trắc nghiệm môn này đang được cập nhật. Bạn quay lại sau nhé!</div>
@@ -341,6 +341,10 @@ html{scroll-behavior:smooth}
     });
     return out;
   }
+  function shortTitle(t) {
+    var x = t.replace(/^thi thử\s+/i, '').replace(/^trắc nghiệm\s+/i, '').replace(/^ôn tập\s+/i, '').replace(/^môn\s+/i, '').replace(/\s+online(?=\s|$)/i, '').replace(/\s+-\s+/g, ' – ');
+    return 'Trắc nghiệm ' + x.charAt(0).toUpperCase() + x.slice(1);
+  }
   function schoolCode(title) {
     var w = title.split(/[\s\-–]+/).filter(Boolean), last = w[w.length - 1] || '';
     return /^[A-ZĐ0-9]{2,7}$/.test(last) ? last : 'ĐH';
@@ -350,7 +354,8 @@ html{scroll-behavior:smooth}
     a.href = d.href;
     a.appendChild(el('div', 'dh-num' + (isSchool ? ' is-school' : ''), badge));
     var body = el('div', 'dh-item-body');
-    body.appendChild(el('div', 'dh-item-title', d.title));
+    body.appendChild(el('div', 'dh-item-title', isSchool ? d.title : shortTitle(d.title)));
+    a.title = d.title;
     var meta = el('div', 'dh-item-meta');
     if (d.q) meta.appendChild(el('span', '', '☰ ' + d.q + ' câu'));
     if (d.min) meta.appendChild(el('span', '', '◷ ' + d.min + ' phút'));
@@ -364,8 +369,10 @@ html{scroll-behavior:smooth}
     if (!box) return;
     while (box.firstChild) box.removeChild(box.firstChild);
     items.forEach(function (d, i) { box.appendChild(row(d, school ? schoolCode(d.title) : String(i + 1), school)); });
-    each(document.querySelectorAll('[data-dh-count="' + id + '"]'), function (n) { n.textContent = items.length + ' đề'; });
     var panel = box.closest('.dh-panel');
+    var head = panel ? panel.querySelector('.dh-panel-title') : null;
+    if (head && !head.querySelector('[data-dh-count]')) { var c = el('span', ''); c.setAttribute('data-dh-count', id); head.appendChild(c); }
+    each(document.querySelectorAll('[data-dh-count="' + id + '"]'), function (n) { n.textContent = items.length + ' đề'; });
     if (panel) panel.style.display = items.length ? '' : 'none';
   }
   function initSubject() {

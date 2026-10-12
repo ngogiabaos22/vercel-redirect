@@ -27,11 +27,13 @@ GROUPS = [
 def hub():
     chips = ''.join(f'<div class="dh-chip" data-q="{c}">{c}</div>' for c in
                     ['Pháp luật đại cương', 'Triết học Mác Lênin', 'Tư tưởng Hồ Chí Minh', 'Tin học đại cương', 'Kinh tế vi mô', 'Marketing căn bản'])
-    out = [BLOCK, '', '''[section label="1. Giới thiệu" bg_color="#f5f1e8" padding="48px" padding__sm="28px" class="dh dh-hero"]
+    out = ['''[section label="1. Giới thiệu" bg_color="#f5f1e8" padding="48px" padding__sm="28px" class="dh dh-hero"]
 
 [row width="custom" custom_width="1200px" v_align="middle" class="dh-row"]
 
 [col span="7" span__md="12" span__sm="12"]
+
+''' + BLOCK + '''
 
 [ux_html label="Giới thiệu – nội dung + tìm kiếm"]
 <div class="dh-crumb"><a href="https://tracnghiemplus.com/">⌂ Trang chủ</a><i>›</i><b>Đại học</b></div>
@@ -132,13 +134,13 @@ def subject(s):
     name, cat = s['name'], s['category']
     cat_tr = s.get('category_truong', f'{cat} - Đề các trường')
     groupname = dict((g, n) for g, n, _ in GROUPS)[s['group']]
-    return f'''{BLOCK}
-
-[section label="1. Giới thiệu môn" bg_color="#f5f1e8" padding="44px" padding__sm="28px" class="dh dh-hero"]
+    return f'''[section label="1. Giới thiệu môn" bg_color="#f5f1e8" padding="44px" padding__sm="28px" class="dh dh-hero"]
 
 [row width="custom" custom_width="1200px" v_align="middle" class="dh-row"]
 
 [col span="7" span__md="12" span__sm="12"]
+
+{BLOCK}
 
 [ux_html label="Giới thiệu môn"]
 <div class="dh-crumb"><a href="https://tracnghiemplus.com/">⌂ Trang chủ</a><i>›</i><a href="{BASE}">Đại học</a><i>›</i><b>Trắc nghiệm {name}</b></div>
@@ -176,8 +178,8 @@ def subject(s):
 <div id="de-thi" class="dh-anchor"></div>
 <div class="dh-ghead"><div class="dh-kicker">Nhóm đề 1</div><h2 class="dh-h2">Đề trắc nghiệm theo môn học</h2><div class="dh-gdesc">Bộ đề tổng hợp và đề theo từng chương của môn {name}, bám sát giáo trình chuẩn.</div></div>
 <div class="dh-count" data-dh-stat="mon">…</div>
-<div class="dh-panel"><div class="dh-panel-title">Trắc nghiệm {name} – đề tổng hợp <span data-dh-count="dh-list-tonghop"></span></div><div class="dh-list" id="dh-list-tonghop"></div></div>
-<div class="dh-panel"><div class="dh-panel-title">Trắc nghiệm {name} theo chương <span data-dh-count="dh-list-chuong"></span></div><div class="dh-list" id="dh-list-chuong"></div></div>
+<div class="dh-panel"><div class="dh-panel-title">Trắc nghiệm {name} – đề tổng hợp</div><div class="dh-list" id="dh-list-tonghop"></div></div>
+<div class="dh-panel"><div class="dh-panel-title">Trắc nghiệm {name} theo chương</div><div class="dh-list" id="dh-list-chuong"></div></div>
 <div class="dh-empty" id="dh-empty-mon" style="display:none">Đề trắc nghiệm môn này đang được cập nhật. Bạn quay lại sau nhé!</div>
 [/ux_html]
 
