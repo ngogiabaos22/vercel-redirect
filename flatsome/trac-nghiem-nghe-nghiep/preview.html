@@ -1,0 +1,879 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trắc nghiệm nghề nghiệp – Xem trước</title>
+<style>
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;font-family:Lato,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#777;font-size:16px;line-height:1.6;background:#fff}
+h1,h2,h3,h4{color:#555;font-weight:700;line-height:1.3;margin:0 0 .5em}
+p{margin:0 0 1.2em}a{color:#446084;text-decoration:none}img{max-width:100%;height:auto}
+.section{position:relative;width:100%}
+.row{display:flex;flex-wrap:wrap;width:100%;max-width:1110px;margin:0 auto}
+.row .row{margin:0 -15px;width:auto}
+.row.align-center{justify-content:center}.row.align-middle{align-items:center}.row.align-equal>.col{display:flex}.row.align-equal>.col>.col-inner{width:100%}
+.col{position:relative;width:100%;padding:0 15px 30px}
+.row-small>.col{padding:0 9.8px 19.6px}.row-large>.col{padding:0 30px 30px}
+@media(min-width:850px){.large-1{flex-basis:8.3333%;max-width:8.3333%}.large-2{flex-basis:16.6667%;max-width:16.6667%}.large-3{flex-basis:25.0000%;max-width:25.0000%}.large-4{flex-basis:33.3333%;max-width:33.3333%}.large-5{flex-basis:41.6667%;max-width:41.6667%}.large-6{flex-basis:50.0000%;max-width:50.0000%}.large-7{flex-basis:58.3333%;max-width:58.3333%}.large-8{flex-basis:66.6667%;max-width:66.6667%}.large-9{flex-basis:75.0000%;max-width:75.0000%}.large-10{flex-basis:83.3333%;max-width:83.3333%}.large-11{flex-basis:91.6667%;max-width:91.6667%}.large-12{flex-basis:100.0000%;max-width:100.0000%}}
+@media(min-width:550px) and (max-width:849px){.medium-1{flex-basis:8.3333%;max-width:8.3333%}.medium-2{flex-basis:16.6667%;max-width:16.6667%}.medium-3{flex-basis:25.0000%;max-width:25.0000%}.medium-4{flex-basis:33.3333%;max-width:33.3333%}.medium-5{flex-basis:41.6667%;max-width:41.6667%}.medium-6{flex-basis:50.0000%;max-width:50.0000%}.medium-7{flex-basis:58.3333%;max-width:58.3333%}.medium-8{flex-basis:66.6667%;max-width:66.6667%}.medium-9{flex-basis:75.0000%;max-width:75.0000%}.medium-10{flex-basis:83.3333%;max-width:83.3333%}.medium-11{flex-basis:91.6667%;max-width:91.6667%}.medium-12{flex-basis:100.0000%;max-width:100.0000%}}
+@media(max-width:549px){.small-1{flex-basis:8.3333%;max-width:8.3333%}.small-2{flex-basis:16.6667%;max-width:16.6667%}.small-3{flex-basis:25.0000%;max-width:25.0000%}.small-4{flex-basis:33.3333%;max-width:33.3333%}.small-5{flex-basis:41.6667%;max-width:41.6667%}.small-6{flex-basis:50.0000%;max-width:50.0000%}.small-7{flex-basis:58.3333%;max-width:58.3333%}.small-8{flex-basis:66.6667%;max-width:66.6667%}.small-9{flex-basis:75.0000%;max-width:75.0000%}.small-10{flex-basis:83.3333%;max-width:83.3333%}.small-11{flex-basis:91.6667%;max-width:91.6667%}.small-12{flex-basis:100.0000%;max-width:100.0000%}}
+.dark,.dark p{color:#f1f1f1}.dark h1,.dark h2,.dark h3{color:#fff}
+.button{display:inline-flex;align-items:center;gap:6px;min-height:2.5em;margin:0 1em 1em 0;padding:0 1.2em;font-weight:700;font-size:.97em;text-transform:uppercase;letter-spacing:.03em;color:#fff;background:#446084;border:2px solid transparent;line-height:1.2;cursor:pointer;transition:.3s}
+.button.primary{background:#446084}.button.secondary{background:#d26e4b}.button.white{background:#fff;color:#666}
+.button.is-outline{background:transparent;border-color:currentColor}.button.white.is-outline{color:#fff}
+.button.expand{display:flex;justify-content:center;width:100%;margin-right:0}
+.button i{font-style:normal;font-size:1.3em}
+.button:hover{box-shadow:inset 0 0 0 100px rgba(0,0,0,.2)}.button.is-outline:hover{background:#fff;color:#0f2a43;box-shadow:none}
+button{font-family:inherit}
+.accordion-item{border-top:1px solid #ddd}.accordion-item:last-child{border-bottom:1px solid #ddd}
+.accordion-title{display:flex;gap:10px;align-items:center;padding:.8em 0;color:#333}
+.accordion-title .toggle{border:0;background:none;font-size:18px;transition:.2s}
+.accordion-item.active .toggle{transform:rotate(180deg)}
+.accordion-inner{display:none;padding:0 0 1em 32px}.accordion-item.active .accordion-inner{display:block}
+.preview-bar{background:#111827;color:#e5e7eb;font-size:13px;padding:8px 16px;text-align:center}
+</style><style>#s0{padding:60px 0}@media(max-width:549px){#s0{padding:36px 0}}#s1{padding:64px 0}@media(max-width:549px){#s1{padding:40px 0}}#s2{padding:70px 0}@media(max-width:549px){#s2{padding:44px 0}}#s3{padding:70px 0}@media(max-width:549px){#s3{padding:44px 0}}#s4{padding:64px 0}@media(max-width:549px){#s4{padding:40px 0}}#s5{padding:64px 0}@media(max-width:549px){#s5{padding:40px 0}}#s6{padding:64px 0}@media(max-width:549px){#s6{padding:40px 0}}#s7{padding:64px 0}@media(max-width:549px){#s7{padding:40px 0}}#s8{padding:60px 0}@media(max-width:549px){#s8{padding:40px 0}}</style><style>/* ===== Trang Trắc nghiệm nghề nghiệp – tracnghiemplus.com/trac-nghiem-nghe-nghiep/ ===== */
+.tnn-page{--tnn-navy:#0f2a43;--tnn-blue:#1d4ed8;--tnn-blue-2:#3b82f6;--tnn-peach:#f2b694;--tnn-sage:#8fa69a;--tnn-orange:#f97316;--tnn-green:#16a34a;--tnn-purple:#7c3aed;--tnn-ink:#0f172a;--tnn-muted:#64748b;--tnn-line:#e2e8f0;--tnn-soft:#f8fafc}
+html{scroll-behavior:smooth}
+
+/* ---------- Hero ---------- */
+.tnn-hero{background:radial-gradient(circle at 85% 20%,rgba(59,130,246,.35) 0,transparent 45%),linear-gradient(135deg,#0b1f33 0%,#0f2a43 55%,#174a6b 100%)!important;overflow:hidden}
+.tnn-kicker{display:inline-block;padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.12);color:#fde68a;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
+.tnn-hero h1{color:#fff;font-size:clamp(30px,3.6vw,46px);line-height:1.15;font-weight:800;letter-spacing:-.5px;margin-bottom:0}
+.tnn-hero h1 span{color:var(--tnn-peach)}
+.tnn-line{width:86px;height:3px;background:var(--tnn-sage);margin:24px 0 22px;border-radius:2px}
+.tnn-hero .tnn-lead{color:rgba(255,255,255,.88);font-size:16.5px;line-height:1.7;max-width:540px;margin-bottom:24px}
+.tnn-hero .button{margin-bottom:10px}
+.tnn-scroll-down{display:flex;width:28px;height:36px;margin:22px 0 0 4px;animation:tnnArrow 1.6s ease-in-out infinite}
+.tnn-scroll-arrow{position:relative;display:block;width:20px;height:26px}
+.tnn-scroll-arrow:before,.tnn-scroll-arrow:after{content:"";position:absolute;left:50%;width:11px;height:11px;border-right:2.2px solid var(--tnn-peach);border-bottom:2.2px solid var(--tnn-peach);transform:translateX(-50%) rotate(45deg)}
+.tnn-scroll-arrow:before{top:0;opacity:.45}
+.tnn-scroll-arrow:after{top:11px}
+@keyframes tnnArrow{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.tnn-hero-photo img{border-radius:22px;box-shadow:0 24px 60px rgba(2,6,23,.45)}
+
+/* ---------- Tiêu đề section ---------- */
+.tnn-label{display:inline-block;padding:5px 14px;border-radius:99px;background:#eff6ff;color:var(--tnn-blue);font-size:13px;font-weight:700;margin-bottom:10px}
+.tnn-label-purple{background:#ede9fe;color:#6d28d9}
+.tnn-head h2{font-size:clamp(26px,3vw,38px);line-height:1.25;font-weight:800;color:var(--tnn-ink);margin-bottom:12px}
+.tnn-head p{color:var(--tnn-muted);font-size:16px;line-height:1.7}
+.tnn-note-center{text-align:center;color:var(--tnn-muted);font-size:14.5px;margin:18px 0 0}
+
+/* ---------- 6 bước ---------- */
+.tnn-step .col-inner{background:#fff;border:1px solid var(--tnn-line);border-radius:16px;padding:24px 22px!important;height:100%;transition:.25s}
+.tnn-step .col-inner:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,23,42,.08);border-color:#bfdbfe}
+.tnn-num{display:inline-flex;width:46px;height:46px;border-radius:12px;align-items:center;justify-content:center;background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff;font-weight:800;font-size:16px;margin-bottom:12px}
+.tnn-step h3{font-size:18px;margin-bottom:8px;color:var(--tnn-ink)}
+.tnn-step p{color:var(--tnn-muted);font-size:15px;line-height:1.6;margin:0}
+.tnn-summary{margin-top:6px;padding:18px 22px;border-radius:14px;background:#eff6ff;border-left:5px solid var(--tnn-blue);color:#1e3a8a;font-size:15.5px;line-height:1.7}
+
+/* ---------- 2 bài test chính ---------- */
+.tnn-test .col-inner{position:relative;background:#fff;border-radius:22px;padding:32px 28px!important;height:100%;border:2px solid var(--tnn-line);box-shadow:0 18px 40px rgba(15,23,42,.07);transition:.25s}
+.tnn-test .col-inner:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(15,23,42,.12)}
+.tnn-test-holland .col-inner{border-color:#fed7aa;background:linear-gradient(180deg,#fff7ed 0%,#fff 40%)}
+.tnn-test-mbti .col-inner{border-color:#ddd6fe;background:linear-gradient(180deg,#f5f3ff 0%,#fff 40%)}
+.tnn-badge{position:absolute;top:-13px;left:28px;padding:5px 14px;border-radius:99px;font-size:12px;font-weight:800;color:#fff;letter-spacing:.3px}
+.tnn-test-holland .tnn-badge{background:var(--tnn-orange)}
+.tnn-test-mbti .tnn-badge{background:var(--tnn-purple)}
+.tnn-test-top{display:flex;align-items:center;gap:18px;margin:8px 0 16px}
+.tnn-test-logo{width:84px;min-width:84px;height:84px;border-radius:20px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;font-weight:900;font-size:17px;line-height:1.25;letter-spacing:1px}
+.tnn-test-logo small{font-size:11px;font-weight:600;letter-spacing:0;opacity:.9}
+.tnn-test-holland .tnn-test-logo{background:linear-gradient(135deg,#f97316,#ef4444)}
+.tnn-test-mbti .tnn-test-logo{background:linear-gradient(135deg,#7c3aed,#3b82f6)}
+.tnn-test h3{font-size:26px;font-weight:800;margin:0 0 2px;color:var(--tnn-ink)}
+.tnn-sub{font-weight:700;font-size:15px}
+.tnn-test-holland .tnn-sub{color:#c2410c}
+.tnn-test-mbti .tnn-sub{color:#6d28d9}
+.tnn-stars{color:#f59e0b;font-size:16px;letter-spacing:2px;margin-top:2px}
+.tnn-test p{color:#475569;line-height:1.7}
+.tnn-check{list-style:none;margin:0 0 18px!important;padding:0}
+.tnn-check li{position:relative;padding:7px 0 7px 30px;margin:0!important;color:#334155;font-size:15px;border-bottom:1px dashed var(--tnn-line)}
+.tnn-check li:last-child{border-bottom:0}
+.tnn-check li:before{content:"✓";position:absolute;left:0;top:8px;width:20px;height:20px;border-radius:50%;background:#dcfce7;color:var(--tnn-green);font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.tnn-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tnn-meta span{padding:5px 12px;border-radius:99px;background:var(--tnn-soft);border:1px solid var(--tnn-line);font-size:13px;color:#334155}
+
+/* ---------- Ngành HOT ---------- */
+.tnn-hot-wrap{background:radial-gradient(circle at 0 0,rgba(51,144,255,.08) 0 160px,transparent 162px),radial-gradient(circle at 100% 0,rgba(31,194,106,.09) 0 200px,transparent 202px),#fff!important}
+.tnn-hot-text{color:#ff4f12}
+.tnn-hot{display:grid;grid-template-columns:360px 1fr;gap:26px;align-items:stretch}
+.tnn-hot-side,.tnn-hot-result{border-radius:18px;background:#fff;border:1px solid rgba(15,23,42,.08);box-shadow:0 14px 34px rgba(15,23,42,.08)}
+.tnn-hot-side{padding:26px 22px;display:flex;flex-direction:column}
+.tnn-hot-side h3{font-size:21px;margin:0 0 6px;color:var(--tnn-ink)}
+.tnn-hot-side>p{font-size:14.5px;color:var(--tnn-muted);margin:0 0 18px}
+.tnn-job-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.tnn-job{display:flex!important;align-items:center;gap:10px;min-height:68px;margin:0!important;padding:10px 12px!important;border-radius:12px!important;border:1px solid rgba(15,23,42,.1)!important;background:#fff!important;color:var(--tnn-ink)!important;text-align:left;text-transform:none!important;letter-spacing:0!important;line-height:1.3!important;font-size:14px!important;box-shadow:none!important;cursor:pointer;transition:.2s;position:relative}
+.tnn-job strong{font-weight:700}
+.tnn-job:hover{border-color:#93c5fd!important}
+.tnn-job.is-active{border-color:var(--tnn-blue)!important;background:#eff6ff!important;box-shadow:0 8px 20px rgba(37,99,235,.14)!important}
+.tnn-job.is-active:after{content:"✓";position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:var(--tnn-blue);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.tnn-job-ico{width:38px;min-width:38px;height:38px;border-radius:10px;background:#f1f5f9;display:inline-flex;align-items:center;justify-content:center;font-size:20px}
+.tnn-side-note{margin-top:auto;display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:12px;background:#f0f6ff}
+.tnn-side-note span{width:24px;min-width:24px;height:24px;border-radius:50%;background:var(--tnn-blue);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.tnn-side-note p{margin:0;font-size:13.5px;line-height:1.55;color:#475569}
+
+.tnn-hot-result{overflow:hidden;display:flex;flex-direction:column}
+.tnn-hot-result.is-swap .tnn-hot-body,.tnn-hot-result.is-swap .tnn-hot-media img{animation:tnnFade .45s ease}
+@keyframes tnnFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tnn-hot-media{position:relative;height:220px;background:#e2e8f0}
+.tnn-hot-media img{width:100%;height:100%;object-fit:cover;display:block}
+.tnn-hot-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(15,23,42,.45))}
+.tnn-hot-tag{position:absolute;left:20px;bottom:16px;z-index:1;padding:6px 14px;border-radius:99px;background:#fff1e9;color:#ff4f12;font-size:13.5px;font-weight:800}
+.tnn-hot-body{padding:24px 26px 26px}
+.tnn-hot-top{display:grid;grid-template-columns:1fr 150px;gap:22px;align-items:center;margin-bottom:20px}
+.tnn-hot-top h3{font-size:28px;font-weight:900;margin:0 0 8px;color:var(--tnn-ink)}
+.tnn-hot-top p{margin:0;color:#374151;line-height:1.7;font-size:15.5px}
+.tnn-match{text-align:center}
+.tnn-match small{display:block;margin-top:8px;color:var(--tnn-muted);font-size:13px}
+.tnn-ring{--p:90;width:110px;height:110px;margin:0 auto;border-radius:50%;background:conic-gradient(var(--tnn-green) calc(var(--p)*1%),#dff5e7 0);display:flex;align-items:center;justify-content:center;position:relative}
+.tnn-ring:before{content:"";position:absolute;inset:12px;border-radius:50%;background:#fff}
+.tnn-ring strong{position:relative;color:var(--tnn-green);font-size:17px;font-weight:900}
+.tnn-index{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.tnn-index-card{padding:14px 16px;border-radius:12px;border:1px solid var(--tnn-line)}
+.tnn-index-card small{display:block;color:var(--tnn-muted);font-size:13px;margin-bottom:4px}
+.tnn-index-card strong{font-size:18px;font-weight:900}
+.tnn-index-card.is-holland{background:#fff7ed}.tnn-index-card.is-holland strong{color:#c2410c}
+.tnn-index-card.is-mbti{background:#f5f3ff}.tnn-index-card.is-mbti strong{color:#6d28d9}
+.tnn-index-card.is-block{background:#eff6ff}.tnn-index-card.is-block strong{color:var(--tnn-blue)}
+.tnn-detail{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tnn-detail-box{padding:18px 20px;border-radius:12px;border:1px solid var(--tnn-line)}
+.tnn-detail-box h4{font-size:17px;margin:0 0 10px;color:var(--tnn-ink)}
+.tnn-detail-box ul{list-style:none;margin:0!important;padding:0}
+.tnn-detail-box li{position:relative;padding:7px 0 7px 24px;margin:0!important;border-bottom:1px dashed var(--tnn-line);font-size:14.5px;color:#475569}
+.tnn-detail-box li:last-child{border-bottom:0}
+.tnn-detail-box li:before{content:"✓";position:absolute;left:0;top:7px;color:var(--tnn-green);font-weight:900}
+.tnn-pos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tnn-pos span{padding:11px 12px;border-radius:9px;border:1px solid rgba(37,99,235,.18);background:#f7fbff;color:var(--tnn-blue);font-size:14px;font-weight:700}
+.tnn-hot-actions{display:flex;gap:14px;margin-top:20px}
+.tnn-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 18px;border-radius:10px;font-weight:800;font-size:15.5px;text-decoration:none!important;transition:.2s}
+.tnn-btn:hover{transform:translateY(-2px)}
+.tnn-btn-orange{background:linear-gradient(135deg,#ff7a00,#ff4f00);color:#fff!important;box-shadow:0 12px 26px rgba(255,91,15,.25)}
+.tnn-btn-line{border:2px solid var(--tnn-blue);color:var(--tnn-blue)!important;background:#fff}
+
+/* ---------- Bảng so sánh ---------- */
+.tnn-table-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--tnn-line);background:#fff}
+.tnn-table{width:100%;border-collapse:collapse;margin:0;min-width:620px}
+.tnn-table th,.tnn-table td{padding:14px 18px;border-bottom:1px solid var(--tnn-line);text-align:left;vertical-align:top;font-size:15px}
+.tnn-table thead th{background:var(--tnn-ink);color:#fff;font-weight:700}
+.tnn-table thead th:nth-child(2){background:#c2410c}
+.tnn-table thead th:nth-child(3){background:#6d28d9}
+.tnn-table tbody tr:nth-child(even){background:var(--tnn-soft)}
+.tnn-table td:first-child{font-weight:700;color:var(--tnn-ink);width:22%}
+
+/* ---------- Holland RIASEC ---------- */
+.tnn-riasec .col-inner{border-radius:16px;padding:22px 20px!important;height:100%;border:1px solid var(--tnn-line);background:#fff;transition:.25s}
+.tnn-riasec .col-inner:hover{box-shadow:0 12px 28px rgba(15,23,42,.08)}
+.tnn-letter{display:inline-flex;width:46px;height:46px;border-radius:50%;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#fff;margin-bottom:10px}
+.tnn-riasec h4{font-size:17px;margin-bottom:6px;color:var(--tnn-ink)}
+.tnn-riasec p{font-size:14.5px;color:var(--tnn-muted);line-height:1.6;margin-bottom:6px}
+.tnn-jobs{font-size:14px;color:#334155}
+.tnn-jobs b{color:var(--tnn-ink)}
+
+/* ---------- MBTI 4 cặp ---------- */
+.tnn-dim .col-inner{background:#fff;border-radius:16px;padding:22px 20px!important;height:100%;border:1px solid #ddd6fe;text-align:center}
+.tnn-pair{display:flex;justify-content:center;align-items:center;gap:10px;margin-bottom:10px}
+.tnn-pair b{width:44px;height:44px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;background:#ede9fe;color:#6d28d9;font-size:20px}
+.tnn-pair i{font-style:normal;color:var(--tnn-muted)}
+.tnn-dim h4{font-size:16px;margin-bottom:6px;color:var(--tnn-ink)}
+.tnn-dim p{font-size:14px;color:var(--tnn-muted);line-height:1.6;margin:0}
+
+/* ---------- FAQ ---------- */
+.tnn-faq .accordion-title{font-weight:700;font-size:16px;color:var(--tnn-ink)}
+.tnn-faq .accordion-inner{color:#475569;line-height:1.7}
+
+/* ---------- CTA ---------- */
+.tnn-cta{background:linear-gradient(135deg,#0b1f33 0%,#0f2a43 50%,#174a6b 100%)!important}
+.tnn-cta h2{color:#fff;font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:10px}
+.tnn-cta p{color:rgba(255,255,255,.88);font-size:16px}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){
+  .tnn-hot{grid-template-columns:1fr}
+  .tnn-job-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media (max-width:849px){
+  .tnn-hero-photo{margin-top:20px}
+  .tnn-test .col-inner{padding:30px 20px!important;margin-bottom:20px}
+  .tnn-test h3{font-size:22px}
+  .tnn-job-grid{grid-template-columns:1fr 1fr}
+  .tnn-hot-top{grid-template-columns:1fr}
+  .tnn-match{display:flex;align-items:center;gap:14px;text-align:left}
+  .tnn-ring{width:96px;height:96px;margin:0}
+  .tnn-ring strong{font-size:15px}
+  .tnn-index{grid-template-columns:1fr}
+  .tnn-detail{grid-template-columns:1fr}
+  .tnn-hot-actions{flex-direction:column}
+}
+@media (max-width:549px){
+  .tnn-hot-side,.tnn-hot-body{padding:18px 16px}
+  .tnn-hot-media{height:180px}
+  .tnn-hot-top h3{font-size:23px}
+  .tnn-pos{grid-template-columns:1fr}
+  .tnn-test-logo{width:68px;min-width:68px;height:68px;font-size:14px}
+}
+</style></head><body>
+<div class="preview-bar">Bản xem trước mô phỏng giao diện Flatsome (màu nút primary/secondary lấy theo mặc định Flatsome, trên site sẽ theo màu bạn cài đặt)</div>
+<main><section id="s0" class="section dark tnn-page tnn-hero" style="background-color:#0f2a43"><div class="section-content">
+
+<div class="row align-middle">
+
+<div class="col large-6 medium-6 small-12 tnn-hero-text"><div class="col-inner">
+
+
+<span class="tnn-kicker">Hướng nghiệp miễn phí</span>
+<h1>Trắc nghiệm nghề nghiệp<br><span>Chọn đúng tương lai</span></h1>
+<div class="tnn-line"></div>
+<p class="tnn-lead">Trắc nghiệm nghề nghiệp giúp học sinh, sinh viên hiểu rõ sở thích, tính cách và điểm mạnh của bản thân trước khi chọn ngành học, chọn trường hay công việc tương lai. Với 2 phương pháp khoa học <strong>Holland</strong> và <strong>MBTI</strong>, bạn sẽ khám phá nhóm ngành phù hợp và xây dựng lộ trình học tập đúng hướng.</p>
+
+
+<a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="button secondary" style="border-radius:99px;padding:12px 26px 12px 26px"><span>Làm test Holland</span> <i>›</i></a>
+
+<a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="button white is-outline" style="border-radius:99px;padding:12px 26px 12px 26px"><span>Làm test MBTI</span> <i>›</i></a>
+
+
+<a href="#bat-dau" class="tnn-scroll-down" aria-label="Kéo xuống phần bài test"><span class="tnn-scroll-arrow"></span></a>
+
+
+</div></div>
+<div class="col large-6 medium-6 small-12 tnn-hero-img"><div class="col-inner">
+
+<div class="img tnn-hero-photo"><img src="https://tracnghiemplus.com/wp-content/uploads/2026/10/trac-nghiem-nghe-nghiep.png" alt=""></div>
+
+</div></div>
+
+</div>
+
+</div></section>
+
+<section id="s1" class="section tnn-page" style="background-color:#ffffff"><div class="section-content">
+
+<div class="row align-center">
+
+<div class="col large-9 medium-9 small-12 tnn-head"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<span class="tnn-label">Hướng nghiệp học sinh – sinh viên</span>
+<h2>Định hướng nghề nghiệp là gì? Các bước để thực hiện</h2>
+<p>Định hướng nghề nghiệp là quá trình giúp bạn hiểu rõ bản thân, nhận diện năng lực, sở thích, tính cách và lựa chọn ngành học, nghề nghiệp phù hợp với tương lai.</p>
+</div>
+
+</div></div>
+
+</div>
+<div class="row row-small">
+
+<div class="col large-4 medium-6 small-12 tnn-step"><div class="col-inner">
+
+
+<span class="tnn-num">01</span>
+<h3>Hiểu rõ bản thân</h3>
+<p>Xác định điểm mạnh, điểm yếu, sở thích, tính cách và giá trị cá nhân của chính mình.</p>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-step"><div class="col-inner">
+
+
+<span class="tnn-num">02</span>
+<h3>Đánh giá năng lực học tập</h3>
+<p>Bạn học tốt môn nào, mạnh về tư duy logic, giao tiếp, sáng tạo hay làm việc với con người?</p>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-step"><div class="col-inner">
+
+
+<span class="tnn-num">03</span>
+<h3>Làm trắc nghiệm hướng nghiệp</h3>
+<p>Bài test Holland và MBTI cho bạn dữ liệu khách quan về sở thích nghề nghiệp và tính cách.</p>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-step"><div class="col-inner">
+
+
+<span class="tnn-num">04</span>
+<h3>Tìm hiểu ngành nghề</h3>
+<p>Mỗi ngành có yêu cầu riêng về kiến thức, kỹ năng, môi trường làm việc và cơ hội phát triển.</p>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-step"><div class="col-inner">
+
+
+<span class="tnn-num">05</span>
+<h3>Đối chiếu với thị trường</h3>
+<p>Kết hợp sở thích, năng lực thực tế với nhu cầu tuyển dụng của thị trường lao động.</p>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-step"><div class="col-inner">
+
+
+<span class="tnn-num">06</span>
+<h3>Xây dựng lộ trình học tập</h3>
+<p>Xác định môn cần tập trung, kỹ năng cần rèn luyện và trường đại học phù hợp.</p>
+
+
+</div></div>
+<div class="col large-12 medium-12 small-12"><div class="col-inner">
+
+
+<div class="tnn-summary">
+  <strong>Kết luận:</strong> Định hướng nghề nghiệp đúng giúp bạn giảm áp lực chọn ngành, có mục tiêu học tập rõ ràng và chủ động chuẩn bị cho tương lai.
+</div>
+
+
+</div></div>
+
+</div>
+
+</div></section>
+
+<span class="scroll-to" id="bat-dau"></span>
+
+<section id="s2" class="section tnn-page" style="background-color:#f4f7fb"><div class="section-content">
+
+<div class="row align-center">
+
+<div class="col large-9 medium-9 small-12 tnn-head"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<span class="tnn-label">Bộ phương pháp định hướng nghề nghiệp</span>
+<h2>Chọn bài trắc nghiệm để bắt đầu</h2>
+<p>Holland cho bạn biết mình <strong>thích làm gì</strong>, MBTI cho bạn biết mình <strong>là người như thế nào</strong>. Kết hợp cả hai giúp bạn có bức tranh đầy đủ về nghề nghiệp phù hợp.</p>
+</div>
+
+</div></div>
+
+</div>
+<div class="row row-large align-equal">
+
+<div class="col large-6 medium-6 small-12 tnn-test tnn-test-holland"><div class="col-inner">
+
+
+<span class="tnn-badge">★ KHUYÊN LÀM TRƯỚC</span>
+<div class="tnn-test-top">
+  <div class="tnn-test-logo">R I A<br>S E C</div>
+  <div>
+    <h3>Test Holland</h3>
+    <div class="tnn-sub">Trắc nghiệm sở thích nghề nghiệp</div>
+    <div class="tnn-stars">★★★★★</div>
+  </div>
+</div>
+<p><strong>Tác giả:</strong> Nhà tâm lý học John Holland. Bài test xếp bạn vào 6 nhóm sở thích nghề nghiệp: Kỹ thuật, Nghiên cứu, Nghệ thuật, Xã hội, Quản lý và Nghiệp vụ, từ đó gợi ý nhóm ngành học và công việc phù hợp nhất.</p>
+<ul class="tnn-check">
+  <li>Xác định mã Holland 3 chữ cái của bạn (VD: RIA, SEC…)</li>
+  <li>Gợi ý trực tiếp nhóm ngành học, nghề nghiệp tương ứng</li>
+  <li>Phù hợp học sinh THPT chọn khối thi, chọn ngành</li>
+</ul>
+<div class="tnn-meta"><span>🎁 Miễn phí</span><span>📝 Không cần đăng ký</span><span>📊 Kết quả ngay</span></div>
+
+
+<a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="button secondary expand" style="border-radius:99px;padding:14px 20px 14px 20px"><span>Làm test Holland ngay</span> <i>›</i></a>
+
+</div></div>
+<div class="col large-6 medium-6 small-12 tnn-test tnn-test-mbti"><div class="col-inner">
+
+
+<span class="tnn-badge">🔥 ĐƯỢC ƯA CHUỘNG</span>
+<div class="tnn-test-top">
+  <div class="tnn-test-logo">MBTI<br><small>16 nhóm</small></div>
+  <div>
+    <h3>Test MBTI</h3>
+    <div class="tnn-sub">Trắc nghiệm 16 nhóm tính cách</div>
+    <div class="tnn-stars">★★★★★</div>
+  </div>
+</div>
+<p><strong>Nền tảng:</strong> Lý thuyết của nhà tâm lý học Carl Gustav Jung. Bài test phân tích tính cách qua 4 cặp đối lập: Hướng ngoại – Hướng nội, Giác quan – Trực giác, Lý trí – Cảm xúc, Nguyên tắc – Linh hoạt.</p>
+<ul class="tnn-check">
+  <li>Biết mình thuộc nhóm nào trong 16 nhóm tính cách</li>
+  <li>Hiểu cách bạn suy nghĩ, giao tiếp và ra quyết định</li>
+  <li>Gợi ý môi trường làm việc và nghề nghiệp phù hợp</li>
+</ul>
+<div class="tnn-meta"><span>🎁 Miễn phí</span><span>📝 Không cần đăng ký</span><span>📊 Kết quả ngay</span></div>
+
+
+<a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="button primary expand" style="border-radius:99px;padding:14px 20px 14px 20px"><span>Làm test MBTI miễn phí</span> <i>›</i></a>
+
+</div></div>
+<div class="col large-12 medium-12 small-12"><div class="col-inner">
+
+
+<p class="tnn-note-center">* Phụ huynh và học sinh nên làm cả 02 bài trắc nghiệm để tìm ra định hướng phù hợp nhất.</p>
+
+
+</div></div>
+
+</div>
+
+</div></section>
+
+<section id="s3" class="section tnn-page tnn-hot-wrap" style="background-color:#ffffff"><div class="section-content">
+
+<div class="row align-center">
+
+<div class="col large-10 medium-10 small-12 tnn-head"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<span class="tnn-label">Ngành nghề xu hướng</span>
+<h2>Định hướng nghề nghiệp với những ngành <span class="tnn-hot-text">HOT</span> phù hợp với bạn</h2>
+<p>Chọn một ngành đang được quan tâm để xem ngành đó phù hợp với nhóm Holland nào, nhóm tính cách MBTI nào, cần kỹ năng gì và có những vị trí việc làm nào.</p>
+</div>
+
+</div></div>
+<div class="col large-12 medium-12 small-12"><div class="col-inner">
+
+
+<div class="tnn-hot" id="tnn-hot">
+  <aside class="tnn-hot-side">
+    <h3>🔥 Ngành nghề HOT hiện nay</h3>
+    <p>Nhấp vào một ngành để xem mức độ phù hợp.</p>
+    <div class="tnn-job-grid">
+      <button type="button" class="tnn-job is-active" data-career="marketing"><span class="tnn-job-ico">📣</span><strong>Digital Marketing</strong></button>
+      <button type="button" class="tnn-job" data-career="it"><span class="tnn-job-ico">💻</span><strong>Công nghệ thông tin</strong></button>
+      <button type="button" class="tnn-job" data-career="ecommerce"><span class="tnn-job-ico">🛒</span><strong>Thương mại điện tử</strong></button>
+      <button type="button" class="tnn-job" data-career="logistics"><span class="tnn-job-ico">🚚</span><strong>Logistics</strong></button>
+      <button type="button" class="tnn-job" data-career="accounting"><span class="tnn-job-ico">🧮</span><strong>Kế toán – Kiểm toán</strong></button>
+      <button type="button" class="tnn-job" data-career="banking"><span class="tnn-job-ico">🏦</span><strong>Tài chính – Ngân hàng</strong></button>
+      <button type="button" class="tnn-job" data-career="business"><span class="tnn-job-ico">💼</span><strong>Quản trị kinh doanh</strong></button>
+      <button type="button" class="tnn-job" data-career="pr"><span class="tnn-job-ico">🎤</span><strong>Quan hệ công chúng</strong></button>
+    </div>
+    <div class="tnn-side-note"><span>i</span><p>Dữ liệu tham khảo theo đặc điểm sở thích, tính cách và kỹ năng thường phù hợp với từng ngành.</p></div>
+  </aside>
+
+  <div class="tnn-hot-result">
+    <div class="tnn-hot-media">
+      <img id="tnn-hot-img" src="https://tracnghiemplus.com/wp-content/uploads/2026/08/Quan-tri-marketing.jpg" alt="Ngành Digital Marketing" loading="lazy">
+      <span class="tnn-hot-tag" id="tnn-hot-tag">🔥 Ngành sáng tạo</span>
+    </div>
+    <div class="tnn-hot-body">
+      <div class="tnn-hot-top">
+        <div>
+          <h3 id="tnn-hot-title">Digital Marketing</h3>
+          <p id="tnn-hot-desc">Phù hợp với người có tư duy sáng tạo, giao tiếp tốt, thích phân tích hành vi khách hàng, xây dựng nội dung và tối ưu hiệu quả truyền thông trên các nền tảng số.</p>
+        </div>
+        <div class="tnn-match">
+          <div class="tnn-ring" id="tnn-hot-ring" style="--p:90"><strong id="tnn-hot-score">Rất cao</strong></div>
+          <small>Nhu cầu nhân lực</small>
+        </div>
+      </div>
+
+      <div class="tnn-index">
+        <div class="tnn-index-card is-holland"><small>Nhóm Holland</small><strong id="tnn-hot-holland">A – E – S</strong></div>
+        <div class="tnn-index-card is-mbti"><small>MBTI phù hợp</small><strong id="tnn-hot-mbti">ENFP / ENTP</strong></div>
+        <div class="tnn-index-card is-block"><small>Tổ hợp xét tuyển</small><strong id="tnn-hot-block">A00 – A01 – D01</strong></div>
+      </div>
+
+      <div class="tnn-detail">
+        <div class="tnn-detail-box">
+          <h4>Tố chất cần có</h4>
+          <ul id="tnn-hot-skills">
+            <li>Sáng tạo nội dung, ý tưởng truyền thông</li>
+            <li>Giao tiếp, thuyết phục, nắm bắt tâm lý khách hàng</li>
+            <li>Phân tích số liệu quảng cáo, hành vi người dùng</li>
+            <li>Thích nghi nhanh với xu hướng mới</li>
+          </ul>
+        </div>
+        <div class="tnn-detail-box">
+          <h4>Vị trí việc làm</h4>
+          <div class="tnn-pos" id="tnn-hot-jobs"><span>Content Marketing</span><span>Performance Marketing</span><span>Social Media</span><span>SEO Specialist</span></div>
+        </div>
+      </div>
+
+      <div class="tnn-hot-actions">
+        <a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="tnn-btn tnn-btn-orange">Kiểm tra bằng test Holland</a>
+        <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="tnn-btn tnn-btn-line">Kiểm tra bằng test MBTI</a>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="tnn-note-center">🛡 Thông tin mang tính tham khảo. Hãy làm cả test Holland và MBTI để biết chính xác ngành nào hợp với bạn.</p>
+
+
+</div></div>
+
+</div>
+
+</div></section>
+
+<section id="s4" class="section tnn-page" style="background-color:#f4f7fb"><div class="section-content">
+
+<div class="row align-center">
+
+<div class="col large-9 medium-9 small-12 tnn-head"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<span class="tnn-label">So sánh</span>
+<h2>Nên làm test Holland hay MBTI?</h2>
+<p>Hai bài test đo hai khía cạnh khác nhau nên bổ trợ cho nhau, không thay thế nhau.</p>
+</div>
+
+</div></div>
+<div class="col large-12 medium-12 small-12"><div class="col-inner">
+
+
+<div class="tnn-table-wrap">
+<table class="tnn-table">
+  <thead>
+    <tr><th>Tiêu chí</th><th>Test Holland</th><th>Test MBTI</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Đo lường</td><td>Sở thích nghề nghiệp – bạn thích làm gì</td><td>Tính cách – bạn là người như thế nào</td></tr>
+    <tr><td>Tác giả</td><td>John Holland</td><td>Dựa trên lý thuyết của Carl Gustav Jung</td></tr>
+    <tr><td>Kết quả</td><td>Mã 3 chữ cái từ 6 nhóm R – I – A – S – E – C</td><td>1 trong 16 nhóm tính cách (INTJ, ENFP…)</td></tr>
+    <tr><td>Mạnh nhất ở</td><td>Gợi ý trực tiếp nhóm ngành, nghề cụ thể</td><td>Gợi ý môi trường, phong cách làm việc phù hợp</td></tr>
+    <tr><td>Phù hợp khi</td><td>Đang phân vân chọn ngành, chọn khối thi</td><td>Muốn hiểu sâu bản thân, cách học và giao tiếp</td></tr>
+  </tbody>
+</table>
+</div>
+
+
+</div></div>
+
+</div>
+
+</div></section>
+
+<section id="s5" class="section tnn-page" style="background-color:#ffffff"><div class="section-content">
+
+<div class="row align-center">
+
+<div class="col large-9 medium-9 small-12 tnn-head"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<span class="tnn-label">Lý thuyết Holland – RIASEC</span>
+<h2>6 nhóm sở thích nghề nghiệp Holland</h2>
+<p>Mỗi người thường mang đặc điểm nổi bật của 2–3 nhóm. Bài test Holland sẽ cho bạn biết 3 nhóm mạnh nhất của mình.</p>
+</div>
+
+</div></div>
+
+</div>
+<div class="row row-small">
+
+<div class="col large-4 medium-6 small-12 tnn-riasec"><div class="col-inner">
+
+
+<span class="tnn-letter" style="background:#0ea5e9">R</span>
+<h4>Kỹ thuật (Realistic)</h4>
+<p>Thích làm việc với máy móc, công cụ, thực hành, vận động.</p>
+<div class="tnn-jobs"><b>Nghề gợi ý:</b> kỹ sư cơ khí, điện, xây dựng, kỹ thuật viên.</div>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-riasec"><div class="col-inner">
+
+
+<span class="tnn-letter" style="background:#6366f1">I</span>
+<h4>Nghiên cứu (Investigative)</h4>
+<p>Thích quan sát, phân tích, tìm tòi và giải quyết vấn đề.</p>
+<div class="tnn-jobs"><b>Nghề gợi ý:</b> nhà khoa học, bác sĩ, lập trình viên, phân tích dữ liệu.</div>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-riasec"><div class="col-inner">
+
+
+<span class="tnn-letter" style="background:#ec4899">A</span>
+<h4>Nghệ thuật (Artistic)</h4>
+<p>Giàu trí tưởng tượng, thích sáng tạo, tự do thể hiện.</p>
+<div class="tnn-jobs"><b>Nghề gợi ý:</b> thiết kế, kiến trúc, viết nội dung, truyền thông.</div>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-riasec"><div class="col-inner">
+
+
+<span class="tnn-letter" style="background:#16a34a">S</span>
+<h4>Xã hội (Social)</h4>
+<p>Thích giúp đỡ, chia sẻ, hướng dẫn và làm việc với con người.</p>
+<div class="tnn-jobs"><b>Nghề gợi ý:</b> giáo viên, tâm lý, điều dưỡng, công tác xã hội.</div>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-riasec"><div class="col-inner">
+
+
+<span class="tnn-letter" style="background:#f97316">E</span>
+<h4>Quản lý (Enterprising)</h4>
+<p>Năng động, thích lãnh đạo, thuyết phục và kinh doanh.</p>
+<div class="tnn-jobs"><b>Nghề gợi ý:</b> quản trị kinh doanh, marketing, luật sư, bán hàng.</div>
+
+
+</div></div>
+<div class="col large-4 medium-6 small-12 tnn-riasec"><div class="col-inner">
+
+
+<span class="tnn-letter" style="background:#64748b">C</span>
+<h4>Nghiệp vụ (Conventional)</h4>
+<p>Cẩn thận, ngăn nắp, thích công việc có quy trình rõ ràng.</p>
+<div class="tnn-jobs"><b>Nghề gợi ý:</b> kế toán, kiểm toán, hành chính, ngân hàng.</div>
+
+
+</div></div>
+<div class="col large-12 medium-12 small-12"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<p><a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="button secondary" style="border-radius:99px;padding:12px 28px 12px 28px"><span>Tìm mã Holland của bạn</span></a></p>
+</div>
+
+</div></div>
+
+</div>
+
+</div></section>
+
+<section id="s6" class="section tnn-page" style="background-color:#f5f3ff"><div class="section-content">
+
+<div class="row align-center">
+
+<div class="col large-9 medium-9 small-12 tnn-head"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<span class="tnn-label tnn-label-purple">Lý thuyết MBTI</span>
+<h2>4 cặp tính cách tạo nên 16 nhóm MBTI</h2>
+<p>Ở mỗi cặp, bạn sẽ nghiêng về một phía. Kết hợp 4 chữ cái cho ra nhóm tính cách của bạn.</p>
+</div>
+
+</div></div>
+
+</div>
+<div class="row row-small">
+
+<div class="col large-3 medium-6 small-12 tnn-dim"><div class="col-inner">
+
+
+<div class="tnn-pair"><b>E</b><i>vs</i><b>I</b></div>
+<h4>Hướng ngoại – Hướng nội</h4>
+<p>Bạn nạp năng lượng từ giao tiếp với mọi người hay từ thời gian một mình?</p>
+
+
+</div></div>
+<div class="col large-3 medium-6 small-12 tnn-dim"><div class="col-inner">
+
+
+<div class="tnn-pair"><b>S</b><i>vs</i><b>N</b></div>
+<h4>Giác quan – Trực giác</h4>
+<p>Bạn tập trung vào thông tin thực tế hay vào ý tưởng, khả năng tương lai?</p>
+
+
+</div></div>
+<div class="col large-3 medium-6 small-12 tnn-dim"><div class="col-inner">
+
+
+<div class="tnn-pair"><b>T</b><i>vs</i><b>F</b></div>
+<h4>Lý trí – Cảm xúc</h4>
+<p>Bạn ra quyết định dựa trên logic khách quan hay giá trị và cảm xúc?</p>
+
+
+</div></div>
+<div class="col large-3 medium-6 small-12 tnn-dim"><div class="col-inner">
+
+
+<div class="tnn-pair"><b>J</b><i>vs</i><b>P</b></div>
+<h4>Nguyên tắc – Linh hoạt</h4>
+<p>Bạn thích kế hoạch rõ ràng hay thích linh hoạt, thích ứng theo tình huống?</p>
+
+
+</div></div>
+<div class="col large-12 medium-12 small-12"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<p><a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="button primary" style="border-radius:99px;padding:12px 28px 12px 28px"><span>Khám phá nhóm MBTI của bạn</span></a></p>
+</div>
+
+</div></div>
+
+</div>
+
+</div></section>
+
+<section id="s7" class="section tnn-page" style="background-color:#ffffff"><div class="section-content">
+
+<div class="row align-center">
+
+<div class="col large-9 medium-9 small-12 tnn-head tnn-faq"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<h2>Câu hỏi thường gặp</h2>
+</div>
+
+<div class="accordion">
+
+<div class="accordion-item active"><a href="#" class="accordion-title"><button class="toggle">⌄</button><span>Trắc nghiệm nghề nghiệp có chính xác không?</span></a><div class="accordion-inner">
+
+<p>Holland và MBTI là hai mô hình được sử dụng phổ biến trong tư vấn hướng nghiệp. Kết quả mang tính tham khảo và định hướng. Bạn nên trả lời trung thực theo con người thật của mình để có kết quả sát nhất.</p>
+
+</div></div>
+<div class="accordion-item"><a href="#" class="accordion-title"><button class="toggle">⌄</button><span>Nên làm test Holland hay MBTI trước?</span></a><div class="accordion-inner">
+
+<p>Nếu bạn đang cần chọn ngành học, hãy làm <a href="https://tracnghiemplus.com/bai-thi/test-holland/">test Holland</a> trước vì bài test gợi ý trực tiếp nhóm ngành. Sau đó làm <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/">test MBTI</a> để hiểu thêm về tính cách và môi trường làm việc phù hợp.</p>
+
+</div></div>
+<div class="accordion-item"><a href="#" class="accordion-title"><button class="toggle">⌄</button><span>Làm trắc nghiệm nghề nghiệp có mất phí không?</span></a><div class="accordion-inner">
+
+<p>Không. Cả hai bài test Holland và MBTI trên Trắc Nghiệm Plus đều miễn phí và có kết quả ngay sau khi hoàn thành.</p>
+
+</div></div>
+<div class="accordion-item"><a href="#" class="accordion-title"><button class="toggle">⌄</button><span>Học sinh lớp mấy nên làm trắc nghiệm nghề nghiệp?</span></a><div class="accordion-inner">
+
+<p>Học sinh từ lớp 9 đến lớp 12 nên làm để chọn tổ hợp môn và khối thi phù hợp. Sinh viên và người đi làm cũng có thể làm để định hướng lại nghề nghiệp.</p>
+
+</div></div>
+<div class="accordion-item"><a href="#" class="accordion-title"><button class="toggle">⌄</button><span>Kết quả có thay đổi theo thời gian không?</span></a><div class="accordion-inner">
+
+<p>Sở thích và tính cách khá ổn định nhưng vẫn có thể thay đổi theo trải nghiệm. Bạn có thể làm lại bài test sau 6–12 tháng để so sánh kết quả.</p>
+
+</div></div>
+
+</div>
+
+</div></div>
+
+</div>
+
+</div></section>
+
+<section id="s8" class="section dark tnn-page tnn-cta" style="background-color:#0f2a43"><div class="section-content">
+
+<div class="row align-center">
+
+<div class="col large-9 medium-9 small-12"><div class="col-inner">
+
+<div class="text" style="text-align:center">
+<h2>Sẵn sàng khám phá nghề nghiệp phù hợp với bạn?</h2>
+<p>Chỉ vài phút làm bài, bạn sẽ hiểu rõ bản thân hơn và tự tin hơn khi chọn ngành.</p>
+<p><a href="https://tracnghiemplus.com/bai-thi/test-holland/" class="button secondary" style="border-radius:99px;padding:12px 28px 12px 28px"><span>Làm test Holland</span></a> <a href="https://tracnghiemplus.com/bai-thi/test-mbti-mien-phi/" class="button white is-outline" style="border-radius:99px;padding:12px 28px 12px 28px"><span>Làm test MBTI</span></a></p>
+</div>
+
+</div></div>
+
+</div>
+
+</div></section>
+</main>
+<script>document.querySelectorAll('.accordion-title').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();a.parentNode.classList.toggle('active')})});</script>
+<script>/* Trang Trắc nghiệm nghề nghiệp – tracnghiemplus.com
+ * Khối "Ngành HOT phù hợp với bạn" (#tnn-hot)
+ * Chỉ chạy khi trang có phần tử #tnn-hot nên có thể nạp toàn site.
+ */
+(function () {
+  var IMG = 'https://tracnghiemplus.com/wp-content/uploads/2026/08/';
+
+  var careers = {
+    marketing: {
+      title: 'Digital Marketing', tag: '🔥 Ngành sáng tạo', img: IMG + 'Quan-tri-marketing.jpg',
+      level: 'Rất cao', p: 90,
+      desc: 'Phù hợp với người có tư duy sáng tạo, giao tiếp tốt, thích phân tích hành vi khách hàng, xây dựng nội dung và tối ưu hiệu quả truyền thông trên các nền tảng số.',
+      holland: 'A – E – S', mbti: 'ENFP / ENTP', block: 'A00 – A01 – D01',
+      skills: ['Sáng tạo nội dung, ý tưởng truyền thông', 'Giao tiếp, thuyết phục, nắm bắt tâm lý khách hàng', 'Phân tích số liệu quảng cáo, hành vi người dùng', 'Thích nghi nhanh với xu hướng mới'],
+      jobs: ['Content Marketing', 'Performance Marketing', 'Social Media', 'SEO Specialist']
+    },
+    it: {
+      title: 'Công nghệ thông tin', tag: '💻 Ngành công nghệ', img: IMG + 'Tin-hoc-dai-cuong.jpg',
+      level: 'Rất cao', p: 92,
+      desc: 'Phù hợp với người có tư duy logic mạnh, thích giải quyết vấn đề, kiên trì tìm lỗi và xây dựng sản phẩm số như website, ứng dụng, hệ thống dữ liệu.',
+      holland: 'I – R – C', mbti: 'INTP / INTJ / ISTP', block: 'A00 – A01 – D07',
+      skills: ['Tư duy logic, toán học tốt', 'Kiên trì, tập trung cao khi xử lý vấn đề', 'Tự học nhanh công nghệ, ngôn ngữ mới', 'Đọc hiểu tài liệu tiếng Anh chuyên ngành'],
+      jobs: ['Lập trình viên', 'Kỹ sư phần mềm', 'Phân tích dữ liệu', 'Kiểm thử phần mềm']
+    },
+    ecommerce: {
+      title: 'Thương mại điện tử', tag: '🛒 Ngành kinh tế số', img: IMG + 'Thuong-mai-dien-tu.jpg',
+      level: 'Rất cao', p: 88,
+      desc: 'Kết hợp kinh doanh, marketing và công nghệ. Phù hợp với người nhạy bén thị trường, thích bán hàng online, vận hành gian hàng và phân tích dữ liệu khách hàng.',
+      holland: 'E – C – I', mbti: 'ESTP / ENTJ / ESTJ', block: 'A00 – A01 – D01',
+      skills: ['Nhạy bén kinh doanh, nắm bắt xu hướng', 'Sử dụng tốt công cụ số, sàn TMĐT', 'Phân tích số liệu bán hàng', 'Chăm sóc khách hàng, xử lý tình huống'],
+      jobs: ['Vận hành sàn TMĐT', 'Chuyên viên E-commerce', 'Quản lý gian hàng', 'Phân tích bán hàng']
+    },
+    logistics: {
+      title: 'Logistics', tag: '🚚 Ngành vận hành', img: IMG + 'Quan-tri-logistics.jpg',
+      level: 'Cao', p: 82,
+      desc: 'Phù hợp với người có khả năng tổ chức, điều phối, quản lý quy trình, xử lý tình huống nhanh và tối ưu dòng hàng, chi phí, thời gian trong chuỗi cung ứng.',
+      holland: 'C – E – R', mbti: 'ESTJ / ISTJ', block: 'A00 – A01 – D01',
+      skills: ['Tổ chức, điều phối công việc tốt', 'Quản lý thời gian và quy trình', 'Xử lý tình huống phát sinh nhanh', 'Tiếng Anh giao tiếp, chứng từ'],
+      jobs: ['Logistics Executive', 'Supply Chain', 'Chứng từ xuất nhập khẩu', 'Điều phối kho vận']
+    },
+    accounting: {
+      title: 'Kế toán – Kiểm toán', tag: '🧮 Ngành ổn định', img: IMG + 'Ke-toan-doanh-nghiep.jpg',
+      level: 'Cao', p: 80,
+      desc: 'Phù hợp với người cẩn thận, chính xác, thích làm việc với số liệu, tôn trọng nguyên tắc và quy trình. Đây là ngành doanh nghiệp nào cũng cần.',
+      holland: 'C – I – E', mbti: 'ISTJ / ESTJ / ISFJ', block: 'A00 – A01 – D01',
+      skills: ['Cẩn thận, tỉ mỉ, chính xác', 'Tư duy số liệu tốt', 'Kỷ luật, tuân thủ quy định', 'Sử dụng thành thạo Excel, phần mềm kế toán'],
+      jobs: ['Kế toán viên', 'Kế toán thuế', 'Kiểm toán viên', 'Kế toán tổng hợp']
+    },
+    banking: {
+      title: 'Tài chính – Ngân hàng', tag: '🏦 Ngành tài chính', img: IMG + 'Tai-chinh-ngan-hang.jpg',
+      level: 'Cao', p: 80,
+      desc: 'Phù hợp với người có tư duy phân tích, nhạy bén với con số và thị trường, giao tiếp tốt với khách hàng và chịu được áp lực chỉ tiêu.',
+      holland: 'C – E – I', mbti: 'ESTJ / ENTJ / ISTJ', block: 'A00 – A01 – D01',
+      skills: ['Phân tích tài chính, rủi ro', 'Giao tiếp, tư vấn khách hàng', 'Chịu áp lực doanh số', 'Trung thực, cẩn trọng'],
+      jobs: ['Giao dịch viên', 'Chuyên viên tín dụng', 'Phân tích tài chính', 'Tư vấn đầu tư']
+    },
+    business: {
+      title: 'Quản trị kinh doanh', tag: '💼 Ngành quản lý', img: IMG + 'Quan-tri-hoc.jpg',
+      level: 'Cao', p: 84,
+      desc: 'Phù hợp với người có tư duy tổ chức, khả năng lãnh đạo, ra quyết định, thích làm việc với con người, thị trường và mục tiêu tăng trưởng.',
+      holland: 'E – S – C', mbti: 'ENTJ / ESTJ / ENFJ', block: 'A00 – A01 – D01',
+      skills: ['Lập kế hoạch, tổ chức nguồn lực', 'Giao tiếp, đàm phán, thuyết phục', 'Ra quyết định nhanh', 'Tư duy chiến lược'],
+      jobs: ['Quản lý kinh doanh', 'Business Development', 'Quản lý vận hành', 'Khởi nghiệp']
+    },
+    pr: {
+      title: 'Quan hệ công chúng (PR)', tag: '🎤 Ngành truyền thông', img: IMG + 'Quan-he-cong-chung-PR.jpg',
+      level: 'Cao', p: 78,
+      desc: 'Phù hợp với người hoạt ngôn, tự tin, thích kết nối, tổ chức sự kiện và xây dựng hình ảnh thương hiệu cho doanh nghiệp, tổ chức.',
+      holland: 'S – A – E', mbti: 'ENFJ / ESFJ / ENFP', block: 'C00 – D01 – D14',
+      skills: ['Giao tiếp, thuyết trình tự tin', 'Viết tốt, kể chuyện hấp dẫn', 'Xây dựng mối quan hệ', 'Xử lý khủng hoảng truyền thông'],
+      jobs: ['Chuyên viên PR', 'Tổ chức sự kiện', 'Truyền thông nội bộ', 'Quản lý thương hiệu']
+    }
+  };
+
+  function esc(t) {
+    return String(t).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function init() {
+    var root = document.getElementById('tnn-hot');
+    if (!root) return;
+
+    var $ = function (id) { return root.querySelector('#' + id); };
+    var f = {
+      img: $('tnn-hot-img'), tag: $('tnn-hot-tag'), title: $('tnn-hot-title'), desc: $('tnn-hot-desc'),
+      ring: $('tnn-hot-ring'), score: $('tnn-hot-score'), holland: $('tnn-hot-holland'),
+      mbti: $('tnn-hot-mbti'), block: $('tnn-hot-block'), skills: $('tnn-hot-skills'), jobs: $('tnn-hot-jobs')
+    };
+    var result = root.querySelector('.tnn-hot-result');
+    var buttons = root.querySelectorAll('.tnn-job');
+
+    function render(key) {
+      var d = careers[key];
+      if (!d) return;
+      f.img.src = d.img;
+      f.img.alt = 'Ngành ' + d.title;
+      f.tag.textContent = d.tag;
+      f.title.textContent = d.title;
+      f.desc.textContent = d.desc;
+      f.ring.style.setProperty('--p', d.p);
+      f.score.textContent = d.level;
+      f.holland.textContent = d.holland;
+      f.mbti.textContent = d.mbti;
+      f.block.textContent = d.block;
+      f.skills.innerHTML = d.skills.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('');
+      f.jobs.innerHTML = d.jobs.map(function (s) { return '<span>' + esc(s) + '</span>'; }).join('');
+      result.classList.remove('is-swap');
+      void result.offsetWidth;
+      result.classList.add('is-swap');
+    }
+
+    Array.prototype.forEach.call(buttons, function (btn) {
+      btn.addEventListener('click', function () {
+        Array.prototype.forEach.call(buttons, function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        render(btn.getAttribute('data-career'));
+        if (window.innerWidth < 850) result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script></body></html>
