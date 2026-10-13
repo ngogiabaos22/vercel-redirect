@@ -1,0 +1,347 @@
+[ux_html label="CSS + JS trang VSTEP (dùng chung)"]
+<style id="vs-css">
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Lora:ital,wght@0,600;0,700;1,500&family=JetBrains+Mono:wght@500;600&display=swap');
+.vs{--bg:#f6f3ec;--card:#fff;--soft:#f3efe6;--ink:#141a2e;--text:#3d4356;--muted:#7b8090;--line:#e8e2d5;--blue:#24409b;--blue-2:#2f4fc0;--blue-soft:#e9edfc;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;--l:#2563eb;--l-bg:#eef4ff;--r:#16a34a;--r-bg:#ecfbf2;--w:#ea6a0c;--w-bg:#fff3e9;--s:#e5484d;--s-bg:#fff0f0;color:var(--text);font-family:'Be Vietnam Pro',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.6}
+.vs *,.vs *:before,.vs *:after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+.vs br{display:none}.vs h1 br,.vs h2 br{display:inline}.vs p:empty{display:none}
+.vs h1,.vs h2,.vs h3{font-family:'Lora',Georgia,serif;color:var(--ink);text-transform:none;letter-spacing:-.01em;margin-top:0}
+.vs p{margin-top:0}.vs a{text-decoration:none}.vs ul{margin:0;padding:0;list-style:none}.vs ul li{margin:0}
+.vs .vs-row>.col{padding-bottom:0}
+.vs-anchor{display:block;position:relative;top:-110px;visibility:hidden;height:0}
+.vs-page{background:var(--bg)!important}
+.vs-page.is-white{background:#fff!important}
+.vs-hero{position:relative;overflow:hidden;background-color:var(--bg)!important;background-image:radial-gradient(560px 320px at 100% 0,rgba(59,82,214,.10),transparent 70%),linear-gradient(rgba(20,26,46,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(20,26,46,.045) 1px,transparent 1px)!important;background-size:auto,32px 32px,32px 32px!important}
+/* ---- chữ nhỏ dạng mono ---- */
+.vs .vs-kicker{display:inline-flex;align-items:center;gap:8px;font:600 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.vs .vs-kicker:before{content:"";width:22px;height:1px;background:currentColor}
+.vs .vs-tagline{display:inline-flex;flex-wrap:wrap;align-items:center;border:1px solid var(--blue);border-radius:4px;overflow:hidden;font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.vs .vs-tagline span{padding:6px 10px;color:var(--blue)}
+.vs .vs-tagline span:first-child{background:var(--blue);color:#fff}
+.vs .vs-tagline em{padding:6px 10px;font-style:italic;font-family:'Lora',serif;text-transform:none;letter-spacing:0;color:var(--ink);font-size:13px}
+.vs .vs-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:22px}
+.vs .vs-crumb a{color:var(--muted)}.vs .vs-crumb a:hover{color:var(--blue)}.vs .vs-crumb b{color:var(--ink);font-weight:600}.vs .vs-crumb i{font-style:normal;opacity:.6}
+/* ---- hero ---- */
+.vs h1.vs-h1{font-size:clamp(32px,4.6vw,54px);font-weight:700;line-height:1.12;margin:18px 0 8px}
+.vs h1.vs-h1 span{color:var(--blue)}
+.vs .vs-h1-sub{font:italic 500 17px/1.5 'Lora',serif;color:var(--muted);margin:0 0 14px}
+.vs .vs-lead{font-size:15.5px;line-height:1.75;margin:0;max-width:640px}
+.vs .vs-lead b,.vs .vs-lead strong{color:var(--ink)}
+.vs .vs-facts{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:4px;background:#fff;margin-top:24px;max-width:640px}
+.vs .vs-fact{padding:12px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vs .vs-fact:nth-child(2n){border-right:0}
+.vs .vs-fact:nth-last-child(-n+2){border-bottom:0}
+.vs .vs-fact small{display:block;font:600 10.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.vs .vs-fact strong{display:block;font:700 18px/1.35 'Lora',serif;color:var(--ink);margin-top:4px}
+.vs .vs-fact strong em{font:500 13px 'Be Vietnam Pro',sans-serif;color:var(--muted);font-style:normal}
+.vs .vs-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.vs .vs-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:4px;padding:13px 20px;font-weight:700;font-size:14px;line-height:1.2;transition:all .2s}
+.vs .vs-btn-blue{background:var(--blue);color:#fff;box-shadow:0 12px 24px -14px rgba(36,64,155,.85)}
+.vs .vs-btn-blue:hover{background:#1c3380;color:#fff;transform:translateY(-1px)}
+.vs .vs-btn-white{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.vs .vs-btn-white:hover{border-color:var(--ink);color:var(--ink)}
+/* ---- tiêu đề khối ---- */
+.vs .vs-head{max-width:760px;margin-bottom:26px}
+.vs h2.vs-h2{font-size:clamp(24px,3vw,36px);font-weight:700;line-height:1.22;margin:12px 0 10px}
+.vs h2.vs-h2 span{color:var(--blue)}
+.vs .vs-sub{color:var(--muted);font-size:15px;line-height:1.7;margin:0}
+.vs .vs-sub-meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font:500 11.5px var(--mono);color:var(--muted)}
+/* ---- bảng định dạng ---- */
+.vs .vs-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
+.vs table.vs-table{width:100%;border-collapse:collapse;margin:0;font-size:14px;min-width:520px}
+.vs .vs-table th{background:#e9edfc;color:var(--ink);font:600 10.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:12px 14px;border:0}
+.vs .vs-table td{padding:14px;border:0;border-top:1px solid var(--line);vertical-align:middle;color:var(--text)}
+.vs .vs-table td:first-child{font-weight:700;color:var(--ink)}
+.vs .vs-table td:last-child,.vs .vs-table th:last-child{text-align:right}
+.vs .vs-levels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.vs .vs-level{background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+.vs .vs-level h3{font-size:19px;margin:0;color:var(--blue)}
+.vs .vs-level h3 span{color:var(--ink)}
+.vs .vs-level small{display:block;font:500 11px/1.5 var(--mono);color:var(--muted);margin:2px 0 8px}
+.vs .vs-level p{margin:0;font-size:13.5px}
+/* ---- 4 thẻ kỹ năng (tab) ---- */
+.vs .vs-skilltabs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.vs .vs-skilltab{display:flex;align-items:center;gap:10px;border-radius:12px;padding:14px 18px;font-weight:700;font-size:15.5px;cursor:pointer;border:2px solid transparent;transition:all .2s;user-select:none}
+.vs .vs-skilltab .vs-st-ico{font-size:17px;line-height:1}
+.vs .vs-skilltab .vs-st-n{font:600 11px var(--mono);opacity:.75;margin-left:2px}
+.vs .vs-skilltab:after{content:"\203A";margin-left:auto;font-size:20px;line-height:1;transition:transform .2s}
+.vs .vs-skilltab:hover:after{transform:translateX(3px)}
+.vs .vs-skilltab[data-skill="listening"],.vs [data-skill="listening"] .vs-sk-ico{background:var(--l-bg);color:var(--l)}
+.vs .vs-skilltab[data-skill="reading"],.vs [data-skill="reading"] .vs-sk-ico{background:var(--r-bg);color:var(--r)}
+.vs .vs-skilltab[data-skill="writing"],.vs [data-skill="writing"] .vs-sk-ico{background:var(--w-bg);color:var(--w)}
+.vs .vs-skilltab[data-skill="speaking"],.vs [data-skill="speaking"] .vs-sk-ico{background:var(--s-bg);color:var(--s)}
+.vs .vs-skilltab[data-skill="full"],.vs [data-skill="full"] .vs-sk-ico{background:var(--blue-soft);color:var(--blue)}
+.vs .vs-skilltab.is-active{border-color:currentColor;box-shadow:0 14px 28px -20px currentColor}
+.vs .vs-skilltab.is-active:after{transform:rotate(90deg)}
+.vs .vs-skilltab.is-empty{opacity:.55}
+/* ---- khung danh sách đề theo kỹ năng ---- */
+.vs .vs-panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px}
+.vs .vs-panel[hidden]{display:none!important}
+.vs .vs-panel-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:6px}
+.vs .vs-sk-ico{width:44px;height:44px;flex:none;border-radius:10px;display:grid;place-items:center;font-size:20px}
+.vs .vs-panel-head h3{font-size:22px;margin:0;line-height:1.3}
+.vs .vs-panel-head small{display:block;font:500 11.5px/1.5 var(--mono);color:var(--muted)}
+.vs .vs-panel-head .vs-count{margin-left:auto;font:600 11px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 10px;white-space:nowrap}
+.vs .vs-parts{margin:12px 0 4px!important}
+.vs .vs-parts li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.7}
+.vs .vs-parts li:before{content:"";position:absolute;left:2px;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--ink)}
+.vs .vs-lvl{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px}
+.vs .vs-lvl button{margin:0;border:1px solid var(--line);background:#fff;border-radius:4px;padding:5px 12px;font:600 11px/1.4 var(--mono);letter-spacing:.08em;color:var(--muted);cursor:pointer;text-transform:uppercase;min-height:0}
+.vs .vs-lvl button.is-active{background:var(--blue);border-color:var(--blue);color:#fff}
+.vs .vs-list{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;margin-top:10px}
+.vs .vs-item{display:flex;align-items:center;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line);color:var(--text);transition:color .2s,padding .2s}
+.vs .vs-item:hover{color:var(--blue);padding-left:6px}
+.vs .vs-item-body{flex:1;min-width:0}
+.vs .vs-item-k{display:block;font:600 10px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.vs .vs-item-t{display:block;font-weight:700;font-size:14.5px;color:var(--ink);line-height:1.4}
+.vs .vs-item:hover .vs-item-t{color:var(--blue)}
+.vs .vs-item-m{display:block;font:500 11px/1.5 var(--mono);color:var(--muted)}
+.vs .vs-item-min{flex:none;font:600 11.5px var(--mono);color:var(--muted)}
+.vs .vs-chev{flex:none;color:#b9b3a5;font-size:20px;line-height:1}
+.vs .vs-item:hover .vs-chev{color:var(--blue)}
+.vs .vs-empty{grid-column:1/-1;background:var(--soft);border:1px dashed #d9d1bf;border-radius:8px;padding:18px;text-align:center;color:var(--muted);font-size:14px;margin-top:10px}
+/* ---- ngân hàng đề 4 kỹ năng (trang trường) ---- */
+.vs .vs-skillgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.vs .vs-skillgrid .vs-list{grid-template-columns:1fr}
+/* ---- thẻ đề full 4 kỹ năng ---- */
+.vs .vs-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.vs .vs-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:0 16px 36px -32px rgba(20,26,46,.5);transition:transform .2s,box-shadow .2s}
+.vs .vs-card:hover{transform:translateY(-3px);box-shadow:0 24px 44px -30px rgba(20,26,46,.6)}
+.vs .vs-card-lv{align-self:flex-start;background:var(--soft);border:1px solid var(--line);color:var(--ink);font:600 10.5px/1 var(--mono);letter-spacing:.08em;border-radius:3px;padding:6px 8px}
+.vs .vs-card h3{font-size:18px;margin:12px 0 8px;line-height:1.35}
+.vs .vs-card-rows{font:500 11.5px/1.75 var(--mono);color:var(--muted);margin-bottom:14px}
+.vs .vs-card-rows div{display:flex;gap:6px}
+.vs .vs-card-rows b{font-weight:600;color:var(--text);min-width:76px}
+.vs .vs-go{display:block;margin-top:auto;text-align:center;background:var(--blue);color:#fff;border-radius:4px;padding:11px;font:700 12.5px/1.2 'Be Vietnam Pro',sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.vs .vs-go:hover{background:#1c3380;color:#fff}
+.vs .vs-levtabs{display:inline-flex;gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;margin-bottom:18px}
+.vs .vs-levtabs button{margin:0;border:0;border-right:1px solid var(--line);background:#fff;padding:8px 16px;font:600 11px/1.4 var(--mono);letter-spacing:.1em;color:var(--muted);cursor:pointer;min-height:0;text-transform:uppercase}
+.vs .vs-levtabs button:last-child{border-right:0}
+.vs .vs-levtabs button.is-active{background:var(--blue);color:#fff}
+/* ---- danh sách trường ---- */
+.vs .vs-regions{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;margin-bottom:20px}
+.vs .vs-region{padding:8px 16px;font:600 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;border-right:1px solid var(--line)}
+.vs .vs-region:last-child{border-right:0}
+.vs .vs-region.is-active{background:var(--blue);color:#fff}
+.vs .vs-schools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.vs .vs-school{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;transition:transform .2s,box-shadow .2s;color:var(--text)}
+.vs .vs-school:hover{transform:translateY(-3px);box-shadow:0 22px 40px -30px rgba(20,26,46,.6);color:var(--text)}
+.vs .vs-school-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.vs .vs-school-code{width:46px;height:46px;flex:none;border-radius:6px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font:700 15px 'Lora',serif}
+.vs .vs-school-n{font:600 10.5px var(--mono);color:var(--muted);letter-spacing:.06em}
+.vs .vs-school h3{font-size:17px;margin:12px 0 4px;line-height:1.35}
+.vs .vs-school-loc{font:500 11px/1.5 var(--mono);color:var(--muted)}
+.vs .vs-school p{font-size:13.5px;margin:8px 0 12px;line-height:1.6}
+.vs .vs-school-more{margin-top:auto;font-weight:700;font-size:13.5px;color:var(--blue)}
+.vs .vs-school[hidden]{display:none!important}
+.vs .vs-noschool{display:none;grid-column:1/-1;text-align:center;color:var(--muted);background:#fff;border:1px dashed #d9d1bf;border-radius:8px;padding:20px}
+/* ---- nguồn dữ liệu TestSpace (ẩn sau khi dựng xong) ---- */
+.vs-src.is-built,.vs-src.is-built .ts-portal-grid{display:none!important}
+.vs-src .ts-portal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.vs-src .ts-portal-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px;margin:0}
+.vs-src .ts-portal-card-title{font:700 16px/1.35 'Lora',serif;color:var(--ink);margin:0 0 8px}
+.vs-src .ts-portal-card-meta{display:flex;gap:12px;font-size:12px;color:var(--muted)}
+.vs-src .ts-portal-start-btn{margin-top:12px;border-radius:4px;background:var(--blue);color:#fff!important;padding:9px;font-weight:700;font-size:13px}
+@media (max-width:849px){.vs .vs-row>.col{padding-bottom:26px}.vs .vs-row>.col:last-child{padding-bottom:0}.vs .vs-skilltabs{grid-template-columns:1fr 1fr}.vs .vs-cards,.vs .vs-schools,.vs-src .ts-portal-grid{grid-template-columns:1fr 1fr}.vs .vs-skillgrid,.vs .vs-list{grid-template-columns:1fr}.vs .vs-levels-grid{grid-template-columns:1fr}}
+@media (max-width:549px){.vs h1.vs-h1{font-size:34px}.vs .vs-skilltabs{grid-template-columns:1fr;gap:10px}.vs .vs-cards,.vs .vs-schools,.vs-src .ts-portal-grid{grid-template-columns:1fr}.vs .vs-btn{flex:1}.vs .vs-panel{padding:16px}.vs .vs-fact{padding:10px 12px}.vs .vs-fact strong{font-size:16px}.vs .vs-regions,.vs .vs-levtabs{display:flex;flex-wrap:wrap}.vs .vs-region,.vs .vs-levtabs button{flex:1;text-align:center;padding:8px 6px}}
+</style>
+<script id="vs-js">
+/* VSTEP – dựng danh sách đề từ dữ liệu TestSpace ([tqp_category_landing category="..."]) đặt trong cột .vs-src.
+   Tên đề nên chứa kỹ năng (Listening/Reading/Writing/Speaking) và bậc (B1/B2/C1), ví dụ: "VSTEP Văn Lang B2 - Listening - Đề 01".
+   Đề không có tên kỹ năng được coi là đề FULL 4 kỹ năng.
+   Không dùng ký tự "nhỏ hơn" và dòng trống để WordPress không làm hỏng mã. */
+(function () {
+  function norm(s) { s = (s || '').toLowerCase().normalize('NFD'); var o = ''; for (var i = 0; i !== s.length; i++) { var c = s.charCodeAt(i); if (c >= 768 && 879 >= c) continue; o += s[i]; } return o.replace(/đ/g, 'd').replace(/\s+/g, ' ').trim(); }
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function each(list, fn) { Array.prototype.forEach.call(list, fn); }
+  function fmt(n) { return Number(n || 0).toLocaleString('vi-VN'); }
+  function pad(n) { return n > 9 ? String(n) : '0' + n; }
+  function setStat(name, val) { each(document.querySelectorAll('[data-vs-stat="' + name + '"]'), function (n) { n.textContent = val; }); }
+  var SKILL = {
+    listening: { name: 'Listening', ico: '🎧', re: /listening|nghe hieu|ky nang nghe/ },
+    reading: { name: 'Reading', ico: '📖', re: /reading|doc hieu|ky nang doc/ },
+    writing: { name: 'Writing', ico: '✍️', re: /writing|ky nang viet|bai viet/ },
+    speaking: { name: 'Speaking', ico: '🎙️', re: /speaking|ky nang noi/ }
+  };
+  var ORDER = ['listening', 'reading', 'writing', 'speaking', 'full'];
+  var LEVELS = ['b1', 'b2', 'c1'];
+  function readCards(scope) {
+    var out = [], seen = {};
+    each((scope || document).querySelectorAll('.vs-src .ts-portal-card'), function (card) {
+      var h = card.querySelector('.ts-portal-card-title'), a = card.querySelector('a[href]');
+      if (!h || !a || seen[a.href]) return;
+      seen[a.href] = 1;
+      var d = { title: h.textContent.replace(/\s+/g, ' ').trim(), href: a.href, min: 0, q: 0 };
+      each(card.querySelectorAll('.ts-portal-meta-item'), function (it) {
+        var s = it.querySelector('strong'), n = s ? parseInt(s.textContent, 10) || 0 : 0, t = norm(it.textContent);
+        if (t.indexOf('phut') !== -1) d.min = n; else if (t.indexOf('cau') !== -1) d.q = n;
+      });
+      var t = norm(d.title);
+      d.skill = 'full';
+      Object.keys(SKILL).forEach(function (k) { if (d.skill === 'full' && SKILL[k].re.test(t)) d.skill = k; });
+      var lv = t.match(/(^|[^a-z0-9])(b1|b2|c1)([^a-z0-9]|$)/);
+      d.level = lv ? lv[2] : '';
+      var m = t.match(/(?:de|test)\s*(?:so\s*)?#?\s*(\d+)/) || t.match(/(\d+)\s*$/);
+      d.no = m ? parseInt(m[1], 10) : 0;
+      out.push(d);
+    });
+    out.sort(function (a, b) { return (ORDER.indexOf(a.skill) - ORDER.indexOf(b.skill)) || (LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level)) || (a.no - b.no) || a.title.localeCompare(b.title, 'vi'); });
+    return out;
+  }
+  function group(all) { var by = { listening: [], reading: [], writing: [], speaking: [], full: [] }; all.forEach(function (d) { by[d.skill].push(d); }); return by; }
+  function label(d) {
+    var lv = d.level ? d.level.toUpperCase() + ' ' : '';
+    if (d.no) return (d.skill === 'full' ? 'Đề thi thử ' : SKILL[d.skill].name + ' ') + lv + '– Đề ' + pad(d.no);
+    return d.title;
+  }
+  function item(d) {
+    var a = el('a', 'vs-item');
+    a.href = d.href;
+    a.title = d.title;
+    a.setAttribute('data-level', d.level || 'none');
+    var body = el('span', 'vs-item-body');
+    body.appendChild(el('span', 'vs-item-k', 'VSTEP' + (d.skill !== 'full' ? ' · ' + SKILL[d.skill].name : '') + (d.level ? ' · ' + d.level.toUpperCase() : '')));
+    body.appendChild(el('span', 'vs-item-t', label(d)));
+    var meta = [];
+    if (d.q) meta.push(d.q + ' câu');
+    if (d.min) meta.push(d.min + ' phút');
+    if (meta.length) body.appendChild(el('span', 'vs-item-m', meta.join(' · ')));
+    a.appendChild(body);
+    if (d.min) a.appendChild(el('span', 'vs-item-min', d.min + "'"));
+    a.appendChild(el('span', 'vs-chev', '›'));
+    return a;
+  }
+  function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
+  /* Danh sách đề của 1 kỹ năng + bộ lọc bậc B1/B2/C1 (chỉ hiện khi có từ 2 bậc trở lên) */
+  function fillList(box, list) {
+    clear(box);
+    var panel = box.closest('.vs-panel');
+    var old = panel ? panel.querySelector('.vs-lvl') : null;
+    if (old) old.parentNode.removeChild(old);
+    if (!list.length) { box.appendChild(el('div', 'vs-empty', 'Đề thi kỹ năng này đang được cập nhật. Bạn quay lại sau nhé!')); return; }
+    list.forEach(function (d) { box.appendChild(item(d)); });
+    var lv = [];
+    list.forEach(function (d) { if (d.level && lv.indexOf(d.level) === -1) lv.push(d.level); });
+    lv.sort(function (a, b) { return LEVELS.indexOf(a) - LEVELS.indexOf(b); });
+    if (lv.length > 1) {
+      var bar = el('div', 'vs-lvl');
+      ['all'].concat(lv).forEach(function (l, i) {
+        var b = el('button', i ? '' : 'is-active', l === 'all' ? 'Tất cả' : l.toUpperCase());
+        b.type = 'button';
+        b.addEventListener('click', function () {
+          each(bar.querySelectorAll('button'), function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          each(box.querySelectorAll('.vs-item'), function (it) { it.style.display = (l === 'all' || it.getAttribute('data-level') === l) ? '' : 'none'; });
+        });
+        bar.appendChild(b);
+      });
+      box.parentNode.insertBefore(bar, box);
+    }
+  }
+  function setCount(sk, n) { each(document.querySelectorAll('[data-vs-count="' + sk + '"]'), function (c) { c.textContent = n + ' đề'; }); }
+  /* Thẻ đề full 4 kỹ năng */
+  var FULL_ROWS = [['Listening', '35 câu · 40 phút'], ['Reading', '40 câu · 60 phút'], ['Writing', '2 task · 60 phút'], ['Speaking', '3 phần · 12 phút']];
+  function fullCard(d) {
+    var c = el('div', 'vs-card');
+    c.setAttribute('data-level', d.level || 'none');
+    c.appendChild(el('span', 'vs-card-lv', d.level ? d.level.toUpperCase() : 'B1 – C1'));
+    c.appendChild(el('h3', '', d.title));
+    var rows = el('div', 'vs-card-rows');
+    FULL_ROWS.forEach(function (r) { var x = el('div'); x.appendChild(el('b', '', r[0])); x.appendChild(el('span', '', r[1])); rows.appendChild(x); });
+    c.appendChild(rows);
+    var go = el('a', 'vs-go', 'Bắt đầu thi');
+    go.href = d.href;
+    c.appendChild(go);
+    return c;
+  }
+  function fillFull(box, list) {
+    clear(box);
+    var sec = box.closest('.vs-full-wrap');
+    if (!list.length) { if (sec && sec.hasAttribute('data-vs-hide-empty')) sec.style.display = 'none'; else box.appendChild(el('div', 'vs-empty', 'Đề full 4 kỹ năng đang được cập nhật.')); return; }
+    list.forEach(function (d) { box.appendChild(fullCard(d)); });
+    var tabs = sec ? sec.querySelector('.vs-levtabs') : null;
+    if (!tabs) return;
+    var lv = [];
+    list.forEach(function (d) { if (d.level && lv.indexOf(d.level) === -1) lv.push(d.level); });
+    lv.sort(function (a, b) { return LEVELS.indexOf(a) - LEVELS.indexOf(b); });
+    if (lv.length === 0) { tabs.style.display = 'none'; return; }
+    clear(tabs);
+    ['all'].concat(lv).forEach(function (l, i) {
+      var b = el('button', i ? '' : 'is-active', l === 'all' ? 'Tất cả' : l.toUpperCase());
+      b.type = 'button';
+      b.addEventListener('click', function () {
+        each(tabs.querySelectorAll('button'), function (x) { x.classList.remove('is-active'); });
+        b.classList.add('is-active');
+        each(box.querySelectorAll('.vs-card'), function (it) { it.style.display = (l === 'all' || it.getAttribute('data-level') === l) ? '' : 'none'; });
+      });
+      tabs.appendChild(b);
+    });
+  }
+  /* 4 tab kỹ năng (Listening/Reading/Writing/Speaking) mở khung danh sách tương ứng */
+  function initSkillTabs(by) {
+    each(document.querySelectorAll('.vs-skilltabs'), function (wrap) {
+      var tabs = wrap.querySelectorAll('.vs-skilltab'), scope = wrap.parentNode;
+      function open(sk, scroll) {
+        each(tabs, function (t) { t.classList.toggle('is-active', t.getAttribute('data-skill') === sk); });
+        each(scope.querySelectorAll('.vs-panel[data-skill]'), function (p) { if (p.getAttribute('data-skill') === sk) p.removeAttribute('hidden'); else p.setAttribute('hidden', ''); });
+        if (scroll) { var p = scope.querySelector('.vs-panel[data-skill="' + sk + '"]'); if (p && p.getBoundingClientRect().top > window.innerHeight * 0.8) window.scrollTo({ top: p.getBoundingClientRect().top + window.pageYOffset - 120, behavior: 'smooth' }); }
+      }
+      each(tabs, function (t) {
+        var sk = t.getAttribute('data-skill'), n = (by[sk] || []).length;
+        if (!t.querySelector('.vs-st-n')) t.appendChild(el('span', 'vs-st-n', '(' + n + ')'));
+        if (sk === 'full' && !n) t.style.display = 'none';
+        if (!n) t.classList.add('is-empty');
+        t.setAttribute('role', 'button');
+        t.setAttribute('tabindex', '0');
+        t.addEventListener('click', function () { open(sk, true); });
+        t.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(sk, true); } });
+      });
+      var first = null;
+      each(tabs, function (t) { if (!first && (by[t.getAttribute('data-skill')] || []).length) first = t.getAttribute('data-skill'); });
+      var hash = (location.hash || '').replace('#', '');
+      open(by[hash] && by[hash].length ? hash : (first || 'listening'), false);
+    });
+  }
+  /* Lọc trường theo miền */
+  function initSchools() {
+    var cards = document.querySelectorAll('.vs-school');
+    setStat('schools', fmt(cards.length));
+    var regions = document.querySelectorAll('.vs-region');
+    var none = document.querySelector('.vs-noschool');
+    each(regions, function (r) {
+      var key = r.getAttribute('data-region'), n = 0;
+      each(cards, function (c) { if (key === 'all' || c.getAttribute('data-region') === key) n++; });
+      r.setAttribute('data-n', n);
+      r.addEventListener('click', function () {
+        each(regions, function (x) { x.classList.remove('is-active'); });
+        r.classList.add('is-active');
+        var shown = 0;
+        each(cards, function (c) { var ok = key === 'all' || c.getAttribute('data-region') === key; if (ok) { c.removeAttribute('hidden'); shown++; } else c.setAttribute('hidden', ''); });
+        if (none) none.style.display = shown ? 'none' : 'block';
+      });
+    });
+  }
+  function init() {
+    initSchools();
+    var src = document.querySelectorAll('.vs-src');
+    if (!src.length) return;
+    var all = readCards(document), by = group(all);
+    ORDER.forEach(function (sk) {
+      each(document.querySelectorAll('.vs-list[data-skill="' + sk + '"]'), function (box) { fillList(box, by[sk]); });
+      setCount(sk, by[sk].length);
+      setStat(sk, fmt(by[sk].length));
+    });
+    each(document.querySelectorAll('[data-vs-full]'), function (box) { fillFull(box, by.full); });
+    setStat('total', fmt(all.length));
+    setStat('questions', fmt(all.reduce(function (s, d) { return s + d.q; }, 0)));
+    initSkillTabs(by);
+    each(document.querySelectorAll('[data-vs-first]'), function (b) {
+      var sk = b.getAttribute('data-vs-first'), list = (!sk || sk === 'all') ? (by.full.length ? by.full : all) : (by[sk] || []);
+      if (list[0]) b.href = list[0].href;
+    });
+    each(src, function (s) { s.classList.add('is-built'); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+[/ux_html]

@@ -1,0 +1,138 @@
+[section label="1. Giới thiệu VSTEP" bg_color="#f6f3ec" padding="56px" padding__sm="30px" class="vs vs-hero"]
+
+[row width="custom" custom_width="1200px" v_align="middle" class="vs-row"]
+
+[col span="12" span__sm="12"]
+
+[block id="vstep-assets"]
+
+[ux_html label="Giới thiệu"]
+<div class="vs-tagline"><span>Định dạng VSTEP.3-5</span><span>Bộ GD&amp;ĐT</span></div>
+<h1 class="vs-h1">Thi thử <span>VSTEP</span> online miễn phí</h1>
+<p class="vs-h1-sub">Vietnamese Standardized Test of English Proficiency</p>
+<p class="vs-lead">Bộ đề thi thử VSTEP bậc 3–5 theo đúng định dạng đề thi thật: <b>4 kỹ năng Listening – Reading – Writing – Speaking</b>, phân theo từng kỹ năng và theo ngân hàng đề của từng trường đại học tổ chức thi.</p>
+<div class="vs-facts">
+<div class="vs-fact"><small>Bậc đánh giá</small><strong>B1 · B2 · C1</strong></div>
+<div class="vs-fact"><small>Tổng thời lượng</small><strong>~180 phút</strong></div>
+<div class="vs-fact"><small>Đề thi thử</small><strong><span data-vs-stat="total">–</span> <em>đề</em></strong></div>
+<div class="vs-fact"><small>Trường đại học</small><strong><span data-vs-stat="schools">–</span> <em>đơn vị</em></strong></div>
+</div>
+<div class="vs-actions"><a class="vs-btn vs-btn-blue" href="#danh-sach-de">Đề thi theo kỹ năng ↓</a><a class="vs-btn vs-btn-white" href="#de-theo-truong">Đề theo trường đại học →</a></div>
+<div class="vs-crumb"><a href="https://tracnghiemplus.com/">Trang chủ</a><i>/</i><b>Thi thử VSTEP</b></div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="2. Cấu trúc đề thi" bg_color="#ffffff" padding="56px" padding__sm="36px" class="vs vs-page is-white"]
+
+[row width="custom" custom_width="1200px" class="vs-row"]
+
+[col]
+
+[ux_html label="Cấu trúc đề VSTEP"]
+<div class="vs-head"><div class="vs-kicker">Cấu trúc đề thi thật</div><h2 class="vs-h2">Đề VSTEP.3-5 gồm 4 kỹ năng, thi liên tục trong một buổi</h2><p class="vs-sub">Ba kỹ năng Listening – Reading – Writing thi trên giấy hoặc máy tính, Speaking phỏng vấn trực tiếp với 2 giám khảo.</p></div>
+<div class="vs-table-wrap"><table class="vs-table">
+<thead><tr><th>Kỹ năng</th><th>Tiếng Việt</th><th>Số câu / task</th><th>Thời gian</th></tr></thead>
+<tbody>
+<tr><td>Listening</td><td>Nghe</td><td>35 câu</td><td>~40 phút</td></tr>
+<tr><td>Reading</td><td>Đọc</td><td>40 câu</td><td>60 phút</td></tr>
+<tr><td>Writing</td><td>Viết</td><td>2 task</td><td>60 phút</td></tr>
+<tr><td>Speaking</td><td>Nói</td><td>3 phần</td><td>12 phút</td></tr>
+</tbody></table></div>
+<div class="vs-levels-grid">
+<div class="vs-level"><h3>B1 <span>– Bậc 3</span></h3><small>Điểm trung bình 4.0 – 5.5</small><p>Chuẩn đầu ra đại học, xét tuyển công chức.</p></div>
+<div class="vs-level"><h3>B2 <span>– Bậc 4</span></h3><small>Điểm trung bình 6.0 – 8.0</small><p>Giáo viên tiểu học/THCS, cao học, ngành ngôn ngữ.</p></div>
+<div class="vs-level"><h3>C1 <span>– Bậc 5</span></h3><small>Điểm trung bình 8.5 – 10</small><p>Giáo viên tiếng Anh THPT, nghiên cứu sinh.</p></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="3. Danh sách đề Thi thử VSTEP (theo kỹ năng)" bg_color="#f6f3ec" padding="56px" padding__sm="36px" class="vs vs-page"]
+
+[row width="custom" custom_width="1200px" class="vs-row"]
+
+[col]
+
+[ux_html label="Danh sách đề – 4 tab kỹ năng + danh sách (tự dựng từ TestSpace)"]
+<div id="danh-sach-de" class="vs-anchor"></div>
+<div class="vs-head"><div class="vs-kicker">Ngân hàng đề</div><h2 class="vs-h2">Danh sách đề Thi thử VSTEP</h2><p class="vs-sub">Chọn kỹ năng để xem danh sách đề. Mỗi đề làm trực tuyến, chấm điểm và xem kết quả ngay sau khi nộp bài.</p><div class="vs-sub-meta"><span><b data-vs-stat="total">–</b> đề</span><span><b data-vs-stat="questions">–</b> câu hỏi</span><span>Cập nhật thường xuyên</span></div></div>
+<div class="vs-skillbox">
+<div class="vs-skilltabs">
+<div class="vs-skilltab" data-skill="listening"><span class="vs-st-ico">🎧</span>Listening VSTEP</div>
+<div class="vs-skilltab" data-skill="reading"><span class="vs-st-ico">📖</span>Reading VSTEP</div>
+<div class="vs-skilltab" data-skill="writing"><span class="vs-st-ico">✍️</span>Writing VSTEP</div>
+<div class="vs-skilltab" data-skill="speaking"><span class="vs-st-ico">🎙️</span>Speaking VSTEP</div>
+<div class="vs-skilltab" data-skill="full"><span class="vs-st-ico">📝</span>Full 4 kỹ năng</div>
+</div>
+<div class="vs-panel" data-skill="listening">
+<div class="vs-panel-head"><div class="vs-sk-ico">🎧</div><div><h3>Listening VSTEP</h3><small>35 câu · 40 phút · 3 phần</small></div><span class="vs-count" data-vs-count="listening">– đề</span></div>
+<ul class="vs-parts"><li>Part 1 – 8 câu thông báo ngắn</li><li>Part 2 – 12 câu hội thoại</li><li>Part 3 – 15 câu bài nói / bài giảng</li></ul>
+<div class="vs-list" data-skill="listening"><div class="vs-empty">Đang tải danh sách đề…</div></div>
+</div>
+<div class="vs-panel" data-skill="reading" hidden>
+<div class="vs-panel-head"><div class="vs-sk-ico">📖</div><div><h3>Reading VSTEP</h3><small>40 câu · 60 phút · 4 bài đọc</small></div><span class="vs-count" data-vs-count="reading">– đề</span></div>
+<ul class="vs-parts"><li>Passage 1 – đời sống xã hội</li><li>Passage 2 – khoa học, công nghệ</li><li>Passage 3 – giáo dục, việc làm</li><li>Passage 4 – học thuật</li></ul>
+<div class="vs-list" data-skill="reading"><div class="vs-empty">Đang tải danh sách đề…</div></div>
+</div>
+<div class="vs-panel" data-skill="writing" hidden>
+<div class="vs-panel-head"><div class="vs-sk-ico">✍️</div><div><h3>Writing VSTEP</h3><small>2 task · 60 phút</small></div><span class="vs-count" data-vs-count="writing">– đề</span></div>
+<ul class="vs-parts"><li>Task 1 – Email / thư 120 từ</li><li>Task 2 – Essay 250 từ (opinion / problem – solution)</li></ul>
+<div class="vs-list" data-skill="writing"><div class="vs-empty">Đang tải danh sách đề…</div></div>
+</div>
+<div class="vs-panel" data-skill="speaking" hidden>
+<div class="vs-panel-head"><div class="vs-sk-ico">🎙️</div><div><h3>Speaking VSTEP</h3><small>3 phần · 12 phút</small></div><span class="vs-count" data-vs-count="speaking">– đề</span></div>
+<ul class="vs-parts"><li>Part 1 – Social interaction</li><li>Part 2 – Solution discussion</li><li>Part 3 – Topic development</li></ul>
+<div class="vs-list" data-skill="speaking"><div class="vs-empty">Đang tải danh sách đề…</div></div>
+</div>
+<div class="vs-panel" data-skill="full" hidden>
+<div class="vs-panel-head"><div class="vs-sk-ico">📝</div><div><h3>Đề full 4 kỹ năng</h3><small>Listening + Reading + Writing + Speaking · ~180 phút</small></div><span class="vs-count" data-vs-count="full">– đề</span></div>
+<div class="vs-list" data-skill="full"></div>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+[col class="vs-src"]
+
+<p>[tqp_category_landing category="VSTEP"]</p>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="4. Đề thi thử theo trường đại học" bg_color="#ffffff" padding="56px" padding__sm="36px" class="vs vs-page is-white"]
+
+[row width="custom" custom_width="1200px" class="vs-row"]
+
+[col]
+
+[ux_html label="Danh sách trường (sửa/thêm thẻ .vs-school tại đây)"]
+<div id="de-theo-truong" class="vs-anchor"></div>
+<div class="vs-head"><div class="vs-kicker">Đề thi thử VSTEP của các trường đại học</div><h2 class="vs-h2">Đề thi thử theo ngân hàng đề từng đơn vị tổ chức</h2><p class="vs-sub">Mỗi trường có ngân hàng đề và cách ra đề riêng. Chọn đúng trường bạn sẽ dự thi để làm quen với cấu trúc đề.</p></div>
+<div class="vs-regions"><div class="vs-region is-active" data-region="all">Tất cả</div><div class="vs-region" data-region="bac">Miền Bắc</div><div class="vs-region" data-region="trung">Miền Trung</div><div class="vs-region" data-region="nam">Miền Nam</div></div>
+<div class="vs-schools">
+<a class="vs-school" data-region="nam" href="https://tracnghiemplus.com/thi-thu-vstep-van-lang/"><div class="vs-school-top"><span class="vs-school-code">VL</span><span class="vs-school-n">VSTEP</span></div><h3>Trường Đại học Văn Lang</h3><div class="vs-school-loc">TP. Hồ Chí Minh · B1 – B2 – C1</div><p>Đề thi thử VSTEP theo format tổ chức thi tại Văn Lang, cập nhật 2026.</p><span class="vs-school-more">Xem bộ đề ›</span></a>
+<a class="vs-school" data-region="bac" href="https://tracnghiemplus.com/thi-thu-vstep-dai-hoc-ngoai-ngu-hn/"><div class="vs-school-top"><span class="vs-school-code">ULIS</span><span class="vs-school-n">VSTEP</span></div><h3>Trường Đại học Ngoại ngữ – ĐHQG Hà Nội</h3><div class="vs-school-loc">Hà Nội · B1 – B2 – C1</div><p>Đơn vị xây dựng định dạng đề VSTEP gốc, bộ đề mẫu chuẩn nhất.</p><span class="vs-school-more">Xem bộ đề ›</span></a>
+<a class="vs-school" data-region="nam" href="https://tracnghiemplus.com/thi-thu-vstep-dai-hoc-su-pham/"><div class="vs-school-top"><span class="vs-school-code">SP</span><span class="vs-school-n">VSTEP</span></div><h3>Trường Đại học Sư phạm</h3><div class="vs-school-loc">TP. Hồ Chí Minh · B1 – B2 – C1</div><p>Đề thi thử theo ngân hàng đề của Trung tâm Ngoại ngữ trường Sư phạm.</p><span class="vs-school-more">Xem bộ đề ›</span></a>
+<a class="vs-school" data-region="nam" href="https://tracnghiemplus.com/thi-thu-vstep-dai-hoc-ngan-hang/"><div class="vs-school-top"><span class="vs-school-code">NH</span><span class="vs-school-n">VSTEP</span></div><h3>Trường Đại học Ngân hàng</h3><div class="vs-school-loc">TP. Hồ Chí Minh · B1 – B2</div><p>Bộ đề luyện thi VSTEP sát với kỳ thi tổ chức tại Đại học Ngân hàng.</p><span class="vs-school-more">Xem bộ đề ›</span></a>
+<a class="vs-school" data-region="nam" href="https://tracnghiemplus.com/thi-thu-vstep-dai-hoc-cong-nghiep/"><div class="vs-school-top"><span class="vs-school-code">CN</span><span class="vs-school-n">VSTEP</span></div><h3>Trường Đại học Công nghiệp</h3><div class="vs-school-loc">TP. Hồ Chí Minh · B1 – B2</div><p>Đề thi thử VSTEP theo cấu trúc đề của Đại học Công nghiệp.</p><span class="vs-school-more">Xem bộ đề ›</span></a>
+<a class="vs-school" data-region="bac" href="https://tracnghiemplus.com/thi-thu-vstep-dai-hoc-bach-khoa/"><div class="vs-school-top"><span class="vs-school-code">BK</span><span class="vs-school-n">VSTEP</span></div><h3>Trường Đại học Bách khoa</h3><div class="vs-school-loc">Hà Nội · B1 – B2</div><p>Bộ đề VSTEP luyện thi chuẩn đầu ra cho sinh viên khối kỹ thuật.</p><span class="vs-school-more">Xem bộ đề ›</span></a>
+<a class="vs-school" data-region="nam" href="https://tracnghiemplus.com/thi-thu-vstep-dai-hoc-can-tho/"><div class="vs-school-top"><span class="vs-school-code">CT</span><span class="vs-school-n">VSTEP</span></div><h3>Trường Đại học Cần Thơ</h3><div class="vs-school-loc">Cần Thơ · B1 – B2 – C1</div><p>Đề thi thử theo ngân hàng đề của Đại học Cần Thơ – khu vực ĐBSCL.</p><span class="vs-school-more">Xem bộ đề ›</span></a>
+<a class="vs-school" data-region="nam" href="https://tracnghiemplus.com/thi-thu-vstep-dai-hoc-tra-vinh/"><div class="vs-school-top"><span class="vs-school-code">TV</span><span class="vs-school-n">VSTEP</span></div><h3>Trường Đại học Trà Vinh</h3><div class="vs-school-loc">Trà Vinh · B1 – B2</div><p>Bộ đề luyện thi VSTEP theo kỳ thi tổ chức tại Đại học Trà Vinh.</p><span class="vs-school-more">Xem bộ đề ›</span></a>
+<div class="vs-noschool">Chưa có trường nào ở khu vực này – sẽ được cập nhật sớm.</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
