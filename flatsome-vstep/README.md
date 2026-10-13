@@ -26,9 +26,15 @@ Ví dụ: `VSTEP Văn Lang B2 - Listening - Đề 01`, `VSTEP Văn Lang B2 - Đ�
 3. **Danh sách đề Thi thử VSTEP**: 4 tab 🎧 Listening · 📖 Reading · ✍️ Writing · 🎙️ Speaking (tab "Full 4 kỹ năng" chỉ hiện khi có đề full). Dữ liệu: category `VSTEP`.
 4. Đề theo trường: lọc Tất cả / Miền Bắc / Miền Trung / Miền Nam. Mỗi trường là một thẻ `<a class="vs-school" data-region="bac|trung|nam" href="...">` – thêm/bớt trường bằng cách copy một thẻ.
 
+## Đã áp dụng lên tracnghiemplus.com (13/10/2026)
+
+- UX Block `vstep-assets` (ID 805, Riêng tư).
+- Trang Thi thử VSTEP (ID 11) – đang hiện 32 đề thật của danh mục `VSTEP` (9 Listening, 11 Reading, 5 Writing, 7 Speaking).
+- 8 trang trường (ID 565, 593, 595, 599, 601, 603, 605, 607) – nội dung trong thư mục `truong/` (sinh bằng `python3 gen_truong.py`). Các danh mục trường **chưa có trong TestSpace**, nên trang đang hiện "đang được cập nhật" và sẽ tự lên đề khi tạo danh mục đúng tên trong bảng dưới.
+
 ## Trang từng trường
 
-Copy nội dung file 3 sang trang của trường, rồi thay:
+Copy nội dung file 3 sang trang của trường (hoặc sửa `gen_truong.py`), rồi thay:
 
 1. Tên trường / địa điểm / bậc trong khối "Giới thiệu", tiêu đề các khối.
 2. `category="VSTEP Văn Lang"` → đúng tên danh mục đề của trường trong TestSpace.
@@ -48,4 +54,6 @@ Copy nội dung file 3 sang trang của trường, rồi thay:
 
 ## Lưu ý khi sửa code
 
-Trong `<script>` / `<style>` của block **không** dùng ký tự "nhỏ hơn" và **không** để dòng trống (WordPress `wpautop` sẽ làm hỏng mã) – giống quy ước của `toeic-assets`.
+- Trong `<script>` / `<style>` của block **không** dùng ký tự "nhỏ hơn" và **không** để dòng trống (WordPress `wpautop` sẽ làm hỏng mã) – giống quy ước của `toeic-assets`.
+- Không viết shortcode dạng `[ten_shortcode ...]` kể cả trong chú thích JS – WordPress vẫn chạy nó.
+- Thẻ inline (`<small>`, `<span>`, `<a>`) đứng ngay sau thẻ block đóng (`</h3>`, `</div>`, `</p>`) sẽ bị `wpautop` bọc `<p>` – dùng `<div>` thay thế.

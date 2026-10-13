@@ -56,22 +56,22 @@
 <div class="vs-head"><div class="vs-kicker">Đề theo kỹ năng</div><h2 class="vs-h2">Ngân hàng đề Văn Lang chia theo từng kỹ năng</h2><p class="vs-sub">Một trường có nhiều đề cho mỗi kỹ năng – chọn đúng kỹ năng bạn đang yếu để luyện tập trung.</p></div>
 <div class="vs-skillgrid">
 <div class="vs-panel" data-skill="listening">
-<div class="vs-panel-head"><div class="vs-sk-ico">🎧</div><div><h3>Listening · Văn Lang</h3><small>35 câu · 40 phút</small></div><span class="vs-count" data-vs-count="listening">– đề</span></div>
+<div class="vs-panel-head"><div class="vs-sk-ico">🎧</div><div><h3>Listening · Văn Lang</h3><div class="vs-sm">35 câu · 40 phút</div></div><div class="vs-count" data-vs-count="listening">– đề</div></div>
 <ul class="vs-parts"><li>Part 1 – 8 câu thông báo ngắn</li><li>Part 2 – 12 câu hội thoại</li><li>Part 3 – 15 câu bài nói / bài giảng</li></ul>
 <div class="vs-list" data-skill="listening"><div class="vs-empty">Đang tải danh sách đề…</div></div>
 </div>
 <div class="vs-panel" data-skill="reading">
-<div class="vs-panel-head"><div class="vs-sk-ico">📖</div><div><h3>Reading · Văn Lang</h3><small>40 câu · 60 phút</small></div><span class="vs-count" data-vs-count="reading">– đề</span></div>
+<div class="vs-panel-head"><div class="vs-sk-ico">📖</div><div><h3>Reading · Văn Lang</h3><div class="vs-sm">40 câu · 60 phút</div></div><div class="vs-count" data-vs-count="reading">– đề</div></div>
 <ul class="vs-parts"><li>Passage 1 – đời sống xã hội</li><li>Passage 2 – khoa học, công nghệ</li><li>Passage 3 – giáo dục, việc làm</li><li>Passage 4 – học thuật</li></ul>
 <div class="vs-list" data-skill="reading"><div class="vs-empty">Đang tải danh sách đề…</div></div>
 </div>
 <div class="vs-panel" data-skill="writing">
-<div class="vs-panel-head"><div class="vs-sk-ico">✍️</div><div><h3>Writing · Văn Lang</h3><small>2 task · 60 phút</small></div><span class="vs-count" data-vs-count="writing">– đề</span></div>
+<div class="vs-panel-head"><div class="vs-sk-ico">✍️</div><div><h3>Writing · Văn Lang</h3><div class="vs-sm">2 task · 60 phút</div></div><div class="vs-count" data-vs-count="writing">– đề</div></div>
 <ul class="vs-parts"><li>Task 1 – Email / thư 120 từ</li><li>Task 2 – Essay 250 từ (opinion / problem – solution)</li></ul>
 <div class="vs-list" data-skill="writing"><div class="vs-empty">Đang tải danh sách đề…</div></div>
 </div>
 <div class="vs-panel" data-skill="speaking">
-<div class="vs-panel-head"><div class="vs-sk-ico">🎙️</div><div><h3>Speaking · Văn Lang</h3><small>3 phần · 12 phút</small></div><span class="vs-count" data-vs-count="speaking">– đề</span></div>
+<div class="vs-panel-head"><div class="vs-sk-ico">🎙️</div><div><h3>Speaking · Văn Lang</h3><div class="vs-sm">3 phần · 12 phút</div></div><div class="vs-count" data-vs-count="speaking">– đề</div></div>
 <ul class="vs-parts"><li>Part 1 – Social interaction</li><li>Part 2 – Solution discussion</li><li>Part 3 – Topic development</li></ul>
 <div class="vs-list" data-skill="speaking"><div class="vs-empty">Đang tải danh sách đề…</div></div>
 </div>

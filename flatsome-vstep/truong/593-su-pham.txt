@@ -1,0 +1,114 @@
+[section label="1. Giới thiệu trường" bg_color="#f6f3ec" padding="56px" padding__sm="30px" class="vs vs-hero"]
+
+[row width="custom" custom_width="1200px" v_align="middle" class="vs-row"]
+
+[col span="12" span__sm="12"]
+
+[block id="vstep-assets"]
+
+[ux_html label="Giới thiệu (sửa tên trường / địa điểm / bậc tại đây)"]
+<div class="vs-tagline"><span>VSTEP · Sư Phạm</span><em>Trường Đại học Sư phạm</em></div>
+<h1 class="vs-h1">Đề thi thử VSTEP <span>Sư Phạm</span></h1>
+<p class="vs-lead">Đề thi thử VSTEP theo format tổ chức thi tại Sư Phạm, cập nhật 2026. Bộ đề đầy đủ chia theo <b>4 kỹ năng</b> của định dạng VSTEP.3-5, kèm các đề full 4 kỹ năng để bạn tổng duyệt trước ngày thi.</p>
+<div class="vs-facts">
+<div class="vs-fact"><small>Đơn vị tổ chức</small><strong>Sư Phạm</strong></div>
+<div class="vs-fact"><small>Địa điểm</small><strong>TP. Hồ Chí Minh</strong></div>
+<div class="vs-fact"><small>Bậc</small><strong>B1 · B2 · C1</strong></div>
+<div class="vs-fact"><small>Số đề</small><strong><span data-vs-stat="total">–</span> <em>đề</em></strong></div>
+</div>
+<div class="vs-actions"><a class="vs-btn vs-btn-blue" href="#de-full" data-vs-first="all">Bắt đầu thi ngay →</a><a class="vs-btn vs-btn-white" href="#de-ky-nang">Đề theo kỹ năng ↓</a></div>
+<div class="vs-crumb"><a href="https://tracnghiemplus.com/">Trang chủ</a><i>/</i><a href="https://tracnghiemplus.com/thi-thu-vstep/">Thi thử VSTEP</a><i>/</i><b>VSTEP Sư Phạm</b></div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="2. Đề full 4 kỹ năng" bg_color="#ffffff" padding="56px" padding__sm="36px" class="vs vs-page is-white"]
+
+[row width="custom" custom_width="1200px" class="vs-row"]
+
+[col]
+
+[ux_html label="Đề full 4 kỹ năng (tự dựng từ TestSpace)"]
+<div class="vs-full-wrap" data-vs-hide-empty>
+<div id="de-full" class="vs-anchor"></div>
+<div class="vs-head"><div class="vs-kicker">Đề full 4 kỹ năng</div><h2 class="vs-h2">Đề thi thử VSTEP Sư Phạm – trọn bộ 4 kỹ năng</h2><p class="vs-sub">Làm liên tục Listening → Reading → Writing → Speaking đúng như trình tự phòng thi.</p></div>
+<div class="vs-levtabs"></div>
+<div class="vs-cards" data-vs-full></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="3. Ngân hàng đề theo kỹ năng" bg_color="#f6f3ec" padding="56px" padding__sm="36px" class="vs vs-page"]
+
+[row width="custom" custom_width="1200px" class="vs-row"]
+
+[col]
+
+[ux_html label="Ngân hàng đề theo 4 kỹ năng (tự dựng từ TestSpace)"]
+<div id="de-ky-nang" class="vs-anchor"></div>
+<div class="vs-head"><div class="vs-kicker">Đề theo kỹ năng</div><h2 class="vs-h2">Ngân hàng đề Sư Phạm chia theo từng kỹ năng</h2><p class="vs-sub">Một trường có nhiều đề cho mỗi kỹ năng – chọn đúng kỹ năng bạn đang yếu để luyện tập trung.</p></div>
+<div class="vs-skillgrid">
+<div class="vs-panel" data-skill="listening">
+<div class="vs-panel-head"><div class="vs-sk-ico">🎧</div><div><h3>Listening · Sư Phạm</h3><div class="vs-sm">35 câu · 40 phút</div></div><div class="vs-count" data-vs-count="listening">– đề</div></div>
+<ul class="vs-parts"><li>Part 1 – 8 câu thông báo ngắn</li><li>Part 2 – 12 câu hội thoại</li><li>Part 3 – 15 câu bài nói / bài giảng</li></ul>
+<div class="vs-list" data-skill="listening"><div class="vs-empty">Đang tải danh sách đề…</div></div>
+</div>
+<div class="vs-panel" data-skill="reading">
+<div class="vs-panel-head"><div class="vs-sk-ico">📖</div><div><h3>Reading · Sư Phạm</h3><div class="vs-sm">40 câu · 60 phút</div></div><div class="vs-count" data-vs-count="reading">– đề</div></div>
+<ul class="vs-parts"><li>Passage 1 – đời sống xã hội</li><li>Passage 2 – khoa học, công nghệ</li><li>Passage 3 – giáo dục, việc làm</li><li>Passage 4 – học thuật</li></ul>
+<div class="vs-list" data-skill="reading"><div class="vs-empty">Đang tải danh sách đề…</div></div>
+</div>
+<div class="vs-panel" data-skill="writing">
+<div class="vs-panel-head"><div class="vs-sk-ico">✍️</div><div><h3>Writing · Sư Phạm</h3><div class="vs-sm">2 task · 60 phút</div></div><div class="vs-count" data-vs-count="writing">– đề</div></div>
+<ul class="vs-parts"><li>Task 1 – Email / thư 120 từ</li><li>Task 2 – Essay 250 từ (opinion / problem – solution)</li></ul>
+<div class="vs-list" data-skill="writing"><div class="vs-empty">Đang tải danh sách đề…</div></div>
+</div>
+<div class="vs-panel" data-skill="speaking">
+<div class="vs-panel-head"><div class="vs-sk-ico">🎙️</div><div><h3>Speaking · Sư Phạm</h3><div class="vs-sm">3 phần · 12 phút</div></div><div class="vs-count" data-vs-count="speaking">– đề</div></div>
+<ul class="vs-parts"><li>Part 1 – Social interaction</li><li>Part 2 – Solution discussion</li><li>Part 3 – Topic development</li></ul>
+<div class="vs-list" data-skill="speaking"><div class="vs-empty">Đang tải danh sách đề…</div></div>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+[col class="vs-src"]
+
+<p>[tqp_category_landing category="VSTEP Sư Phạm"]</p>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="4. Định dạng đề" bg_color="#ffffff" padding="56px" padding__sm="36px" class="vs vs-page is-white"]
+
+[row width="custom" custom_width="1200px" class="vs-row"]
+
+[col]
+
+[ux_html label="Định dạng đề + quay lại"]
+<div class="vs-head"><div class="vs-kicker">Cấu trúc &amp; lưu ý</div><h2 class="vs-h2">Định dạng đề VSTEP tại Sư Phạm</h2><p class="vs-sub">Tất cả đơn vị tổ chức thi đều dùng chung định dạng VSTEP.3-5 do Bộ GD&amp;ĐT ban hành.</p></div>
+<div class="vs-table-wrap"><table class="vs-table">
+<thead><tr><th>Kỹ năng</th><th>Tiếng Việt</th><th>Số câu / task</th><th>Thời gian</th></tr></thead>
+<tbody>
+<tr><td>Listening</td><td>Nghe</td><td>35 câu</td><td>~40 phút</td></tr>
+<tr><td>Reading</td><td>Đọc</td><td>40 câu</td><td>60 phút</td></tr>
+<tr><td>Writing</td><td>Viết</td><td>2 task</td><td>60 phút</td></tr>
+<tr><td>Speaking</td><td>Nói</td><td>3 phần</td><td>12 phút</td></tr>
+</tbody></table></div>
+<div class="vs-actions" style="justify-content:center;margin-top:34px"><a class="vs-btn vs-btn-white" href="https://tracnghiemplus.com/thi-thu-vstep/#de-theo-truong">← Đề VSTEP các trường khác</a></div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
