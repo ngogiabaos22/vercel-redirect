@@ -54,3 +54,9 @@ Nhiều khả năng do TestSpace (`[tqp_category_landing]` từng đặt trên t
 Trang môn chia 2 cột: danh sách đề (8/12) + sidebar (4/12, dính khi cuộn) gồm **Các môn học bắt buộc** và **Các môn học HOT**. Trên mobile sidebar tự xuống cuối trang.
 - Sửa danh sách: UX Blocks › "Đại học – Sidebar môn học" (hoặc sửa `sidebar.json` rồi `python3 build.py`).
 - JS tự đánh dấu môn đang xem và hỏi WordPress (`/wp-json/wp/v2/pages?slug=…`) xem trang có tồn tại không: môn chưa có trang hiện **"Sắp có"** (không bấm được). Tạo trang con của "Đại học" đúng slug (vd `trac-nghiem-marketing-can-ban`) là tự thành link.
+
+## Sửa gốc lỗi URL `/dai-hoc/*` (phía máy chủ)
+
+Mọi URL `/dai-hoc/<bất-kỳ>/` đang được WordPress trả về trang "Đại học" do một quy tắc URL tuỳ chỉnh (không đọc/sửa được qua kết nối MCP vì nhóm công cụ đặc quyền đang tắt).
+Cách sửa: dán nội dung `fix-dai-hoc-url.php` vào cuối `wp-content/themes/flatsome-child/functions.php`, rồi vào **Cài đặt → Đường dẫn tĩnh → Lưu thay đổi**.
+Sau đó: trang con thật hiển thị đúng nội dung của nó, URL không tồn tại trả về 404 mặc định của WordPress, `/dai-hoc/` và các URL khác không đổi.
