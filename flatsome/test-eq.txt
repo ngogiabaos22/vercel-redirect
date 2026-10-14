@@ -1,0 +1,263 @@
+[ux_html label="CSS trang Test EQ (có thể chuyển sang Flatsome > Advanced > Custom CSS)"]
+<style id="leq-css">@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');.leq{--ink:#2b1d36;--muted:#6e6478;--rose:#d4506a;--rose-dark:#b33c56;--plum:#5b3a8c;--blush:#fdeff1;--lilac:#f2edfb;--paper:#fbf8f6;--line:#ece6ea;--shadow:0 22px 60px rgba(60,30,70,.09);color:var(--ink);font-family:"Be Vietnam Pro",sans-serif;-webkit-font-smoothing:antialiased}.leq *,.leq *:before,.leq *:after{box-sizing:border-box}.leq br{display:none}.leq h1 br,.leq h2 br{display:inline}.leq p:empty{display:none}.leq-anchor{display:block;position:relative;top:-95px;visibility:hidden;height:0}.leq h1,.leq h2,.leq h3,.leq h4{font-family:inherit;color:var(--ink);letter-spacing:-.035em;margin-top:0;text-transform:none}.leq h2{font-size:clamp(28px,3.8vw,46px);line-height:1.22;font-weight:700;margin-bottom:.5em}.leq h3{font-size:18px;line-height:1.35;font-weight:700;margin-bottom:8px}.leq p{line-height:1.85;margin-top:0}.leq a{color:inherit;text-decoration:none}.leq ul{margin:0;padding:0}.leq ul li{margin:0;list-style:none}.leq button{font:inherit;cursor:pointer;margin:0;text-transform:none;letter-spacing:normal;line-height:inherit;min-height:0;max-width:none;text-shadow:none;vertical-align:baseline}.leq a:focus-visible,.leq button:focus-visible{outline:3px solid var(--rose);outline-offset:4px}.leq .leq-row>.col{padding-bottom:0}.leq .leq-muted{color:var(--muted)}.leq .leq-eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--rose);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.leq .leq-eyebrow:before{content:"";width:23px;height:2px;background:currentColor}.leq .leq-heading{max-width:720px;margin:0 auto 46px;text-align:center}.leq .leq-heading h2{margin-top:14px}.leq .leq-heading p{color:var(--muted);font-size:15px;margin:0}.leq .leq-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 24px;border-radius:12px;border:1px solid transparent;font-weight:700;font-size:14px;line-height:1.2;transition:transform .25s,box-shadow .25s,background .25s;white-space:nowrap}.leq .leq-btn:hover{transform:translateY(-3px)}.leq .leq-btn-primary{color:#fff;background:var(--rose);box-shadow:0 12px 25px rgba(212,80,106,.22)}.leq .leq-btn-primary:hover{color:#fff;background:var(--rose-dark)}.leq .leq-btn-outline{border-color:#dccfd8;color:var(--ink);background:transparent}.leq .leq-btn-outline:hover{background:#fff}.leq .leq-btn-light{background:#fff;color:var(--ink)}.leq .leq-btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}.leq .leq-btn-ghost:hover{background:rgba(255,255,255,.08);color:#fff}.leq .leq-arrow{font-size:19px;line-height:1;font-family:sans-serif;font-weight:400}.leq-hero{position:relative;overflow:hidden}.leq-hero:before{content:"";position:absolute;top:-230px;right:-210px;width:740px;height:740px;border:1px solid #f0e4e8;border-radius:50%;pointer-events:none}.leq-hero:after{content:"";position:absolute;top:-120px;right:-100px;width:530px;height:530px;border:1px solid #f0e4e8;border-radius:50%;pointer-events:none}.leq-hero .section-content{position:relative;z-index:1}.leq .leq-hero-row>.col{padding-left:21px;padding-right:21px}.leq .leq-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;background:var(--blush);color:var(--rose-dark);border-radius:99px;font-size:12px;font-weight:700;margin-bottom:28px}.leq .leq-pill span{width:7px;height:7px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 4px rgba(212,80,106,.15)}.leq h1{max-width:620px;font-size:clamp(40px,5.2vw,68px);line-height:1.15;margin-bottom:24px;font-weight:800}.leq .leq-hl{color:var(--rose);position:relative;white-space:nowrap}.leq .leq-hl:after{content:"";position:absolute;height:11px;border-radius:50%;border-top:3px solid var(--plum);bottom:-10px;left:6%;width:90%;transform:rotate(-2deg);opacity:.55}.leq .leq-lead{color:var(--muted);max-width:540px;font-size:15px;margin-bottom:32px}.leq .leq-actions{display:flex;gap:12px;flex-wrap:wrap}.leq .leq-note{display:flex;align-items:center;gap:11px;color:#77697f;font-size:12px;margin-top:30px}.leq .leq-note svg{color:var(--rose);flex:none}.leq .leq-art{position:relative;height:500px;display:grid;place-items:center}.leq .leq-blob{position:absolute;width:430px;height:430px;max-width:95%;background:linear-gradient(140deg,#fbe3e8,#ece4f8);border-radius:46% 54% 59% 41%/51% 41% 59% 49%;transform:rotate(-14deg)}.leq .leq-orbit{position:absolute;width:360px;height:360px;border:1px dashed #d6b9c7;border-radius:50%}.leq .leq-orbit:after{content:"";position:absolute;width:9px;height:9px;background:var(--plum);border-radius:50%;top:52px;right:46px}.leq .leq-card{width:300px;position:relative;z-index:2;background:#fff;border-radius:26px;box-shadow:0 28px 65px rgba(70,30,60,.15);transform:rotate(-4deg);padding:24px}.leq .leq-card-top{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;color:#8a7b88;letter-spacing:.05em}.leq .leq-gauge{display:grid;place-items:center;margin:12px auto 6px}.leq .leq-gauge svg{width:170px;height:170px}.leq .leq-card h3{font-size:16px;margin:0 0 12px;text-align:center}.leq .leq-bars{display:grid;gap:8px}.leq .leq-bar{display:grid;grid-template-columns:86px 1fr;align-items:center;gap:10px;font-size:10px;font-weight:600;color:var(--muted)}.leq .leq-bar i{display:block;height:6px;border-radius:9px;background:#f1eaf0;overflow:hidden}.leq .leq-bar i b{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--rose),var(--plum))}.leq .leq-float{position:absolute;z-index:3;background:#fff;box-shadow:0 16px 38px rgba(70,30,60,.13);border-radius:16px;padding:13px 16px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:9px}.leq .leq-float em{font-style:normal;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;font-size:14px}.leq .leq-float-a{top:58px;left:0;transform:rotate(6deg)}.leq .leq-float-a em{background:var(--rose)}.leq .leq-float-b{bottom:52px;right:-4px;transform:rotate(-5deg)}.leq .leq-float-b em{background:var(--plum)}.leq-strip .section-content{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.leq .leq-strip-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0;flex-wrap:wrap}.leq .leq-strip-title{font-weight:700;font-size:15px;max-width:330px}.leq .leq-strip-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--muted)}.leq .leq-strip-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--blush);color:var(--rose)}.leq .leq-about-row>.col{padding-left:24px;padding-right:24px}.leq .leq-about h2{margin-top:14px}.leq .leq-about p{color:var(--muted);font-size:15px}.leq .leq-quote-box{margin-top:22px;padding:18px 20px;border-left:4px solid var(--rose);background:var(--blush);border-radius:0 14px 14px 0;font-size:14px;color:var(--ink);line-height:1.75}.leq .leq-quote-box b{color:var(--rose-dark)}.leq .leq-pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.leq .leq-pillar{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;transition:transform .25s,box-shadow .25s}.leq .leq-pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.leq .leq-pillar:last-child{grid-column:1/-1}.leq .leq-pillar-ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:18px;margin-bottom:12px}.leq .leq-pillar h3{font-size:16px;margin-bottom:6px}.leq .leq-pillar p{font-size:13px;color:var(--muted);margin:0;line-height:1.7}.leq .c1{background:#fdeaee;color:#c2405b}.leq .c2{background:#efe8fb;color:#5b3a8c}.leq .c3{background:#fff1df;color:#c0731f}.leq .c4{background:#e4f4ef;color:#24806a}.leq .c5{background:#e6eefb;color:#3b62b0}.leq .leq-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.leq .leq-step{position:relative;background:#fff;border-radius:22px;padding:30px 26px;box-shadow:var(--shadow)}.leq .leq-step-num{font-size:44px;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.5px #e3b9c4;margin-bottom:16px}.leq .leq-step p{font-size:14px;color:var(--muted);margin:0}.leq .leq-levels{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}.leq .leq-level{border-radius:18px;padding:22px 20px;background:#fff;border:1px solid var(--line)}.leq .leq-level-tag{display:inline-block;padding:4px 11px;border-radius:99px;font-size:11px;font-weight:800;margin-bottom:12px}.leq .leq-level h3{font-size:15px;margin-bottom:6px}.leq .leq-level p{font-size:13px;color:var(--muted);margin:0;line-height:1.7}.leq .leq-meter{display:flex;gap:4px;margin-bottom:14px}.leq .leq-meter i{flex:1;height:5px;border-radius:5px;background:#eee6ec}.leq .leq-meter i.on{background:var(--rose)}.leq .leq-cta-center{text-align:center;margin-top:40px}.leq .leq-table-wrap{overflow-x:auto;border-radius:20px;box-shadow:var(--shadow);background:#fff}.leq table.leq-table{width:100%;min-width:640px;border-collapse:collapse;margin:0;font-size:14px}.leq table.leq-table th,.leq table.leq-table td{padding:16px 20px;text-align:left;vertical-align:top;border:0;border-bottom:1px solid var(--line);line-height:1.65}.leq table.leq-table thead th{background:var(--ink);color:#fff;font-size:13px;font-weight:700;text-transform:none;letter-spacing:0}.leq table.leq-table thead th.is-eq{background:var(--rose)}.leq table.leq-table thead th.is-iq{background:var(--plum)}.leq table.leq-table td:first-child{font-weight:700;color:var(--ink);white-space:nowrap;background:#fcf9fa}.leq table.leq-table td{color:var(--muted)}.leq table.leq-table tr:last-child td{border-bottom:0}.leq .leq-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;margin-top:26px}.leq .leq-vs-card{border-radius:20px;padding:24px;background:#fff;border:1px solid var(--line)}.leq .leq-vs-card h3{font-size:16px}.leq .leq-vs-card p{font-size:13px;color:var(--muted);margin:0}.leq .leq-vs-mid{display:grid;place-items:center;width:58px;height:58px;align-self:center;border-radius:50%;background:var(--ink);color:#fff;font-weight:800;font-size:14px}.leq .leq-inline-link{color:var(--rose)!important;font-weight:700;text-decoration:underline!important}.leq .leq-tips{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.leq .leq-tip{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 24px;transition:transform .25s,box-shadow .25s}.leq .leq-tip:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.leq .leq-tip-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.leq .leq-tip-top span{font-size:12px;font-weight:800;color:#c6a9b6;letter-spacing:.08em}.leq .leq-tip p{font-size:13px;color:var(--muted);margin:0 0 10px;line-height:1.75}.leq .leq-tip .leq-try{font-size:12px;color:var(--ink);background:var(--paper);border-radius:10px;padding:10px 12px;margin:0;line-height:1.6}.leq .leq-tip .leq-try b{color:var(--rose-dark)}.leq .leq-plan{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--line)}.leq .leq-plan div{padding:20px 22px;border-right:1px solid var(--line)}.leq .leq-plan div:last-child{border-right:0}.leq .leq-plan small{display:block;font-size:11px;font-weight:800;color:var(--rose);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}.leq .leq-plan strong{display:block;font-size:14px;margin-bottom:4px}.leq .leq-plan span{font-size:12px;color:var(--muted);line-height:1.6;display:block}.leq-cta{position:relative;overflow:hidden}.leq-cta:before{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(255,255,255,.12);border-radius:50%;top:-280px;right:8%;box-shadow:0 0 0 75px rgba(255,255,255,.025),0 0 0 150px rgba(255,255,255,.02)}.leq .leq-cta-layout{position:relative;display:flex;justify-content:space-between;align-items:center;gap:34px}.leq .leq-cta-layout h2{font-size:clamp(26px,3vw,40px);max-width:640px;margin:0;color:#fff}.leq .leq-cta-layout h2 span{color:#f6a9b8}.leq .leq-cta-layout p{color:#d8c9e0;font-size:14px;margin:14px 0 0;max-width:620px}.leq .leq-cta-list{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px}.leq .leq-cta-list li{color:#efe3f3;font-size:13px;font-weight:600}.leq .leq-cta-list li:before{content:"✓";color:#f6a9b8;margin-right:7px}.leq .leq-cta-actions{display:flex;gap:12px;flex-wrap:wrap;flex:none}.leq .leq-faq-row>.col{padding-left:30px;padding-right:30px}.leq .leq-faq-intro h2{margin:16px 0 10px}.leq .leq-faq-intro p{font-size:14px}.leq .leq-faq-list{border-top:1px solid var(--line)}.leq .leq-faq-item{border-bottom:1px solid var(--line)}.leq .leq-faq-item button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:20px;border:0;background:none;text-align:left;padding:21px 0;font-size:15px;font-weight:700;color:var(--ink)}.leq .leq-faq-item button span:last-child{display:grid;place-items:center;border-radius:50%;flex:none;width:26px;height:26px;background:var(--blush);color:var(--rose);font-size:18px;font-weight:400;transition:transform .2s}.leq .leq-faq-item.open button span:last-child{transform:rotate(45deg)}.leq .leq-faq-answer{display:none;color:var(--muted);font-size:14px;padding:0 40px 20px 0;line-height:1.85}.leq .leq-faq-answer a{color:var(--rose);font-weight:700;text-decoration:underline}.leq .leq-faq-item.open .leq-faq-answer{display:block}@media (max-width:1100px){.leq .leq-levels{grid-template-columns:repeat(2,1fr)}.leq .leq-cta-layout{flex-direction:column;align-items:flex-start}}@media (max-width:849px){.leq .leq-art{height:440px;margin-top:20px}.leq .leq-steps,.leq .leq-tips{grid-template-columns:1fr 1fr}.leq .leq-plan{grid-template-columns:1fr 1fr}.leq .leq-plan div:nth-child(2){border-right:0}.leq .leq-plan div:nth-child(-n+2){border-bottom:1px solid var(--line)}.leq .leq-about-row>.col{padding-left:15px;padding-right:15px}.leq .leq-pillars{margin-top:24px}.leq .leq-faq-row>.col{padding-left:15px;padding-right:15px}.leq .leq-faq-intro{margin-bottom:18px}}@media (max-width:549px){.leq h1{font-size:38px}.leq .leq-hl{white-space:normal}.leq .leq-actions .leq-btn,.leq .leq-cta-actions .leq-btn{width:100%}.leq .leq-cta-actions{width:100%}.leq .leq-art{height:400px}.leq .leq-card{width:262px;padding:20px}.leq .leq-gauge svg{width:140px;height:140px}.leq .leq-float-a{left:-4px;top:2px}.leq .leq-float-b{right:-2px;bottom:26px}.leq .leq-strip-inner{flex-direction:column;align-items:flex-start;gap:14px}.leq .leq-pillars,.leq .leq-steps,.leq .leq-tips,.leq .leq-levels,.leq .leq-plan{grid-template-columns:1fr}.leq .leq-plan div{border-right:0;border-bottom:1px solid var(--line)}.leq .leq-plan div:last-child{border-bottom:0}.leq .leq-vs{grid-template-columns:1fr}.leq .leq-vs-mid{justify-self:center}.leq .leq-heading{margin-bottom:32px}.leq .leq-faq-answer{padding-right:0}}@media (prefers-reduced-motion:reduce){.leq *{transition:none!important}}</style>
+[/ux_html]
+[section label="1. Hero" padding="70px" padding__sm="49px" class="leq leq-hero"]
+
+[row width="custom" custom_width="1222px" v_align="middle" class="leq-row leq-hero-row"]
+
+[col span="6" span__sm="12" span__md="12"]
+
+[ux_html label="Hero – nội dung"]
+<div id="test-eq" class="leq-anchor"></div>
+<div class="leq-pill"><span></span> Trí tuệ cảm xúc – nền tảng của mọi mối quan hệ</div>
+<h1>Bài trắc nghiệm <span class="leq-hl">Test EQ</span> Miễn Phí</h1>
+<p class="leq-lead">Bạn nhận ra cảm xúc của mình nhanh đến đâu? Bạn giữ bình tĩnh thế nào khi bị áp lực, và hiểu người khác sâu tới mức nào? Bài test EQ miễn phí của Trắc Nghiệm PLUS giúp bạn đo chỉ số trí tuệ cảm xúc qua 5 năng lực cốt lõi và nhận kết quả ngay sau khi hoàn thành.</p>
+<div class="leq-actions">
+<a class="leq-btn leq-btn-primary" href="https://tracnghiemplus.com/bai-thi/test-eq/">Làm test EQ ngay <span class="leq-arrow">↗</span></a>
+<a class="leq-btn leq-btn-outline" href="#eq-la-gi">EQ là gì? <span class="leq-arrow">↓</span></a>
+</div>
+<div class="leq-note"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="m8 12 2.5 2.5L16 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Miễn phí – không cần đăng ký – trả lời theo cảm nhận thật của bạn.</div>
+[/ux_html]
+
+[/col]
+[col span="6" span__sm="12" span__md="12"]
+
+[ux_html label="Hero – minh họa"]
+<div class="leq-art" aria-label="Minh họa kết quả bài test EQ">
+<div class="leq-blob"></div><div class="leq-orbit"></div>
+<div class="leq-card">
+<div class="leq-card-top"><span>BẢN ĐỒ CẢM XÚC</span><span>EQ</span></div>
+<div class="leq-gauge"><svg viewBox="0 0 180 180" fill="none" aria-hidden="true"><defs><linearGradient id="leqG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D4506A"/><stop offset="1" stop-color="#5B3A8C"/></linearGradient></defs><circle cx="90" cy="90" r="70" stroke="#F3EAF0" stroke-width="14"/><circle cx="90" cy="90" r="70" stroke="url(#leqG)" stroke-width="14" stroke-linecap="round" stroke-dasharray="330 440" transform="rotate(-90 90 90)"/><path d="M90 112c-14-9-24-17-24-28a12 12 0 0 1 24-4 12 12 0 0 1 24 4c0 11-10 19-24 28Z" fill="#D4506A"/></svg></div>
+<h3>Bạn thấu hiểu cảm xúc đến đâu?</h3>
+<div class="leq-bars">
+<div class="leq-bar">Tự nhận thức<i><b style="width:82%"></b></i></div>
+<div class="leq-bar">Tự điều chỉnh<i><b style="width:64%"></b></i></div>
+<div class="leq-bar">Động lực<i><b style="width:76%"></b></i></div>
+<div class="leq-bar">Thấu cảm<i><b style="width:90%"></b></i></div>
+<div class="leq-bar">Kỹ năng xã hội<i><b style="width:70%"></b></i></div>
+</div>
+</div>
+<div class="leq-float leq-float-a"><em>♥</em>Thấu cảm</div>
+<div class="leq-float leq-float-b"><em>✦</em>Tự nhận thức</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="2. Dải lợi ích" bg_color="#fffdfc" padding="0px" class="leq leq-strip"]
+
+[row width="custom" custom_width="1210px" class="leq-row"]
+
+[col]
+
+[ux_html label="Dải lợi ích"]
+<div class="leq-strip-inner">
+<div class="leq-strip-title">Hiểu cảm xúc của mình là bước đầu để hiểu người khác.</div>
+<div class="leq-strip-item"><span class="leq-strip-icon">✦</span> Nhận diện cảm xúc chính xác</div>
+<div class="leq-strip-item"><span class="leq-strip-icon">◎</span> Kiểm soát căng thẳng tốt hơn</div>
+<div class="leq-strip-item"><span class="leq-strip-icon">♥</span> Giao tiếp tinh tế, gắn kết hơn</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="3. EQ là gì – 5 năng lực" padding="104px" padding__sm="72px" class="leq leq-about"]
+
+[row width="custom" custom_width="1222px" v_align="middle" class="leq-row leq-about-row"]
+
+[col span="5" span__sm="12" span__md="12"]
+
+[ux_html label="EQ là gì – nội dung"]
+<div id="eq-la-gi" class="leq-anchor"></div>
+<div class="leq-eyebrow">Về trí tuệ cảm xúc</div>
+<h2>EQ là gì?</h2>
+<p>EQ (Emotional Quotient – chỉ số trí tuệ cảm xúc) là khả năng nhận biết, thấu hiểu, sử dụng và điều tiết cảm xúc của bản thân, đồng thời cảm nhận và phản hồi phù hợp với cảm xúc của người khác.</p>
+<p>Khái niệm này được hai nhà tâm lý học Peter Salovey và John Mayer đưa ra năm 1990, sau đó trở nên phổ biến nhờ cuốn sách <em>Emotional Intelligence</em> (1995) của Daniel Goleman. Theo mô hình của Goleman, trí tuệ cảm xúc gồm 5 năng lực cốt lõi – cũng là 5 nhóm câu hỏi trong bài test EQ.</p>
+<div class="leq-quote-box"><b>Điểm khác biệt:</b> khác với chỉ số IQ, EQ không cố định. Bạn hoàn toàn có thể rèn luyện và nâng cao trí tuệ cảm xúc ở bất kỳ độ tuổi nào.</div>
+[/ux_html]
+
+[/col]
+[col span="7" span__sm="12" span__md="12"]
+
+[ux_html label="5 năng lực EQ"]
+<div class="leq-pillars">
+<div class="leq-pillar"><div class="leq-pillar-ico c1">✦</div><h3>1. Tự nhận thức</h3><p>Gọi đúng tên cảm xúc đang có, hiểu nguyên nhân và biết nó ảnh hưởng thế nào đến suy nghĩ, hành động của bạn.</p></div>
+<div class="leq-pillar"><div class="leq-pillar-ico c2">◐</div><h3>2. Tự điều chỉnh</h3><p>Giữ bình tĩnh trước áp lực, không phản ứng bốc đồng và biết chuyển hoá cảm xúc tiêu cực theo hướng tích cực.</p></div>
+<div class="leq-pillar"><div class="leq-pillar-ico c3">↗</div><h3>3. Động lực bản thân</h3><p>Tự thúc đẩy mình theo đuổi mục tiêu, kiên trì sau thất bại và duy trì thái độ lạc quan.</p></div>
+<div class="leq-pillar"><div class="leq-pillar-ico c4">♥</div><h3>4. Thấu cảm</h3><p>Đặt mình vào vị trí người khác, nhận ra cảm xúc của họ qua lời nói, nét mặt và cử chỉ.</p></div>
+<div class="leq-pillar"><div class="leq-pillar-ico c5">◎</div><h3>5. Kỹ năng xã hội</h3><p>Giao tiếp hiệu quả, xây dựng mối quan hệ, làm việc nhóm và giải quyết mâu thuẫn một cách khéo léo.</p></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="4. Cách làm bài + Đọc kết quả" bg_color="#fbf5f6" padding="100px" padding__sm="72px" class="leq leq-how"]
+
+[row width="custom" custom_width="1222px" class="leq-row"]
+
+[col]
+
+[ux_html label="Cách làm bài – tiêu đề"]
+<div class="leq-heading">
+<div class="leq-eyebrow">Bắt đầu thế nào?</div>
+<h2>Làm bài test EQ chỉ với 3 bước</h2>
+<p>Các câu hỏi được xây dựng từ tình huống quen thuộc trong học tập, công việc và các mối quan hệ hằng ngày.</p>
+</div>
+[/ux_html]
+
+[ux_html label="3 bước"]
+<div class="leq-steps">
+<div class="leq-step"><div class="leq-step-num">01</div><h3>Đọc từng tình huống</h3><p>Chọn phương án gần nhất với cách bạn thường nghĩ, cảm nhận và phản ứng – không phải cách bạn “nên” làm.</p></div>
+<div class="leq-step"><div class="leq-step-num">02</div><h3>Trả lời trung thực</h3><p>Không có câu trả lời đúng hay sai. Càng thành thật với bản thân, kết quả càng phản ánh đúng con người bạn.</p></div>
+<div class="leq-step"><div class="leq-step-num">03</div><h3>Nhận kết quả ngay</h3><p>Xem mức độ EQ của bạn, điểm mạnh cần phát huy và những năng lực cảm xúc nên rèn luyện thêm.</p></div>
+</div>
+[/ux_html]
+
+[ux_html label="Các mức EQ"]
+<div class="leq-heading" style="margin-top:80px;margin-bottom:10px">
+<div class="leq-eyebrow">Đọc hiểu kết quả</div>
+<h2>Kết quả test EQ nói gì về bạn?</h2>
+</div>
+<div class="leq-levels">
+<div class="leq-level"><div class="leq-meter"><i class="on"></i><i></i><i></i><i></i></div><span class="leq-level-tag c1">EQ thấp</span><h3>Cần chú ý</h3><p>Dễ bị cảm xúc chi phối, khó diễn đạt điều mình cảm thấy và thường gặp hiểu lầm trong giao tiếp.</p></div>
+<div class="leq-level"><div class="leq-meter"><i class="on"></i><i class="on"></i><i></i><i></i></div><span class="leq-level-tag c3">EQ trung bình</span><h3>Có nền tảng</h3><p>Nhận biết được cảm xúc nhưng đôi lúc vẫn phản ứng vội vàng khi căng thẳng hoặc bị phê bình.</p></div>
+<div class="leq-level"><div class="leq-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span class="leq-level-tag c5">EQ khá</span><h3>Cân bằng tốt</h3><p>Kiểm soát cảm xúc ổn định, biết lắng nghe và thường được mọi người tin tưởng chia sẻ.</p></div>
+<div class="leq-level"><div class="leq-meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="leq-level-tag c4">EQ cao</span><h3>Thấu hiểu sâu sắc</h3><p>Tự chủ, thấu cảm và có sức ảnh hưởng tích cực, dễ dàng kết nối và dẫn dắt người khác.</p></div>
+</div>
+<div class="leq-cta-center"><a class="leq-btn leq-btn-primary" href="https://tracnghiemplus.com/bai-thi/test-eq/">Xem mức EQ của bạn <span class="leq-arrow">↗</span></a></div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="5. So sánh EQ và IQ" padding="104px" padding__sm="72px" class="leq leq-compare"]
+
+[row width="custom" custom_width="1160px" class="leq-row"]
+
+[col]
+
+[ux_html label="So sánh – tiêu đề"]
+<div id="so-sanh-eq-iq" class="leq-anchor"></div>
+<div class="leq-heading">
+<div class="leq-eyebrow">EQ hay IQ quan trọng hơn?</div>
+<h2>So sánh test EQ với bài test IQ</h2>
+<p>IQ cho biết bạn tư duy nhanh và logic đến đâu, còn EQ cho biết bạn dùng cảm xúc khéo léo thế nào. Hai chỉ số đo hai khía cạnh khác nhau của trí tuệ và bổ trợ cho nhau.</p>
+</div>
+[/ux_html]
+
+[ux_html label="So sánh – bảng"]
+<div class="leq-table-wrap"><table class="leq-table"><thead><tr><th>Tiêu chí</th><th class="is-eq">Test EQ (trí tuệ cảm xúc)</th><th class="is-iq">Test IQ (trí tuệ logic)</th></tr></thead><tbody><tr><td>Đo lường</td><td>Khả năng nhận biết, hiểu và điều tiết cảm xúc của bản thân và người khác</td><td>Năng lực nhận thức: tư duy logic, số học, ngôn ngữ, không gian</td></tr><tr><td>Nguồn gốc</td><td>Salovey &amp; Mayer (1990), phổ biến nhờ Daniel Goleman (1995)</td><td>Alfred Binet (1905); thuật ngữ IQ do William Stern đề xuất (1912)</td></tr><tr><td>Dạng câu hỏi</td><td>Tình huống thực tế, tự đánh giá theo mức độ đồng ý</td><td>Ma trận hình, dãy số, loại suy, xoay hình</td></tr><tr><td>Đáp án</td><td>Không có đúng – sai tuyệt đối, phản ánh xu hướng cảm xúc</td><td>Mỗi câu có một đáp án đúng duy nhất</td></tr><tr><td>Cách tính kết quả</td><td>Mức độ EQ tổng và theo từng năng lực cảm xúc</td><td>Điểm chuẩn hoá: trung bình 100, độ lệch chuẩn 15</td></tr><tr><td>Khả năng thay đổi</td><td>Rèn luyện và cải thiện được ở mọi độ tuổi</td><td>Tương đối ổn định khi trưởng thành</td></tr><tr><td>Ứng dụng nổi bật</td><td>Giao tiếp, lãnh đạo, làm việc nhóm, tình cảm gia đình</td><td>Học tập, giải quyết vấn đề, công việc chuyên môn</td></tr></tbody></table></div>
+<div class="leq-vs">
+<div class="leq-vs-card"><h3>Khi nào nên làm test EQ?</h3><p>Khi bạn hay căng thẳng, dễ nóng giận, gặp khó khăn trong giao tiếp, chuẩn bị đảm nhận vai trò quản lý hoặc muốn cải thiện các mối quan hệ.</p></div>
+<div class="leq-vs-mid">VS</div>
+<div class="leq-vs-card"><h3>Khi nào nên làm test IQ?</h3><p>Khi bạn muốn đánh giá năng lực tư duy logic, luyện các dạng bài tuyển dụng hoặc tìm hiểu thế mạnh học tập. <a class="leq-inline-link" href="https://tracnghiemplus.com/test-iq-mien-phi/">Làm test IQ miễn phí</a></p></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="6. Cách cải thiện EQ" bg_color="#f6f2fb" padding="104px" padding__sm="72px" class="leq leq-improve"]
+
+[row width="custom" custom_width="1222px" class="leq-row"]
+
+[col]
+
+[ux_html label="Cải thiện – tiêu đề"]
+<div id="cai-thien-eq" class="leq-anchor"></div>
+<div class="leq-heading">
+<div class="leq-eyebrow">Rèn luyện mỗi ngày</div>
+<h2>Cách để cải thiện trí tuệ cảm xúc</h2>
+<p>Trí tuệ cảm xúc giống như một “cơ bắp” – càng luyện tập thường xuyên càng mạnh. Hãy bắt đầu từ những thói quen nhỏ dưới đây.</p>
+</div>
+[/ux_html]
+
+[ux_html label="Cải thiện – 6 cách"]
+<div class="leq-tips">
+<div class="leq-tip"><div class="leq-tip-top"><div class="leq-pillar-ico c1">✎</div><span>01</span></div><h3>Gọi tên cảm xúc mỗi ngày</h3><p>Thay vì chỉ “thấy khó chịu”, hãy xác định rõ đó là lo lắng, thất vọng hay tủi thân. Gọi đúng tên giúp cảm xúc dịu đi và dễ kiểm soát hơn.</p><p class="leq-try"><b>Thử ngay:</b> viết nhật ký cảm xúc 5 phút trước khi ngủ.</p></div>
+<div class="leq-tip"><div class="leq-tip-top"><div class="leq-pillar-ico c2">◐</div><span>02</span></div><h3>Tạm dừng trước khi phản ứng</h3><p>Khi nóng giận, khoảng lặng vài giây giúp bạn chuyển từ phản ứng theo bản năng sang lựa chọn cách đáp lại có chủ đích.</p><p class="leq-try"><b>Thử ngay:</b> hít sâu 3 lần và đếm đến 10 trước khi trả lời.</p></div>
+<div class="leq-tip"><div class="leq-tip-top"><div class="leq-pillar-ico c4">♥</div><span>03</span></div><h3>Lắng nghe để hiểu</h3><p>Lắng nghe trọn vẹn, không ngắt lời, không vội phán xét. Chú ý cả nét mặt, giọng nói và những điều người kia chưa nói ra.</p><p class="leq-try"><b>Thử ngay:</b> nhắc lại ý người khác trước khi nêu quan điểm của bạn.</p></div>
+<div class="leq-tip"><div class="leq-tip-top"><div class="leq-pillar-ico c5">◎</div><span>04</span></div><h3>Đặt mình vào vị trí người khác</h3><p>Trước khi kết luận, hãy tự hỏi: “Nếu ở hoàn cảnh của họ, mình sẽ cảm thấy thế nào?”. Đây là cách rèn luyện sự thấu cảm hiệu quả nhất.</p><p class="leq-try"><b>Thử ngay:</b> hỏi một người thân “Hôm nay của bạn thế nào?” và thật sự lắng nghe.</p></div>
+<div class="leq-tip"><div class="leq-tip-top"><div class="leq-pillar-ico c3">↻</div><span>05</span></div><h3>Đón nhận phản hồi</h3><p>Xem lời góp ý là thông tin để hoàn thiện bản thân thay vì sự công kích. Người có EQ cao biết tách cảm xúc khỏi nội dung góp ý.</p><p class="leq-try"><b>Thử ngay:</b> hỏi bạn bè một điều bạn có thể làm tốt hơn khi giao tiếp.</p></div>
+<div class="leq-tip"><div class="leq-tip-top"><div class="leq-pillar-ico c1">☀</div><span>06</span></div><h3>Chăm sóc cơ thể và tâm trí</h3><p>Thiếu ngủ, căng thẳng kéo dài khiến bạn dễ cáu gắt. Ngủ đủ, vận động đều đặn và dành thời gian thư giãn giúp cảm xúc ổn định hơn.</p><p class="leq-try"><b>Thử ngay:</b> đi bộ 15 phút hoặc thiền 5 phút mỗi ngày.</p></div>
+</div>
+<div class="leq-plan">
+<div><small>Tuần 1</small><strong>Tự nhận thức</strong><span>Ghi nhật ký, gọi tên cảm xúc mỗi ngày.</span></div>
+<div><small>Tuần 2</small><strong>Tự điều chỉnh</strong><span>Luyện tạm dừng và hít thở khi căng thẳng.</span></div>
+<div><small>Tuần 3</small><strong>Thấu cảm</strong><span>Lắng nghe chủ động trong mọi cuộc trò chuyện.</span></div>
+<div><small>Tuần 4</small><strong>Kỹ năng xã hội</strong><span>Chủ động kết nối, làm lại test EQ để so sánh.</span></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="7. CTA" bg_color="#3a2147" padding="80px" padding__sm="59px" class="leq leq-cta"]
+
+[row width="custom" custom_width="1210px" class="leq-row"]
+
+[col]
+
+[ux_html label="CTA – nội dung"]
+<div class="leq-cta-layout">
+<div><h2>Bạn Sẵn Sàng Khám Làm Trắc Nghiệm <span>Test EQ</span> Chưa?</h2><p>Chỉ cần vài phút trả lời trung thực, bạn sẽ biết mình đang mạnh ở đâu và cần rèn luyện điều gì để giao tiếp tự tin, sống cân bằng và gắn kết hơn với mọi người xung quanh.</p>
+<ul class="leq-cta-list"><li>Miễn phí 100%</li><li>Không cần đăng ký</li><li>Có kết quả ngay</li></ul></div>
+<div class="leq-cta-actions">
+<a class="leq-btn leq-btn-light" href="https://tracnghiemplus.com/bai-thi/test-eq/">Làm test EQ ngay <span class="leq-arrow">↗</span></a>
+<a class="leq-btn leq-btn-ghost" href="https://tracnghiemplus.com/test-iq-mien-phi/">Thử test IQ <span class="leq-arrow">→</span></a>
+</div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="8. Câu hỏi thường gặp" padding="96px" padding__sm="72px" class="leq leq-faq"]
+
+[row width="custom" custom_width="1260px" class="leq-row leq-faq-row"]
+
+[col span="5" span__sm="12" span__md="12"]
+
+[ux_html label="FAQ – tiêu đề"]
+<div id="cau-hoi" class="leq-anchor"></div>
+<div class="leq-faq-intro"><div class="leq-eyebrow">Bạn có thể đang thắc mắc</div><h2>Câu hỏi thường gặp về test EQ</h2><p class="leq-muted">Những điều cần biết trước khi bắt đầu bài trắc nghiệm trí tuệ cảm xúc.</p></div>
+[/ux_html]
+
+[/col]
+[col span="7" span__sm="12" span__md="12"]
+
+[ux_html label="FAQ – danh sách"]
+<div class="leq-faq-list">
+<div class="leq-faq-item open"><button type="button" aria-expanded="true"><span>Bài test EQ có mất phí không?</span><span>+</span></button><div class="leq-faq-answer">Không. Bài trắc nghiệm test EQ trên Trắc Nghiệm PLUS hoàn toàn miễn phí, không cần đăng ký tài khoản và có kết quả ngay sau khi bạn hoàn thành.</div></div>
+<div class="leq-faq-item"><button type="button" aria-expanded="false"><span>Kết quả test EQ có chính xác không?</span><span>+</span></button><div class="leq-faq-answer">Bài test được xây dựng dựa trên mô hình 5 năng lực cảm xúc của Daniel Goleman nên giúp bạn hình dung khá rõ xu hướng cảm xúc của mình. Độ chính xác phụ thuộc nhiều vào sự trung thực khi trả lời. Kết quả mang tính tham khảo, không thay thế đánh giá của chuyên gia tâm lý.</div></div>
+<div class="leq-faq-item"><button type="button" aria-expanded="false"><span>EQ và IQ, chỉ số nào quan trọng hơn?</span><span>+</span></button><div class="leq-faq-answer">Cả hai đều quan trọng. IQ giúp bạn học tập và giải quyết vấn đề, còn EQ giúp bạn hợp tác, giao tiếp và giữ vững tinh thần. Bạn có thể làm thêm <a href="https://tracnghiemplus.com/test-iq-mien-phi/">test IQ miễn phí</a> để có cái nhìn đầy đủ hơn về bản thân.</div></div>
+<div class="leq-faq-item"><button type="button" aria-expanded="false"><span>Chỉ số EQ có cải thiện được không?</span><span>+</span></button><div class="leq-faq-answer">Có. Khác với IQ, trí tuệ cảm xúc có thể rèn luyện ở mọi độ tuổi thông qua việc ghi nhật ký cảm xúc, luyện lắng nghe, tạm dừng trước khi phản ứng và chăm sóc sức khoẻ tinh thần.</div></div>
+<div class="leq-faq-item"><button type="button" aria-expanded="false"><span>Bao lâu nên làm lại bài test EQ một lần?</span><span>+</span></button><div class="leq-faq-answer">Bạn nên làm lại sau khoảng 1–3 tháng rèn luyện để so sánh sự thay đổi. Làm lại liên tục trong thời gian ngắn dễ khiến bạn nhớ đáp án và kết quả không còn khách quan.</div></div>
+</div>
+<script>
+(function(){document.querySelectorAll('.leq-faq-item button').forEach(function(b){b.addEventListener('click',function(){var it=b.parentNode;var open=it.classList.toggle('open');b.setAttribute('aria-expanded',open?'true':'false');});});})();
+</script>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
