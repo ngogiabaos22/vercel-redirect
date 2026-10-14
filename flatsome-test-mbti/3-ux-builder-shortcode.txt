@@ -1,0 +1,179 @@
+[section label="MBTI • Hero" bg_color="rgb(250, 249, 246)" padding="56px" padding__sm="40px" class="mbti mbti-hero"]
+
+[scroll_to title="Test MBTI" link="#test-mbti" bullet="false"]
+
+[row v_align="middle"]
+
+[col span="6" span__md="12" span__sm="12" class="hero-copy"]
+
+[ux_text class="hero-text"]
+<p><span class="eyebrow hero-eyebrow">✦ Một hành trình bắt đầu từ bạn</span></p>
+<h1 class="mbti-h1">Test <span class="word-highlight">MBTI</span></h1>
+<p class="hero-description">Khám phá tính cách, nhận ra thế mạnh và tìm hướng đi dành riêng cho bạn qua bài trắc nghiệm MBTI.</p>
+[/ux_text]
+[button text="Làm bài test miễn phí" letter_case="lowercase" class="mbti-btn" icon="icon-angle-right" icon_pos="right" link="#lam-bai-test"]
+
+[button text="MBTI là gì?" letter_case="lowercase" style="link" class="mbti-link" icon="icon-angle-right" icon_pos="right" link="#ve-mbti"]
+
+[ux_html label="MBTI • Thông tin bài test"]<span data-mbti="hero-meta"></span>[/ux_html]
+
+[/col]
+[col span="6" span__md="12" span__sm="12"]
+
+[ux_html label="MBTI • Hình minh họa 4 tính cách"]<span data-mbti="hero-art"></span>[/ux_html]
+
+[/col]
+
+[/row]
+[row]
+
+[col span="12" span__sm="12"]
+
+[ux_html label="MBTI • 4 lợi ích"]<span data-mbti="benefits"></span>[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="MBTI • 16 nhóm tính cách" bg_color="rgb(255, 255, 255)" padding="80px" padding__sm="60px" class="mbti"]
+
+[scroll_to title="16 nhóm tính cách" link="#nhom-tinh-cach" bullet="false"]
+
+[row]
+
+[col span="12" span__sm="12"]
+
+[ux_text text_align="center" class="section-header"]
+<p><span class="eyebrow">Thế giới tính cách</span></p>
+<h2 class="section-heading">16 tính cách, <span class="accent">muôn màu bản sắc.</span></h2>
+<p class="section-subtitle">Mỗi nhóm tính cách là một cách nhìn thế giới. Đâu là câu chuyện của bạn?</p>
+[/ux_text]
+[ux_html label="MBTI • Tab + lưới 16 tính cách"]<span data-mbti="personalities"></span>[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="MBTI • Về MBTI" bg_color="rgb(250, 249, 246)" padding="80px" padding__sm="60px" class="mbti"]
+
+[scroll_to title="Về MBTI" link="#ve-mbti" bullet="false"]
+
+[row v_align="middle"]
+
+[col span="6" span__sm="12"]
+
+[ux_text]
+<p><span class="eyebrow">Một chút kiến thức, nhiều điều thú vị</span></p>
+<h2 class="section-heading">Điều gì làm nên<br />
+4 chữ cái của bạn?</h2>
+[/ux_text]
+
+[/col]
+[col span="6" span__sm="12"]
+
+[ux_text]
+<p class="about-intro"><strong>MBTI (Myers–Briggs Type Indicator)</strong> là mô hình khám phá tính cách thông qua 4 cặp xu hướng. Sự kết hợp của chúng tạo nên 16 nhóm tính cách khác nhau — và thêm một góc nhìn để bạn hiểu cách mình tương tác với thế giới.</p>
+[/ux_text]
+
+[/col]
+
+[/row]
+[row]
+
+[col span="12" span__sm="12"]
+
+[ux_html label="MBTI • 4 khía cạnh E/I S/N T/F J/P"]<span data-mbti="dimensions"></span>[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="MBTI • Trước khi bắt đầu" bg_color="rgb(250, 249, 246)" padding="0px" padding__sm="0px" class="mbti"]
+
+[row]
+
+[col span="12" span__sm="12" padding="0px 15px 78px 15px"]
+
+[ux_html label="MBTI • Khối lưu ý"]<span data-mbti="before"></span>[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="MBTI • Góc giải đáp" bg_color="rgb(255, 255, 255)" padding="75px" padding__sm="55px" class="mbti"]
+
+[scroll_to title="Góc giải đáp" link="#giai-dap" bullet="false"]
+
+[row]
+
+[col span="5" span__sm="12" class="faq-intro"]
+
+[ux_text]
+<p><span class="eyebrow">Một chút giải đáp</span></p>
+<h2 class="section-heading">Bạn hỏi,<br />
+<span class="accent">mình giải đáp.</span></h2>
+<p class="section-subtitle">Những điều bạn có thể đang tò mò trước hành trình khám phá bản thân.</p>
+[/ux_text]
+
+[/col]
+[col span="7" span__sm="12"]
+
+[accordion open="1"]
+
+[accordion-item title="Bài test MBTI này có miễn phí không?"]
+
+Có. Bạn có thể trả lời toàn bộ 32 câu hỏi và xem kết quả hoàn toàn miễn phí, không cần tạo tài khoản. Bài tự đánh giá thường mất khoảng 8–10 phút; tiến trình được lưu trên trình duyệt khi thiết bị cho phép.
+
+[/accordion-item]
+[accordion-item title="MBTI có ý nghĩa gì và bắt nguồn từ đâu?"]
+
+MBTI là viết tắt của Myers–Briggs Type Indicator, được Katharine Cook Briggs và Isabel Briggs Myers phát triển dựa trên các ý tưởng về loại hình tâm lý của Carl Jung. Mô hình mô tả những xu hướng về năng lượng, tiếp nhận thông tin, ra quyết định và tổ chức cuộc sống qua 4 cặp chữ cái.
+
+[/accordion-item]
+[accordion-item title="Kết quả có chính xác tuyệt đối không?"]
+
+Không. Kết quả phụ thuộc vào cách tự đánh giá, bối cảnh và trạng thái của bạn lúc trả lời. MBTI có những giới hạn về độ tin cậy và khả năng dự đoán. Bài test trên mình. là nội dung tự khám phá, không phải công cụ MBTI® chính thức, chẩn đoán tâm lý hay thước đo năng lực.
+
+[/accordion-item]
+[accordion-item title="Nhóm tính cách của tôi có thể thay đổi không?"]
+
+Bạn có thể nhận được kết quả khác ở những thời điểm khác nhau, đặc biệt khi điểm giữa hai xu hướng gần cân bằng. Trải nghiệm, môi trường sống và mức độ hiểu bản thân cũng ảnh hưởng đến câu trả lời. Hãy chú ý đến những mô tả thực sự phù hợp thay vì chỉ ghi nhớ bốn chữ cái.
+
+[/accordion-item]
+[accordion-item title="Tôi có nên chọn nghề chỉ dựa vào MBTI?"]
+
+Không nên dùng MBTI làm căn cứ duy nhất để chọn nghề hoặc tuyển dụng. Bạn có thể dùng kết quả để đặt câu hỏi về môi trường làm việc mình yêu thích, rồi kết hợp với sở thích, kỹ năng, giá trị cá nhân, trải nghiệm thực tế và thông tin thị trường lao động.
+
+[/accordion-item]
+
+[/accordion]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="MBTI • Kêu gọi làm bài" bg_color="rgb(255, 255, 255)" padding="0px" padding__sm="0px" class="mbti"]
+
+[row]
+
+[col span="12" span__sm="12" padding="0px 15px 50px 15px"]
+
+[ux_html label="MBTI • Khối CTA"]<span data-mbti="cta"></span>[/ux_html]
+
+[/col]
+[col span="12" span__sm="12"]
+
+[ux_text]
+<p class="footer-disclaimer">Bài tự đánh giá trên mình. mang tính tham khảo, không phải công cụ MBTI® chính thức hoặc chẩn đoán tâm lý. Kết quả không thay thế tư vấn chuyên môn và không nên là căn cứ duy nhất cho quyết định nghề nghiệp. Câu trả lời chỉ được lưu trên trình duyệt của bạn khi có thể.</p>
+[/ux_text]
+
+[/col]
+
+[/row]
+
+[/section]
