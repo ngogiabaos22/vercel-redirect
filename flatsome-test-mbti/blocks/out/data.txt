@@ -1,0 +1,220 @@
+[ux_html label="MBTI - Nội dung chữ & dữ liệu 16 tính cách"]
+<script id="mbti-data">
+/* MBTI – NỘI DUNG: sửa chữ trong dấu ngoặc kép. Không dùng dấu ngoặc kép thẳng bên trong nội dung, không chèn dòng trống, không dùng ký tự nhỏ hơn. */
+window.MBTI_DATA = {
+  groups: {
+    analysts: {
+      label: "Nhà phân tích", code: "NT", tab: "#8061a3", accent: "#8061a3", soft: "#eee7f5", dark: "#70518f",
+      shirts: ["#9677bb", "#ac8ec6", "#8970ae", "#9b7fbd"],
+      note: "Độc lập trong tư duy. Sắc bén trong giải pháp.",
+      types: ["INTJ", "INTP", "ENTJ", "ENTP"]
+    },
+    diplomats: {
+      label: "Nhà ngoại giao", code: "NF", tab: "#718965", accent: "#6f875d", soft: "#eaf0e1", dark: "#56774e",
+      shirts: ["#8da178", "#91a777", "#74916b", "#849d71"],
+      note: "Giàu cảm hứng. Kết nối bằng sự thấu cảm.",
+      types: ["INFJ", "INFP", "ENFJ", "ENFP"]
+    },
+    sentinels: {
+      label: "Người nguyên tắc", code: "SJ", tab: "#6486a0", accent: "#6486a0", soft: "#e6eef4", dark: "#527b98",
+      shirts: ["#7fa2bb", "#97b4c5", "#7095ae", "#89a8bd"],
+      note: "Vững vàng, tận tâm. Biến sự quan tâm thành hành động.",
+      types: ["ISTJ", "ISFJ", "ESTJ", "ESFJ"]
+    },
+    explorers: {
+      label: "Nhà khám phá", code: "SP", tab: "#b58c45", accent: "#b08a43", soft: "#f8efdc", dark: "#b18140",
+      shirts: ["#d9aa5b", "#dfb96f", "#cca058", "#e2b05e"],
+      note: "Linh hoạt trong hiện tại. Rộng mở với những trải nghiệm mới.",
+      types: ["ISTP", "ISFP", "ESTP", "ESFP"]
+    }
+  },
+  types: {
+    INTJ: {
+      name: "Nhà kiến tạo", short: "Nhìn xa, nghĩ sâu, tạo nên lối đi riêng.",
+      description: "Bạn có xu hướng nhìn thấy bức tranh tổng thể, yêu thích những ý tưởng có chiều sâu và chủ động xây dựng kế hoạch dài hạn. Sự độc lập giúp bạn theo đuổi mục tiêu theo cách riêng.",
+      strengths: ["Tư duy chiến lược", "Độc lập", "Nhìn xa"],
+      careers: ["Phân tích dữ liệu", "Chiến lược", "Công nghệ"],
+      growth: "Chia sẻ nhiều hơn về quá trình suy nghĩ và dành thêm chỗ cho những góc nhìn khác với mình."
+    },
+    INTP: {
+      name: "Nhà tư duy", short: "Luôn có một câu hỏi phía sau mỗi điều.",
+      description: "Bạn thường muốn hiểu bản chất và cách vận hành của mọi thứ. Việc đặt câu hỏi, khám phá mô hình và tìm lời giải mới có thể khiến bạn quên cả thời gian.",
+      strengths: ["Phân tích", "Tò mò", "Kết nối ý tưởng"],
+      careers: ["Nghiên cứu", "Kỹ thuật phần mềm", "Phân tích hệ thống"],
+      growth: "Chia một ý tưởng lớn thành những bước nhỏ, có thời hạn, để biến sự tò mò thành kết quả cụ thể."
+    },
+    ENTJ: {
+      name: "Nhà điều hành", short: "Có mục tiêu. Có kế hoạch. Có bước tiến.",
+      description: "Bạn có xu hướng chủ động dẫn dắt, nhận ra cơ hội cải tiến và tổ chức nguồn lực để đi đến mục tiêu. Một thử thách đủ lớn thường giúp bạn phát huy sự quyết đoán.",
+      strengths: ["Tổ chức", "Quyết đoán", "Dẫn dắt"],
+      careers: ["Quản lý dự án", "Vận hành", "Khởi nghiệp"],
+      growth: "Bên cạnh tiến độ, hãy dành thời gian lắng nghe nhu cầu và nhịp làm việc của những người đồng hành."
+    },
+    ENTP: {
+      name: "Người khai phá", short: "Ý tưởng mới bắt đầu từ một góc nhìn khác.",
+      description: "Bạn thường hào hứng với ý tưởng mới, thích trao đổi nhiều góc nhìn và thử thách những giả định quen thuộc. Khả năng ứng biến giúp bạn tìm ra cơ hội trong sự thay đổi.",
+      strengths: ["Ứng biến", "Đổi mới", "Tư duy đa chiều"],
+      careers: ["Phát triển sản phẩm", "Tư vấn", "Kinh doanh"],
+      growth: "Chọn một vài ý tưởng thực sự quan trọng và tạo thói quen theo đuổi chúng đến bước cuối cùng."
+    },
+    INFJ: {
+      name: "Người dẫn lối", short: "Lắng nghe sâu, nhìn thấy điều ý nghĩa.",
+      description: "Bạn có xu hướng quan tâm đến ý nghĩa phía sau hành động và dễ nhận ra nhu cầu của người khác. Những giá trị cá nhân rõ ràng có thể dẫn lối cho các kế hoạch lâu dài của bạn.",
+      strengths: ["Thấu cảm", "Nhìn sâu", "Sống có mục đích"],
+      careers: ["Giáo dục", "Nghiên cứu xã hội", "Phát triển cộng đồng"],
+      growth: "Đặt ranh giới cho sự giúp đỡ và chia sẻ nhu cầu của mình, thay vì chờ người khác tự nhận ra."
+    },
+    INFP: {
+      name: "Người lý tưởng", short: "Giữ một thế giới giàu cảm xúc bên trong.",
+      description: "Bạn thường trân trọng sự chân thật, những giá trị cá nhân và khả năng sáng tạo. Một công việc hoặc mối quan hệ có ý nghĩa có thể là nguồn động lực rất lớn với bạn.",
+      strengths: ["Tưởng tượng", "Chân thành", "Nhạy cảm với giá trị"],
+      careers: ["Viết lách", "Thiết kế", "Hoạt động xã hội"],
+      growth: "Thử biến điều bạn tin tưởng thành một hành động nhỏ mỗi ngày, ngay cả khi mọi thứ chưa hoàn hảo."
+    },
+    ENFJ: {
+      name: "Người truyền cảm hứng", short: "Cùng nhau, chúng ta có thể đi xa hơn.",
+      description: "Bạn có xu hướng nhìn thấy tiềm năng ở người khác và thích tạo ra sự kết nối có ý nghĩa. Khả năng giao tiếp và quan tâm đến tập thể có thể giúp bạn tập hợp mọi người quanh một mục tiêu.",
+      strengths: ["Khích lệ", "Giao tiếp", "Gắn kết tập thể"],
+      careers: ["Đào tạo", "Nhân sự", "Truyền thông"],
+      growth: "Chăm sóc năng lượng của chính mình và nhớ rằng bạn không cần chịu trách nhiệm cho cảm xúc của tất cả mọi người."
+    },
+    ENFP: {
+      name: "Người khơi nguồn", short: "Mang theo sự tò mò và một ngàn khả năng.",
+      description: "Bạn thường tiếp cận cuộc sống bằng sự tò mò, nhiệt tình và nhiều ý tưởng. Những kết nối chân thành và cơ hội trải nghiệm điều mới có thể khiến bạn cảm thấy nhiều năng lượng.",
+      strengths: ["Nhiệt tình", "Sáng tạo", "Kết nối con người"],
+      careers: ["Sáng tạo nội dung", "Marketing", "Phát triển cộng đồng"],
+      growth: "Tạo một cấu trúc nhẹ nhàng cho các ưu tiên, để cảm hứng có cơ hội trở thành một dự án trọn vẹn."
+    },
+    ISTJ: {
+      name: "Người trách nhiệm", short: "Sự đáng tin được tạo nên từ điều nhỏ nhất.",
+      description: "Bạn có xu hướng làm việc cẩn trọng, coi trọng cam kết và tin vào thông tin cụ thể. Sự nhất quán giúp bạn tạo nên cảm giác vững vàng cho bản thân và những người xung quanh.",
+      strengths: ["Tỉ mỉ", "Trách nhiệm", "Kiên định"],
+      careers: ["Kế toán", "Quản lý chất lượng", "Vận hành"],
+      growth: "Khi một cách làm mới xuất hiện, hãy thử nghiệm ở quy mô nhỏ trước khi quyết định giữ hay thay đổi."
+    },
+    ISFJ: {
+      name: "Người bảo vệ", short: "Sự quan tâm nằm trong những điều giản dị.",
+      description: "Bạn thường chú ý đến nhu cầu thực tế của người khác và thể hiện sự quan tâm bằng hành động. Sự tận tâm và khả năng ghi nhớ chi tiết có thể khiến bạn trở thành một người đồng hành đáng tin.",
+      strengths: ["Tận tâm", "Quan sát", "Kiên nhẫn"],
+      careers: ["Chăm sóc khách hàng", "Giáo dục", "Dịch vụ y tế"],
+      growth: "Cho phép mình nói không và chủ động nhờ giúp đỡ khi trách nhiệm đã vượt quá nguồn lực hiện tại."
+    },
+    ESTJ: {
+      name: "Người điều phối", short: "Biến những kế hoạch thành việc đã hoàn thành.",
+      description: "Bạn có xu hướng yêu thích sự rõ ràng, sắp xếp công việc hiệu quả và chủ động nhận trách nhiệm. Một mục tiêu cụ thể cùng các tiêu chuẩn minh bạch có thể giúp bạn phát huy thế mạnh.",
+      strengths: ["Thực tế", "Điều phối", "Quyết đoán"],
+      careers: ["Quản lý vận hành", "Logistics", "Quản trị dự án"],
+      growth: "Linh hoạt với những cách làm khác nhau và hỏi thêm về bối cảnh trước khi đưa ra kết luận."
+    },
+    ESFJ: {
+      name: "Người kết nối", short: "Để mỗi người đều cảm thấy mình thuộc về.",
+      description: "Bạn thường quan tâm đến sự hòa hợp, trân trọng những mối quan hệ và thích giúp đỡ một cách thiết thực. Việc tạo nên một môi trường thân thiện có thể mang lại cho bạn nhiều niềm vui.",
+      strengths: ["Hợp tác", "Chu đáo", "Tổ chức"],
+      careers: ["Quan hệ khách hàng", "Tổ chức sự kiện", "Nhân sự"],
+      growth: "Dành không gian cho sự khác biệt và tách giá trị của mình khỏi việc được mọi người đồng tình."
+    },
+    ISTP: {
+      name: "Nhà thực hành", short: "Hiểu bằng trải nghiệm. Giải bằng hành động.",
+      description: "Bạn có xu hướng tìm hiểu mọi thứ thông qua quan sát và trực tiếp thử nghiệm. Khi xuất hiện một vấn đề cụ thể, sự bình tĩnh và linh hoạt giúp bạn tập trung vào giải pháp.",
+      strengths: ["Xử lý vấn đề", "Bình tĩnh", "Thực hành"],
+      careers: ["Kỹ thuật", "Thiết kế sản phẩm", "Vận hành kỹ thuật"],
+      growth: "Chia sẻ suy nghĩ sớm hơn với người cùng làm việc và kết nối giải pháp trước mắt với mục tiêu dài hạn."
+    },
+    ISFP: {
+      name: "Người nghệ sĩ", short: "Tìm thấy nét đẹp theo một cách rất riêng.",
+      description: "Bạn thường trân trọng trải nghiệm thực tế, sự hài hòa và cách thể hiện bản thân chân thật. Những chi tiết giàu cảm xúc hoặc thẩm mỹ có thể chạm đến bạn một cách đặc biệt.",
+      strengths: ["Cảm nhận thẩm mỹ", "Tinh tế", "Linh hoạt"],
+      careers: ["Thiết kế", "Nhiếp ảnh", "Nghệ thuật ứng dụng"],
+      growth: "Thử nói rõ điều mình muốn và xây dựng một vài mốc nhỏ cho những dự định quan trọng."
+    },
+    ESTP: {
+      name: "Nhà thám hiểm", short: "Sẵn sàng hành động, sẵn sàng trải nghiệm.",
+      description: "Bạn có xu hướng phản ứng nhanh với tình huống thực tế, thích trải nghiệm và học hỏi trong hành động. Khả năng quan sát môi trường có thể giúp bạn nắm bắt cơ hội ngay trước mắt.",
+      strengths: ["Nhanh nhạy", "Ứng biến", "Thực tế"],
+      careers: ["Kinh doanh", "Tổ chức sự kiện", "Phát triển thị trường"],
+      growth: "Dành một khoảng dừng để cân nhắc tác động lâu dài trước những quyết định có rủi ro cao."
+    },
+    ESFP: {
+      name: "Người trình diễn", short: "Thêm sắc màu cho từng khoảnh khắc.",
+      description: "Bạn thường yêu thích sự tương tác, những trải nghiệm sống động và niềm vui được chia sẻ. Khả năng chú ý đến không khí xung quanh có thể giúp bạn tạo nên sự gần gũi tự nhiên.",
+      strengths: ["Cởi mở", "Biểu đạt", "Kết nối"],
+      careers: ["Truyền thông", "Dịch vụ trải nghiệm", "Nghệ thuật biểu diễn"],
+      growth: "Kết hợp sự hứng khởi hiện tại với một vài thói quen nhỏ để chăm sóc những mục tiêu ở xa hơn."
+    }
+  },
+  dimensions: [
+    {
+      first: "E", second: "I", title: "Năng lượng",
+      number: "01 / NĂNG LƯỢNG", icon: "bolt", question: "Bạn nạp lại\nnăng lượng từ đâu?", color: "#8061a3", soft: "#eee7f5", aria: "So sánh hướng ngoại và hướng nội",
+      labels: { E: "Hướng ngoại", I: "Hướng nội" },
+      descriptions: {
+        E: "Bạn thường tìm thấy năng lượng khi giao tiếp và tham gia vào thế giới bên ngoài.",
+        I: "Bạn thường nạp lại năng lượng qua không gian riêng, sự suy ngẫm và những kết nối sâu sắc."
+      }
+    },
+    {
+      first: "S", second: "N", title: "Nhận thức",
+      number: "02 / NHẬN THỨC", icon: "eye", question: "Bạn tiếp nhận\nthông tin thế nào?", color: "#6f875d", soft: "#edf1e6", aria: "So sánh giác quan và trực giác",
+      labels: { S: "Giác quan", N: "Trực giác" },
+      descriptions: {
+        S: "Bạn chú ý đến sự thật, chi tiết cụ thể và những trải nghiệm có thể quan sát được.",
+        N: "Bạn thường chú ý đến các khả năng, mối liên hệ và ý nghĩa nằm sau những thông tin cụ thể."
+      }
+    },
+    {
+      first: "T", second: "F", title: "Quyết định",
+      number: "03 / QUYẾT ĐỊNH", icon: "heart", question: "Điều gì dẫn lối\nlựa chọn của bạn?", color: "#60869d", soft: "#e9f0f5", aria: "So sánh lý trí và cảm xúc",
+      labels: { T: "Lý trí", F: "Cảm xúc" },
+      descriptions: {
+        T: "Bạn thường cân nhắc tính logic, sự nhất quán và các tiêu chí khách quan.",
+        F: "Bạn thường cân nhắc giá trị cá nhân, sự thấu cảm và tác động của lựa chọn lên con người."
+      }
+    },
+    {
+      first: "J", second: "P", title: "Lối sống",
+      number: "04 / LỐI SỐNG", icon: "layout", question: "Bạn tổ chức\ncuộc sống ra sao?", color: "#b18c47", soft: "#f8f0df", aria: "So sánh nguyên tắc và linh hoạt",
+      labels: { J: "Nguyên tắc", P: "Linh hoạt" },
+      descriptions: {
+        J: "Bạn thích có kế hoạch, một nhịp sống rõ ràng và cảm giác mọi thứ đã được sắp xếp.",
+        P: "Bạn thích giữ các lựa chọn mở, linh hoạt thay đổi và đón nhận những điều bất ngờ."
+      }
+    }
+  ],
+  ui: {
+    heroMeta: [["clock", "8–10 phút"], ["list", "32 câu hỏi"], ["shield", "Không cần đăng ký"]],
+    floatingNote: "Bạn là mảnh ghép nào?",
+    caption: ["16 tính cách.", "Một phiên bản duy nhất là bạn."],
+    benefits: [
+      ["fingerprint", "Hiểu rõ bản thân", "Gọi tên những điều làm nên bạn"],
+      ["sparkles", "Nhìn ra thế mạnh", "Để tiềm năng được tỏa sáng"],
+      ["chat", "Kết nối tốt hơn", "Hiểu mình, thấu hiểu người khác"],
+      ["compass", "Mở lối tương lai", "Thêm góc nhìn cho lựa chọn mới"]
+    ],
+    personalitiesCta: ["Chưa biết mình thuộc nhóm nào?", "Thử bài test miễn phí"],
+    dimensionsNote: "Không có xu hướng nào tốt hơn xu hướng nào. Chạm vào từng lựa chọn để tìm hiểu thêm.",
+    before: {
+      title: "Một vài điều trước khi bắt đầu.",
+      text: "Không cần chuẩn bị kiến thức. Chỉ cần một chút thời gian và sự thành thật với chính mình.",
+      steps: [
+        ["Là bạn, không phải ai khác", "Chọn điều giống với con người hiện tại, không phải hình mẫu bạn muốn trở thành."],
+        ["Đừng nghĩ quá lâu", "Không có đáp án đúng hay sai. Hãy chọn điều gần với bạn trong phần lớn thời gian."],
+        ["Đón nhận, đừng đóng khung", "Kết quả là một điểm khởi đầu để khám phá, không phải giới hạn của con người bạn."]
+      ]
+    },
+    cta: {
+      eyebrow: "Tự hiểu mình, tự mở lối",
+      line1: "Bạn không cần trở thành ai khác.",
+      line2: "Bắt đầu từ chính mình.",
+      button: "Khám phá tính cách của bạn",
+      note: "32 câu hỏi · 8–10 phút · Một góc nhìn mới"
+    },
+    popup: {
+      strengths: "Những thế mạnh thường gặp",
+      growth: "Một góc nhỏ để phát triển",
+      careers: "Những lĩnh vực bạn có thể tìm hiểu",
+      note: "Đây là mô tả xu hướng và gợi ý khám phá, không phải khuôn mẫu hay giới hạn nghề nghiệp. Kỹ năng, sở thích và trải nghiệm thực tế của bạn luôn quan trọng."
+    }
+  }
+};
+</script>
+[/ux_html]
