@@ -1,13 +1,10 @@
-<!-- TRANG: Thi thử TOPIK II  (gợi ý slug: /thi-thu-topik-2/) -->
-<!-- Tag đề (category) cần tạo trong plugin, mỗi đề 1 bộ tag:
-     topik-2-de-01-doc | topik-2-de-01-nghe | topik-2-de-01-viet | topik-2-de-01-tu-vung | topik-2-de-01-ngu-phap | topik-2-de-01-full
-     (tương tự 02, 03, 04, 05, 06) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!-- TRANG: Thi thử TOPIK II  (gợi ý slug: /thi-thu-topik-ii/) -->
+<!-- Nguồn đề: shortcode [tqp_category_landing category="Topik"] đặt ở cột .tp-src (xem wp/). Tên đề dạng "Topik II - Đề 1 - Reading | Listening | Writing | Vocabulary | Grammar"; đề không ghi kỹ năng = đề FULL -->
 <div class="tqp-tp">
 
   <section class="tp-hero">
     <div class="tp-wrap">
-      <span class="tp-eyebrow">TOPIK II · Cấp 3 – Cấp 6</span>
+      <div class="tp-eyebrow">TOPIK II · Cấp 3 – Cấp 6</div>
       <h1>Đề thi thử TOPIK II online</h1>
       <p class="tp-lead">Thi 2 buổi: buổi 1 (Nghe + Viết) và buổi 2 (Đọc). Yêu cầu bắt buộc cho du học đại học và làm việc tại Hàn.</p>
       <div class="tp-meta">
@@ -18,7 +15,7 @@
       </div>
       <div class="tp-actions">
         <a class="tp-btn" href="#tp-de">Thi full đề ↓</a>
-        <a class="tp-btn tp-btn--ghost" href="/thi-thu-topik-1/">Chuyển sang TOPIK I →</a>
+        <a class="tp-btn tp-btn--ghost" href="/thi-thu-topik-i/">Chuyển sang TOPIK I →</a>
       </div>
     </div>
   </section>
@@ -28,12 +25,12 @@
 
     <!-- CẤU TRÚC -->
     <section class="tp-sec">
-      <span class="tp-eyebrow">Cấu trúc đề thi thật</span>
+      <div class="tp-eyebrow">Cấu trúc đề thi thật</div>
       <h2>Các phần thi và dạng câu hỏi trong TOPIK II</h2>
       <p class="tp-sub">Số liệu câu hỏi được giữ đúng như đề thi chính thức để bạn quen với vị trí từng dạng bài.</p>
       <div class="tp-grid tp-grid--3">
         <article class="tp-card tp-card--part">
-          <span class="tp-time">Buổi 1 · 60 PHÚT</span>
+          <div class="tp-time">Buổi 1 · 60 PHÚT</div>
           <h3>Nghe</h3>
           <ul>
             <li>Câu 1–3: chọn hình phù hợp</li>
@@ -44,7 +41,7 @@
           <a class="tp-link" href="#tp-de">Luyện riêng phần này →</a>
         </article>
         <article class="tp-card tp-card--part">
-          <span class="tp-time">Buổi 1 · 50 PHÚT</span>
+          <div class="tp-time">Buổi 1 · 50 PHÚT</div>
           <h3>Viết</h3>
           <ul>
             <li>Câu 51–52: viết câu điền vào chỗ trống trong văn bản ngắn</li>
@@ -54,7 +51,7 @@
           <a class="tp-link" href="#tp-de">Luyện riêng phần này →</a>
         </article>
         <article class="tp-card tp-card--part">
-          <span class="tp-time">Buổi 2 · 70 PHÚT</span>
+          <div class="tp-time">Buổi 2 · 70 PHÚT</div>
           <h3>Đọc</h3>
           <ul>
             <li>Câu 1–12: ngữ pháp, từ vựng, điền từ</li>
@@ -67,121 +64,17 @@
       </div>
     </section>
 
-    <!-- DANH SÁCH ĐỀ -->
+    <!-- DANH SÁCH ĐỀ: JS tự dựng từ shortcode nguồn (.tp-src) -->
     <section class="tp-sec" id="tp-de">
-      <span class="tp-eyebrow">Bộ đề thi thử</span>
+      <div class="tp-eyebrow">Bộ đề thi thử</div>
       <h2>Đề thi thử TOPIK II</h2>
       <p class="tp-sub">Bấm "Xem đề" ở từng kỹ năng để luyện riêng, hoặc "Thi full đề" để làm trọn bộ đề tổng hợp.</p>
-      <!-- Mỗi thẻ = 1 đề. Muốn thêm đề: copy nguyên 1 thẻ <article class="tp-exam"> rồi đổi số và tag. -->
-      <div class="tp-grid tp-grid--2">
-          <article class="tp-exam">
-            <header class="tp-exam-h"><span class="tp-num">01</span><div><h3>Đề 1 thi thử TOPIK II</h3><p>Nghe 50 câu · Viết 4 câu · Đọc 50 câu · 180 phút</p></div></header>
-            <div class="tp-rows">
-            <details class="tp-row tp-row--doc"><summary><span class="tp-ico"><i class="fa-solid fa-book-open"></i></span><span class="tp-rl">Phần Đọc</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-01-doc"]</div></details>
-            <details class="tp-row tp-row--nghe"><summary><span class="tp-ico"><i class="fa-solid fa-headphones"></i></span><span class="tp-rl">Phần Nghe</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-01-nghe"]</div></details>
-            <details class="tp-row tp-row--viet"><summary><span class="tp-ico"><i class="fa-solid fa-pen-nib"></i></span><span class="tp-rl">Phần Viết</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-01-viet"]</div></details>
-            <details class="tp-row tp-row--tu-vung"><summary><span class="tp-ico"><i class="fa-solid fa-spell-check"></i></span><span class="tp-rl">Từ vựng</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-01-tu-vung"]</div></details>
-            <details class="tp-row tp-row--ngu-phap"><summary><span class="tp-ico"><i class="fa-solid fa-puzzle-piece"></i></span><span class="tp-rl">Ngữ pháp</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-01-ngu-phap"]</div></details>
-            </div>
-            <details class="tp-full"><summary><i class="fa-solid fa-circle-play"></i> Thi full đề <i class="fa-solid fa-arrow-right"></i></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-01-full"]</div></details>
-          </article>
-          <article class="tp-exam">
-            <header class="tp-exam-h"><span class="tp-num">02</span><div><h3>Đề 2 thi thử TOPIK II</h3><p>Nghe 50 câu · Viết 4 câu · Đọc 50 câu · 180 phút</p></div></header>
-            <div class="tp-rows">
-            <details class="tp-row tp-row--doc"><summary><span class="tp-ico"><i class="fa-solid fa-book-open"></i></span><span class="tp-rl">Phần Đọc</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-02-doc"]</div></details>
-            <details class="tp-row tp-row--nghe"><summary><span class="tp-ico"><i class="fa-solid fa-headphones"></i></span><span class="tp-rl">Phần Nghe</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-02-nghe"]</div></details>
-            <details class="tp-row tp-row--viet"><summary><span class="tp-ico"><i class="fa-solid fa-pen-nib"></i></span><span class="tp-rl">Phần Viết</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-02-viet"]</div></details>
-            <details class="tp-row tp-row--tu-vung"><summary><span class="tp-ico"><i class="fa-solid fa-spell-check"></i></span><span class="tp-rl">Từ vựng</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-02-tu-vung"]</div></details>
-            <details class="tp-row tp-row--ngu-phap"><summary><span class="tp-ico"><i class="fa-solid fa-puzzle-piece"></i></span><span class="tp-rl">Ngữ pháp</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-02-ngu-phap"]</div></details>
-            </div>
-            <details class="tp-full"><summary><i class="fa-solid fa-circle-play"></i> Thi full đề <i class="fa-solid fa-arrow-right"></i></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-02-full"]</div></details>
-          </article>
-          <article class="tp-exam">
-            <header class="tp-exam-h"><span class="tp-num">03</span><div><h3>Đề 3 thi thử TOPIK II</h3><p>Nghe 50 câu · Viết 4 câu · Đọc 50 câu · 180 phút</p></div></header>
-            <div class="tp-rows">
-            <details class="tp-row tp-row--doc"><summary><span class="tp-ico"><i class="fa-solid fa-book-open"></i></span><span class="tp-rl">Phần Đọc</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-03-doc"]</div></details>
-            <details class="tp-row tp-row--nghe"><summary><span class="tp-ico"><i class="fa-solid fa-headphones"></i></span><span class="tp-rl">Phần Nghe</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-03-nghe"]</div></details>
-            <details class="tp-row tp-row--viet"><summary><span class="tp-ico"><i class="fa-solid fa-pen-nib"></i></span><span class="tp-rl">Phần Viết</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-03-viet"]</div></details>
-            <details class="tp-row tp-row--tu-vung"><summary><span class="tp-ico"><i class="fa-solid fa-spell-check"></i></span><span class="tp-rl">Từ vựng</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-03-tu-vung"]</div></details>
-            <details class="tp-row tp-row--ngu-phap"><summary><span class="tp-ico"><i class="fa-solid fa-puzzle-piece"></i></span><span class="tp-rl">Ngữ pháp</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-03-ngu-phap"]</div></details>
-            </div>
-            <details class="tp-full"><summary><i class="fa-solid fa-circle-play"></i> Thi full đề <i class="fa-solid fa-arrow-right"></i></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-03-full"]</div></details>
-          </article>
-          <article class="tp-exam">
-            <header class="tp-exam-h"><span class="tp-num">04</span><div><h3>Đề 4 thi thử TOPIK II</h3><p>Nghe 50 câu · Viết 4 câu · Đọc 50 câu · 180 phút</p></div></header>
-            <div class="tp-rows">
-            <details class="tp-row tp-row--doc"><summary><span class="tp-ico"><i class="fa-solid fa-book-open"></i></span><span class="tp-rl">Phần Đọc</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-04-doc"]</div></details>
-            <details class="tp-row tp-row--nghe"><summary><span class="tp-ico"><i class="fa-solid fa-headphones"></i></span><span class="tp-rl">Phần Nghe</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-04-nghe"]</div></details>
-            <details class="tp-row tp-row--viet"><summary><span class="tp-ico"><i class="fa-solid fa-pen-nib"></i></span><span class="tp-rl">Phần Viết</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-04-viet"]</div></details>
-            <details class="tp-row tp-row--tu-vung"><summary><span class="tp-ico"><i class="fa-solid fa-spell-check"></i></span><span class="tp-rl">Từ vựng</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-04-tu-vung"]</div></details>
-            <details class="tp-row tp-row--ngu-phap"><summary><span class="tp-ico"><i class="fa-solid fa-puzzle-piece"></i></span><span class="tp-rl">Ngữ pháp</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-04-ngu-phap"]</div></details>
-            </div>
-            <details class="tp-full"><summary><i class="fa-solid fa-circle-play"></i> Thi full đề <i class="fa-solid fa-arrow-right"></i></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-04-full"]</div></details>
-          </article>
-          <article class="tp-exam">
-            <header class="tp-exam-h"><span class="tp-num">05</span><div><h3>Đề 5 thi thử TOPIK II</h3><p>Nghe 50 câu · Viết 4 câu · Đọc 50 câu · 180 phút</p></div></header>
-            <div class="tp-rows">
-            <details class="tp-row tp-row--doc"><summary><span class="tp-ico"><i class="fa-solid fa-book-open"></i></span><span class="tp-rl">Phần Đọc</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-05-doc"]</div></details>
-            <details class="tp-row tp-row--nghe"><summary><span class="tp-ico"><i class="fa-solid fa-headphones"></i></span><span class="tp-rl">Phần Nghe</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-05-nghe"]</div></details>
-            <details class="tp-row tp-row--viet"><summary><span class="tp-ico"><i class="fa-solid fa-pen-nib"></i></span><span class="tp-rl">Phần Viết</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-05-viet"]</div></details>
-            <details class="tp-row tp-row--tu-vung"><summary><span class="tp-ico"><i class="fa-solid fa-spell-check"></i></span><span class="tp-rl">Từ vựng</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-05-tu-vung"]</div></details>
-            <details class="tp-row tp-row--ngu-phap"><summary><span class="tp-ico"><i class="fa-solid fa-puzzle-piece"></i></span><span class="tp-rl">Ngữ pháp</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-05-ngu-phap"]</div></details>
-            </div>
-            <details class="tp-full"><summary><i class="fa-solid fa-circle-play"></i> Thi full đề <i class="fa-solid fa-arrow-right"></i></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-05-full"]</div></details>
-          </article>
-          <article class="tp-exam">
-            <header class="tp-exam-h"><span class="tp-num">06</span><div><h3>Đề 6 thi thử TOPIK II</h3><p>Nghe 50 câu · Viết 4 câu · Đọc 50 câu · 180 phút</p></div></header>
-            <div class="tp-rows">
-            <details class="tp-row tp-row--doc"><summary><span class="tp-ico"><i class="fa-solid fa-book-open"></i></span><span class="tp-rl">Phần Đọc</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-06-doc"]</div></details>
-            <details class="tp-row tp-row--nghe"><summary><span class="tp-ico"><i class="fa-solid fa-headphones"></i></span><span class="tp-rl">Phần Nghe</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-06-nghe"]</div></details>
-            <details class="tp-row tp-row--viet"><summary><span class="tp-ico"><i class="fa-solid fa-pen-nib"></i></span><span class="tp-rl">Phần Viết</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-06-viet"]</div></details>
-            <details class="tp-row tp-row--tu-vung"><summary><span class="tp-ico"><i class="fa-solid fa-spell-check"></i></span><span class="tp-rl">Từ vựng</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-06-tu-vung"]</div></details>
-            <details class="tp-row tp-row--ngu-phap"><summary><span class="tp-ico"><i class="fa-solid fa-puzzle-piece"></i></span><span class="tp-rl">Ngữ pháp</span><span class="tp-go">Xem đề <i class="fa-solid fa-chevron-right"></i></span></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-06-ngu-phap"]</div></details>
-            </div>
-            <details class="tp-full"><summary><i class="fa-solid fa-circle-play"></i> Thi full đề <i class="fa-solid fa-arrow-right"></i></summary>
-              <div class="tp-slot">[tqp_category_landing category="topik-2-de-06-full"]</div></details>
-          </article>
-      </div>
+      <div class="tp-grid tp-grid--2" id="tp-exam-list" data-level="ii" data-skills="doc,nghe,viet,tuvung,nguphap" data-desc="Nghe 50 câu · Viết 4 câu · Đọc 50 câu · 180 phút"><div class="tp-empty">Đang tải danh sách đề…</div></div>
     </section>
 
     <!-- QUY ĐỔI ĐIỂM -->
     <section class="tp-sec">
-      <span class="tp-eyebrow">Thang điểm &amp; xếp cấp</span>
+      <div class="tp-eyebrow">Thang điểm &amp; xếp cấp</div>
       <h2>Cách quy đổi điểm TOPIK II</h2>
       <div class="tp-tablewrap">
         <table class="tp-table">
@@ -205,11 +98,11 @@
           </tbody>
         </table>
       </div>
-      <div class="tp-note"><small>Lưu ý</small><p>Phần trả lời tiêu chí nội dung – cấu trúc – ngôn ngữ ở câu 53–54 chiếm 50 điểm nên cần luyện Viết thường xuyên.</p></div>
+      <div class="tp-note"><div class="tp-note-h">Lưu ý</div><p>Phần trả lời tiêu chí nội dung – cấu trúc – ngôn ngữ ở câu 53–54 chiếm 50 điểm nên cần luyện Viết thường xuyên.</p></div>
     </section>
 
     <div class="tp-crosslinks">
-      <a class="tp-btn tp-btn--ghost" href="/thi-thu-topik-1/">Chuyển sang TOPIK I (Cấp 1–2) →</a>
+      <a class="tp-btn tp-btn--ghost" href="/thi-thu-topik-i/">Chuyển sang TOPIK I (Cấp 1–2) →</a>
       <a class="tp-btn tp-btn--ghost" href="/thi-thu-eps/">Bộ đề EPS-TOPIK cho lao động →</a>
     </div>
   </div>

@@ -72,7 +72,7 @@
 
 /* ---------- NOTE BOX ---------- */
 .tqp-tp .tp-note{background:var(--tp-soft);border-left:3px solid var(--tp-brand);padding:14px 16px;border-radius:0 var(--tp-radius) var(--tp-radius) 0;margin:14px 0}
-.tqp-tp .tp-note small{display:block;font-family:var(--tp-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--tp-brand);margin-bottom:4px}
+.tqp-tp .tp-note .tp-note-h{display:block;font-family:var(--tp-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--tp-brand);margin-bottom:4px}
 .tqp-tp .tp-note p{margin:0;font-size:14px}
 
 /* ---------- CHIPS NGÀNH ---------- */
@@ -106,35 +106,57 @@
 }
 
 /* ==========================================================
-   DANH SÁCH ĐỀ (thẻ đề + dòng kỹ năng + Font Awesome)
-   Cần load Font Awesome 6 (đã có thẻ <link> ở đầu mỗi file HTML)
+   DANH SÁCH ĐỀ (thẻ đề + dòng kỹ năng + Font Awesome) – JS dựng từ shortcode
    ========================================================== */
+.tqp-tp .tp-empty{grid-column:1/-1;background:var(--tp-soft2);border:1px dashed var(--tp-line);border-radius:8px;padding:20px;text-align:center;color:var(--tp-mute)}
 .tqp-tp .tp-exam{background:#fff;border:1px solid var(--tp-line);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(163,23,79,.06)}
 .tqp-tp .tp-exam-h{display:flex;align-items:center;gap:14px;padding:16px 18px;background:linear-gradient(135deg,#fdf0f5,#fff);border-bottom:1px solid var(--tp-line)}
 .tqp-tp .tp-num{flex:0 0 46px;height:46px;border-radius:12px;background:var(--tp-brand);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--tp-serif);font-weight:700;font-size:19px;box-shadow:0 4px 10px rgba(163,23,79,.3)}
 .tqp-tp .tp-exam-h h3{font-size:19px;line-height:1.25;margin:0 0 2px}
 .tqp-tp .tp-exam-h p{margin:0;font-size:12px;color:var(--tp-mute);font-family:var(--tp-mono)}
 .tqp-tp .tp-rows{padding:8px 12px}
-.tqp-tp details.tp-row{border-bottom:1px solid #f5e6ec}
-.tqp-tp details.tp-row:last-child{border-bottom:0}
-.tqp-tp details>summary{list-style:none;cursor:pointer}
-.tqp-tp details>summary::-webkit-details-marker{display:none}
-.tqp-tp .tp-row summary{display:flex;align-items:center;gap:12px;padding:11px 6px;border-radius:8px;transition:.15s}
-.tqp-tp .tp-row summary:hover{background:var(--tp-soft2)}
+.tqp-tp a.tp-row,.tqp-tp span.tp-row{display:flex;align-items:center;gap:12px;padding:11px 6px;border-bottom:1px solid #f5e6ec;border-radius:8px;color:var(--tp-ink);transition:.15s}
+.tqp-tp .tp-rows>.tp-row:last-child{border-bottom:0}
+.tqp-tp a.tp-row:hover{background:var(--tp-soft2)}
 .tqp-tp .tp-ico{flex:0 0 36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;background:var(--tp-soft);color:var(--tp-brand)}
 .tqp-tp .tp-row--nghe .tp-ico{background:#efe8fb;color:#6a3fc2}
 .tqp-tp .tp-row--viet .tp-ico{background:#e5f4ee;color:#1f8a63}
-.tqp-tp .tp-row--tu-vung .tp-ico{background:#fff1dd;color:#c26a10}
-.tqp-tp .tp-row--ngu-phap .tp-ico{background:#e4f0fb;color:#1f6fb5}
+.tqp-tp .tp-row--tuvung .tp-ico{background:#fff1dd;color:#c26a10}
+.tqp-tp .tp-row--nguphap .tp-ico{background:#e4f0fb;color:#1f6fb5}
 .tqp-tp .tp-rl{flex:1;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.04em}
 .tqp-tp .tp-go{font-family:var(--tp-mono);font-size:11px;letter-spacing:.06em;color:var(--tp-brand);text-transform:uppercase;font-weight:700;white-space:nowrap}
 .tqp-tp .tp-go i{font-size:10px;margin-left:3px;transition:transform .2s}
-.tqp-tp details[open]>summary .tp-go i{transform:rotate(90deg)}
-.tqp-tp .tp-row .tp-slot{padding:4px 4px 12px 54px}
-.tqp-tp .tp-full{padding:4px 12px 14px}
-.tqp-tp .tp-full summary{display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;background:var(--tp-brand);color:#fff;border-radius:8px;font-family:var(--tp-mono);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:.2s;box-shadow:0 4px 12px rgba(163,23,79,.28)}
-.tqp-tp .tp-full summary:hover{background:var(--tp-brand-d);transform:translateY(-1px)}
-.tqp-tp .tp-full .tp-slot{padding-top:10px}
-/* icon trong nút & ghi chú */
+.tqp-tp a.tp-row:hover .tp-go i{transform:translateX(3px)}
+.tqp-tp .tp-row.is-off{opacity:.5}
+.tqp-tp .tp-row.is-off .tp-go{color:var(--tp-mute)}
+.tqp-tp .tp-fullwrap{padding:4px 12px 14px}
+.tqp-tp a.tp-fullbtn,.tqp-tp span.tp-fullbtn{display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;background:var(--tp-brand);color:#fff!important;border-radius:8px;font-family:var(--tp-mono);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;transition:.2s;box-shadow:0 4px 12px rgba(163,23,79,.28)}
+.tqp-tp a.tp-fullbtn:hover{background:var(--tp-brand-d);transform:translateY(-1px)}
+.tqp-tp span.tp-fullbtn.is-off{background:#d9c3cd;box-shadow:none}
 .tqp-tp .tp-btn i{font-size:12px}
-@media (max-width:480px){.tqp-tp .tp-row .tp-slot{padding-left:6px}}
+
+/* ---------- Nguồn shortcode plugin: ẩn sau khi JS dựng xong ---------- */
+.tp-src.is-built{display:none!important}
+/* Danh sách đề mặc định của plugin (trang EPS / khi chưa có JS) */
+.tqp-tp .ts-portal-grid,.tp-src .ts-portal-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.tqp-tp .ts-portal-card,.tp-src .ts-portal-card{background:#fff;border:1px solid var(--tp-line,#ecd9e1);border-radius:10px;padding:16px;margin:0;box-shadow:0 2px 10px rgba(163,23,79,.06)}
+.tqp-tp .ts-portal-card-title,.tp-src .ts-portal-card-title{font:700 17px/1.35 Georgia,serif;color:var(--tp-ink,#2b1a24);margin:0 0 8px}
+.tqp-tp .ts-portal-card-meta,.tp-src .ts-portal-card-meta{display:flex;gap:14px;font-size:12px;color:var(--tp-mute,#7a6670);margin-bottom:12px}
+.tqp-tp .ts-portal-start-btn,.tp-src .ts-portal-start-btn{border-radius:8px;background:var(--tp-brand,#a3174f);color:#fff!important;padding:11px;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.tqp-tp .ts-portal-start-btn:hover{background:var(--tp-brand-d,#7f1039)}
+.tqp-tp .tp-slot{margin-top:8px}
+
+/* ---------- Gỡ padding mặc định của Flatsome cho section chứa trang ---------- */
+.tp-sec0,.tp-sec0 .row,.tp-sec0 .col,.tp-sec0 .col-inner{padding:0!important;margin:0!important;max-width:none!important}
+.tp-sec0 br{display:none}.tp-sec0 p:empty{display:none}
+.tqp-tp ul{list-style:none;margin-left:0}
+.tqp-tp .tp-card ul{list-style:disc;margin:10px 0 14px 18px}
+html{scroll-behavior:smooth}
+@media (min-width:640px){.tqp-tp .ts-portal-grid,.tp-src .ts-portal-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:960px){.tqp-tp .ts-portal-grid,.tp-src .ts-portal-grid{grid-template-columns:repeat(3,1fr)}}
+
+.tqp-tp .tp-cardtop{overflow:hidden}
+.tqp-tp .tp-time{margin-bottom:2px}
+.tqp-tp .ts-portal-empty{grid-column:1/-1;background:var(--tp-soft2);border:1px dashed var(--tp-line);border-radius:8px;padding:14px;text-align:center;color:var(--tp-mute);font-size:13px}
+.tqp-tp .ts-portal-empty p{margin:0}
+.tqp-tp .ts-portal-empty-icon{display:none}
