@@ -436,7 +436,10 @@
       const box = document.createElement("div");
       box.className = `mbti mbti-block mbti-block-${name}`;
       box.innerHTML = html;
-      holder.replaceWith(box);
+      /* WordPress (wpautop) có thể bọc placeholder thành <p><span></span><br></p>: thay luôn cả thẻ <p> đó */
+      const wrapper = holder.parentElement;
+      if (wrapper && wrapper.tagName === "P" && !wrapper.textContent.trim() && wrapper.querySelectorAll("*:not(br)").length === 1) wrapper.replaceWith(box);
+      else holder.replaceWith(box);
       return box;
     }
 
