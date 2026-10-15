@@ -1,0 +1,28 @@
+KHUNG LAYOUT FLATSOME (dán vào UX Builder > Page > Edit shortcode, hoặc tạo Section/Row/Col rồi thêm element "HTML")
+Mỗi section HTML = 1 element "HTML" riêng trong 1 Section (padding=0, Row style "Full Width", Col không padding).
+Như vậy bạn có thể bật/tắt/sắp xếp từng section độc lập.
+
+=== 0) UX Block riêng tư (tạo 1 lần, dùng chung mọi trang) ===
+[section padding="0"][row style="collapse"][col span__sm="12"][ux_html]
+  ... nội dung file ux-block-css-js.html (<style>…</style><script>…</script>) ...
+[/ux_html][/col][/row][/section]
+Sau khi lưu, lấy ID block (Flatsome > UX Blocks) và chèn vào mỗi trang bằng shortcode: [block id="ID_BLOCK"]
+
+=== 1) Trang chủ Thi thử APTIS ===
+[block id="ID_BLOCK"]
+[section padding="0"][row style="collapse"][col span__sm="12"][ux_html]  01-hero.html           [/ux_html][/col][/row][/section]
+[section padding="0"][row style="collapse"][col span__sm="12"][ux_html]  02-phien-ban.html      [/ux_html][/col][/row][/section]
+[section padding="0"][row style="collapse"][col span__sm="12"][ux_html]  03-de-thi-thu.html     [/ux_html][/col][/row][/section]
+[section padding="0"][row style="collapse"][col span__sm="12"][ux_html]  04-ky-nang.html        [/ux_html][/col][/row][/section]
+
+=== 2) Trang con Speaking / Writing / Reading / Listening (KHÔNG còn mục "Các dạng bài…") ===
+[block id="ID_BLOCK"]
+[section padding="0"]…[ux_html] 01-hero.html            [/ux_html]…[/section]
+[section padding="0"]…[ux_html] 02-de-full.html         [/ux_html]…[/section]
+[section padding="0"]…[ux_html] 03-meo-lam-bai.html     [/ux_html]…[/section]
+[section padding="0"]…[ux_html] 04-tieu-chi-goi-y.html  [/ux_html]…[/section]
+[section padding="0"]…[ux_html] 05-ky-nang-khac.html    [/ux_html]…[/section]
+
+Lưu ý: nếu shortcode [tqp_category_landing …] không chạy bên trong element HTML, tách riêng:
+  - Giữ phần <section>…<div class="apt-tests"> trong element HTML thứ nhất
+  - Đặt shortcode vào element "Text" ở giữa, rồi đóng </div></div></section> trong element HTML thứ hai.

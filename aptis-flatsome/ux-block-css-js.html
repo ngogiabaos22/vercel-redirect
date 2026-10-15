@@ -1,0 +1,155 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+
+/* ===== APTIS landing – CSS dùng chung (dán vào UX Block riêng tư) ===== */
+.apt{--apt-bg:#f6f2e7;--apt-card:#fffdf8;--apt-ink:#1c1c19;--apt-muted:#6d6a5e;--apt-line:#e4ddca;--apt-green:#1f4a38;--apt-green-2:#2d6a50;--apt-tint:#e7efe7;--apt-gold:#b08a3e;
+  --apt-serif:'Fraunces',Georgia,serif;--apt-sans:'Inter',system-ui,sans-serif;--apt-mono:'JetBrains Mono',ui-monospace,monospace;
+  font-family:var(--apt-sans);color:var(--apt-ink);line-height:1.6;font-size:16px;box-sizing:border-box}
+.apt *,.apt *::before,.apt *::after{box-sizing:border-box}
+.apt a{text-decoration:none;color:inherit}
+.apt ul,.apt ol{margin:0;padding:0;list-style:none}
+.apt h1,.apt h2,.apt h3,.apt h4,.apt p{margin:0}
+.apt-wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.apt-sec{padding:56px 0;scroll-margin-top:90px}
+.apt-sec--bg{background:var(--apt-bg)}
+.apt-eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--apt-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--apt-green);margin-bottom:14px}
+.apt-eyebrow::before{content:"";width:34px;height:2px;background:var(--apt-green)}
+.apt-h2{font-family:var(--apt-serif);font-weight:600;font-size:clamp(26px,4vw,38px);line-height:1.2;letter-spacing:-.01em;margin-bottom:12px}
+.apt-lead{color:var(--apt-muted);max-width:640px;margin-bottom:28px}
+.apt-ico{color:var(--apt-green)}
+/* reveal (chỉ chạy khi có JS) */
+.apt-js .apt-reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.apt-js .apt-reveal.is-in{opacity:1;transform:none}
+
+/* buttons */
+.apt-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;border-radius:8px;font-weight:600;font-size:15px;border:1.5px solid var(--apt-green);transition:.2s;cursor:pointer}
+.apt-btn--fill{background:var(--apt-green);color:#fff!important}
+.apt-btn--fill:hover{background:var(--apt-green-2);transform:translateY(-1px)}
+.apt-btn--line{background:transparent;color:var(--apt-green)!important}
+.apt-btn--line:hover{background:var(--apt-green);color:#fff!important}
+.apt-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+/* hero */
+.apt-hero{background:linear-gradient(180deg,#eef0e2 0%,var(--apt-bg) 100%);padding:48px 0 52px;border-bottom:1px solid var(--apt-line)}
+.apt-crumb{font-family:var(--apt-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--apt-muted);margin-bottom:22px}
+.apt-crumb a:hover{color:var(--apt-green)}
+.apt-crumb i{font-size:9px;margin:0 8px;opacity:.6}
+.apt-badges{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:18px}
+.apt-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--apt-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--apt-green);color:var(--apt-green);padding:5px 12px;border-radius:4px;background:#fff9}
+.apt-badge--ghost{border-color:transparent;background:none;color:var(--apt-muted);text-transform:none;letter-spacing:0;font-style:italic;padding-left:0}
+.apt-hero h1{font-family:var(--apt-serif);font-weight:700;font-size:clamp(32px,5.5vw,56px);line-height:1.1;letter-spacing:-.02em;margin-bottom:16px;max-width:760px}
+.apt-hero .apt-lead{font-size:17px;margin-bottom:30px}
+.apt-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--apt-line);background:var(--apt-card);border-radius:10px;overflow:hidden;max-width:820px}
+.apt-stat{padding:18px 22px;border-right:1px solid var(--apt-line)}
+.apt-stat:last-child{border-right:0}
+.apt-stat small{display:flex;align-items:center;gap:7px;font-family:var(--apt-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--apt-muted);margin-bottom:6px}
+.apt-stat small i{color:var(--apt-green)}
+.apt-stat b{font-family:var(--apt-serif);font-size:26px;font-weight:600}
+
+/* versions */
+.apt-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.apt-tab{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border:1px solid var(--apt-line);border-radius:8px;background:var(--apt-card);font-weight:600;font-size:14px;color:var(--apt-ink);cursor:pointer;transition:.2s;font-family:var(--apt-sans)}
+.apt-tab:hover{border-color:var(--apt-green)}
+.apt-tab.is-active{background:var(--apt-green);border-color:var(--apt-green);color:#fff}
+.apt-panel{display:none;background:var(--apt-card);border:1px solid var(--apt-line);border-radius:12px;padding:26px 28px;max-width:760px}
+.apt-panel.is-active{display:block}
+.apt-panel h3{font-family:var(--apt-serif);font-size:24px;margin-bottom:8px}
+.apt-panel p{color:var(--apt-muted);margin-bottom:16px}
+.apt-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.apt-chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--apt-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;background:var(--apt-tint);color:var(--apt-green);padding:5px 11px;border-radius:999px}
+.apt-note{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--apt-muted);border-top:1px dashed var(--apt-line);padding-top:14px}
+.apt-note b{color:var(--apt-ink)}
+
+/* shortcode tests */
+.apt-tests{margin-top:6px}
+.apt-tests .apt-tests__panel{display:none}
+.apt-tests .apt-tests__panel.is-active{display:block}
+.apt-tests a.button,.apt-tests .button,.apt-tests .tqp-btn{border-radius:8px}
+.apt-more{text-align:center;margin-top:34px}
+
+/* skills grid (trang chủ) */
+.apt-skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.apt-skill{background:var(--apt-card);border:1px solid var(--apt-line);border-radius:12px;padding:26px;display:flex;flex-direction:column;transition:.25s}
+.apt-skill:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px #1f4a3866;border-color:var(--apt-green)}
+.apt-skill__ico{width:50px;height:50px;border-radius:12px;background:var(--apt-tint);color:var(--apt-green);display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.apt-skill__top{display:flex;justify-content:space-between;align-items:flex-start}
+.apt-skill__time{font-family:var(--apt-mono);font-size:11.5px;color:var(--apt-muted);letter-spacing:.06em}
+.apt-skill h3{font-family:var(--apt-serif);font-size:22px;margin-bottom:6px}
+.apt-skill p{color:var(--apt-muted);font-size:14.5px;margin-bottom:14px}
+.apt-skill ul{margin-bottom:20px;flex:1}
+.apt-skill li{font-size:14px;padding:5px 0 5px 22px;position:relative;color:#3d3c35}
+.apt-skill li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;font-size:10px;position:absolute;left:0;top:10px;color:var(--apt-green)}
+.apt-skill__go{font-weight:600;color:var(--apt-green);display:inline-flex;align-items:center;gap:8px;font-size:14.5px}
+.apt-skill__go i{transition:.2s}
+.apt-skill:hover .apt-skill__go i{transform:translateX(5px)}
+
+/* tips / criteria */
+.apt-list{display:grid;gap:12px;max-width:760px}
+.apt-list li{display:flex;align-items:center;gap:14px;background:var(--apt-card);border:1px solid var(--apt-line);border-radius:10px;padding:15px 18px;font-size:15px}
+.apt-list li i{color:var(--apt-green);width:20px;text-align:center}
+.apt-list--num{counter-reset:n}
+.apt-list--num li::before{counter-increment:n;content:counter(n,decimal-leading-zero);font-family:var(--apt-mono);font-size:12px;color:var(--apt-gold);width:22px}
+.apt-callout{display:flex;gap:16px;align-items:flex-start;background:var(--apt-tint);border-left:4px solid var(--apt-green);border-radius:10px;padding:20px 22px;max-width:760px;margin-top:30px}
+.apt-callout>i{font-size:22px;color:var(--apt-green);margin-top:3px}
+.apt-callout small{display:block;font-family:var(--apt-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--apt-green);margin-bottom:4px}
+.apt-callout p{font-size:15px}
+
+/* related skills */
+.apt-related{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.apt-related small{font-family:var(--apt-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--apt-muted);margin-right:6px}
+.apt-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--apt-line);background:var(--apt-card);padding:9px 16px;border-radius:999px;font-size:14px;font-weight:500;transition:.2s}
+.apt-pill i{color:var(--apt-green)}
+.apt-pill:hover{border-color:var(--apt-green);background:var(--apt-green);color:#fff!important}
+.apt-pill:hover i{color:#fff}
+
+@media (max-width:768px){
+  .apt-sec{padding:40px 0}
+  .apt-hero{padding:32px 0 36px}
+  .apt-stats{grid-template-columns:repeat(2,1fr)}
+  .apt-stat:nth-child(2){border-right:0}
+  .apt-stat:nth-child(-n+2){border-bottom:1px solid var(--apt-line)}
+  .apt-stat{padding:14px 16px}
+  .apt-stat b{font-size:22px}
+  .apt-panel{padding:20px}
+  .apt-btn{width:100%}
+}
+</style>
+<script>
+/* APTIS landing – JS dùng chung (dán vào UX Block riêng tư, trong thẻ <script>) */
+(function () {
+  var root = document.documentElement;
+  root.classList.add('apt-js');
+
+  function ready(fn){ document.readyState !== 'loading' ? fn() : document.addEventListener('DOMContentLoaded', fn); }
+
+  ready(function () {
+    // 1) Tab phiên bản (General / Advanced / for Teens): đổi mô tả + danh sách đề
+    var tabs = document.querySelectorAll('[data-apt-tab]');
+    function showVersion(v) {
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-apt-tab') === v;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      document.querySelectorAll('[data-apt-panel]').forEach(function (p) {
+        p.classList.toggle('is-active', p.getAttribute('data-apt-panel') === v);
+      });
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { showVersion(t.getAttribute('data-apt-tab')); });
+    });
+
+    // 2) Hiệu ứng hiện dần khi cuộn
+    var items = document.querySelectorAll('.apt-reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    } else {
+      items.forEach(function (el) { el.classList.add('is-in'); });
+    }
+  });
+})();
+</script>
