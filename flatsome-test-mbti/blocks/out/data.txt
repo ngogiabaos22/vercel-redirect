@@ -206,13 +206,15 @@ window.MBTI_DATA = {
       line1: "Bạn không cần trở thành ai khác.",
       line2: "Bắt đầu từ chính mình.",
       button: "Khám phá tính cách của bạn",
-      note: "32 câu hỏi · 8–10 phút · Một góc nhìn mới"
+      note: "70 câu hỏi · 10-30 phút · Một góc nhìn mới"
     },
     popup: {
       strengths: "Những thế mạnh thường gặp",
       growth: "Một góc nhỏ để phát triển",
       careers: "Những lĩnh vực bạn có thể tìm hiểu",
-      note: "Đây là mô tả xu hướng và gợi ý khám phá, không phải khuôn mẫu hay giới hạn nghề nghiệp. Kỹ năng, sở thích và trải nghiệm thực tế của bạn luôn quan trọng."
+      note: "Đây là mô tả xu hướng và gợi ý khám phá, không phải khuôn mẫu hay giới hạn nghề nghiệp. Kỹ năng, sở thích và trải nghiệm thực tế của bạn luôn quan trọng.",
+      button: "Test tính cách ngay",
+      buttonHref: "/bai-thi/test-mbti-mien-phi/"
     }
   }
 };

@@ -386,7 +386,7 @@
           <p class="detail-growth">${type.growth}</p>
           <h3>${ui.popup.careers}</h3>
           <div class="tag-list">${type.careers.map(value => `<span class="tag">${value}</span>`).join("")}</div>
-          <p class="detail-note">${ui.popup.note}</p>
+          <p class="detail-note">${ui.popup.note}</p>${ui.popup.button ? `<a class="btn btn-primary" href="${escapeAttr(ui.popup.buttonHref || "#")}">${ui.popup.button} ${icon("arrow-right")}</a>` : ""}
         </div>`;
       if (!detailDialog.open) detailDialog.showModal();
       detailDialog.scrollTop = 0;

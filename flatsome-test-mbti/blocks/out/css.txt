@@ -26,6 +26,8 @@ html.mbti-lock { overflow: hidden; }
 .mbti .btn { min-height: 51px; display: inline-flex; align-items: center; justify-content: center; gap: 18px; padding: 14px 23px; border: 1px solid transparent; border-radius: 9px; font-size: 13px; font-weight: 600; line-height: 1.5; transition: background .2s, box-shadow .2s, transform .2s; }
 .mbti .btn .icon { width: 18px; height: 18px; transition: transform .2s; }
 .mbti .btn:hover:not(:disabled) .icon { transform: translateX(3px); }
+.mbti .btn-primary { color: #fff; background: linear-gradient(110deg, #8060ae, #71509f); box-shadow: 0 6px 14px #7753a712; }
+.mbti .btn-primary:hover:not(:disabled) { background: var(--purple-dark); box-shadow: 0 7px 20px #7753a726; transform: translateY(-2px); }
 .mbti .text-link { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-size: 12px; font-weight: 600; border: 0; padding: 6px 0; background: none; }
 .mbti .text-link .icon { width: 16px; height: 16px; transition: transform .2s; }
 .mbti .text-link:hover { color: var(--purple); }

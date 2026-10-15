@@ -45,13 +45,15 @@ ui = '''  ui: {
       line1: "Bạn không cần trở thành ai khác.",
       line2: "Bắt đầu từ chính mình.",
       button: "Khám phá tính cách của bạn",
-      note: "32 câu hỏi · 8–10 phút · Một góc nhìn mới"
+      note: "70 câu hỏi · 10-30 phút · Một góc nhìn mới"
     },
     popup: {
       strengths: "Những thế mạnh thường gặp",
       growth: "Một góc nhỏ để phát triển",
       careers: "Những lĩnh vực bạn có thể tìm hiểu",
-      note: "Đây là mô tả xu hướng và gợi ý khám phá, không phải khuôn mẫu hay giới hạn nghề nghiệp. Kỹ năng, sở thích và trải nghiệm thực tế của bạn luôn quan trọng."
+      note: "Đây là mô tả xu hướng và gợi ý khám phá, không phải khuôn mẫu hay giới hạn nghề nghiệp. Kỹ năng, sở thích và trải nghiệm thực tế của bạn luôn quan trọng.",
+      button: "Test tính cách ngay",
+      buttonHref: "/bai-thi/test-mbti-mien-phi/"
     }
   }'''
 data_js = ('/* MBTI – NỘI DUNG: sửa chữ trong dấu ngoặc kép. Không dùng dấu ngoặc kép thẳng bên trong nội dung, không chèn dòng trống, không dùng ký tự nhỏ hơn. */\n'
@@ -99,7 +101,7 @@ rep('<p>32 câu hỏi · 8–10 phút · Một góc nhìn mới</p>', '<p>${ui.c
 rep('<h3>Những thế mạnh thường gặp</h3>', '<h3>${ui.popup.strengths}</h3>')
 rep('<h3>Một góc nhỏ để phát triển</h3>', '<h3>${ui.popup.growth}</h3>')
 rep('<h3>Những lĩnh vực bạn có thể tìm hiểu</h3>', '<h3>${ui.popup.careers}</h3>')
-rep('<p class="detail-note">Đây là mô tả xu hướng và gợi ý khám phá, không phải khuôn mẫu hay giới hạn nghề nghiệp. Kỹ năng, sở thích và trải nghiệm thực tế của bạn luôn quan trọng.</p>', '<p class="detail-note">${ui.popup.note}</p>')
+rep('<p class="detail-note">Đây là mô tả xu hướng và gợi ý khám phá, không phải khuôn mẫu hay giới hạn nghề nghiệp. Kỹ năng, sở thích và trải nghiệm thực tế của bạn luôn quan trọng.</p>', '<p class="detail-note">${ui.popup.note}</p>${ui.popup.button ? `<a class="btn btn-primary" href="${escapeAttr(ui.popup.buttonHref || "#")}">${ui.popup.button} ${icon("arrow-right")}</a>` : ""}')
 rep('event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom', 'bounds.left > event.clientX || event.clientX > bounds.right || bounds.top > event.clientY || event.clientY > bounds.bottom')
 open(os.path.join(HERE, 'main.js'), 'w').write(m)
 open(os.path.join(HERE, 'data.js'), 'w').write(data_js)
@@ -120,7 +122,7 @@ main_packed = pack_js(m)
 data_body = nolines(data_js)
 assert '<' not in data_body and not re.search(r'\[[A-Za-z_]', data_body)
 UNUSED = ('.quiz-', '.choice', '.answer-', '.question-', '.progress-', '.result-', '.spectrum-', '.match-', '.restart-view',
-          '.toast', '.key-hint', '.modal-topbar', '.modal-title', '.brand', '.btn-primary', '.btn-outline', '.resume-link', '.sr-only')
+          '.toast', '.key-hint', '.modal-topbar', '.modal-title', '.brand', '.btn-outline', '.resume-link', '.sr-only')
 def prune(text):
     out = []
     for line in text.split('\n'):
