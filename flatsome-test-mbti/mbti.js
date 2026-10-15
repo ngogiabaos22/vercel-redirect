@@ -385,51 +385,15 @@
       }
     ];
 
-    /* Câu hỏi tự đánh giá: 8 câu cho mỗi khía cạnh, chia đều hai chiều. */
-    const questions = [
-      { axis: 0, pole: "E", text: "Bạn thường cảm thấy nhiều năng lượng hơn sau khi trò chuyện với một nhóm người." },
-      { axis: 1, pole: "S", text: "Bạn tin tưởng những thông tin cụ thể và đã được kiểm chứng." },
-      { axis: 2, pole: "T", text: "Khi quyết định, bạn ưu tiên sự hợp lý và nhất quán." },
-      { axis: 3, pole: "J", text: "Bạn thấy yên tâm khi đã lên kế hoạch cho những việc sắp tới." },
-      { axis: 0, pole: "I", text: "Sau một ngày bận rộn, bạn muốn ở một mình để nạp lại năng lượng." },
-      { axis: 1, pole: "N", text: "Bạn thường tò mò về những khả năng chưa được khám phá." },
-      { axis: 2, pole: "F", text: "Bạn cân nhắc cảm xúc của những người liên quan trước khi đưa ra lựa chọn." },
-      { axis: 3, pole: "P", text: "Bạn thích giữ các lựa chọn mở thay vì quyết định quá sớm." },
-      { axis: 0, pole: "E", text: "Bạn thấy thoải mái khi chủ động bắt chuyện với người mới." },
-      { axis: 1, pole: "S", text: "Bạn thích hướng dẫn từng bước rõ ràng khi học điều mới." },
-      { axis: 2, pole: "T", text: "Bạn thấy một góp ý thẳng thắn, có căn cứ hữu ích hơn một lời động viên chung chung." },
-      { axis: 3, pole: "J", text: "Bạn thường hoàn thành công việc trước hạn để tránh cập rập." },
-      { axis: 0, pole: "I", text: "Bạn thường suy nghĩ kỹ trong đầu trước khi chia sẻ ý kiến." },
-      { axis: 1, pole: "N", text: "Bạn dễ nhận ra mối liên hệ hoặc bức tranh lớn giữa các sự việc." },
-      { axis: 2, pole: "F", text: "Trong bất đồng, bạn thường tìm cách để mọi người cảm thấy được lắng nghe." },
-      { axis: 3, pole: "P", text: "Bạn dễ thích nghi khi kế hoạch thay đổi vào phút cuối." },
-      { axis: 0, pole: "E", text: "Bạn thích trao đổi thành lời để làm rõ suy nghĩ của mình." },
-      { axis: 1, pole: "S", text: "Bạn chú ý đến những chi tiết thực tế dễ bị người khác bỏ qua." },
-      { axis: 2, pole: "T", text: "Bạn muốn áp dụng tiêu chuẩn công bằng giống nhau cho mọi người." },
-      { axis: 3, pole: "J", text: "Bạn thích biết rõ lịch trình và các bước cần làm trong ngày." },
-      { axis: 0, pole: "I", text: "Bạn thích một cuộc trò chuyện sâu với một người hơn là trò chuyện với nhiều người cùng lúc." },
-      { axis: 1, pole: "N", text: "Bạn hào hứng với ý tưởng mới, ngay cả khi chưa biết cách thực hiện." },
-      { axis: 2, pole: "F", text: "Các giá trị cá nhân có ảnh hưởng lớn đến quyết định của bạn." },
-      { axis: 3, pole: "P", text: "Bạn thích để một chuyến đi có khoảng trống cho những điều bất ngờ." },
-      { axis: 0, pole: "E", text: "Ở một môi trường mới, bạn dễ dàng tham gia vào các hoạt động chung." },
-      { axis: 1, pole: "S", text: "Bạn thường dựa vào kinh nghiệm thực tế để giải quyết vấn đề." },
-      { axis: 2, pole: "T", text: "Bạn thường tách cảm xúc cá nhân khỏi việc phân tích vấn đề." },
-      { axis: 3, pole: "J", text: "Bạn cảm thấy thoải mái hơn khi mọi thứ được sắp xếp có trật tự." },
-      { axis: 0, pole: "I", text: "Bạn thấy dễ tập trung hơn khi được làm việc trong không gian riêng." },
-      { axis: 1, pole: "N", text: "Khi nghe một câu chuyện, bạn hay nghĩ đến những ý nghĩa ẩn sau nó." },
-      { axis: 2, pole: "F", text: "Bạn ưu tiên cách giải quyết vừa phù hợp vừa giữ được sự hòa hợp." },
-      { axis: 3, pole: "P", text: "Bạn thường linh hoạt thay đổi cách làm khi tìm được ý tưởng hay hơn." }
-    ];
-
-    const answerChoices = [
-      { value: -2, label: "Rất không đồng ý", color: "#9876b1", soft: "#eae1f1", size: 62 },
-      { value: -1, label: "Không đồng ý", color: "#b29bc4", soft: "#efe8f5", size: 53 },
-      { value: 0, label: "Trung lập", color: "#b8b8ae", soft: "#eeeee8", size: 43 },
-      { value: 1, label: "Đồng ý", color: "#a1b38b", soft: "#edf1e6", size: 53 },
-      { value: 2, label: "Rất đồng ý", color: "#7f9967", soft: "#e6eddb", size: 62 }
-    ];
-
     /* ---------- Gắn các khối giao diện vào placeholder trong UX Builder ---------- */
+    /* Link cho các nút trong khối do script dựng: thêm data-href="..." vào placeholder trong UX Builder,
+       ví dụ <span data-mbti="cta" data-href="/lam-bai-test-mbti/"></span>. Không có data-href thì dùng "#". */
+    const escapeAttr = value => String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+    const hrefOf = name => {
+      const holder = document.querySelector(`[data-mbti="${name}"]`);
+      return escapeAttr((holder && holder.getAttribute("data-href")) || "#");
+    };
+
     function fill(name, html) {
       const holder = document.querySelector(`[data-mbti="${name}"]`);
       if (!holder) return null;
@@ -447,8 +411,7 @@
         <span>${icon("clock")} 8–10 phút</span>
         <span>${icon("list")} 32 câu hỏi</span>
         <span>${icon("shield")} Không cần đăng ký</span>
-      </div>
-      <button class="resume-link" id="mbti-resume" data-start hidden>Tiếp tục bài test của bạn</button>`);
+      </div>`);
 
     const heroCards = [
       { code: "INTJ", icon: "sparkles", avatar: 0 },
@@ -486,7 +449,7 @@
       </div>
       <p class="group-description" id="mbti-group-description" aria-live="polite"></p>
       <div class="personality-grid" id="mbti-personality-grid" role="tabpanel"></div>
-      <div class="personality-bottom">Chưa biết mình thuộc nhóm nào? <button class="text-link" data-start>Thử bài test miễn phí ${icon("arrow-right")}</button></div>`);
+      <div class="personality-bottom">Chưa biết mình thuộc nhóm nào? <a class="text-link" href="${hrefOf("personalities")}">Thử bài test miễn phí ${icon("arrow-right")}</a></div>`);
 
     fill("dimensions", `<div class="dimension-grid">
         ${dimensions.map((d, index) => `<article class="dimension-card" data-dimension="${index}" style="--dimension-color:${d.color};--dimension-soft:${d.soft}">
@@ -520,7 +483,7 @@
           <h2>Bạn không cần trở thành ai khác.<br><span>Bắt đầu từ chính mình.</span></h2>
         </div>
         <div class="cta-action">
-          <button class="btn btn-lime" data-start>Khám phá tính cách của bạn ${icon("arrow-right")}</button>
+          <a class="btn btn-lime" href="${hrefOf("cta")}">Khám phá tính cách của bạn ${icon("arrow-right")}</a>
           <p>32 câu hỏi · 8–10 phút · Một góc nhìn mới</p>
         </div>
       </div>`);
@@ -528,18 +491,9 @@
     /* Popup luôn được gắn vào cuối <body> */
     const modalRoot = document.createElement("div");
     modalRoot.className = "mbti mbti-modals";
-    modalRoot.innerHTML = `<dialog id="mbti-quiz-dialog" aria-labelledby="mbti-quiz-title">
-        <div class="modal-topbar">
-          <span class="brand"><svg class="brand-mark" aria-hidden="true"><use href="#brand-mark"></use></svg><span>mình<span class="brand-dot">.</span></span></span>
-          <h2 class="modal-title" id="mbti-quiz-title">KHÔNG GIAN KHÁM PHÁ CỦA BẠN</h2>
-          <button class="icon-button" data-close="mbti-quiz-dialog" aria-label="Tạm dừng và đóng bài test">${icon("close")}</button>
-        </div>
-        <div class="quiz-inner" id="mbti-quiz-content"></div>
-      </dialog>
-      <dialog class="personality-dialog" id="mbti-personality-dialog" aria-labelledby="mbti-detail-title">
+    modalRoot.innerHTML = `      <dialog class="personality-dialog" id="mbti-personality-dialog" aria-labelledby="mbti-detail-title">
         <div id="mbti-personality-content"></div>
-      </dialog>
-      <div class="toast" id="mbti-toast" role="status" aria-live="polite"></div>`;
+      </dialog>`;
     document.body.appendChild(modalRoot);
 
     /* ---------- Tab 16 nhóm tính cách ---------- */
@@ -597,10 +551,8 @@
     });
 
     /* ---------- Popup ---------- */
-    const quizDialog = document.getElementById("mbti-quiz-dialog");
     const detailDialog = document.getElementById("mbti-personality-dialog");
-    const quizContent = document.getElementById("mbti-quiz-content");
-    const dialogs = [quizDialog, detailDialog];
+    const dialogs = [detailDialog];
 
     function syncScrollLock() {
       document.documentElement.classList.toggle("mbti-lock", dialogs.some(dialog => dialog.open));
@@ -629,292 +581,14 @@
           <h3>Những lĩnh vực bạn có thể tìm hiểu</h3>
           <div class="tag-list">${type.careers.map(value => `<span class="tag">${value}</span>`).join("")}</div>
           <p class="detail-note">Đây là mô tả xu hướng và gợi ý khám phá, không phải khuôn mẫu hay giới hạn nghề nghiệp. Kỹ năng, sở thích và trải nghiệm thực tế của bạn luôn quan trọng.</p>
-          <button class="btn btn-primary" data-start>Tìm hiểu tính cách của mình ${icon("arrow-right")}</button>
         </div>`;
-      if (quizDialog.open) quizDialog.close();
       if (!detailDialog.open) detailDialog.showModal();
       detailDialog.scrollTop = 0;
       syncScrollLock();
     }
 
-    /* ---------- Bài test ---------- */
-    const storageKey = "minh.mbti.progress.v1";
-    let answers = new Array(questions.length).fill(null);
-    let questionIndex = 0;
-    let completed = false;
-    let quizMode = "question";
-    let storageEnabled = true;
-
-    try {
-      const stored = JSON.parse(localStorage.getItem(storageKey) || "null");
-      if (stored && Array.isArray(stored.answers) && stored.answers.length === questions.length && stored.answers.every(value => value === null || [-2, -1, 0, 1, 2].includes(value))) {
-        answers = stored.answers;
-        questionIndex = Number.isInteger(stored.index) && stored.index >= 0 && stored.index < questions.length ? stored.index : 0;
-        completed = stored.completed === true && answers.every(value => value !== null);
-      }
-    } catch (_) {
-      storageEnabled = false;
-    }
-
-    const answeredCount = () => answers.filter(value => value !== null).length;
-
-    function updateResume() {
-      const resume = document.getElementById("mbti-resume");
-      if (!resume) return;
-      const count = answeredCount();
-      resume.hidden = count === 0;
-      resume.textContent = completed ? "Bạn đã khám phá rồi — xem lại kết quả →" : `Tiếp tục hành trình của bạn · ${count}/32 câu đã trả lời →`;
-    }
-
-    function saveProgress() {
-      try {
-        if (storageEnabled) localStorage.setItem(storageKey, JSON.stringify({ answers, index: questionIndex, completed }));
-      } catch (_) {
-        storageEnabled = false;
-      }
-      updateResume();
-    }
-
-    function focusQuizHeading() {
-      requestAnimationFrame(() => {
-        const heading = quizContent.querySelector("[data-focus-heading]");
-        if (heading) heading.focus({ preventScroll: true });
-      });
-    }
-
-    function renderQuestion(moveFocus = false) {
-      quizMode = "question";
-      const question = questions[questionIndex];
-      const count = answeredCount();
-      const percent = Math.round(count / questions.length * 100);
-      const isLast = questionIndex === questions.length - 1;
-      quizContent.innerHTML = `
-        <div class="quiz-progress-meta">
-          <strong>CÂU ${String(questionIndex + 1).padStart(2, "0")} / ${questions.length}</strong>
-          <span id="mbti-answered-label">${count} câu đã trả lời</span>
-        </div>
-        <div class="progress-track" role="progressbar" aria-label="Tiến trình bài test" aria-valuemin="0" aria-valuemax="${questions.length}" aria-valuenow="${count}">
-          <div class="progress-fill" style="width:${percent}%"></div>
-        </div>
-        <h2 class="question-heading" id="mbti-current-question" tabindex="-1" data-focus-heading>${question.text}</h2>
-        <p class="question-hint">Chọn điều gần với bạn trong phần lớn thời gian.</p>
-        <fieldset class="answer-fieldset" aria-labelledby="mbti-current-question">
-          <legend class="sr-only">Mức độ đồng ý của bạn</legend>
-          <div class="answer-options">
-            ${answerChoices.map(choice => `<label class="choice" style="--choice-color:${choice.color};--choice-soft:${choice.soft};--circle-size:${choice.size}px">
-              <input class="sr-only choice-input" type="radio" name="mbti-answer" value="${choice.value}" ${answers[questionIndex] === choice.value ? "checked" : ""}>
-              <span class="choice-circle-wrap"><span class="choice-circle">${icon("check")}</span></span>
-              <span class="choice-label">${choice.label}</span>
-            </label>`).join("")}
-          </div>
-        </fieldset>
-        <div class="quiz-actions">
-          <button class="btn btn-outline quiz-back" data-quiz-action="previous" ${questionIndex === 0 ? "disabled" : ""}>${icon("arrow-right")} Câu trước</button>
-          <button class="btn btn-primary" id="mbti-quiz-next" data-quiz-action="next" ${answers[questionIndex] === null ? "disabled" : ""}>${isLast ? "Xem kết quả" : "Tiếp tục"} ${icon(isLast ? "sparkles" : "arrow-right")}</button>
-        </div>
-        <div class="quiz-bottom-note">
-          <span class="quiz-privacy">${icon("lock")} Riêng tư. Không có đáp án đúng hay sai.</span>
-          <span class="key-hint">Dùng phím <kbd>1</kbd> – <kbd>5</kbd> để chọn</span>
-        </div>`;
-      quizDialog.scrollTop = 0;
-      if (moveFocus) focusQuizHeading();
-    }
-
-    function calculateResult() {
-      const scores = dimensions.map(() => 0);
-      questions.forEach((question, index) => {
-        const direction = question.pole === dimensions[question.axis].first ? 1 : -1;
-        scores[question.axis] += answers[index] * direction;
-      });
-      const resultDimensions = dimensions.map((dimension, index) => {
-        const maxScore = questions.filter(question => question.axis === index).length * 2;
-        const firstPercent = Math.round(50 + (scores[index] / maxScore) * 50);
-        return {
-          ...dimension,
-          score: scores[index],
-          firstPercent,
-          secondPercent: 100 - firstPercent,
-          letter: scores[index] > 0 ? dimension.first : scores[index] < 0 ? dimension.second : "X"
-        };
-      });
-      const code = resultDimensions.map(dimension => dimension.letter).join("");
-      const matches = Object.keys(types).filter(typeCode => code.split("").every((letter, index) => letter === "X" || typeCode[index] === letter));
-      return { code, dimensions: resultDimensions, matches, type: types[code] || null };
-    }
-
-    function renderResult(moveFocus = false) {
-      quizMode = "result";
-      const result = calculateResult();
-      const type = result.type;
-      const group = type ? groups[type.group] : groups.analysts;
-      quizContent.innerHTML = `
-        <div class="result-top" style="--result-soft:${group.soft};--result-accent:${group.accent}">
-          <div>
-            <span class="eyebrow">Một góc nhìn mới về bạn</span>
-            <h2 class="result-code" tabindex="-1" data-focus-heading>${result.code}</h2>
-            <p class="result-name">${type ? type.name : "Một bức tranh cân bằng"}</p>
-          </div>
-          ${portrait(type ? result.code : "INFP")}
-        </div>
-        <p class="result-intro">${type ? type.description : "Một hoặc nhiều khía cạnh của bạn đang cân bằng. Chữ X đánh dấu xu hướng chưa rõ trong bài tự đánh giá này — vì vậy, mình. chưa gán bạn vào một nhóm cụ thể. Đây cũng là một điểm khởi đầu thú vị để hiểu thêm về bản thân."}</p>
-        <h3 class="result-section-title">Bốn khía cạnh trong câu trả lời của bạn</h3>
-        <div class="result-spectrums">
-          ${result.dimensions.map(dimension => `<div class="result-spectrum">
-            <div class="spectrum-labels">
-              <span class="${dimension.score > 0 ? "dominant" : ""}">${dimension.first} · ${dimension.labels[dimension.first]} ${dimension.firstPercent}%</span>
-              <span class="${dimension.score < 0 ? "dominant" : ""}">${dimension.secondPercent}% ${dimension.labels[dimension.second]} · ${dimension.second}</span>
-            </div>
-            <div class="spectrum-track" role="img" aria-label="${dimension.title}: ${dimension.labels[dimension.first]} ${dimension.firstPercent}%, ${dimension.labels[dimension.second]} ${dimension.secondPercent}%"><div class="spectrum-fill" style="width:${dimension.firstPercent}%"></div></div>
-          </div>`).join("")}
-        </div>
-        ${type ? `<div class="result-extra-grid">
-          <div><h3 class="result-section-title">Thế mạnh thường gặp</h3><div class="tag-list">${type.strengths.map(value => `<span class="tag">${value}</span>`).join("")}</div></div>
-          <div><h3 class="result-section-title">Hướng đi có thể khám phá</h3><div class="tag-list">${type.careers.map(value => `<span class="tag">${value}</span>`).join("")}</div></div>
-        </div>` : `<h3 class="result-section-title">Những nhóm bạn có thể tìm hiểu thêm</h3><div class="match-list">${result.matches.map(code => `<button class="match-button" data-type="${code}" aria-label="Tìm hiểu ${code} — ${types[code].name}">${code}</button>`).join("")}</div>`}
-        <p class="result-notice">Các tỷ lệ chỉ mô tả xu hướng từ câu trả lời, không phải thước đo năng lực hoặc độ chính xác. Đây không phải công cụ MBTI® chính thức. Hãy xem kết quả như gợi ý tự khám phá, không phải giới hạn bản thân hay căn cứ duy nhất để chọn nghề.</p>
-        <div class="result-actions">
-          <button class="btn btn-primary" data-quiz-action="copy">${icon("copy")} Sao chép kết quả</button>
-          <button class="btn btn-outline" data-quiz-action="restart">${icon("reset")} Làm lại bài test</button>
-        </div>`;
-      quizDialog.scrollTop = 0;
-      if (moveFocus) focusQuizHeading();
-    }
-
-    function openQuiz() {
-      if (detailDialog.open) detailDialog.close();
-      if (completed) renderResult();
-      else renderQuestion();
-      if (!quizDialog.open) quizDialog.showModal();
-      syncScrollLock();
-      focusQuizHeading();
-    }
-
-    function renderRestartConfirmation() {
-      quizMode = "confirm";
-      quizContent.innerHTML = `<div class="restart-view">
-        ${icon("reset")}
-        <h2 tabindex="-1" data-focus-heading>Bắt đầu một góc nhìn mới?</h2>
-        <p>Bài làm hiện tại sẽ được xóa khỏi trình duyệt. Bạn có thể sao chép kết quả trước khi bắt đầu lại.</p>
-        <div class="result-actions">
-          <button class="btn btn-outline" data-quiz-action="cancel-restart">Giữ kết quả</button>
-          <button class="btn btn-primary" data-quiz-action="confirm-restart">Bắt đầu lại ${icon("arrow-right")}</button>
-        </div>
-      </div>`;
-      quizDialog.scrollTop = 0;
-      focusQuizHeading();
-    }
-
-    quizDialog.addEventListener("change", event => {
-      const input = event.target;
-      if (!input.matches('input[name="mbti-answer"]') || quizMode !== "question") return;
-      answers[questionIndex] = Number(input.value);
-      saveProgress();
-      const count = answeredCount();
-      document.getElementById("mbti-quiz-next").disabled = false;
-      document.getElementById("mbti-answered-label").textContent = `${count} câu đã trả lời`;
-      const progress = quizContent.querySelector(".progress-track");
-      progress.setAttribute("aria-valuenow", String(count));
-      progress.querySelector(".progress-fill").style.width = `${Math.round(count / questions.length * 100)}%`;
-    });
-
-    quizDialog.addEventListener("keydown", event => {
-      if (quizMode !== "question" || event.ctrlKey || event.altKey || event.metaKey) return;
-      if (/^[1-5]$/.test(event.key)) {
-        event.preventDefault();
-        const input = quizContent.querySelectorAll('input[name="mbti-answer"]')[Number(event.key) - 1];
-        input.click();
-        input.focus();
-      }
-    });
-
-    quizDialog.addEventListener("click", event => {
-      const actionButton = event.target.closest("[data-quiz-action]");
-      if (!actionButton || actionButton.disabled) return;
-      switch (actionButton.dataset.quizAction) {
-        case "previous":
-          if (questionIndex > 0) {
-            questionIndex--;
-            saveProgress();
-            renderQuestion(true);
-          }
-          break;
-        case "next":
-          if (answers[questionIndex] === null) return;
-          if (questionIndex < questions.length - 1) {
-            questionIndex++;
-            saveProgress();
-            renderQuestion(true);
-          } else {
-            const unanswered = answers.findIndex(value => value === null);
-            if (unanswered !== -1) {
-              questionIndex = unanswered;
-              renderQuestion(true);
-              showToast("Còn một câu hỏi đang chờ bạn trả lời.");
-            } else {
-              completed = true;
-              saveProgress();
-              renderResult(true);
-            }
-          }
-          break;
-        case "restart":
-          renderRestartConfirmation();
-          break;
-        case "cancel-restart":
-          renderResult(true);
-          break;
-        case "confirm-restart":
-          answers = new Array(questions.length).fill(null);
-          questionIndex = 0;
-          completed = false;
-          saveProgress();
-          renderQuestion(true);
-          break;
-        case "copy":
-          copyResult();
-          break;
-      }
-    });
-
-    async function copyResult() {
-      const result = calculateResult();
-      const title = result.type ? `${result.code} — ${result.type.name}` : `${result.code} — Một bức tranh cân bằng (X: xu hướng chưa rõ)`;
-      const text = `Góc nhìn tính cách của mình: ${title}\n\n${result.dimensions.map(dimension => `${dimension.title}: ${dimension.labels[dimension.first]} ${dimension.firstPercent}% · ${dimension.labels[dimension.second]} ${dimension.secondPercent}%`).join("\n")}\n\nKết quả từ bài tự khám phá 32 câu hỏi trên mình. Chỉ mang tính tham khảo, không phải đánh giá MBTI chính thức hay giới hạn của bản thân.`;
-      let copied = false;
-      if (navigator.clipboard && window.isSecureContext) {
-        try { await navigator.clipboard.writeText(text); copied = true; } catch (_) {}
-      }
-      if (!copied) {
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.setAttribute("readonly", "");
-        textarea.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
-        quizDialog.appendChild(textarea);
-        textarea.select();
-        try { copied = document.execCommand("copy"); } catch (_) {}
-        textarea.remove();
-      }
-      showToast(copied ? "Đã sao chép kết quả. Giữ lại một góc nhìn về mình nhé!" : "Trình duyệt chưa cho phép sao chép. Bạn có thể chọn trực tiếp nội dung kết quả.");
-    }
-
-    let toastTimeout;
-    function showToast(message) {
-      const toast = document.getElementById("mbti-toast");
-      const openDialog = dialogs.find(dialog => dialog.open);
-      (openDialog || modalRoot).appendChild(toast);
-      clearTimeout(toastTimeout);
-      toast.textContent = message;
-      toast.classList.add("show");
-      toastTimeout = setTimeout(() => toast.classList.remove("show"), 4000);
-    }
-
     dialogs.forEach(dialog => {
-      dialog.addEventListener("close", () => {
-        syncScrollLock();
-        if (dialog === quizDialog && !completed && answeredCount() > 0 && !detailDialog.open && storageEnabled) {
-          showToast("Tiến trình đã được lưu trên trình duyệt. Hẹn bạn quay lại!");
-        }
-      });
+      dialog.addEventListener("close", syncScrollLock);
       dialog.addEventListener("click", event => {
         if (event.target !== dialog) return;
         const bounds = dialog.getBoundingClientRect();
@@ -922,15 +596,10 @@
       });
     });
 
-    /* Mọi nút có data-start, hoặc nút/link Flatsome trỏ tới #lam-bai-test, đều mở bài test */
     document.addEventListener("click", event => {
-      const start = event.target.closest('.mbti [data-start], a[href$="#lam-bai-test"]');
       const typeTrigger = event.target.closest(".mbti [data-type]");
       const close = event.target.closest(".mbti [data-close]");
-      if (start) {
-        event.preventDefault();
-        openQuiz();
-      } else if (typeTrigger) {
+      if (typeTrigger) {
         openPersonality(typeTrigger.dataset.type);
       } else if (close) {
         const dialog = document.getElementById(close.dataset.close);
@@ -939,8 +608,6 @@
     });
 
     renderGroup(groupKeys[0]);
-    updateResume();
-    if (location.hash === "#lam-bai-test") openQuiz();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
