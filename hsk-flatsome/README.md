@@ -1,42 +1,48 @@
-# Giao diện Thi thử HSK cho Flatsome (UX Builder)
+# Giao diện Thi thử HSK – tracnghiemplus.com (Flatsome)
 
-## Cấu trúc
-```
-00-ux-block-css-js.html     CSS + JS + Font Awesome  -> dán vào UX Block riêng tư
-trang-chinh/                Trang /de-thi-hsk/  (5 section)
-hsk1/ ... hsk6/             Trang /thi-thu-hsk-N/ (4 section mỗi trang)
-```
-Mỗi file = 1 section. Dán lần lượt theo số thứ tự vào trang (chế độ **Text** của UX Builder / editor).
+Bản sao của code đang chạy trên site. Sửa trên site thì nên cập nhật lại file ở đây.
 
-## Cách cài
-1. Flatsome → **UX Blocks → Add New** (đặt tên "HSK Assets", để riêng tư). Thêm element **HTML**, dán toàn bộ `00-ux-block-css-js.html`. Ghi lại ID block.
-2. Ở đầu mỗi trang HSK, thêm `[block id="hsk-assets"]` (slug hoặc ID của UX Block).
-   Hoặc chèn block vào mọi trang HSK bằng *Flatsome → Theme Options → Header / Footer scripts* nếu không muốn thêm tay.
-3. Dán các file section vào từng trang. Mỗi file đã bọc `[section][row][col][ux_html]`.
-   - Các thẻ đầu khối dùng `<div>` (không dùng `<span>`) và **không có dòng trống** để WordPress không chèn `<p>` thừa.
-4. Trang chính: `/de-thi-hsk/`. Trang con: `/thi-thu-hsk-1/` … `/thi-thu-hsk-6/` (đổi trong script nếu slug khác).
-
-## Quy ước tag/category cho plugin đề
-Đề thứ `i` của cấp `n`:
-
-| Mục | Category |
+| File | Nơi dùng trên site |
 |---|---|
-| Đọc hiểu | `hskN-deI-doc` |
-| Nghe hiểu | `hskN-deI-nghe` |
-| Từ vựng | `hskN-deI-tu-vung` |
-| Ngữ pháp | `hskN-deI-ngu-phap` |
-| Viết (HSK 3-6) | `hskN-deI-viet` |
-| Thi Full đề | `hskN-deI-full` |
-| Cả cấp (tab trang chính) | `hskN` |
+| `00-ux-block-hsk-assets.txt` | UX Block riêng tư **"HSK – CSS + JS dùng chung"** (ID 957, slug `hsk-assets`) |
+| `trang-chinh_thi-thu-hsk.txt` | Trang `/thi-thu-hsk/` (ID 12) |
+| `thi-thu-hsk-1.txt` … `thi-thu-hsk-6.txt` | Trang `/thi-thu-hsk-1/` … `/thi-thu-hsk-6/` (ID 516, 518, 523, 520, 525, 527) |
 
-Ví dụ: `[tqp_category_landing category="hsk1-de1-doc"]`.
-Mỗi trang cấp độ hiển thị sẵn 5 đề. Muốn thêm đề: copy một khối `<div class="hs-card">…</div>` rồi đổi số `deI`.
+Mỗi trang dùng template `page-blank.php`. Mỗi section Flatsome có `label` riêng (vd. "HSK3 - 2. Bộ đề thi thử") để dễ tìm trong UX Builder.
+CSS + JS được nạp bằng `[block id="hsk-assets"]` ở section đầu mỗi trang.
 
-## Tự ẩn kỹ năng chưa có đề
-`hs-skill` chứa shortcode trong `.hs-skill__slot`. JS kiểm tra kết quả shortcode:
-không có link / rỗng / có chữ "chưa có, không có…" → ẩn dòng đó; thẻ đề nào không còn kỹ năng nào → ẩn cả thẻ.
+## Cách đề thi được nối vào trang
 
-## Cần chỉnh theo plugin của bạn
-- Mình chưa thấy HTML thật mà `[tqp_category_landing]` xuất ra, nên CSS đang style **mọi thẻ `<a>`** trong slot thành nút.
-  Nếu plugin xuất danh sách nhiều đề, đổi `renameLinks:false` trong JS để giữ nguyên tất cả link.
-- Link “Từ vựng HSK N” trên hero đang là `#`: thay bằng trang từ vựng.
+Giống trang JLPT: mỗi trang có một cột ẩn `hs-src` chứa
+
+```
+[tqp_category_landing category="HSK"]
+```
+
+JS đọc các thẻ đề `.ts-portal-card` mà shortcode xuất ra, phân loại theo **tiêu đề đề thi**:
+
+- **Cấp độ**: có `HSK 1` … `HSK 6` trong tiêu đề.
+- **Số đề**: `Đề 1`, `Đề 2`, … → gom thành thẻ "Đề N thi thử HSK X".
+- **Kỹ năng**: `Đọc hiểu` / `Phần đọc`, `Nghe hiểu` / `Phần nghe`, `Từ vựng`, `Ngữ pháp`, `Viết` / `Phần viết`.
+- Tiêu đề không chứa kỹ năng nào → coi là **đề Full** (nút "Thi Full đề").
+
+Ví dụ đặt tên đề trong plugin (đưa vào chuyên mục **HSK**):
+
+```
+Đề 1 thi thử HSK 1 - Đọc hiểu
+Đề 1 thi thử HSK 1 - Nghe hiểu
+Đề 1 thi thử HSK 1 - Từ vựng
+Đề 1 thi thử HSK 1 - Ngữ pháp
+Đề 1 thi thử HSK 1            ← đề Full
+Đề 1 thi thử HSK 3 - Phần viết
+```
+
+Kỹ năng nào chưa có đề thì **ẩn hẳn** (cả trong thẻ đề lẫn khối "Luyện theo kỹ năng");
+cấp chưa có đề nào sẽ hiện "Đề HSK X đang được cập nhật".
+Muốn nhận thêm từ khóa kỹ năng: sửa biến `SK` trong JS của UX Block.
+
+## Lưu ý khi sửa HTML
+
+WordPress tự chèn `<p>` quanh thẻ inline (`<span>`, `<a>`, `<small>`, `<b>`) đứng đầu khối.
+Vì vậy phần tử đầu khối luôn là `<div>`; nút/link đứng một mình được bọc trong `<div>`
+(vd. `<div class="hs-skill__go"><a …>Test ngay</a></div>`).
