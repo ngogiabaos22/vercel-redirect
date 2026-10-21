@@ -7,9 +7,11 @@
   --tp-ink:#2b1a24; --tp-mute:#7a6670; --tp-line:#ecd9e1;
   --tp-brand:#a3174f; --tp-brand-d:#7f1039; --tp-soft:#fbeaf1; --tp-soft2:#fff6f9;
   --tp-card:#fff; --tp-radius:6px;
-  --tp-serif:Georgia,"Times New Roman",serif;
-  --tp-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  color:var(--tp-ink); line-height:1.6; font-size:15px;
+  --tp-serif:'Lora',Georgia,"Times New Roman",serif;
+  /* Font hỗ trợ tiếng Việt đầy đủ (không dùng font mono để tránh lỗi dấu) */
+  --tp-sans:'Be Vietnam Pro',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --tp-mono:var(--tp-sans);
+  color:var(--tp-ink); line-height:1.6; font-size:15px; font-family:var(--tp-sans);
 }
 .tqp-tp *,.tqp-tp *::before,.tqp-tp *::after{box-sizing:border-box}
 .tqp-tp a{text-decoration:none}
@@ -140,7 +142,7 @@
 /* Danh sách đề mặc định của plugin (trang EPS / khi chưa có JS) */
 .tqp-tp .ts-portal-grid,.tp-src .ts-portal-grid{display:grid;grid-template-columns:1fr;gap:12px}
 .tqp-tp .ts-portal-card,.tp-src .ts-portal-card{background:#fff;border:1px solid var(--tp-line,#ecd9e1);border-radius:10px;padding:16px;margin:0;box-shadow:0 2px 10px rgba(163,23,79,.06)}
-.tqp-tp .ts-portal-card-title,.tp-src .ts-portal-card-title{font:700 17px/1.35 Georgia,serif;color:var(--tp-ink,#2b1a24);margin:0 0 8px}
+.tqp-tp .ts-portal-card-title,.tp-src .ts-portal-card-title{font:700 17px/1.35 'Lora',Georgia,serif;color:var(--tp-ink,#2b1a24);margin:0 0 8px}
 .tqp-tp .ts-portal-card-meta,.tp-src .ts-portal-card-meta{display:flex;gap:14px;font-size:12px;color:var(--tp-mute,#7a6670);margin-bottom:12px}
 .tqp-tp .ts-portal-start-btn,.tp-src .ts-portal-start-btn{border-radius:8px;background:var(--tp-brand,#a3174f);color:#fff!important;padding:11px;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 .tqp-tp .ts-portal-start-btn:hover{background:var(--tp-brand-d,#7f1039)}
@@ -160,3 +162,21 @@ html{scroll-behavior:smooth}
 .tqp-tp .ts-portal-empty{grid-column:1/-1;background:var(--tp-soft2);border:1px dashed var(--tp-line);border-radius:8px;padding:14px;text-align:center;color:var(--tp-mute);font-size:13px}
 .tqp-tp .ts-portal-empty p{margin:0}
 .tqp-tp .ts-portal-empty-icon{display:none}
+
+/* ==========================================================
+   BỐ CỤC NHIỀU SECTION (mỗi phần là 1 [section] Flatsome riêng)
+   Section có class "tqp-tp tp-s"; nền & padding chỉnh trong UX Builder.
+   ========================================================== */
+.tqp-tp p,.tqp-tp li,.tqp-tp td,.tqp-tp th,.tqp-tp a,.tqp-tp span,.tqp-tp small,.tqp-tp b{font-family:var(--tp-sans)}
+.tqp-tp h1,.tqp-tp h2,.tqp-tp h3,.tqp-tp .tp-meta b,.tqp-tp .tp-num{font-family:var(--tp-serif)}
+.tp-s .tp-row>.col{padding-bottom:0}
+.tp-s br{display:none}.tp-s p:empty{display:none}
+.tqp-tp h1{font-size:clamp(28px,5.2vw,46px);line-height:1.18;margin:6px 0 14px;font-weight:700}
+.tqp-tp h2{font-size:clamp(22px,3.6vw,32px);line-height:1.25;margin:0 0 10px;font-weight:700}
+.tqp-tp .tp-card h2{font-size:24px;margin:8px 0 6px}
+.tqp-tp .tp-head{max-width:760px;margin-bottom:20px}
+.tqp-tp .tp-sub{color:var(--tp-mute);max-width:700px;margin-bottom:0}
+.tqp-tp .tp-lead{max-width:680px;color:#4a3a43;font-size:16px}
+.tp-s .tp-crumb{margin-top:22px;border-top:1px solid var(--tp-line);border-bottom:0;padding:12px 0 0}
+.tqp-tp .tp-anchor{display:block;position:relative;top:-100px;height:0;visibility:hidden}
+.tp-s .tp-crosslinks{margin:0}
