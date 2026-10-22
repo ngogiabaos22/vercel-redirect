@@ -5,7 +5,7 @@
   "max_score": 100,
   "groups": [
     {
-      "group_type": "grammar",
+      "group_type": "reading",
       "instruction": "Câu 1-25: 빈칸에 들어갈 가장 알맞은 것을 고르십시오. (Chọn đáp án phù hợp nhất điền vào chỗ trống.)",
       "passage_text": "",
       "audio": "",
