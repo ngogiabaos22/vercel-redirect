@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form tạo đề thi (JSON import)</title>
+<style>
+  :root { --bg:#f5f6f8; --card:#fff; --line:#d9dce1; --text:#1c1f24; --muted:#6a7280; --accent:#2457d6; --danger:#c8372d; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14161a; --card:#1d2026; --line:#333844; --text:#e8eaee; --muted:#9aa3b2; --accent:#6c8fff; --danger:#ff6b60; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui,sans-serif; }
+  .wrap { max-width:1100px; margin:0 auto; padding:16px; }
+  h1 { font-size:20px; margin:0 0 12px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:14px; }
+  .grid { display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+  label { display:block; font-size:12px; color:var(--muted); margin-bottom:2px; }
+  input, select, textarea { width:100%; padding:7px 9px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--text); font:inherit; }
+  textarea { resize:vertical; min-height:60px; }
+  textarea.passage { min-height:160px; font-family:ui-monospace,monospace; font-size:13px; }
+  button { padding:7px 12px; border:1px solid var(--line); border-radius:6px; background:var(--card); color:var(--text); font:inherit; cursor:pointer; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  button.danger { color:var(--danger); }
+  button:hover { filter:brightness(.95); }
+  .bar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .group-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .group-head strong { font-size:16px; }
+  .q { border:1px dashed var(--line); border-radius:8px; padding:10px; margin-top:10px; }
+  .q-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; font-weight:600; }
+  .opts { display:grid; gap:8px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin:8px 0; }
+  .opt { display:flex; gap:6px; align-items:center; }
+  .opt b { width:18px; }
+  .row { margin-top:8px; }
+  .hint { font-size:12px; color:var(--muted); }
+  #preview { width:100%; min-height:260px; font-family:ui-monospace,monospace; font-size:12px; }
+  .warn { color:var(--danger); font-size:13px; margin:6px 0; white-space:pre-line; }
+  details summary { cursor:pointer; color:var(--muted); font-size:13px; margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Form tạo đề thi → JSON import</h1>
+
+  <div class="card">
+    <div class="bar" style="margin-bottom:10px">
+      <button id="btnLoad">📂 Mở file JSON để sửa</button>
+      <input type="file" id="fileInput" accept=".json,application/json" hidden>
+      <button id="btnReset" class="danger">Xoá hết, làm đề mới</button>
+      <span class="hint">Bản nháp tự lưu trong trình duyệt.</span>
+    </div>
+    <div class="grid">
+      <div><label>Tiêu đề đề thi</label><input id="m_title" placeholder="VSTEP Reading Test 3"></div>
+      <div><label>Danh mục (category)</label><input id="m_category" placeholder="VSTEP, Reading"></div>
+      <div><label>Thời gian (phút)</label><input id="m_duration" type="number" min="0"></div>
+      <div><label>Điểm tối đa</label><input id="m_max" type="number" min="0"></div>
+    </div>
+  </div>
+
+  <div id="groups"></div>
+  <div class="bar" style="margin-bottom:14px"><button id="btnAddGroup" class="primary">+ Thêm nhóm / bài đọc</button></div>
+
+  <div class="card">
+    <div class="bar" style="margin-bottom:8px">
+      <strong>JSON kết quả</strong>
+      <button id="btnCopy">Copy</button>
+      <button id="btnDownload" class="primary">⬇ Tải file .json</button>
+    </div>
+    <div id="warn" class="warn"></div>
+    <textarea id="preview" readonly></textarea>
+  </div>
+</div>
+
+<script>
+const KEY = 'exam-form-draft-v1';
+const LETTERS = ['A', 'B', 'C', 'D'];
+const newQuestion = () => ({ question_text:'', opts:['','','',''], correct_ans:'', explanation:'', audio:'', image:'' });
+const newGroup = () => ({ group_type:'reading', instruction:'', passage_text:'', audio:'', image:'', points_per_q:'', questions:[newQuestion()] });
+const blank = () => ({ title:'', category:'', duration_minutes:'', max_score:'', groups:[newGroup()] });
+
+let state = load() || blank();
+
+function load() { try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; } }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+const $ = (id) => document.getElementById(id);
+function el(tag, props = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (k === 'class') n.className = v; else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else n[k] = v;
+  }
+  kids.forEach((c) => n.append(c));
+  return n;
+}
+// field bound to an object property; typing only refreshes the preview (no re-render)
+function field(labelText, obj, key, { tag = 'input', type, cls, placeholder, rows } = {}) {
+  const input = el(tag, { value: obj[key] ?? '', placeholder: placeholder || '' });
+  if (type) input.type = type;
+  if (cls) input.className = cls;
+  if (rows) input.rows = rows;
+  input.addEventListener('input', () => { obj[key] = input.value; update(); });
+  return el('div', {}, el('label', { textContent: labelText }), input);
+}
+
+function render() {
+  $('m_title').value = state.title;
+  $('m_category').value = state.category;
+  $('m_duration').value = state.duration_minutes;
+  $('m_max').value = state.max_score;
+
+  const root = $('groups');
+  root.replaceChildren();
+  state.groups.forEach((g, gi) => {
+    const head = el('div', { class: 'group-head' },
+      el('strong', { textContent: `Nhóm ${gi + 1}` }),
+      el('div', { class: 'bar' },
+        el('button', { textContent: '↑', title: 'Lên', onclick: () => move(gi, -1) }),
+        el('button', { textContent: '↓', title: 'Xuống', onclick: () => move(gi, 1) }),
+        el('button', { class: 'danger', textContent: 'Xoá nhóm', onclick: () => { if (confirm('Xoá nhóm này?')) { state.groups.splice(gi, 1); render(); update(); } } })));
+
+    const typeSel = el('select', {}, ...['reading', 'listening', 'writing', 'speaking', 'grammar', 'other'].map((t) => el('option', { value: t, textContent: t, selected: g.group_type === t })));
+    typeSel.addEventListener('change', () => { g.group_type = typeSel.value; update(); });
+
+    const meta = el('div', { class: 'grid' },
+      el('div', {}, el('label', { textContent: 'Loại nhóm (group_type)' }), typeSel),
+      field('Điểm mỗi câu (points_per_q)', g, 'points_per_q', { type: 'number' }),
+      field('Audio (URL, tuỳ chọn)', g, 'audio'),
+      field('Ảnh (URL, tuỳ chọn)', g, 'image'));
+
+    const qs = el('div', {});
+    g.questions.forEach((q, qi) => qs.append(questionEl(g, q, qi)));
+
+    root.append(el('div', { class: 'card' }, head, meta,
+      el('div', { class: 'row' }, field('Hướng dẫn (instruction)', g, 'instruction', { placeholder: 'PASSAGE 1 - Questions 1-10: Read the passage...' })),
+      el('div', { class: 'row' }, field('Đoạn văn / nội dung chung (passage_text, cho phép HTML)', g, 'passage_text', { tag: 'textarea', cls: 'passage' })),
+      qs,
+      el('div', { class: 'row' }, el('button', { textContent: '+ Thêm câu hỏi', onclick: () => { g.questions.push(newQuestion()); render(); update(); } }))));
+  });
+}
+
+function questionEl(g, q, qi) {
+  const opts = el('div', { class: 'opts' }, ...LETTERS.map((L, i) => {
+    const inp = el('input', { value: q.opts[i], placeholder: `Đáp án ${L}` });
+    inp.addEventListener('input', () => { q.opts[i] = inp.value; update(); });
+    return el('div', { class: 'opt' }, el('b', { textContent: L }), inp);
+  }));
+  const sel = el('select', {}, el('option', { value: '', textContent: '— Chưa có đáp án đúng —', selected: !q.correct_ans }),
+    ...LETTERS.map((L) => el('option', { value: L, textContent: L, selected: q.correct_ans === L })));
+  sel.addEventListener('change', () => { q.correct_ans = sel.value; update(); });
+
+  return el('div', { class: 'q' },
+    el('div', { class: 'q-head' },
+      el('span', { class: 'qnum', textContent: `Câu ${numberOf(g, qi)}` }),
+      el('div', { class: 'bar' },
+        el('button', { textContent: 'Nhân bản', onclick: () => { g.questions.splice(qi + 1, 0, JSON.parse(JSON.stringify(q))); render(); update(); } }),
+        el('button', { class: 'danger', textContent: 'Xoá', onclick: () => { g.questions.splice(qi, 1); render(); update(); } }))),
+    field('Nội dung câu hỏi', q, 'question_text', { tag: 'textarea', rows: 2 }),
+    opts,
+    el('div', { class: 'grid' }, el('div', {}, el('label', { textContent: 'Đáp án đúng (tuỳ chọn)' }), sel)),
+    el('div', { class: 'row' }, field('Giải thích (tuỳ chọn)', q, 'explanation', { tag: 'textarea', rows: 2 })),
+    el('details', {}, el('summary', { textContent: 'Audio / ảnh riêng cho câu này' }),
+      el('div', { class: 'grid row' }, field('Audio (URL)', q, 'audio'), field('Ảnh (URL)', q, 'image'))));
+}
+
+function numberOf(g, qi) {
+  let n = 0;
+  for (const gg of state.groups) { if (gg === g) return n + qi + 1; n += gg.questions.length; }
+  return qi + 1;
+}
+function move(i, d) {
+  const j = i + d;
+  if (j < 0 || j >= state.groups.length) return;
+  [state.groups[i], state.groups[j]] = [state.groups[j], state.groups[i]];
+  render(); update();
+}
+
+const numOrBlank = (v) => (v === '' || v == null || isNaN(Number(v)) ? '' : Number(v));
+
+function toExport() {
+  let n = 0;
+  return {
+    title: state.title.trim(),
+    category: state.category.trim(),
+    duration_minutes: numOrBlank(state.duration_minutes),
+    max_score: numOrBlank(state.max_score),
+    groups: state.groups.map((g) => ({
+      group_type: g.group_type,
+      instruction: g.instruction,
+      passage_text: g.passage_text,
+      audio: g.audio || '',
+      image: g.image || '',
+      points_per_q: numOrBlank(g.points_per_q),
+      questions: g.questions.map((q) => ({
+        question_number: ++n,
+        question_text: q.question_text,
+        opt_a: q.opts[0], opt_b: q.opts[1], opt_c: q.opts[2], opt_d: q.opts[3],
+        correct_ans: q.correct_ans || '',
+        explanation: q.explanation || '',
+        audio: q.audio || '',
+        image: q.image || ''
+      }))
+    }))
+  };
+}
+
+function validate(out) {
+  const w = [];
+  if (!out.title) w.push('Thiếu tiêu đề đề thi.');
+  out.groups.forEach((g, gi) => g.questions.forEach((q) => {
+    if (!q.question_text.trim()) w.push(`Câu ${q.question_number} (nhóm ${gi + 1}): chưa có nội dung.`);
+    if (!q.opt_a.trim() || !q.opt_b.trim()) w.push(`Câu ${q.question_number}: cần ít nhất đáp án A và B.`);
+    const key = 'opt_' + q.correct_ans.toLowerCase();
+    if (q.correct_ans && !String(q[key] || '').trim()) w.push(`Câu ${q.question_number}: đáp án đúng ${q.correct_ans} đang để trống.`);
+  }));
+  return w;
+}
+
+function update() {
+  const out = toExport();
+  $('preview').value = JSON.stringify(out, null, 2);
+  const w = validate(out);
+  $('warn').textContent = w.length ? '⚠ ' + w.slice(0, 15).join('\n') + (w.length > 15 ? `\n... và ${w.length - 15} cảnh báo nữa` : '') : '';
+  document.querySelectorAll('.qnum').forEach((s, i) => { s.textContent = `Câu ${i + 1}`; });
+  save();
+}
+
+// load an existing JSON file into the form
+function fromImport(data) {
+  const s = blank();
+  s.title = data.title || ''; s.category = data.category || '';
+  s.duration_minutes = data.duration_minutes ?? ''; s.max_score = data.max_score ?? '';
+  s.groups = (data.groups || []).map((g) => ({
+    group_type: g.group_type || 'reading', instruction: g.instruction || '', passage_text: g.passage_text || '',
+    audio: g.audio || '', image: g.image || '', points_per_q: g.points_per_q ?? '',
+    questions: (g.questions || []).map((q) => ({
+      question_text: q.question_text || '', opts: [q.opt_a || '', q.opt_b || '', q.opt_c || '', q.opt_d || ''],
+      correct_ans: (q.correct_ans || '').toUpperCase(), explanation: q.explanation || '', audio: q.audio || '', image: q.image || ''
+    }))
+  }));
+  if (!s.groups.length) s.groups = [newGroup()];
+  return s;
+}
+
+[['m_title', 'title'], ['m_category', 'category'], ['m_duration', 'duration_minutes'], ['m_max', 'max_score']].forEach(([id, k]) =>
+  $(id).addEventListener('input', () => { state[k] = $(id).value; update(); }));
+$('btnAddGroup').onclick = () => { state.groups.push(newGroup()); render(); update(); };
+$('btnReset').onclick = () => { if (confirm('Xoá toàn bộ và tạo đề mới?')) { state = blank(); render(); update(); } };
+$('btnLoad').onclick = () => $('fileInput').click();
+$('fileInput').onchange = async (e) => {
+  const f = e.target.files[0]; if (!f) return;
+  try { state = fromImport(JSON.parse(await f.text())); render(); update(); } catch (err) { alert('File JSON không hợp lệ: ' + err.message); }
+  e.target.value = '';
+};
+$('btnCopy').onclick = async () => { try { await navigator.clipboard.writeText($('preview').value); } catch (e) { $('preview').select(); document.execCommand('copy'); } };
+$('btnDownload').onclick = () => {
+  const out = toExport();
+  const name = (out.title || 'de_thi').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '') || 'de_thi';
+  const a = el('a', { href: URL.createObjectURL(new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' })), download: name + '.json' });
+  a.click(); URL.revokeObjectURL(a.href);
+};
+
+render(); update();
+</script>
+</body>
+</html>
