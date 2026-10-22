@@ -140,7 +140,7 @@ function tqp_api_submit_exam($request) {
 
     // KIỂM TRA BẢO MẬT: Nếu đề có tag nhiệm vụ, bắt buộc phải xác minh mã nhiệm vụ
     if (!empty($exam->pass_tag)) {
-        $api_url = 'https://traffic.io.vn/wp-json/iats/v1/code/verify';
+        $api_url = tqp_hub_api_url('code/verify');
         
         $forwarded_ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
         $forwarded_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
@@ -149,6 +149,7 @@ function tqp_api_submit_exam($request) {
         $response = wp_remote_post($api_url, array(
             'body'    => json_encode(array(
                 'code' => trim($unlock_code),
+                'tag' => $exam->pass_tag,
                 'forwarded_ip' => $forwarded_ip,
                 'forwarded_url' => $forwarded_url,
                 'forwarded_ua' => $forwarded_ua

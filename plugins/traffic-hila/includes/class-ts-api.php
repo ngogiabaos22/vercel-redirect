@@ -30,6 +30,12 @@ class IATS_API {
             'permission_callback' => '__return_true'
         ));
         
+        register_rest_route('iats/v1', '/popup/config', array(
+            'methods'  => 'GET',
+            'callback' => array('IATS_Popup', 'rest_config'),
+            'permission_callback' => '__return_true'
+        ));
+
         register_rest_route('iats/v1', '/client/init', array(
             'methods'  => 'POST',
             'callback' => array($this, 'client_init'),
@@ -122,6 +128,8 @@ class IATS_API {
             'img4' => $item->img4,
             'step4' => $item->step4
         );
+        // HTML hướng dẫn dựng sẵn theo cấu hình popup ở plugin quản lý
+        $data['instructions_html'] = IATS_Popup::render_instructions(IATS_Popup::get_config(), $data);
         
         return rest_ensure_response(array('success' => true, 'data' => $data));
     }
@@ -292,6 +300,15 @@ class IATS_API {
             return rest_ensure_response(array('success' => false, 'message' => 'Mã không tồn tại hoặc đã nhập sai. Vui lòng kiểm tra lại.'));
         }
         
+        // Mã phải thuộc nhiệm vụ đúng tag của đề thi (nếu website trắc nghiệm có gửi tag)
+        $tag = isset($params['tag']) ? sanitize_text_field($params['tag']) : '';
+        if ($tag !== '') {
+            $task_tag = $wpdb->get_var($wpdb->prepare("SELECT tag FROM " . IATS_TABLE_TASKS . " WHERE id = %d", $row->project_id));
+            if ((string) $task_tag !== $tag) {
+                return rest_ensure_response(array('success' => false, 'message' => 'Mã này không dùng được cho bài thi này. Vui lòng làm đúng nhiệm vụ được giao.'));
+            }
+        }
+
         if ($row->status === 'used') {
             return rest_ensure_response(array('success' => false, 'message' => 'Mã này đã được người khác sử dụng. Bạn phải làm nhiệm vụ mới!'));
         }

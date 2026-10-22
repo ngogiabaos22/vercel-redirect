@@ -227,6 +227,7 @@ function tqp_admin_enqueue_scripts($hook)
     }
 }
 
+require_once TQP_PATH . 'inc/hub-settings.php';
 require_once TQP_PATH . 'inc/admin-pages.php';
 
 // Include các file tính năng khác

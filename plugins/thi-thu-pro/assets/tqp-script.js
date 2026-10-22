@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const unlockSubmitBtnBottom = () => getEl('ts-unlock-submit-btn-bottom');
     const unlockCodeInputBottom = () => getEl('ts-unlock-code-input-bottom');
     const unlockErrorBottom = () => getEl('ts-unlock-error-bottom');
-    const taskTagName = () => getEl('ts-task-tag-name');
     const resultContainer = () => getEl('ts-result-container');
     const resultCorrect = () => getEl('ts-result-correct');
     const resultIncorrect = () => getEl('ts-result-incorrect');
@@ -894,44 +893,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timerInterval);
 
         if (examData.exam.requires_unlock) {
-            taskTagName().textContent = examData.exam.pass_tag;
-            lockModal().style.display = 'flex';
-
-            const tsTaskBtn = document.getElementById('ts-portal-task-btn'); if (tsTaskBtn) tsTaskBtn.click();
-
-            const handleUnlock = (inputEl, btnEl, errorEl) => {
-                const code = inputEl.value.trim();
-                if (!code) {
-                    showUnlockError('Vui lòng nhập mã xác nhận nhiệm vụ!', errorEl);
-                    return;
-                }
-                submitExam(code, btnEl, errorEl);
-            };
-
-            if (unlockSubmitBtnTop()) unlockSubmitBtnTop().onclick = (e) => {
-                if (e) e.preventDefault();
-                handleUnlock(unlockCodeInputTop(), unlockSubmitBtnTop(), unlockErrorTop());
-            };
-            if (unlockSubmitBtnBottom()) unlockSubmitBtnBottom().onclick = (e) => {
-                if (e) e.preventDefault();
-                handleUnlock(unlockCodeInputBottom(), unlockSubmitBtnBottom(), unlockErrorBottom());
-            };
-
-            const setupEnter = (inputEl, btnEl) => {
-                if (inputEl) {
-                    inputEl.onkeydown = (e) => {
-                        if (e.key === 'Enter') {
-                            e.preventDefault();
-                            btnEl.click();
-                        }
-                    };
-                }
-            };
-
-            setupEnter(unlockCodeInputTop(), unlockSubmitBtnTop());
-            setupEnter(unlockCodeInputBottom(), unlockSubmitBtnBottom());
-
-            if (unlockCodeInputTop()) unlockCodeInputTop().focus();
+            openTaskPopup();
         } else {
             submitExam('');
         }
@@ -944,43 +906,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         clearInterval(timerInterval);
         if (examData.exam.requires_unlock) {
-            taskTagName().textContent = examData.exam.pass_tag;
-            lockModal().style.display = 'flex';
-            const tsTaskBtn = document.getElementById('ts-portal-task-btn'); if (tsTaskBtn) tsTaskBtn.click();
-
-            const handleUnlock = (inputEl, btnEl, errorEl) => {
-                const code = inputEl.value.trim();
-                if (!code) {
-                    showUnlockError('Vui lòng nhập mã xác nhận nhiệm vụ!', errorEl);
-                    return;
-                }
-                submitExam(code, btnEl, errorEl);
-            };
-
-            if (unlockSubmitBtnTop()) unlockSubmitBtnTop().onclick = (e) => {
-                if (e) e.preventDefault();
-                handleUnlock(unlockCodeInputTop(), unlockSubmitBtnTop(), unlockErrorTop());
-            };
-            if (unlockSubmitBtnBottom()) unlockSubmitBtnBottom().onclick = (e) => {
-                if (e) e.preventDefault();
-                handleUnlock(unlockCodeInputBottom(), unlockSubmitBtnBottom(), unlockErrorBottom());
-            };
-
-            const setupEnter = (inputEl, btnEl) => {
-                if (inputEl) {
-                    inputEl.onkeydown = (e) => {
-                        if (e.key === 'Enter') {
-                            e.preventDefault();
-                            btnEl.click();
-                        }
-                    };
-                }
-            };
-
-            setupEnter(unlockCodeInputTop(), unlockSubmitBtnTop());
-            setupEnter(unlockCodeInputBottom(), unlockSubmitBtnBottom());
-
-            if (unlockCodeInputTop()) unlockCodeInputTop().focus();
+            openTaskPopup();
         } else {
             submitExam('');
         }
@@ -1041,209 +967,158 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // FETCH AND RENDER TASK
+    // POPUP NHIỆM VỤ
+    // Nội dung + giao diện do plugin quản lý nhiệm vụ (hub) cấu hình;
+    // plugin này chỉ lấy về và gắn xử lý nhập mã.
     // ============================================================
-    const tsTaskBtn = document.getElementById('ts-portal-task-btn');
-    if (tsTaskBtn) {
-        tsTaskBtn.addEventListener('click', async function (e) {
-            e.preventDefault();
-            if (!examData || !examData.exam || !examData.exam.pass_tag) return;
+    const hubUrl = (path) => String(tqp_vars.hub_api || '').replace(/\/+$/, '') + '/' + path;
+    let popupConfig = null;
 
-            tsTaskBtn.disabled = true;
-            tsTaskBtn.textContent = 'Đang tải nhiệm vụ...';
+    async function loadPopupConfig() {
+        if (popupConfig) return popupConfig;
+        const res = await fetch(hubUrl('popup/config'));
+        const json = await res.json();
+        if (!json || !json.success || !json.data) throw new Error('popup config');
+        popupConfig = json.data;
+        return popupConfig;
+    }
 
-            // Xử lý tạo nút X (nếu chưa có do lỗi cache)
-            const lockModalCard = lockModal().querySelector('.ts-modal-card');
-            if (lockModalCard && !document.getElementById('ts-lock-modal-close')) {
-                lockModalCard.style.position = 'relative';
-                const closeBtn = document.createElement('span');
-                closeBtn.id = 'ts-lock-modal-close';
-                closeBtn.innerHTML = '&times;';
-                closeBtn.style.cssText = 'position: absolute; top: 12px; right: 18px; font-size: 26px; cursor: pointer; color: #888; line-height: 1; font-weight: bold;';
-                closeBtn.onclick = function() {
-                    lockModal().style.display = 'none';
-                    if (remainingSeconds > 0) {
-                        clearInterval(timerInterval);
-                        timerInterval = setInterval(updateTimer, 1000);
-                    }
-                };
-                lockModalCard.appendChild(closeBtn);
-            }
+    function closeTaskPopup() {
+        lockModal().style.display = 'none';
+        if (remainingSeconds > 0) {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+    }
 
-            // Xử lý tạo spinner (nếu chưa có do lỗi cache)
-            let loadingSpinner = document.getElementById('ts-task-loading-spinner');
-            if (!loadingSpinner) {
-                const taskBox = document.querySelector('.ts-task-box');
-                if (taskBox) {
-                    loadingSpinner = document.createElement('div');
-                    loadingSpinner.id = 'ts-task-loading-spinner';
-                    loadingSpinner.style.cssText = 'display: none; margin: 30px 0;';
-                    loadingSpinner.innerHTML = `
-                        <svg viewBox="0 0 50 50" style="width: 40px; height: 40px; animation: ts-spin 1s linear infinite; margin: 0 auto; display: block;">
-                            <circle cx="25" cy="25" r="20" fill="none" stroke="#222" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"></circle>
-                        </svg>
-                        <p style="margin-top: 15px; color: #555; font-size: 14px; font-weight: bold;">Đang lấy hướng dẫn nhiệm vụ...</p>
-                        <style>@keyframes ts-spin { 100% { transform: rotate(360deg); } }</style>
-                    `;
-                    taskBox.insertBefore(loadingSpinner, taskBox.querySelector('.ts-locker-form-group') || taskBox.lastChild);
+    async function openTaskPopup() {
+        const modal = lockModal();
+        modal.style.display = 'flex';
+        if (modal.dataset.ready === '1') return;
+
+        let cfg;
+        try {
+            cfg = await loadPopupConfig();
+        } catch (err) {
+            console.error('TestSpace popup config error:', err);
+            modal.innerHTML = '<div class="ts-modal-card"><p class="ts-modal-desc">Không kết nối được hệ thống nhiệm vụ. Vui lòng thử lại sau.</p>' +
+                '<button type="button" class="ts-modal-btn secondary" id="ts-lock-modal-close">Đóng</button></div>';
+            getEl('ts-lock-modal-close').onclick = closeTaskPopup;
+            return;
+        }
+
+        modal.innerHTML = cfg.card_html;
+        modal.dataset.ready = '1';
+
+        const closeBtn = getEl('ts-lock-modal-close');
+        if (closeBtn) closeBtn.onclick = closeTaskPopup;
+
+        const forms = [
+            [unlockCodeInputTop, unlockSubmitBtnTop, unlockErrorTop],
+            [unlockCodeInputBottom, unlockSubmitBtnBottom, unlockErrorBottom]
+        ];
+        forms.forEach(([input, btn, err]) => {
+            if (!btn()) return;
+            btn().onclick = (e) => {
+                if (e) e.preventDefault();
+                const code = input().value.trim();
+                if (!code) {
+                    showUnlockError(cfg.err_empty_code, err());
+                    return;
                 }
-            }
-
-            // Hiện spinner, ẩn form nhập mã lúc đang gọi API
-            if (loadingSpinner) loadingSpinner.style.display = 'block';
-            
-            // Ẩn các form nhập mã hiện tại
-            document.querySelectorAll('.ts-locker-form-group, .ts-code-input-wrap').forEach(el => el.style.display = 'none');
-
-            try {
-                const TRAFFIC_API_URL = "https://traffic.io.vn/wp-json/iats/v1";
-                
-                let trafficSourceStr = '';
-                try {
-                    const tsData = JSON.parse(sessionStorage.getItem('tqp_traffic_source'));
-                    if (tsData) {
-                        trafficSourceStr = `&ts_source=${encodeURIComponent(JSON.stringify(tsData))}`;
-                    }
-                } catch(e) {}
-                
-                const apiUrl = `${TRAFFIC_API_URL}/task?tag=${encodeURIComponent(examData.exam.pass_tag)}&url=${encodeURIComponent(window.location.href)}${trafficSourceStr}`;
-                const res = await fetch(apiUrl);
-
-                if (res.ok) {
-                    let taskData = await res.json();
-                    if (taskData && taskData.success && taskData.data) {
-                        taskData = taskData.data;
-                    }
-
-                    // Ẩn spinner khi có kết quả
-                    if (loadingSpinner) loadingSpinner.style.display = 'none';
-                    document.querySelectorAll('.ts-locker-form-group, .ts-code-input-wrap').forEach(el => {
-                        el.style.display = el.style.gap ? 'flex' : '';
-                    });
-
-                    if (taskData && taskData.id) {
-
-
-
-                        let instructionsHtml = `
-                            <div class="ts-steps" style="text-align: left; line-height: 1.5; font-size: 14px; color: #333;">
-                                <div class="step-items" style="display: flex; align-items: center; padding-bottom: 4px; flex-wrap: wrap;">
-                                    <p style="margin: 0;"><strong style="color: red; font-weight: bold;">Bước 1:</strong> Bấm nút COPY để sao chép từ khóa</p>
-                                    <strong style="background: #333; color: white; padding: 4px 10px; border-radius: 6px; font-family: monospace; margin: 0 8px;">${taskData.detail}</strong>
-                                    <button type="button" class="ts-btn-copy" data-text="${taskData.detail}" style="background: #007bff; color: white; border: none; border-radius: 8px; font-size: 0.9rem; padding: 5px 12px; cursor: pointer;">Copy</button>
-                                </div>
-                                
-                                ${taskData.detail2 ? `
-                                <div class="step-items" style="display: flex; align-items: center; padding-bottom: 4px; flex-wrap: wrap;">
-                                    <p style="margin: 0;"><strong>HOẶC</strong> sao chép từ khóa: <strong style="background: #333; color: white; padding: 4px 10px; border-radius: 6px; font-family: monospace; margin: 0 8px;">${taskData.detail2}</strong></p>
-                                    <button type="button" class="ts-btn-copy" data-text="${taskData.detail2}" style="background: #007bff; color: white; border: none; border-radius: 8px; font-size: 0.9rem; padding: 5px 12px; cursor: pointer;">Copy</button>
-                                </div>
-                                ` : ''}
-                                
-                                <p style="margin: 10px 0; font-size: 16px;"><strong style="color: red; font-weight: bold;">Bước 2:</strong> Mở tab mới, truy cập 
-                                    <a href="https://google.com/" target="_blank" style="color: #1a0dab; text-decoration: none; font-weight: 500;">google.com 
-                                    <svg style="width: 18px; height: 18px; vertical-align: middle; margin: 0 4px; color: #1a0dab;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height: 20px; vertical-align: middle; margin-left: 2px;">
-                                    </a>
-                                </p>
-                                <div style="border: 1px solid #dfe1e5; border-radius: 24px; padding: 10px 14px; display: flex; align-items: center; max-width: 450px; margin-top: 10px; margin-bottom: 20px; background: #fff; box-shadow: 0 1px 4px rgba(32,33,36,.15);">
-                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: #9aa0a6; width: 20px; height: 20px; margin-right: 12px; flex-shrink: 0;"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
-                                    <span style="color: red; font-size: 15px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 5px;">Nhập từ khóa và tìm kiếm</span>
-                                    <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #5f6368; margin-right: 10px; flex-shrink: 0;"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/></svg>
-                                    <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #5f6368; margin-right: 10px; flex-shrink: 0;"><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>
-                                    <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #5f6368; flex-shrink: 0;"><path d="M4 4h3l2-2h6l2 2h3c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm8 3c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>
-                                </div>
-                                
-                                ${taskData.img3 ? `
-                                <p style="margin: 10px 0;"><strong style="color: red; font-weight: bold;">Bước 3:</strong> Tìm website <strong style="color: red; font-weight: bold;">${taskData.website}</strong> giống hình rồi bấm vào.</p>
-                                <div style="margin: 10px 0;"><img src="${taskData.img3}" alt="Hình minh họa bước 3" style="width: 100%; border-radius: 8px; border: 2px solid #ddd;"></div>
-                                <p style="font-size:0.9em; font-style:italic; margin: 5px 0;">(Nếu <strong>trang 1</strong> không thấy hãy tìm ở <strong>trang 2, 3</strong> là có bạn nhé <img src="/wp-content/uploads/2026/07/trang-google.png" width="250px" style="display:inline-block; vertical-align: middle; margin-left: 5px;">)</p>
-                                ` : ''}
-                                
-                                <p style="margin: 10px 0;"><strong style="color: red; font-weight: bold;">Bước 4:</strong> ${taskData.step4 || 'Cuộn xuống cuối trang, lấy mã (tìm đúng nút này )'}</p>
-                                ${taskData.img4 ? `<div style="margin: 10px 0;"><img src="${taskData.img4}" alt="Hình minh họa bước 4" style="width: 100%; border-radius: 8px; border: 2px solid #ddd;"></div>` : ''}
-                            </div>
-                        `;
-                        document.getElementById('ts-task-instructions').innerHTML = instructionsHtml;
-                        document.getElementById('ts-task-instructions').style.display = 'block';
-                        document.getElementById('ts-task-hint-text').style.display = 'none';
-                        tsTaskBtn.style.display = 'none';
-
-                        // Setup copy logic
-                        const copyFallback = (textToCopy) => {
-                            if (navigator.clipboard && navigator.clipboard.writeText) {
-                                return navigator.clipboard.writeText(textToCopy);
-                            } else {
-                                return new Promise((resolve, reject) => {
-                                    const textArea = document.createElement("textarea");
-                                    textArea.value = textToCopy;
-                                    textArea.style.position = "fixed";
-                                    textArea.style.left = "-9999px";
-                                    document.body.appendChild(textArea);
-                                    textArea.focus();
-                                    textArea.select();
-                                    try {
-                                        document.execCommand('copy');
-                                        resolve();
-                                    } catch (err) {
-                                        reject(err);
-                                    }
-                                    textArea.remove();
-                                });
-                            }
-                        };
-
-                        document.querySelectorAll('.ts-btn-copy').forEach(btn => {
-                            btn.addEventListener('click', function () {
-                                const text = this.getAttribute('data-text');
-                                copyFallback(text).then(() => {
-                                    const oldText = this.textContent;
-                                    this.textContent = "Đã Copy!";
-                                    this.style.background = "#dcfce7";
-                                    this.style.borderColor = "#22c55e";
-                                    this.style.color = "#166534";
-                                    setTimeout(() => {
-                                        this.textContent = oldText;
-                                        this.style.background = "#f8fafc";
-                                        this.style.borderColor = "#cbd5e1";
-                                        this.style.color = "#475569";
-                                    }, 2000);
-                                });
-                            });
-                        });
-                    } else {
-                        alert("Không lấy được nhiệm vụ. Hãy thử lại!");
-                        tsTaskBtn.textContent = 'Làm nhiệm vụ lấy mã →';
-                        tsTaskBtn.disabled = false;
-                        if (loadingSpinner) loadingSpinner.style.display = 'none';
-                        document.querySelectorAll('.ts-locker-form-group, .ts-code-input-wrap').forEach(el => {
-                            el.style.display = el.style.gap ? 'flex' : '';
-                        });
-                    }
+                submitExam(code, btn(), err());
+            };
+            input().onkeydown = (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    btn().click();
                 }
-            } catch (err) {
-                console.error(err);
-                alert("Lỗi kết nối khi tải nhiệm vụ!");
-                tsTaskBtn.textContent = 'Làm nhiệm vụ lấy mã →';
-                tsTaskBtn.disabled = false;
-                if (loadingSpinner) loadingSpinner.style.display = 'none';
-                document.querySelectorAll('.ts-locker-form-group, .ts-code-input-wrap').forEach(el => {
-                    el.style.display = el.style.gap ? 'flex' : '';
-                });
-            }
+            };
+        });
+
+        const retryBtn = getEl('ts-portal-task-btn');
+        if (retryBtn) retryBtn.onclick = (e) => { e.preventDefault(); loadTask(cfg); };
+
+        if (unlockCodeInputTop()) unlockCodeInputTop().focus();
+        loadTask(cfg);
+    }
+
+    function copyText(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text);
+        }
+        return new Promise((resolve, reject) => {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.cssText = 'position:fixed; left:-9999px;';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            try { document.execCommand('copy'); resolve(); } catch (err) { reject(err); }
+            ta.remove();
         });
     }
 
-    // Đảm bảo nút đóng hoạt động (nếu đã được render từ PHP)
-    const lockModalCloseBtn = document.getElementById('ts-lock-modal-close');
-    if (lockModalCloseBtn && !lockModalCloseBtn.onclick) {
-        lockModalCloseBtn.onclick = function() {
-            lockModal().style.display = 'none';
-            if (remainingSeconds > 0) {
-                clearInterval(timerInterval);
-                timerInterval = setInterval(updateTimer, 1000);
+    async function loadTask(cfg) {
+        const retryBtn = getEl('ts-portal-task-btn');
+        const spinner = getEl('ts-task-loading-spinner');
+        const instructions = getEl('ts-task-instructions');
+        const formGroups = () => document.querySelectorAll('#ts-lock-modal .ts-locker-form-group');
+        const showForms = () => formGroups().forEach(el => { el.style.display = ''; });
+        const fail = (msg) => {
+            if (spinner) spinner.style.display = 'none';
+            showForms();
+            alert(msg);
+            if (retryBtn) {
+                retryBtn.textContent = cfg.task_btn_label;
+                retryBtn.disabled = false;
+                retryBtn.style.display = 'block';
             }
         };
+
+        if (retryBtn) {
+            retryBtn.style.display = 'none';
+            retryBtn.disabled = true;
+            retryBtn.textContent = cfg.task_btn_loading;
+        }
+        if (spinner) spinner.style.display = 'block';
+        formGroups().forEach(el => { el.style.display = 'none'; });
+
+        try {
+            let trafficSourceStr = '';
+            try {
+                const tsData = JSON.parse(sessionStorage.getItem('tqp_traffic_source'));
+                if (tsData) trafficSourceStr = `&ts_source=${encodeURIComponent(JSON.stringify(tsData))}`;
+            } catch (e) {}
+
+            const res = await fetch(`${hubUrl('task')}?tag=${encodeURIComponent(examData.exam.pass_tag)}&url=${encodeURIComponent(window.location.href)}${trafficSourceStr}`);
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const json = await res.json();
+            const task = json && json.success && json.data ? json.data : null;
+
+            if (!task || !task.id || !task.instructions_html) {
+                fail(cfg.err_no_task);
+                return;
+            }
+
+            if (spinner) spinner.style.display = 'none';
+            showForms();
+            instructions.innerHTML = task.instructions_html;
+            instructions.style.display = 'block';
+
+            instructions.querySelectorAll('.ts-btn-copy').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const oldText = this.textContent;
+                    copyText(this.getAttribute('data-text')).then(() => {
+                        this.textContent = this.getAttribute('data-copied') || oldText;
+                        setTimeout(() => { this.textContent = oldText; }, 2000);
+                    });
+                });
+            });
+        } catch (err) {
+            console.error('TestSpace task error:', err);
+            fail(cfg.err_conn);
+        }
     }
 
     // ============================================================

@@ -909,12 +909,6 @@
     animation: ts-slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#ts-lock-modal .ts-modal-card {
-    max-width: 600px;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
 #ts-submit-confirm-modal .ts-modal-card,
 #ts-exit-confirm-modal .ts-modal-card {
     max-width: 480px;
@@ -955,54 +949,6 @@
     color: var(--ts-text-secondary);
     margin-bottom: 24px;
     line-height: 1.6;
-}
-
-.ts-task-box {
-    background: var(--ts-bg);
-    border: 1px solid var(--ts-border);
-    border-radius: var(--ts-radius-sm);
-    padding: 16px;
-    margin-bottom: 24px;
-}
-
-.ts-task-tag-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--ts-primary);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: var(--ts-radius-full);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.ts-task-hint {
-    font-size: 13px;
-    color: var(--ts-text-muted);
-    margin: 10px 0;
-}
-
-.ts-task-link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--ts-accent);
-    color: #fff !important;
-    text-decoration: none !important;
-    font-weight: 700;
-    font-size: 13px;
-    padding: 10px 20px;
-    border-radius: var(--ts-radius-sm);
-    transition: all var(--ts-transition);
-    margin-top: 8px;
-}
-
-.ts-task-link-btn:hover {
-    background: #0284c7;
-    transform: translateY(-1px);
 }
 
 .ts-code-input-wrap {

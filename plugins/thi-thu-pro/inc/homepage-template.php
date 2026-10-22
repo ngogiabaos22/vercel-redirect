@@ -228,30 +228,8 @@ ob_start();
                     </div>
                 </div>
 
-                <!-- Modal Quiz Locker -->
-                <div class="ts-modal-overlay" id="ts-lock-modal" style="display: none;">
-                    <div class="ts-modal-card">
-                        <div class="ts-modal-icon">🔒</div>
-                        <h3 class="ts-modal-title">Bài thi đã nộp thành công!</h3>
-                        <p class="ts-modal-desc">Hoàn thành nhiệm vụ nhanh để nhận <strong>Mã kích hoạt</strong> xem kết quả chi tiết và lời giải thích.</p>
-                        
-                        <div class="ts-task-box">
-                            <span class="ts-task-tag-badge" style="display:none;">🏷 Nhiệm vụ: <strong id="ts-task-tag-name"></strong></span>
-                            <p class="ts-task-hint" id="ts-task-hint-text">Nhấp vào nút dưới đây để nhận hướng dẫn lấy mã:</p>
-                            <button type="button" id="ts-portal-task-btn" class="ts-task-link-btn" style="border:none; cursor:pointer; font-family:inherit; width: 100%;">
-                                Làm nhiệm vụ lấy mã →
-                            </button>
-                            
-                            <div id="ts-task-instructions" style="display:none; text-align: left; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #cbd5e1;"></div>
-                        </div>
-
-                        <div class="ts-code-input-wrap">
-                            <input type="text" id="ts-unlock-code-input" class="ts-code-input" placeholder="Nhập mã xác nhận..." required>
-                            <button id="ts-unlock-submit-btn" class="ts-unlock-btn">XÁC NHẬN</button>
-                        </div>
-                        <div id="ts-unlock-error" class="ts-unlock-error" style="display: none;"></div>
-                    </div>
-                </div>
+                <!-- Popup nhiệm vụ: nội dung được lấy từ plugin quản lý nhiệm vụ -->
+                <div class="ts-modal-overlay" id="ts-lock-modal" style="display: none;"></div>
 
                 <!-- Modal Xác Nhận Thoát Phòng Thi -->
                 <div class="ts-modal-overlay" id="ts-exit-confirm-modal" style="display: none;">

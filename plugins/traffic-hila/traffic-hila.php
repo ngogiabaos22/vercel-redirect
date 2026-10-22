@@ -36,6 +36,8 @@ function iats_activate_plugin() {
         step4 text DEFAULT NULL,
         img4 text DEFAULT NULL,
         tag text,
+        target_url text DEFAULT NULL,
+        popup_views int(11) DEFAULT 0,
         fixed_code varchar(50) DEFAULT NULL,
         priority tinyint(1) DEFAULT 0,
         limit_per_day int(11) DEFAULT 0,
@@ -77,12 +79,22 @@ function iats_activate_plugin() {
     dbDelta($sql_tasks);
     dbDelta($sql_codes);
     dbDelta($sql_logs);
+    update_option('iats_db_version', IATS_VERSION);
 }
+
+// Bổ sung cột còn thiếu cho bản cài cũ (popup_views, target_url) mà không cần kích hoạt lại plugin
+function iats_maybe_upgrade() {
+    if (get_option('iats_db_version') !== IATS_VERSION) {
+        iats_activate_plugin();
+    }
+}
+add_action('plugins_loaded', 'iats_maybe_upgrade', 5);
 
 // Load Modules
 require_once IATS_PLUGIN_DIR . 'includes/class-ts-api.php';
 require_once IATS_PLUGIN_DIR . 'includes/class-ts-admin.php';
 require_once IATS_PLUGIN_DIR . 'includes/class-ts-customer.php';
+require_once IATS_PLUGIN_DIR . 'includes/class-ts-popup.php';
 
 function iats_init() {
     new IATS_API();

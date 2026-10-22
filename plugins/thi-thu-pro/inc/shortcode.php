@@ -20,6 +20,7 @@ function tqp_register_assets() {
 
     wp_localize_script('tqp-script', 'tqp_vars', [
         'api_url'  => esc_url_raw(rest_url('tq/v1/')),
+        'hub_api'  => esc_url_raw(tqp_hub_api_url()),
         'nonce'    => wp_create_nonce('wp_rest'),
         'home_url' => esc_url(home_url('/'))
     ]);
@@ -535,73 +536,8 @@ function tqp_render_quiz_shortcode($atts) {
             </div><!-- /.ts-spa-content -->
         </div><!-- /.ts-spa-main -->
 
-        <!-- Modal Quiz Locker -->
-        <style>
-            @media (max-width: 480px) {
-                #ts-lock-modal .ts-modal-card { padding: 15px 12px !important; }
-                #ts-lock-modal .title { font-size: 16px !important; margin-bottom: 5px !important; }
-                #ts-lock-modal .title br { display: none; }
-                #ts-lock-modal .note { font-size: 12px !important; margin-bottom: 12px !important; }
-                .ts-locker-form-group { 
-                    margin: 10px 0 !important; 
-                    gap: 6px !important; 
-                    flex-wrap: nowrap !important; 
-                }
-                #ts-unlock-code-input-top, #ts-unlock-code-input-bottom { 
-                    max-width: unset !important; 
-                    flex: 1; 
-                    min-width: 0; 
-                    padding: 10px 10px !important; 
-                    font-size: 13px !important; 
-                }
-                #ts-unlock-submit-btn-top, #ts-unlock-submit-btn-bottom { 
-                    width: auto !important; 
-                    padding: 10px 14px !important; 
-                    font-size: 12px !important; 
-                    flex-shrink: 0; 
-                }
-            }
-        </style>
-        <div class="ts-modal-overlay" id="ts-lock-modal" style="display: none;">
-            <div class="ts-modal-card" style="max-width: 650px; width: 95%; background: white; border-radius: 12px; padding: 25px 20px; color: #333; text-align: center; margin: auto; position: relative;">
-                <span id="ts-lock-modal-close" style="position: absolute; top: 12px; right: 18px; font-size: 26px; cursor: pointer; color: #888; line-height: 1; font-weight: bold;">&times;</span>
-                <h2 class="title" style="color: red; margin-bottom: 10px; font-size: 20px; font-weight: bold; line-height: 1.4;">Bạn ơi!!! Để xem được kết quả <br>bạn vui lòng làm nhiệm vụ nhỏ xíu này nha</h2>
-                <p class="note" style="color: #0066ff; font-weight: bold; margin-bottom: 20px; font-size: 14px;">LƯU Ý: Không sử dụng VPN hoặc 1.1.1.1 khi làm nhiệm vụ</p>
-                
-                <div class="ts-task-box" style="margin-bottom: 0;">
-                    <span class="ts-task-tag-badge" style="display:none;">🏷 Nhiệm vụ: <strong id="ts-task-tag-name"></strong></span>
-                    <p class="ts-task-hint" id="ts-task-hint-text" style="display:none;">Nhấp vào nút dưới đây để nhận hướng dẫn lấy mã:</p>
-                    <button type="button" id="ts-portal-task-btn" class="ts-task-link-btn" style="display:none; border:none; cursor:pointer; font-family:inherit; width: 100%;">
-                        Làm nhiệm vụ lấy mã →
-                    </button>
-                    
-                    <div id="ts-task-loading-spinner" style="display: none; margin: 30px 0;">
-                        <svg viewBox="0 0 50 50" style="width: 40px; height: 40px; animation: ts-spin 1s linear infinite; margin: 0 auto; display: block;">
-                            <circle cx="25" cy="25" r="20" fill="none" stroke="#222" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"></circle>
-                        </svg>
-                        <style>@keyframes ts-spin { 100% { transform: rotate(360deg); } }</style>
-                    </div>
-                    
-                    <div style="margin: 20px 0;" class="ts-locker-form-group">
-                        <div style="display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap;">
-                            <input type="text" id="ts-unlock-code-input-top" placeholder="Nhập mã vừa kiếm được vào đây" style="padding: 10px 15px; width: 100%; max-width: 260px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; outline: none; margin: 0;">
-                            <button type="button" id="ts-unlock-submit-btn-top" style="background: #222; color: white; border-radius: 99px; border: none; padding: 10px 24px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.2s; white-space: nowrap; margin: 0;">NHẬN KẾT QUẢ</button>
-                        </div>
-                        <div id="ts-unlock-error-top" style="display: none; color: red; margin-top: 8px; min-height: 20px;"></div>
-                    </div>
-                    
-                    <div id="ts-task-instructions" style="display:none; text-align: left; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #cbd5e1;"></div>
-                </div>
-
-                <div style="margin: 20px 0;" class="ts-locker-form-group">
-                    <div style="display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap;">
-                        <input type="text" id="ts-unlock-code-input-bottom" placeholder="Nhập mật mã..." style="padding: 10px 15px; width: 100%; max-width: 260px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; outline: none; margin: 0;">
-                        <button type="button" id="ts-unlock-submit-btn-bottom" style="background: #222; color: white; border-radius: 99px; border: none; padding: 10px 24px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.2s; white-space: nowrap; margin: 0;">XÁC NHẬN!</button>
-                    </div>
-                    <div id="ts-unlock-error-bottom" style="display: none; color: red; margin-top: 8px; min-height: 20px;"></div>
-                </div>
-            </div>
-        </div>
+        <!-- Popup nhiệm vụ: nội dung được lấy từ plugin quản lý nhiệm vụ -->
+        <div class="ts-modal-overlay" id="ts-lock-modal" style="display: none;"></div>
 
         <!-- Modal Xác Nhận Thoát Phòng Thi -->
         <div class="ts-modal-overlay" id="ts-exit-confirm-modal" style="display: none;">

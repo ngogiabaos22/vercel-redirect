@@ -9,6 +9,7 @@ class IATS_Admin {
         add_action('wp_ajax_iats_toggle_status', array($this, 'ajax_toggle_status'));
         add_action('wp_ajax_iats_get_domain_style', array($this, 'ajax_get_domain_style'));
         add_action('wp_ajax_iats_save_domain_style', array($this, 'ajax_save_domain_style'));
+        add_action('wp_ajax_iats_popup_preview', array('IATS_Popup', 'ajax_preview'));
     }
 
     public function register_admin_menu() {
@@ -286,9 +287,12 @@ class IATS_Admin {
             update_option('iats_portal_logo', esc_url_raw($_POST['iats_portal_logo']));
             update_option('iats_button_logo', esc_url_raw($_POST['iats_button_logo']));
 
+            IATS_Popup::save_from_post();
+
             echo '<div class="notice notice-success is-dismissible"><p>Lưu cài đặt thành công!</p></div>';
         }
         $price = get_option('iats_view_price', 3);
+        wp_enqueue_media();
         $url = get_option('iats_result_url', '/ket-qua-bai-thi/');
         $weight = get_option('iats_priority_weight', 3);
         $session = get_option('iats_session_mins', 120);
@@ -340,6 +344,7 @@ class IATS_Admin {
                         </td>
                     </tr>
                 </table>
+                <?php IATS_Popup::render_settings_section(); ?>
                 <p class="submit"><button type="submit" class="button button-primary button-large">Lưu Cài Đặt</button></p>
             </form>
         </div>
