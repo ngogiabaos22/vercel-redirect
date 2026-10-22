@@ -24,7 +24,8 @@ class IATS_Popup {
             'bottom_placeholder' => 'Nhập mật mã...',
             'bottom_btn_label' => 'XÁC NHẬN!',
             'step_prefix'      => 'Bước',
-            'step1_text'       => 'Bấm nút COPY để sao chép từ khóa',
+            'step1_text'       => 'Bấm vào từ khóa dưới đây để sao chép',
+            'show_copy_btn'    => 0,
             'step1_or_text'    => 'sao chép từ khóa:',
             'or_word'          => 'HOẶC',
             'copy_label'       => 'Copy',
@@ -34,13 +35,15 @@ class IATS_Popup {
             'step3_text'       => 'Tìm website {website} giống hình rồi bấm vào.',
             'step3_hint'       => '(Nếu <strong>trang 1</strong> không thấy hãy tìm ở <strong>trang 2, 3</strong> là có bạn nhé)',
             'step3_hint_img'   => '',
-            'step4_default'    => 'Cuộn xuống cuối trang, lấy mã (tìm đúng nút này )',
+            'step4_default'    => 'Cuộn xuống cuối trang, lấy mã',
             // Thông báo
             'err_empty_code'   => 'Vui lòng nhập mã xác nhận nhiệm vụ!',
             'err_no_task'      => 'Không lấy được nhiệm vụ. Hãy thử lại!',
             'err_conn'         => 'Lỗi kết nối khi tải nhiệm vụ!',
             // Màu sắc
             'card_bg'          => '#ffffff',
+            'box_bg'           => '#f8fafc',
+            'box_border'       => '#e2e8f0',
             'text_color'       => '#333333',
             'title_color'      => '#ff0000',
             'note_color'       => '#0066ff',
@@ -65,9 +68,9 @@ class IATS_Popup {
     private static $html_keys  = array('title', 'step3_hint');
     private static $color_keys = array(
         'card_bg', 'text_color', 'title_color', 'note_color', 'step_color', 'keyword_bg', 'keyword_color',
-        'copy_bg', 'copy_color', 'submit_bg', 'submit_color', 'input_border', 'close_color',
+        'copy_bg', 'copy_color', 'submit_bg', 'submit_color', 'input_border', 'close_color', 'box_bg', 'box_border',
     );
-    private static $flag_keys  = array('show_bottom_form', 'show_google_mock');
+    private static $flag_keys  = array('show_bottom_form', 'show_google_mock', 'show_copy_btn');
 
     public static function get_config() {
         $saved = get_option(self::OPTION, array());
@@ -127,26 +130,34 @@ class IATS_Popup {
         $kw = 'background:' . esc_attr($cfg['keyword_bg']) . '; color:' . esc_attr($cfg['keyword_color']) . '; padding:4px 10px; border-radius:6px; font-family:monospace; margin:0 8px;';
         $copy = 'background:' . esc_attr($cfg['copy_bg']) . '; color:' . esc_attr($cfg['copy_color']) . '; border:none; border-radius:8px; font-size:0.9rem; padding:5px 12px; cursor:pointer;';
         $copy_btn = function ($text) use ($cfg, $copy) {
+            if (empty($cfg['show_copy_btn'])) return '';
             return '<button type="button" class="ts-btn-copy" data-text="' . esc_attr($text) . '" data-copied="' . esc_attr($cfg['copied_label']) . '" style="' . $copy . '">' . esc_html($cfg['copy_label']) . '</button>';
+        };
+        // Không có nút Copy thì bấm vào ô từ khóa để sao chép
+        $chip = function ($text) use ($cfg, $kw) {
+            $click = empty($cfg['show_copy_btn']);
+            return '<strong' . ($click ? ' class="ts-btn-copy" data-text="' . esc_attr($text) . '" data-copied="' . esc_attr($cfg['copied_label']) . '" title="' . esc_attr($cfg['copy_label']) . '"' : '')
+                . ' style="' . $kw . ($click ? ' cursor:pointer;' : '') . '">' . esc_html($text) . '</strong>';
         };
 
         $h  = '<div class="ts-steps" style="text-align:left; line-height:1.5; font-size:14px; color:' . esc_attr($cfg['text_color']) . ';">';
         $h .= '<div class="step-items" style="display:flex; align-items:center; padding-bottom:4px; flex-wrap:wrap;">'
             . '<p style="margin:0;">' . $step . ' 1:</strong> ' . $e($cfg['step1_text']) . '</p>'
-            . '<strong style="' . $kw . '">' . $e($task['detail']) . '</strong>' . $copy_btn($task['detail']) . '</div>';
+            . $chip($task['detail']) . $copy_btn($task['detail']) . '</div>';
 
         if (!empty($task['detail2'])) {
             $h .= '<div class="step-items" style="display:flex; align-items:center; padding-bottom:4px; flex-wrap:wrap;">'
                 . '<p style="margin:0;"><strong>' . $e($cfg['or_word']) . '</strong> ' . $e($cfg['step1_or_text'])
-                . ' <strong style="' . $kw . '">' . $e($task['detail2']) . '</strong></p>' . $copy_btn($task['detail2']) . '</div>';
+                . ' ' . $chip($task['detail2']) . '</p>' . $copy_btn($task['detail2']) . '</div>';
         }
 
         $h .= '<p style="margin:10px 0; font-size:16px;">' . $step . ' 2:</strong> ' . $e($cfg['step2_text'])
             . ' <a href="https://google.com/" target="_blank" rel="noopener" style="color:#1a0dab; text-decoration:none; font-weight:500;">google.com '
+            . '<svg style="width:18px; height:18px; vertical-align:middle; margin:0 4px; color:#1a0dab;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>'
             . '<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height:20px; vertical-align:middle; margin-left:2px;"></a></p>';
 
         if (!empty($cfg['show_google_mock'])) {
-            $h .= '<div style="border:1px solid #dfe1e5; border-radius:24px; padding:10px 14px; display:flex; align-items:center; max-width:450px; margin:10px 0 20px; background:#fff; box-shadow:0 1px 4px rgba(32,33,36,.15);">'
+            $h .= '<div style="border:1px solid #dfe1e5; border-radius:24px; padding:10px 14px; display:flex; align-items:center; max-width:450px; margin:10px 0 20px; background:#fff; box-shadow:0 1px 6px rgba(32,33,36,.28);">'
                 . '<svg viewBox="0 0 24 24" style="fill:#9aa0a6; width:20px; height:20px; margin-right:12px; flex-shrink:0;"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>'
                 . '<span style="color:' . esc_attr($cfg['step_color']) . '; font-size:15px; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Nhập từ khóa và tìm kiếm</span></div>';
         }
@@ -195,11 +206,11 @@ class IATS_Popup {
             . '#ts-lock-modal-card .ts-locker-form-group input{max-width:unset !important; flex:1; min-width:0; padding:10px !important; font-size:13px !important;}'
             . '#ts-lock-modal-card .ts-locker-form-group button{width:auto !important; padding:10px 14px !important; font-size:12px !important; flex-shrink:0;}'
             . '}</style>';
-        $h .= '<div class="ts-modal-card" id="ts-lock-modal-card" style="max-width:650px; width:95%; background:' . esc_attr($cfg['card_bg']) . '; border-radius:12px; padding:25px 20px; color:' . esc_attr($cfg['text_color']) . '; text-align:center; margin:auto; position:relative; max-height:90vh; overflow-y:auto;">'
+        $h .= '<div class="ts-modal-card" id="ts-lock-modal-card" style="max-width:650px; width:95%; background:' . esc_attr($cfg['card_bg']) . '; border-radius:12px; padding:25px 20px; color:' . esc_attr($cfg['text_color']) . '; text-align:center; margin:auto; position:relative; max-height:90vh; overflow-y:auto; font-family:inherit;">'
             . '<span id="ts-lock-modal-close" style="position:absolute; top:12px; right:18px; font-size:26px; cursor:pointer; color:' . esc_attr($cfg['close_color']) . '; line-height:1; font-weight:bold;">&times;</span>'
             . '<h2 class="title" style="color:' . esc_attr($cfg['title_color']) . '; margin-bottom:10px; font-size:20px; font-weight:bold; line-height:1.4;">' . $cfg['title'] . '</h2>'
             . '<p class="note" style="color:' . esc_attr($cfg['note_color']) . '; font-weight:bold; margin-bottom:20px; font-size:14px;">' . esc_html($cfg['note']) . '</p>'
-            . '<div class="ts-task-box" style="margin-bottom:0;">'
+            . '<div class="ts-task-box" style="margin-bottom:0; background:' . esc_attr($cfg['box_bg']) . '; border:1px solid ' . esc_attr($cfg['box_border']) . '; border-radius:8px; padding:16px;">'
             . '<button type="button" id="ts-portal-task-btn" style="display:none; border:none; cursor:pointer; font-family:inherit; width:100%; padding:10px 20px; border-radius:8px; font-weight:700; background:' . esc_attr($cfg['submit_bg']) . '; color:' . esc_attr($cfg['submit_color']) . ';">' . esc_html($cfg['task_btn_label']) . '</button>'
             . '<div id="ts-task-loading-spinner" style="display:none; margin:30px 0;">'
             . '<svg viewBox="0 0 50 50" style="width:40px; height:40px; animation:ts-spin 1s linear infinite; margin:0 auto; display:block;"><circle cx="25" cy="25" r="20" fill="none" stroke="#222" stroke-width="4" stroke-dasharray="31.4 31.4" stroke-linecap="round"></circle></svg>'
@@ -297,6 +308,7 @@ class IATS_Popup {
                     <?php
                     $txt('step_prefix', 'Tiền tố bước', 'Ví dụ: "Bước" → "Bước 1:".');
                     $txt('step1_text', 'Bước 1');
+                    $flag('show_copy_btn', 'Hiện nút Copy cạnh từ khóa (tắt = bấm vào ô từ khóa để sao chép)');
                     $txt('or_word', 'Chữ "HOẶC"');
                     $txt('step1_or_text', 'Từ khóa thứ 2');
                     $txt('copy_label', 'Nút copy');
@@ -325,6 +337,8 @@ class IATS_Popup {
                 <table class="form-table" role="presentation">
                     <?php
                     $color('card_bg', 'Nền popup');
+                    $color('box_bg', 'Nền khung nhiệm vụ');
+                    $color('box_border', 'Viền khung nhiệm vụ');
                     $color('text_color', 'Màu chữ');
                     $color('title_color', 'Màu tiêu đề');
                     $color('note_color', 'Màu dòng lưu ý');
