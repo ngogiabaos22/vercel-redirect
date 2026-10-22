@@ -1,0 +1,63 @@
+{
+  "title": "Đề thi thử TOEIC ETS 2026 - Test 1 Căn Bản",
+  "duration_minutes": 10,
+  "pass_tag": "tagtest",
+  "groups": [
+    {
+      "group_type": "listening",
+      "instruction": "Part 1: Listen and choose the correct statement for each picture.",
+      "media_url": "https://www.w3schools.com/html/horse.mp3",
+      "passage_text": "",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_text": "Look at the picture (imagine a classroom scene):",
+          "opt_a": "The students are studying in a classroom.",
+          "opt_b": "The teacher is standing outside the school.",
+          "opt_c": "The class is playing football.",
+          "opt_d": "The desks are being painted.",
+          "correct_ans": "A",
+          "explanation": "Trong bức ảnh minh họa lớp học, hành động đúng nhất là các học sinh đang học tập trong lớp (studying in a classroom)."
+        },
+        {
+          "question_number": 2,
+          "question_text": "Look at the picture (imagine a coffee shop scene):",
+          "opt_a": "A barista is preparing a drink.",
+          "opt_b": "A customer is walking out of the building.",
+          "opt_c": "The shop is closed for maintenance.",
+          "opt_d": "A man is cleaning the windows.",
+          "correct_ans": "A",
+          "explanation": "Trong bức ảnh tại quán cà phê, nhân viên pha chế (barista) đang pha chế đồ uống (preparing a drink)."
+        }
+      ]
+    },
+    {
+      "group_type": "reading",
+      "instruction": "Part 7: Read the following email and answer the questions.",
+      "media_url": "",
+      "passage_text": "From: Manager <manager@taiphutmot.com>\nTo: All Staff <staff@taiphutmot.com>\nSubject: Sunday System Maintenance\n\nDear team,\nPlease be informed that our core database will undergo a scheduled system maintenance this Sunday from 2:00 PM to 4:00 PM. During this period, our intranet portal and the document library will be completely offline.\n\nThank you for your cooperation.\nBest regards,\nThai",
+      "questions": [
+        {
+          "question_number": 3,
+          "question_text": "What is the main purpose of the email?",
+          "opt_a": "To announce a holiday schedule.",
+          "opt_b": "To inform staff about database maintenance.",
+          "opt_c": "To invite staff to a Sunday party.",
+          "opt_d": "To introduce a new database system.",
+          "correct_ans": "B",
+          "explanation": "Email được gửi với mục đích thông báo cho toàn thể nhân viên về đợt bảo trì hệ thống cơ sở dữ liệu định kỳ vào chiều Chủ Nhật."
+        },
+        {
+          "question_number": 4,
+          "question_text": "How long will the system be offline?",
+          "opt_a": "1 hour",
+          "opt_b": "2 hours",
+          "opt_c": "3 hours",
+          "opt_d": "4 hours",
+          "correct_ans": "B",
+          "explanation": "Đợt bảo trì diễn ra từ 2:00 PM đến 4:00 PM, tức kéo dài đúng 2 tiếng (2 hours)."
+        }
+      ]
+    }
+  ]
+}
