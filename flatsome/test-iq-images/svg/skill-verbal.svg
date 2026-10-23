@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+<rect width="400" height="240" fill="#f0fdf4"/>
+<circle cx="360" cy="40" r="70" fill="#dcfce7"/><circle cx="40" cy="210" r="50" fill="#d1fae5"/>
+<g font-family="Arial" font-weight="700" text-anchor="middle">
+<g transform="translate(40 50)"><rect width="140" height="56" rx="16" fill="#fff"/><text x="70" y="35" font-size="18" fill="#0f172a">Bác sĩ</text></g>
+<text x="200" y="85" font-size="22" fill="#16a34a">:</text>
+<g transform="translate(220 50)"><rect width="140" height="56" rx="16" fill="#fff"/><text x="70" y="35" font-size="18" fill="#0f172a">Bệnh viện</text></g>
+<g transform="translate(40 134)"><rect width="140" height="56" rx="16" fill="#fff"/><text x="70" y="35" font-size="18" fill="#0f172a">Giáo viên</text></g>
+<text x="200" y="169" font-size="22" fill="#16a34a">:</text>
+<g transform="translate(220 134)"><rect width="140" height="56" rx="16" fill="#16a34a"/><text x="70" y="36" font-size="22" fill="#fff">?</text></g>
+</g>
+<path d="M110 112v16" stroke="#86efac" stroke-width="3" stroke-dasharray="4 4"/>
+</svg>

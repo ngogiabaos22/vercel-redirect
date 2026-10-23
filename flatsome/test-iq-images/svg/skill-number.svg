@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240">
+<rect width="400" height="240" fill="#fff7ed"/>
+<circle cx="350" cy="200" r="80" fill="#ffedd5"/><circle cx="30" cy="30" r="50" fill="#fef3c7"/>
+<g font-family="Arial" font-weight="800" text-anchor="middle">
+<g transform="translate(40 70)"><rect width="56" height="64" rx="14" fill="#fff"/><text x="28" y="42" font-size="26" fill="#0f172a">3</text></g>
+<g transform="translate(108 70)"><rect width="56" height="64" rx="14" fill="#fff"/><text x="28" y="42" font-size="26" fill="#0f172a">6</text></g>
+<g transform="translate(176 70)"><rect width="56" height="64" rx="14" fill="#fff"/><text x="28" y="42" font-size="26" fill="#0f172a">12</text></g>
+<g transform="translate(244 70)"><rect width="56" height="64" rx="14" fill="#fff"/><text x="28" y="42" font-size="26" fill="#0f172a">24</text></g>
+<g transform="translate(312 70)"><rect width="56" height="64" rx="14" fill="#f97316"/><text x="28" y="43" font-size="28" fill="#fff">?</text></g>
+</g>
+<g fill="none" stroke="#fb923c" stroke-width="3" stroke-linecap="round">
+<path d="M70 150q34 26 68 0M138 150q34 26 68 0M206 150q34 26 68 0M274 150q34 26 68 0"/>
+</g>
+<g font-family="Arial" font-weight="700" font-size="14" fill="#c2410c" text-anchor="middle">
+<text x="104" y="186">×2</text><text x="172" y="186">×2</text><text x="240" y="186">×2</text><text x="308" y="186">×2</text></g>
+</svg>
