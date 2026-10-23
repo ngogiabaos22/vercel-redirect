@@ -1,87 +1,114 @@
 [ux_html]
 <style>
 .tq{--p:#4f46e5;--p2:#6366f1;--c:#06b6d4;--ink:#0f172a;--mu:#64748b;--bd:#e2e8f0;--soft:#f5f7ff;color:var(--ink)}
+.tq img{max-width:100%;height:auto;display:block}
 .tq h1,.tq h2,.tq h3{color:var(--ink);font-weight:800;letter-spacing:-.02em;margin:0 0 .4em}
-.tq h1{font-size:clamp(36px,6vw,58px);line-height:1.1;margin-top:18px}
-.tq h2{font-size:clamp(26px,4vw,38px);line-height:1.2}
-.tq h3{font-size:18px;margin:12px 0 6px}
-.tq p{color:var(--mu);line-height:1.7;margin-bottom:12px}
-.tq .tq-grad{background:linear-gradient(90deg,var(--p),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
-.tq .tq-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid #c7d2fe;border-radius:99px;background:#eef2ff;color:var(--p);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;line-height:1.4}
-.tq .tq-badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);flex:0 0 8px}
-.tq .tq-eyebrow{color:var(--p);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.tq h1{font-size:clamp(38px,6vw,62px);line-height:1.05;margin-top:18px}
+.tq h2{font-size:clamp(26px,4vw,40px);line-height:1.2}
+.tq h3{font-size:19px;margin:14px 0 6px}
+.tq p{color:var(--mu);line-height:1.7;margin:0 0 12px}
+.tq .tq-grid{display:grid;gap:28px}
+.tq .tq-g2{grid-template-columns:1fr 1fr;align-items:center}
+.tq .tq-g3{grid-template-columns:repeat(3,1fr)}
+.tq .tq-g4{grid-template-columns:repeat(4,1fr)}
 .tq .tq-center{text-align:center}
-.tq .tq-lead{max-width:660px;margin:0 auto 10px}
-.tq .tq-hero-desc{font-size:17px;max-width:560px}
-.tq .tq-stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:28px}
-.tq .tq-stats b{display:block;font-size:30px;font-weight:800;color:var(--ink);line-height:1.1}
-.tq .tq-stats span{font-size:13px;color:var(--mu)}
-.tq .tq-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:99px;background:linear-gradient(90deg,var(--p),var(--p2));color:#fff!important;font-weight:700;font-size:16px;text-decoration:none!important;box-shadow:0 12px 26px -10px rgba(79,70,229,.7);transition:.25s;margin-top:10px}
-.tq .tq-btn:hover{transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(79,70,229,.8)}
+.tq .tq-lead{max-width:680px;margin:0 auto 34px}
+.tq .tq-narrow{max-width:960px;margin:0 auto}
+.tq .tq-eyebrow{color:var(--p);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.tq .tq-grad{background:linear-gradient(90deg,var(--p),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tq .tq-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid #c7d2fe;border-radius:99px;background:#fff;color:var(--p);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;line-height:1.4}
+.tq .tq-badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);flex:0 0 8px}
+.tq .tq-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:99px;background:linear-gradient(90deg,var(--p),var(--p2));color:#fff!important;font-weight:700;font-size:16px;text-decoration:none!important;box-shadow:0 12px 26px -10px rgba(79,70,229,.7);transition:.25s}
+.tq .tq-btn:hover{transform:translateY(-2px)}
 .tq .tq-btn:after{content:"→";font-size:18px}
-.tq .tq-matrix{background:#fff;border:1px solid var(--bd);border-radius:24px;padding:22px;box-shadow:0 30px 60px -30px rgba(79,70,229,.35);display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:400px;margin:0 auto}
-.tq .tq-cell{aspect-ratio:1/1;border-radius:14px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:var(--p)}
-.tq .tq-sh{width:46%;height:46%}
-.tq .tq-ci{border-radius:50%;background:var(--p)}
-.tq .tq-cih{border-radius:50%;background:linear-gradient(90deg,var(--p) 50%,transparent 50%);border:3px solid var(--p)}
-.tq .tq-sq{border-radius:4px;background:#ef4444}
-.tq .tq-sqh{border-radius:4px;background:linear-gradient(180deg,#ef4444 50%,transparent 50%);border:3px solid #ef4444}
-.tq .tq-tr{width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:38px solid #f59e0b}
-.tq .tq-tro{color:#f59e0b;font-size:44px;font-weight:400;line-height:1}
-.tq .tq-q{background:#eef2ff;border:2px dashed #a5b4fc}
-.tq-ticker{overflow:hidden;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;background:#fff;padding:14px 0}
-.tq-ticker .tq-track{display:flex;gap:40px;white-space:nowrap;animation:tqmove 30s linear infinite;width:max-content}
-.tq-ticker .tq-track div{font-weight:600;color:#64748b}
+.tq .tq-btn.tq-light{background:#fff;color:var(--p)!important;box-shadow:0 12px 30px -12px rgba(0,0,0,.35)}
+/* Hero */
+.tq.tq-hero{background:radial-gradient(1000px 500px at 90% 0%,#e0f2fe 0,transparent 60%),radial-gradient(800px 500px at 0% 100%,#eef2ff 0,transparent 60%),#f8faff}
+.tq .tq-hero-desc{font-size:18px;max-width:540px}
+.tq .tq-trust{display:flex;align-items:center;gap:12px;margin-top:22px;font-size:14px;color:var(--mu)}
+.tq .tq-avatars{display:flex}
+.tq .tq-avatars span{width:34px;height:34px;border-radius:50%;border:3px solid #fff;margin-left:-10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
+.tq .tq-avatars span:first-child{margin-left:0}
+.tq .tq-stats{display:flex;gap:38px;flex-wrap:wrap;margin-top:30px;padding-top:24px;border-top:1px solid var(--bd)}
+.tq .tq-stats b{display:block;font-size:30px;font-weight:800;line-height:1.1;color:var(--ink)}
+.tq .tq-stats span{font-size:13px;color:var(--mu)}
+/* Ticker */
+.tq-ticker{overflow:hidden;background:#0f172a;padding:16px 0}
+.tq-ticker .tq-track{display:flex;gap:44px;white-space:nowrap;animation:tqmove 30s linear infinite;width:max-content}
+.tq-ticker .tq-track div{font-weight:600;color:#cbd5e1}
 .tq-ticker .tq-track div:before{content:"✦";color:#06b6d4;margin-right:10px}
 @keyframes tqmove{to{transform:translateX(-50%)}}
-.tq .tq-check{list-style:none;margin:16px 0 0;padding:0}
-.tq .tq-check li{position:relative;padding-left:32px;margin:0 0 12px;color:var(--ink);list-style:none}
-.tq .tq-check li:before{content:"✓";position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:50%;background:#e0e7ff;color:var(--p);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
-.tq .tq-card{background:#fff;border:1px solid var(--bd);border-radius:20px;padding:24px;height:100%;transition:.25s}
-.tq .tq-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(15,23,42,.25);border-color:#c7d2fe}
-.tq .tq-card p{margin:0;font-size:14px}
-.tq .tq-card ul{margin:12px 0 0;padding-left:18px;font-size:14px;color:var(--mu)}
-.tq .tq-card ul li{margin:0 0 4px}
-.tq .tq-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:#eef2ff;flex:0 0 44px}
-.tq .tq-ico.b{background:#e0f2fe}.tq .tq-ico.g{background:#dcfce7}.tq .tq-ico.v{background:#f3e8ff}.tq .tq-ico.o{background:#ffedd5}
-.tq .tq-num{font-size:13px;font-weight:800;color:var(--c);letter-spacing:.08em;margin-bottom:10px}
-.tq .tq-why{display:flex;gap:16px;align-items:flex-start}
-.tq .tq-why h3{margin-top:0}
-.tq .tq-tablewrap{overflow-x:auto;margin-top:28px}
+/* IQ là gì */
+.tq .tq-check{list-style:none;margin:18px 0 0;padding:0}
+.tq .tq-check li{position:relative;padding-left:34px;margin:0 0 14px;color:var(--ink);list-style:none}
+.tq .tq-check li:before{content:"✓";position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:#e0e7ff;color:var(--p);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.tq .tq-mini{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.tq .tq-mini div{background:var(--soft);border-radius:14px;padding:14px 16px;font-size:14px;color:var(--mu);line-height:1.5}
+.tq .tq-mini b{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.tq .tq-frame{border-radius:28px;overflow:hidden}
+/* Thẻ năng lực có ảnh */
+.tq .tq-scard{background:#fff;border:1px solid var(--bd);border-radius:22px;overflow:hidden;transition:.25s;height:100%}
+.tq .tq-scard:hover{transform:translateY(-5px);box-shadow:0 24px 44px -26px rgba(15,23,42,.35)}
+.tq .tq-scard img{width:100%;aspect-ratio:5/3;object-fit:cover}
+.tq .tq-scard .tq-body{padding:20px 22px 24px}
+.tq .tq-num{font-size:12px;font-weight:800;color:var(--c);letter-spacing:.1em}
+.tq .tq-scard p{font-size:14px;margin:0}
+.tq .tq-tag{display:inline-block;margin:12px 6px 0 0;padding:4px 10px;border-radius:99px;background:var(--soft);font-size:12px;font-weight:600;color:var(--p)}
+/* 3 bước */
+.tq .tq-step{position:relative;background:#fff;border:1px solid var(--bd);border-radius:20px;padding:30px 24px 24px;margin-top:18px}
+.tq .tq-step .tq-n{position:absolute;top:-18px;left:24px;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--p),var(--c));color:#fff;font-weight:800;font-style:normal;display:flex;align-items:center;justify-content:center}
+.tq .tq-step p{margin:0;font-size:14px}
+/* Thang đo */
+.tq .tq-chart{border-radius:28px;border:1px solid var(--bd);box-shadow:0 30px 60px -40px rgba(79,70,229,.45);overflow:hidden;margin-bottom:30px;background:#fff}
+.tq .tq-tablewrap{overflow-x:auto}
 .tq table.tq-scale{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--bd);border-radius:18px;overflow:hidden;background:#fff;margin:0}
-.tq table.tq-scale th{background:var(--ink);color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.05em;padding:14px 16px;text-align:left;border:0}
-.tq table.tq-scale td{padding:14px 16px;border:0;border-top:1px solid var(--bd);font-size:15px;vertical-align:middle;color:var(--ink)}
+.tq table.tq-scale th{background:#0f172a;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.05em;padding:14px 16px;text-align:left;border:0}
+.tq table.tq-scale td{padding:13px 16px;border:0;border-top:1px solid var(--bd);font-size:15px;color:var(--ink);vertical-align:middle}
 .tq table.tq-scale td:first-child,.tq table.tq-scale th:first-child{padding-left:16px;font-weight:800;white-space:nowrap}
 .tq .tq-lv{display:inline-block;padding:3px 10px;border-radius:99px;font-size:13px;font-weight:700}
 .tq .l1{background:#ede9fe;color:#6d28d9}.tq .l2{background:#e0e7ff;color:#4338ca}.tq .l3{background:#e0f2fe;color:#0369a1}.tq .l4{background:#dcfce7;color:#15803d}.tq .l5{background:#fef9c3;color:#a16207}.tq .l6{background:#ffedd5;color:#c2410c}.tq .l7{background:#fee2e2;color:#b91c1c}
-.tq .tq-bar{height:8px;border-radius:99px;background:#eef2ff;min-width:90px}
-.tq .tq-bar div{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--p),var(--c))}
-.tq .tq-note{background:#fff;border-left:4px solid var(--p);border-radius:12px;padding:16px 18px}
+.tq .tq-note{margin-top:18px;background:#fff;border-left:4px solid var(--p);border-radius:12px;padding:16px 18px}
 .tq .tq-note p{margin:0;color:var(--ink)}
-.tq .accordion-title{font-weight:700;color:var(--ink)}
-@media(max-width:549px){.tq table.tq-scale th:nth-child(4),.tq table.tq-scale td:nth-child(4){display:none}.tq table.tq-scale td,.tq table.tq-scale th{padding:12px 10px;font-size:14px}.tq .tq-stats{gap:24px}.tq .tq-matrix{margin-top:30px}}
+/* Vì sao chọn */
+.tq .tq-why{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tq .tq-wcard{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:18px}
+.tq .tq-ico{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;background:#eef2ff;margin-bottom:10px}
+.tq .tq-ico.b{background:#e0f2fe}.tq .tq-ico.g{background:#dcfce7}.tq .tq-ico.v{background:#f3e8ff}.tq .tq-ico.o{background:#ffedd5}
+.tq .tq-wcard h3{font-size:16px;margin:0 0 4px}
+.tq .tq-wcard p{font-size:13.5px;margin:0;line-height:1.55}
+/* CTA */
+.tq .tq-cta{background:linear-gradient(120deg,#4f46e5,#6366f1 45%,#06b6d4);border-radius:32px;padding:44px 48px;display:grid;grid-template-columns:1.3fr 1fr;align-items:center;gap:20px;overflow:hidden}
+.tq .tq-cta h2{color:#fff}
+.tq .tq-cta p{color:#e0e7ff;font-size:17px;margin-bottom:22px}
+/* FAQ */
+.tq .accordion-item{background:#fff;border:1px solid var(--bd);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.tq .accordion-title{font-weight:700;color:var(--ink);border:0!important;padding:16px 20px 16px 48px}
+.tq .accordion-inner{padding:0 20px 18px 48px;color:var(--mu);line-height:1.7}
+@media(max-width:849px){.tq .tq-g4{grid-template-columns:1fr 1fr}.tq .tq-g3,.tq .tq-g2{grid-template-columns:1fr}.tq .tq-cta{grid-template-columns:1fr;padding:34px 24px;text-align:center}.tq .tq-cta img{max-width:260px;margin:0 auto}}
+@media(max-width:549px){.tq .tq-g4,.tq .tq-why,.tq .tq-mini{grid-template-columns:1fr}.tq table.tq-scale th:nth-child(4),.tq table.tq-scale td:nth-child(4){display:none}.tq table.tq-scale td,.tq table.tq-scale th{padding:11px 10px;font-size:14px}.tq .tq-stats{gap:26px}}
 </style>
 [/ux_html]
 
-[section label="Hero - Test IQ" bg_color="rgb(245, 247, 255)" padding="70px" padding__sm="40px" class="tq"]
+[section label="Hero - Test IQ" padding="70px" padding__sm="44px" class="tq tq-hero"]
 
 [row v_align="middle"]
 
-[col span="7" span__sm="12"]
+[col span="6" span__sm="12"]
 
 [ux_html]
 <div class="tq-badge">Trắc nghiệm chỉ số thông minh chuẩn hoá</div>
 <h1>Test IQ <span class="tq-grad">miễn phí</span></h1>
-<p class="tq-hero-desc">20 câu hỏi mô phỏng các dạng bài Raven's Matrices và WAIS, đánh giá 4 năng lực cốt lõi: tư duy logic, số học, ngôn ngữ và không gian. Kết quả quy đổi theo thang điểm quốc tế (trung bình 100, độ lệch chuẩn 15).</p>
+<p class="tq-hero-desc">20 câu hỏi mô phỏng các dạng bài Raven's Matrices và WAIS, đánh giá 4 năng lực cốt lõi: tư duy logic, số học, ngôn ngữ và không gian. Kết quả quy đổi theo thang điểm quốc tế.</p>
 <div><a class="tq-btn" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/">Test IQ nhanh</a></div>
-<div class="tq-stats"><div><b>20</b><span>Câu hỏi</span></div><div><b>15</b><span>Phút giới hạn</span></div><div><b>1200K+</b><span>Lượt làm test</span></div></div>
+<div class="tq-trust"><div class="tq-avatars"><span style="background:#6366f1">H</span><span style="background:#06b6d4">L</span><span style="background:#f59e0b">M</span><span style="background:#22c55e">T</span></div><div>Hơn 1,2 triệu lượt làm bài</div></div>
+<div class="tq-stats"><div><b>20</b><span>Câu hỏi</span></div><div><b>15</b><span>Phút giới hạn</span></div><div><b>4</b><span>Nhóm năng lực</span></div></div>
 [/ux_html]
 
 [/col]
-[col span="5" span__sm="12"]
+[col span="6" span__sm="12"]
 
 [ux_html]
-<div class="tq-matrix" aria-hidden="true"><div class="tq-cell"><div class="tq-sh tq-ci"></div></div><div class="tq-cell"><div class="tq-sh tq-sq"></div></div><div class="tq-cell"><div class="tq-sh tq-cih"></div></div><div class="tq-cell"><div class="tq-sh tq-sqh"></div></div><div class="tq-cell"><div class="tq-sh tq-sq"></div></div><div class="tq-cell"><div class="tq-sh tq-sqh"></div></div><div class="tq-cell"><div class="tq-tr"></div></div><div class="tq-cell"><div class="tq-tro">△</div></div><div class="tq-cell tq-q">?</div></div>
+<div><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-hero.webp" width="960" height="832" alt="Minh hoạ bài test IQ miễn phí với ma trận hình, dãy số, đồng hồ 15 phút và điểm IQ" fetchpriority="high"></div>
 [/ux_html]
 
 [/col]
@@ -94,47 +121,27 @@
 <div class="tq-ticker"><div class="tq-track"><div>Tư duy logic</div><div>Số học</div><div>Ngôn ngữ</div><div>Không gian</div><div>Chấm điểm theo thang chuẩn quốc tế</div><div>Kết quả ngay sau khi nộp bài</div><div>Tư duy logic</div><div>Số học</div><div>Ngôn ngữ</div><div>Không gian</div><div>Chấm điểm theo thang chuẩn quốc tế</div><div>Kết quả ngay sau khi nộp bài</div></div></div>
 [/ux_html]
 
-[section label="Trắc nghiệm IQ là gì" bg_color="rgb(255, 255, 255)" padding="70px" padding__sm="40px" class="tq"]
+[section label="Trắc nghiệm IQ là gì" bg_color="rgb(255, 255, 255)" padding="80px" padding__sm="48px" class="tq"]
 
 [row v_align="middle"]
 
 [col span="6" span__sm="12"]
 
 [ux_html]
+<div class="tq-frame"><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-about.webp" width="896" height="736" alt="Câu hỏi trắc nghiệm IQ dạng ma trận hình Raven với 4 đáp án" loading="lazy"></div>
+[/ux_html]
+
+[/col]
+[col span="6" span__sm="12"]
+
+[ux_html]
 <div class="tq-eyebrow">Về bài test</div>
 <h2>Trắc nghiệm IQ là gì?</h2>
-<p>IQ (Intelligence Quotient) là thước đo năng lực nhận thức tổng quát của con người, được chuẩn hoá lần đầu bởi Alfred Binet và phát triển qua các công cụ hiện đại như <strong>Raven's Progressive Matrices</strong> và <strong>WAIS (Wechsler Adult Intelligence Scale)</strong>.</p>
-<p>Bài test này sử dụng 4 dạng câu hỏi phổ biến nhất trong các bộ đo IQ chuẩn: ma trận hình ảnh, dãy số, loại suy ngôn ngữ và xoay hình không gian — giúp ước lượng năng lực tư duy của bạn một cách toàn diện trong 15 phút.</p>
-<ul class="tq-check"><li>Thang điểm chuẩn hoá quốc tế: trung bình 100, độ lệch chuẩn 15</li><li>Có giới hạn thời gian để phản ánh đúng tốc độ xử lý thông tin</li><li>Giải thích chi tiết đáp án đúng cho từng câu sau khi hoàn thành</li></ul>
+<p>IQ (Intelligence Quotient) là thước đo năng lực nhận thức tổng quát, được chuẩn hoá lần đầu bởi Alfred Binet và phát triển qua các công cụ hiện đại như <strong>Raven's Progressive Matrices</strong> và <strong>WAIS</strong>.</p>
+<p>Bài test dùng 4 dạng câu hỏi phổ biến nhất: ma trận hình ảnh, dãy số, loại suy ngôn ngữ và xoay hình không gian — ước lượng năng lực tư duy của bạn trong 15 phút.</p>
+<ul class="tq-check"><li>Thang điểm quốc tế: trung bình 100, độ lệch chuẩn 15</li><li>Có giới hạn thời gian để phản ánh tốc độ xử lý thông tin</li><li>Giải thích đáp án đúng cho từng câu sau khi hoàn thành</li></ul>
+<div class="tq-mini"><div><b>⏱️ Có tính giờ</b>15 phút cho 20 câu</div><div><b>⚡ Thưởng tốc độ</b>Làm nhanh, đúng được cộng điểm</div><div><b>🧩 4 dạng bài</b>Logic, số, chữ, hình khối</div><div><b>👥 So sánh dân số</b>Biết bạn ở top bao nhiêu %</div></div>
 [/ux_html]
-
-[/col]
-[col span="6" span__sm="12"]
-
-[row_inner]
-
-[col_inner span="6" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-ico">⏱️</div><h3>Có tính giờ</h3><p>15 phút cho 20 câu — mô phỏng áp lực thời gian của bài test thực tế.</p></div>
-[/ux_html]
-[/col_inner]
-[col_inner span="6" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-ico g">🧩</div><h3>4 dạng bài đa dạng</h3><p>Ma trận logic, số học, ngôn ngữ và không gian trong cùng một bài test.</p></div>
-[/ux_html]
-[/col_inner]
-[col_inner span="6" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-ico v">⚡</div><h3>Thưởng tốc độ</h3><p>Hoàn thành sớm với độ chính xác cao để nhận thêm điểm thưởng.</p></div>
-[/ux_html]
-[/col_inner]
-[col_inner span="6" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-ico b">👥</div><h3>Đối chiếu dân số</h3><p>Xem bạn thuộc bao nhiêu phần trăm dân số qua biểu đồ phân phối chuẩn.</p></div>
-[/ux_html]
-[/col_inner]
-
-[/row_inner]
 
 [/col]
 
@@ -142,96 +149,21 @@
 
 [/section]
 
-[section label="4 năng lực cốt lõi" bg_color="rgb(245, 247, 255)" padding="70px" padding__sm="40px" class="tq"]
+[section label="4 năng lực cốt lõi" bg_color="rgb(245, 247, 255)" padding="80px" padding__sm="48px" class="tq"]
 
 [row]
 
 [col span="12"]
+
 [ux_html]
 <div class="tq-center"><div class="tq-eyebrow">4 năng lực cốt lõi</div><h2>Bài test IQ đo lường điều gì?</h2><p class="tq-lead">Mỗi câu hỏi thuộc một trong 4 nhóm năng lực nhận thức dưới đây.</p></div>
+<div class="tq-grid tq-g4">
+<div class="tq-scard"><div class="tq-img"><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-skill-logic.webp" width="720" height="432" alt="Câu hỏi IQ tư duy logic dạng ma trận hình tìm mảnh còn thiếu" loading="lazy"></div><div class="tq-body"><div class="tq-num">01</div><h3>Tư duy logic</h3><p>Tìm quy luật ẩn trong ma trận hình và chọn mảnh còn thiếu.</p><div class="tq-tags"><span class="tq-tag">Ma trận Raven</span><span class="tq-tag">Suy luận</span></div></div></div>
+<div class="tq-scard"><div class="tq-img"><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-skill-number.webp" width="720" height="432" alt="Câu hỏi IQ số học hoàn thành dãy số nhân đôi" loading="lazy"></div><div class="tq-body"><div class="tq-num">02</div><h3>Số học</h3><p>Hoàn thành dãy số và nhận ra quan hệ giữa các con số.</p><div class="tq-tags"><span class="tq-tag">Dãy số</span><span class="tq-tag">Tính nhẩm</span></div></div></div>
+<div class="tq-scard"><div class="tq-img"><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-skill-verbal.webp" width="720" height="432" alt="Câu hỏi IQ ngôn ngữ dạng loại suy Bác sĩ - Bệnh viện, Giáo viên - ?" loading="lazy"></div><div class="tq-body"><div class="tq-num">03</div><h3>Ngôn ngữ</h3><p>Loại suy từ vựng, tìm từ khác loại, hiểu quan hệ khái niệm.</p><div class="tq-tags"><span class="tq-tag">Loại suy</span><span class="tq-tag">Phân loại</span></div></div></div>
+<div class="tq-scard"><div class="tq-img"><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-skill-spatial.webp" width="720" height="432" alt="Câu hỏi IQ không gian xoay khối lập phương 3D" loading="lazy"></div><div class="tq-body"><div class="tq-num">04</div><h3>Không gian</h3><p>Xoay, gấp và lắp ghép hình khối trong đầu.</p><div class="tq-tags"><span class="tq-tag">Xoay hình 3D</span><span class="tq-tag">Gấp hình</span></div></div></div>
+</div>
 [/ux_html]
-[/col]
-
-[col span="3" span__md="6" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-num">01</div><div class="tq-ico">🔷</div><h3>Tư duy logic (Ma trận)</h3><p>Tìm quy luật ẩn trong chuỗi hình ảnh và chọn mảnh còn thiếu — dạng bài cốt lõi của Raven's Matrices.</p><ul><li>Nhận diện quy luật</li><li>Suy luận trừu tượng</li></ul></div>
-[/ux_html]
-[/col]
-
-[col span="3" span__md="6" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-num">02</div><div class="tq-ico o">🔢</div><h3>Số học</h3><p>Hoàn thành dãy số, giải bài toán nhanh và nhận ra mối quan hệ giữa các con số.</p><ul><li>Dãy số, cấp số</li><li>Tính nhẩm có thời gian</li></ul></div>
-[/ux_html]
-[/col]
-
-[col span="3" span__md="6" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-num">03</div><div class="tq-ico g">📖</div><h3>Ngôn ngữ</h3><p>Loại suy từ vựng, tìm từ khác loại và hiểu mối quan hệ ngữ nghĩa giữa các khái niệm.</p><ul><li>Loại suy (A:B = C:?)</li><li>Phân loại khái niệm</li></ul></div>
-[/ux_html]
-[/col]
-
-[col span="3" span__md="6" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-num">04</div><div class="tq-ico v">🧊</div><h3>Không gian</h3><p>Xoay, gấp và lắp ghép hình trong đầu — năng lực quan trọng với kỹ thuật, kiến trúc, thiết kế.</p><ul><li>Xoay hình 2D/3D</li><li>Gấp và trải hình khối</li></ul></div>
-[/ux_html]
-[/col]
-
-[col span="12" align="center"]
-[ux_html]
-<div class="tq-center"><a class="tq-btn" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/">Test IQ nhanh</a></div>
-[/ux_html]
-[/col]
-
-[/row]
-
-[/section]
-
-[section label="Thang đo xếp loại IQ" bg_color="rgb(255, 255, 255)" padding="70px" padding__sm="40px" class="tq"]
-
-[row h_align="center"]
-
-[col span="10" span__sm="12"]
-
-[ux_html]
-<div class="tq-center"><div class="tq-eyebrow">Đọc hiểu kết quả</div><h2>Thang đo xếp loại bài test IQ</h2><p class="tq-lead">Điểm IQ được quy đổi theo phân phối chuẩn (đường cong hình chuông) với điểm trung bình 100 và độ lệch chuẩn 15. Bảng dưới đây giúp bạn biết mình đang ở mức nào so với dân số chung.</p></div>
-<div class="tq-tablewrap"><table class="tq-scale"><thead><tr><th>Điểm IQ</th><th>Xếp loại</th><th>Tỷ lệ dân số</th><th>Phân bố</th></tr></thead><tbody><tr><td>130 trở lên</td><td><span class="tq-lv l1">Rất xuất sắc</span></td><td>≈ 2,2%</td><td><div class="tq-bar"><div style="width:5%"></div></div></td></tr><tr><td>120 – 129</td><td><span class="tq-lv l2">Xuất sắc</span></td><td>≈ 6,7%</td><td><div class="tq-bar"><div style="width:14%"></div></div></td></tr><tr><td>110 – 119</td><td><span class="tq-lv l3">Trên trung bình</span></td><td>≈ 16,1%</td><td><div class="tq-bar"><div style="width:32%"></div></div></td></tr><tr><td>90 – 109</td><td><span class="tq-lv l4">Trung bình</span></td><td>≈ 50%</td><td><div class="tq-bar"><div style="width:100%"></div></div></td></tr><tr><td>80 – 89</td><td><span class="tq-lv l5">Dưới trung bình</span></td><td>≈ 16,1%</td><td><div class="tq-bar"><div style="width:32%"></div></div></td></tr><tr><td>70 – 79</td><td><span class="tq-lv l6">Mức ranh giới</span></td><td>≈ 6,7%</td><td><div class="tq-bar"><div style="width:14%"></div></div></td></tr><tr><td>Dưới 70</td><td><span class="tq-lv l7">Thấp</span></td><td>≈ 2,2%</td><td><div class="tq-bar"><div style="width:5%"></div></div></td></tr></tbody></table></div>
-[/ux_html]
-
-[/col]
-
-[/row]
-
-[row h_align="center"]
-
-[col span="10" span__sm="12"]
-
-[row_inner]
-
-[col_inner span="4" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-ico">📊</div><h3>Khoảng 68% dân số</h3><p>có IQ trong khoảng 85 – 115, tức nằm trong phạm vi một độ lệch chuẩn quanh mức trung bình.</p></div>
-[/ux_html]
-[/col_inner]
-
-[col_inner span="4" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-ico b">🎯</div><h3>Khoảng 95% dân số</h3><p>có IQ từ 70 đến 130. Chỉ khoảng 2% đạt từ 130 trở lên — ngưỡng thường dùng để xét vào hội Mensa.</p></div>
-[/ux_html]
-[/col_inner]
-
-[col_inner span="4" span__sm="12"]
-[ux_html]
-<div class="tq-card"><div class="tq-ico o">🧭</div><h3>Điểm số mang tính tham khảo</h3><p>Kết quả có thể chênh lệch vài điểm giữa các lần làm do mệt mỏi, tâm lý hoặc mức độ quen với dạng đề.</p></div>
-[/ux_html]
-[/col_inner]
-
-[col_inner span="12"]
-[ux_html]
-<div class="tq-note" style="background:#f5f7ff"><p><strong>Lưu ý:</strong> Bài test IQ trực tuyến giúp bạn ước lượng nhanh năng lực tư duy và luyện tập các dạng bài phổ biến. Kết quả không thay thế đánh giá lâm sàng do chuyên gia tâm lý thực hiện bằng bộ công cụ chuẩn (WAIS, Stanford–Binet).</p></div>
-[/ux_html]
-[/col_inner]
-
-[/row_inner]
 
 [/col]
 
@@ -239,63 +171,102 @@
 
 [/section]
 
-[section label="Tại sao chọn tracnghiemplus.com" bg_color="rgb(245, 247, 255)" padding="70px" padding__sm="40px" class="tq"]
+[section label="3 bước làm bài" bg_color="rgb(255, 255, 255)" padding="80px" padding__sm="48px" class="tq"]
 
 [row]
 
 [col span="12"]
-[ux_html]
-<div class="tq-center"><div class="tq-eyebrow">Vì sao là Trắc nghiệm PLUS</div><h2>Tại sao nên chọn tracnghiemplus.com để làm bài Test IQ</h2><p class="tq-lead">Không chỉ cho bạn một con số, tracnghiemplus.com giúp bạn hiểu rõ điểm mạnh, điểm yếu trong tư duy và biết cách cải thiện.</p></div>
-[/ux_html]
-[/col]
 
-[col span="6" span__sm="12"]
 [ux_html]
-<div class="tq-card tq-why"><div class="tq-ico">🆓</div><div><h3>Miễn phí 100%, không cần đăng ký</h3><p>Làm bài ngay trên điện thoại hoặc máy tính, không yêu cầu tài khoản, không mất phí xem kết quả.</p></div></div>
+<div class="tq-center"><div class="tq-eyebrow">Cách làm bài</div><h2>Làm Test IQ chỉ với 3 bước</h2><p class="tq-lead">Không cần đăng ký, làm được ngay trên điện thoại hoặc máy tính.</p></div>
+<div class="tq-grid tq-g3">
+<div class="tq-step"><div class="tq-n">1</div><h3>Bấm “Test IQ nhanh”</h3><p>Chuẩn bị giấy nháp, chọn nơi yên tĩnh rồi bắt đầu bài thi.</p></div>
+<div class="tq-step"><div class="tq-n">2</div><h3>Trả lời 20 câu trong 15 phút</h3><p>Đồng hồ đếm ngược; câu khó có thể bỏ qua và quay lại sau.</p></div>
+<div class="tq-step"><div class="tq-n">3</div><h3>Nhận điểm IQ &amp; giải thích</h3><p>Xem điểm, xếp loại, vị trí so với dân số và lời giải từng câu.</p></div>
+</div>
+<div class="tq-center" style="margin-top:36px"><a class="tq-btn" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/">Test IQ nhanh</a></div>
 [/ux_html]
-[/col]
 
-[col span="6" span__sm="12"]
-[ux_html]
-<div class="tq-card tq-why"><div class="tq-ico g">📐</div><div><h3>Đề thi xây dựng theo chuẩn quốc tế</h3><p>Câu hỏi mô phỏng cấu trúc Raven's Matrices và WAIS, điểm số quy đổi theo thang trung bình 100 – độ lệch chuẩn 15.</p></div></div>
-[/ux_html]
-[/col]
-
-[col span="6" span__sm="12"]
-[ux_html]
-<div class="tq-card tq-why"><div class="tq-ico b">⚡</div><div><h3>Kết quả ngay, phân tích chi tiết</h3><p>Nhận điểm IQ, xếp loại và giải thích đáp án đúng cho từng câu ngay sau khi nộp bài.</p></div></div>
-[/ux_html]
-[/col]
-
-[col span="6" span__sm="12"]
-[ux_html]
-<div class="tq-card tq-why"><div class="tq-ico v">🇻🇳</div><div><h3>Ngôn ngữ thuần Việt, dễ hiểu</h3><p>Câu hỏi và giải thích được biên soạn bằng tiếng Việt, phù hợp học sinh, sinh viên và người đi làm.</p></div></div>
-[/ux_html]
-[/col]
-
-[col span="6" span__sm="12"]
-[ux_html]
-<div class="tq-card tq-why"><div class="tq-ico o">🔒</div><div><h3>Bảo mật thông tin</h3><p>Không thu thập dữ liệu cá nhân nhạy cảm, kết quả làm bài chỉ dành cho riêng bạn.</p></div></div>
-[/ux_html]
-[/col]
-
-[col span="6" span__sm="12"]
-[ux_html]
-<div class="tq-card tq-why"><div class="tq-ico">📚</div><div><h3>Hệ sinh thái trắc nghiệm đa dạng</h3><p>Sau Test IQ, bạn có thể khám phá thêm nhiều bài trắc nghiệm tính cách, năng lực khác trên tracnghiemplus.com.</p></div></div>
-[/ux_html]
-[/col]
-
-[col span="12"]
-[ux_html]
-<div class="tq-center"><a class="tq-btn" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/">Test IQ nhanh</a></div>
-[/ux_html]
 [/col]
 
 [/row]
 
 [/section]
 
-[section label="FAQ" bg_color="rgb(255, 255, 255)" padding="70px" padding__sm="40px" class="tq"]
+[section label="Thang đo xếp loại IQ" bg_color="rgb(245, 247, 255)" padding="80px" padding__sm="48px" class="tq"]
+
+[row]
+
+[col span="12"]
+
+[ux_html]
+<div class="tq-narrow">
+<div class="tq-center"><div class="tq-eyebrow">Đọc hiểu kết quả</div><h2>Thang đo xếp loại bài test IQ</h2><p class="tq-lead">Điểm IQ được quy đổi theo phân phối chuẩn (đường cong hình chuông): trung bình 100, độ lệch chuẩn 15. Khoảng 68% dân số có IQ từ 85 đến 115.</p></div>
+<div class="tq-chart"><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-bell.webp" width="1260" height="504" alt="Biểu đồ phân phối chuẩn điểm IQ, trung bình 100, độ lệch chuẩn 15" loading="lazy"></div>
+<div class="tq-tablewrap"><table class="tq-scale"><thead><tr><th>Điểm IQ</th><th>Xếp loại</th><th>Tỷ lệ dân số</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td>130 trở lên</td><td><span class="tq-lv l1">Rất xuất sắc</span></td><td>≈ 2,2%</td><td>Ngưỡng xét vào hội Mensa</td></tr><tr><td>120 – 129</td><td><span class="tq-lv l2">Xuất sắc</span></td><td>≈ 6,7%</td><td>Tư duy trừu tượng rất tốt</td></tr><tr><td>110 – 119</td><td><span class="tq-lv l3">Trên trung bình</span></td><td>≈ 16,1%</td><td>Học và xử lý vấn đề nhanh</td></tr><tr><td>90 – 109</td><td><span class="tq-lv l4">Trung bình</span></td><td>≈ 50%</td><td>Mức phổ biến nhất</td></tr><tr><td>80 – 89</td><td><span class="tq-lv l5">Dưới trung bình</span></td><td>≈ 16,1%</td><td>Cần thêm thời gian luyện tập</td></tr><tr><td>70 – 79</td><td><span class="tq-lv l6">Mức ranh giới</span></td><td>≈ 6,7%</td><td>Nên tham khảo chuyên gia</td></tr><tr><td>Dưới 70</td><td><span class="tq-lv l7">Thấp</span></td><td>≈ 2,2%</td><td>Cần đánh giá lâm sàng</td></tr></tbody></table></div>
+<div class="tq-note"><p><strong>Lưu ý:</strong> Kết quả online mang tính tham khảo, không thay thế đánh giá lâm sàng bằng bộ công cụ chuẩn (WAIS, Stanford–Binet).</p></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="Tại sao chọn tracnghiemplus.com" bg_color="rgb(255, 255, 255)" padding="80px" padding__sm="48px" class="tq"]
+
+[row v_align="middle"]
+
+[col span="7" span__sm="12"]
+
+[ux_html]
+<div class="tq-eyebrow">Vì sao là Trắc nghiệm PLUS</div>
+<h2>Tại sao nên chọn tracnghiemplus.com để làm bài Test IQ</h2>
+<p style="margin-bottom:24px">Không chỉ cho bạn một con số — bạn biết rõ điểm mạnh, điểm yếu trong tư duy và cách cải thiện.</p>
+<div class="tq-why">
+<div class="tq-wcard"><div class="tq-ico">🆓</div><h3>Miễn phí, không đăng ký</h3><p>Làm ngay, xem kết quả không mất phí.</p></div>
+<div class="tq-wcard"><div class="tq-ico g">📐</div><h3>Chuẩn quốc tế</h3><p>Mô phỏng Raven's Matrices và WAIS.</p></div>
+<div class="tq-wcard"><div class="tq-ico b">📊</div><h3>Phân tích 4 năng lực</h3><p>Biểu đồ điểm từng nhóm kỹ năng.</p></div>
+<div class="tq-wcard"><div class="tq-ico v">🇻🇳</div><h3>Thuần Việt, dễ hiểu</h3><p>Câu hỏi và lời giải bằng tiếng Việt.</p></div>
+<div class="tq-wcard"><div class="tq-ico o">🔒</div><h3>Bảo mật thông tin</h3><p>Không thu thập dữ liệu nhạy cảm.</p></div>
+<div class="tq-wcard"><div class="tq-ico">📱</div><h3>Mượt trên điện thoại</h3><p>Giao diện tối ưu cho mọi màn hình.</p></div>
+</div>
+[/ux_html]
+
+[/col]
+[col span="5" span__sm="12"]
+
+[ux_html]
+<div><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-phone.webp" width="832" height="896" alt="Màn hình kết quả Test IQ trên điện thoại với điểm IQ và phân tích 4 năng lực" loading="lazy"></div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="CTA" bg_color="rgb(255, 255, 255)" padding="0px" padding__sm="0px" class="tq"]
+
+[row]
+
+[col span="12" padding="0px 15px 80px 15px" padding__sm="0px 15px 48px 15px"]
+
+[ux_html]
+<div class="tq-cta">
+<div><h2>Sẵn sàng đo chỉ số IQ của bạn?</h2><p>20 câu hỏi · 15 phút · Có kết quả và lời giải ngay sau khi nộp bài.</p><div><a class="tq-btn tq-light" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/">Test IQ nhanh</a></div></div>
+<div><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-cta.webp" width="630" height="450" alt="Bóng đèn IQ minh hoạ bắt đầu làm bài test IQ" loading="lazy"></div>
+</div>
+[/ux_html]
+
+[/col]
+
+[/row]
+
+[/section]
+
+[section label="FAQ" bg_color="rgb(245, 247, 255)" padding="80px" padding__sm="48px" class="tq"]
 
 [row h_align="center"]
 
@@ -305,10 +276,10 @@
 <div class="tq-center"><div class="tq-eyebrow">Câu hỏi thường gặp</div><h2>Giải đáp về bài Test IQ</h2></div>
 [/ux_html]
 
-[accordion]
+[accordion auto_open="true"]
 
 [accordion-item title="Bài test IQ này có chính xác không?"]
-Bài test được xây dựng theo cấu trúc các bộ đo IQ chuẩn và quy đổi điểm theo phân phối chuẩn, nên cho kết quả ước lượng khá sát. Tuy nhiên đây là công cụ tham khảo, không thay thế đánh giá lâm sàng của chuyên gia tâm lý.
+Bài test xây dựng theo cấu trúc các bộ đo IQ chuẩn và quy đổi điểm theo phân phối chuẩn nên kết quả ước lượng khá sát. Đây là công cụ tham khảo, không thay thế đánh giá lâm sàng của chuyên gia tâm lý.
 [/accordion-item]
 
 [accordion-item title="Làm bài Test IQ mất bao lâu?"]
@@ -316,7 +287,7 @@ Bài test gồm 20 câu hỏi với thời gian giới hạn 15 phút. Bạn nê
 [/accordion-item]
 
 [accordion-item title="Điểm IQ bao nhiêu là cao?"]
-Điểm từ 110 trở lên được xem là trên trung bình, từ 120 là xuất sắc và từ 130 trở lên thuộc nhóm khoảng 2% dân số có chỉ số IQ cao nhất.
+Điểm từ 110 trở lên là trên trung bình, từ 120 là xuất sắc và từ 130 trở lên thuộc nhóm khoảng 2% dân số có chỉ số IQ cao nhất.
 [/accordion-item]
 
 [accordion-item title="Có thể làm lại bài test nhiều lần không?"]
@@ -324,7 +295,7 @@ Có. Tuy nhiên khi làm lại, bạn đã quen với dạng đề nên điểm 
 [/accordion-item]
 
 [accordion-item title="Chỉ số IQ có cải thiện được không?"]
-IQ tương đối ổn định ở tuổi trưởng thành, nhưng việc luyện tư duy logic, đọc sách, học kỹ năng mới, ngủ đủ và vận động đều đặn giúp bạn phát huy tốt hơn năng lực nhận thức của mình.
+IQ tương đối ổn định ở tuổi trưởng thành, nhưng luyện tư duy logic, đọc sách, học kỹ năng mới, ngủ đủ và vận động đều đặn giúp bạn phát huy tốt hơn năng lực nhận thức của mình.
 [/accordion-item]
 
 [/accordion]
