@@ -2,8 +2,8 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Nút "Thêm câu hỏi mẫu" ở trang Cài đặt: tạo 3 câu hỏi ví dụ (lưới xoay hình, lưới đếm số lượng,
- * dãy số dạng chữ) để xem trước cách hiển thị. Có thể xoá đi sau đó.
+ * Nút "Thêm câu hỏi mẫu" ở trang Cài đặt: tạo 4 câu hỏi ví dụ (2 câu ảnh ma trận, 1 câu dãy số,
+ * 1 câu suy luận 5 đáp án) để xem trước cách hiển thị. Có thể xoá đi sau đó.
  */
 class TNP_IQ_Demo {
 
@@ -16,8 +16,8 @@ class TNP_IQ_Demo {
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<input type="hidden" name="action" value="tnp_iq_demo">
 			<?php wp_nonce_field( 'tnp_iq_demo' ); ?>
-			<button class="button">Thêm 3 câu hỏi mẫu</button>
-			<span class="description">Tạo sẵn 3 câu (kèm ảnh) để xem cách nhập và cách hiển thị. Xoá đi khi không cần.</span>
+			<button class="button">Thêm 4 câu hỏi mẫu</button>
+			<span class="description">Tạo sẵn 4 câu (2 câu ảnh đề bài, 2 câu hỏi chữ, có câu 5 đáp án) để xem cách nhập và cách hiển thị. Xoá đi khi không cần.</span>
 		</form>
 		<?php
 		if ( isset( $_GET['tnp_demo'] ) ) {
@@ -59,19 +59,33 @@ class TNP_IQ_Demo {
 		return $id;
 	}
 
-	private static function grid_question( $prefix, $title, $order, $correct, $explain, $category, $difficulty ) {
-		$cells = array();
-		for ( $i = 1; $i <= 8; $i++ ) {
-			$cells[] = self::attach( "{$prefix}-cell-{$i}.png", "Câu mẫu – ô {$i}" );
-		}
+	/** Câu kiểu "Ảnh đề bài" với 4 đáp án ảnh. */
+	private static function image_question( $prefix, $title, $order, $correct, $explain, $category, $difficulty ) {
 		$options = array();
-		foreach ( TNP_IQ_Questions::KEYS as $k ) {
+		foreach ( array( 'A', 'B', 'C', 'D' ) as $k ) {
 			$options[ $k ] = array( 'img' => self::attach( "{$prefix}-opt-{$k}.png", "Câu mẫu – đáp án {$k}" ), 'text' => '' );
 		}
 		return self::create( $title, $order, array(
-			'type'       => 'grid',
-			'grid'       => 3,
-			'cells'      => array_pad( $cells, 15, 0 ),
+			'type'       => 'image',
+			'body'       => '',
+			'image'      => self::attach( "{$prefix}-question.png", 'Câu mẫu – đề bài' ),
+			'options'    => $options,
+			'correct'    => $correct,
+			'explain'    => $explain,
+			'category'   => $category,
+			'difficulty' => $difficulty,
+		) );
+	}
+
+	/** Câu kiểu "Câu hỏi" với đáp án chữ. */
+	private static function text_question( $title, $body, $order, array $answers, $correct, $explain, $category, $difficulty ) {
+		$options = array();
+		foreach ( array_values( $answers ) as $i => $t ) {
+			$options[ TNP_IQ_Questions::letter( $i ) ] = array( 'img' => 0, 'text' => $t );
+		}
+		return self::create( $title, $order, array(
+			'type'       => 'question',
+			'body'       => $body,
 			'image'      => 0,
 			'options'    => $options,
 			'correct'    => $correct,
@@ -88,28 +102,19 @@ class TNP_IQ_Demo {
 		$base = (int) wp_count_posts( TNP_IQ_CPT )->publish;
 		$made = 0;
 
-		$made += self::grid_question( 'rot', 'Hình nào điền vào ô trống?', $base + 1, 'C',
+		$made += self::image_question( 'rot', 'Hình nào điền vào ô trống?', $base + 1, 'C',
 			'Mỗi hàng, hình xoay thêm 20° theo chiều kim đồng hồ: 0° → 20° → 40°. Ô trống là dấu cộng xoay 40°.', 'logic', 3 ) ? 1 : 0;
 
-		$made += self::grid_question( 'cnt', 'Hình nào hoàn thành ma trận?', $base + 2, 'D',
+		$made += self::image_question( 'cnt', 'Hình nào hoàn thành ma trận?', $base + 2, 'D',
 			'Mỗi hàng giữ nguyên một loại hình, mỗi cột tăng số lượng 1 → 2 → 3. Ô trống cần 3 hình tam giác.', 'logic', 2 ) ? 1 : 0;
 
-		$made += self::create( 'Số tiếp theo của dãy: 2, 6, 12, 20, 30, ?', $base + 3, array(
-			'type'       => 'text',
-			'grid'       => 3,
-			'cells'      => array_fill( 0, 15, 0 ),
-			'image'      => 0,
-			'options'    => array(
-				'A' => array( 'img' => 0, 'text' => '40' ),
-				'B' => array( 'img' => 0, 'text' => '42' ),
-				'C' => array( 'img' => 0, 'text' => '44' ),
-				'D' => array( 'img' => 0, 'text' => '36' ),
-			),
-			'correct'    => 'B',
-			'explain'    => 'Khoảng cách giữa các số tăng dần 4, 6, 8, 10, 12 (hay n × (n+1)). 30 + 12 = 42.',
-			'category'   => 'number',
-			'difficulty' => 2,
-		) ) ? 1 : 0;
+		$made += self::text_question( 'Số tiếp theo của dãy là gì?', "2, 6, 12, 20, 30, ?", $base + 3,
+			array( '40', '42', '44', '36' ), 'B',
+			'Khoảng cách giữa các số tăng dần 4, 6, 8, 10, 12 (hay n × (n+1)). 30 + 12 = 42.', 'number', 2 ) ? 1 : 0;
+
+		$made += self::text_question( 'Ai là người thấp nhất?', "An cao hơn Bình.\nCường thấp hơn Bình.\nDũng cao hơn An.", $base + 4,
+			array( 'An', 'Bình', 'Cường', 'Dũng', 'Không đủ dữ kiện để kết luận' ), 'C',
+			'Thứ tự từ cao đến thấp: Dũng > An > Bình > Cường.', 'verbal', 2 ) ? 1 : 0;
 
 		wp_safe_redirect( admin_url( 'edit.php?post_type=' . TNP_IQ_CPT . '&page=tnp-iq-settings&tnp_demo=' . $made ) );
 		exit;
