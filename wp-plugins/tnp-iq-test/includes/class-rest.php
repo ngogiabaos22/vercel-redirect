@@ -22,6 +22,7 @@ class TNP_IQ_Rest {
 			'permission_callback' => '__return_true',
 			'args'                => array(
 				'count' => array( 'type' => 'integer', 'minimum' => 0, 'maximum' => 200 ),
+				'test'  => array( 'type' => 'string' ),
 				'time'  => array( 'type' => 'integer', 'minimum' => 0, 'maximum' => 180 ),
 			),
 		) );
@@ -61,14 +62,18 @@ class TNP_IQ_Rest {
 
 	/* ---------- Lấy đề ---------- */
 
-	public static function questions( $count, $order ) {
-		$posts = get_posts( array(
+	public static function questions( $count, $order, $test = '' ) {
+		$args = array(
 			'post_type'      => TNP_IQ_CPT,
 			'post_status'    => 'publish',
 			'posts_per_page' => -1,
 			'orderby'        => array( 'menu_order' => 'ASC', 'ID' => 'ASC' ),
 			'no_found_rows'  => true,
-		) );
+		);
+		if ( '' !== $test ) {
+			$args['tax_query'] = array( array( 'taxonomy' => TNP_IQ_Questions::TAX, 'field' => 'slug', 'terms' => $test ) ); // phpcs:ignore WordPress.DB.SlowDBQuery
+		}
+		$posts = get_posts( $args );
 		$posts = array_values( array_filter( $posts, function ( $p ) {
 			return TNP_IQ_Questions::is_complete( TNP_IQ_Questions::get( $p->ID ) );
 		} ) );
@@ -85,15 +90,17 @@ class TNP_IQ_Rest {
 	public static function start( WP_REST_Request $req ) {
 		$count = null !== $req['count'] ? (int) $req['count'] : (int) TNP_IQ_Settings::get( 'question_count' );
 		$time  = null !== $req['time'] ? (int) $req['time'] : (int) TNP_IQ_Settings::get( 'time_limit' );
-		$posts = self::questions( $count, TNP_IQ_Settings::get( 'order' ) );
+		$test  = sanitize_title( (string) $req['test'] );
+		$posts = self::questions( $count, TNP_IQ_Settings::get( 'order' ), $test );
 
 		if ( ! $posts ) {
 			return new WP_Error( 'tnp_iq_empty', 'Bài test chưa có câu hỏi nào. Vui lòng quay lại sau.', array( 'status' => 404 ) );
 		}
 
 		$ids = wp_list_pluck( $posts, 'ID' );
+		TNP_IQ_Results::bump( $test, 'views' );
 		return rest_ensure_response( array(
-			'token'     => self::sign( array( 'ids' => $ids, 't' => time(), 'limit' => $time * 60 ) ),
+			'token'     => self::sign( array( 'ids' => $ids, 't' => time(), 'limit' => $time * 60, 'k' => $test ) ),
 			'timeLimit' => $time * 60,
 			'questions' => array_map( array( 'TNP_IQ_Questions', 'public_data' ), $posts ),
 		) );
@@ -119,7 +126,7 @@ class TNP_IQ_Rest {
 
 		$answers = (array) $req['answers'];
 		$age     = (int) $req['age'];
-		$limit   = (int) $data['limit'];
+		$test    = sanitize_title( (string) ( $data['k'] ?? '' ) );
 		$server  = max( 0, time() - (int) $data['t'] );
 		$n       = count( $data['ids'] );
 		// Thời gian làm phần câu hỏi do trình duyệt báo (không tính bước nhập tuổi), không vượt thời gian máy chủ đo được.
@@ -128,7 +135,6 @@ class TNP_IQ_Rest {
 
 		$items  = array();
 		$cats   = array();
-		$review = array();
 		$stored = array();
 		foreach ( $data['ids'] as $id ) {
 			$id = (int) $id;
@@ -146,18 +152,12 @@ class TNP_IQ_Rest {
 			$cats[ $c ]['correct'] += $ok ? 1 : 0;
 
 			$stored[ $id ] = $your;
-			$review[]      = array(
-				'id'      => $id,
-				'your'    => $your,
-				'correct' => $q['correct'],
-				'ok'      => $ok,
-				'explain' => $q['explain'],
-			);
 		}
 
-		$result = TNP_IQ_Scoring::score( $items, $age, $elapsed, $limit );
+		$result = TNP_IQ_Scoring::score( $items, $age, $elapsed );
 
 		TNP_IQ_Results::insert( array(
+			'test_key'   => $test,
 			'iq'         => $result['iq'],
 			'correct'    => $result['correct'],
 			'total'      => $result['total'],
@@ -169,25 +169,25 @@ class TNP_IQ_Rest {
 			'ip_hash'    => $ip_hash,
 		) );
 		set_transient( $rate, $used + 1, HOUR_IN_SECONDS );
+		TNP_IQ_Results::bump( $test, 'results' );
 
 		$cat_out = array();
 		foreach ( $cats as $k => $c ) {
-			$cat_out[] = array( 'key' => $k, 'name' => TNP_IQ_Questions::CATEGORIES[ $k ] ?? $k ) + $c;
+			$cat_out[] = array( 'key' => $k, 'name' => TNP_IQ_Questions::CATEGORIES[ $k ] ?? $k ) + TNP_IQ_Scoring::category_analysis( $k, $c['correct'], $c['total'] );
 		}
 
-		$show = (int) TNP_IQ_Settings::get( 'show_review' );
+		$levels = array();
+		foreach ( TNP_IQ_Scoring::levels() as $l ) {
+			$levels[] = array( 'range' => $l['range'], 'name' => $l['name'], 'share' => $l['share'] );
+		}
+
+		// Không trả về số câu đúng, thời gian hay đáp án — trang kết quả chỉ hiện phần phân tích.
 		return rest_ensure_response( array(
 			'iq'         => $result['iq'],
 			'label'      => $result['label'],
 			'percentile' => $result['percentile'],
-			'correct'    => $result['correct'],
-			'total'      => $result['total'],
-			'bonus'      => $result['bonus'],
-			'elapsed'    => $elapsed,
-			'age'        => $age,
-			'ageGroup'   => $result['age_group'],
 			'categories' => $cat_out,
-			'review'     => $show ? $review : array(),
+			'levels'     => $levels,
 		) );
 	}
 }

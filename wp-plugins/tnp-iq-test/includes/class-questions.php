@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) || exit;
  */
 class TNP_IQ_Questions {
 
+	const TAX        = 'tnp_iq_set';
 	const KEYS       = array( 'A', 'B', 'C', 'D' );
 	const CATEGORIES = array(
 		'logic'   => 'Tư duy logic',
@@ -58,6 +59,37 @@ class TNP_IQ_Questions {
 			'capability_type' => 'post',
 			'map_meta_cap'    => true,
 		) );
+
+		// Bộ đề: gom câu hỏi thành các bài test riêng, mỗi bài một shortcode [tnp_iq_test test="slug"].
+		register_taxonomy( self::TAX, TNP_IQ_CPT, array(
+			'labels'            => array(
+				'name'          => 'Bộ đề',
+				'singular_name' => 'Bộ đề',
+				'menu_name'     => 'Bộ đề',
+				'all_items'     => 'Tất cả bộ đề',
+				'edit_item'     => 'Sửa bộ đề',
+				'add_new_item'  => 'Thêm bộ đề',
+				'new_item_name' => 'Tên bộ đề mới',
+				'search_items'  => 'Tìm bộ đề',
+				'not_found'     => 'Chưa có bộ đề nào',
+			),
+			'public'            => false,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'hierarchical'      => true,
+			'rewrite'           => false,
+		) );
+	}
+
+	/** Tên hiển thị của một bài test theo slug bộ đề ('' = tất cả câu hỏi). */
+	public static function test_name( $slug ) {
+		if ( '' !== $slug ) {
+			$term = get_term_by( 'slug', $slug, self::TAX );
+			if ( $term ) {
+				return $term->name;
+			}
+		}
+		return TNP_IQ_Settings::get( 'intro_title' );
 	}
 
 	public static function title_placeholder( $text, $post ) {
@@ -225,7 +257,7 @@ class TNP_IQ_Questions {
 				<?php endforeach; ?>
 			</div>
 
-			<h3><label for="tnp-explain">Giải thích đáp án</label></h3>
+			<h3><label for="tnp-explain">Giải thích đáp án</label> <span class="description" style="font-weight:400">(ghi chú nội bộ, không hiện cho người làm bài)</span></h3>
 			<textarea id="tnp-explain" name="tnp_explain" rows="3" class="large-text" placeholder="Ví dụ: Mỗi hàng, hình xoay thêm 20° theo chiều kim đồng hồ."><?php echo esc_textarea( $q['explain'] ); ?></textarea>
 
 			<?php if ( 'publish' === $post->post_status && ! self::is_complete( $q ) ) : ?>

@@ -6,15 +6,21 @@ defined( 'ABSPATH' ) || exit;
  */
 class TNP_IQ_Results {
 
-	const DB_VERSION = '1';
+	const DB_VERSION = '2';
 
 	public static function table() {
 		global $wpdb;
 		return $wpdb->prefix . 'tnp_iq_results';
 	}
 
+	public static function stats_table() {
+		global $wpdb;
+		return $wpdb->prefix . 'tnp_iq_stats';
+	}
+
 	public static function init() {
 		add_action( 'admin_menu', array( __CLASS__, 'menu' ), 15 );
+		add_action( 'admin_menu', array( __CLASS__, 'stats_menu' ), 12 );
 		add_action( 'admin_post_tnp_iq_export', array( __CLASS__, 'export' ) );
 		add_action( 'admin_post_tnp_iq_clear', array( __CLASS__, 'clear' ) );
 		add_action( 'admin_init', array( __CLASS__, 'maybe_upgrade' ) );
@@ -28,6 +34,7 @@ class TNP_IQ_Results {
 		dbDelta( "CREATE TABLE {$table} (
 			id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 			created_at datetime NOT NULL,
+			test_key varchar(100) NOT NULL DEFAULT '',
 			iq smallint(5) unsigned NOT NULL,
 			correct smallint(5) unsigned NOT NULL,
 			total smallint(5) unsigned NOT NULL,
@@ -39,7 +46,16 @@ class TNP_IQ_Results {
 			ip_hash char(32) NOT NULL,
 			PRIMARY KEY  (id),
 			KEY created_at (created_at),
-			KEY age (age)
+			KEY age (age),
+			KEY test_key (test_key)
+		) {$charset};" );
+		$stats = self::stats_table();
+		dbDelta( "CREATE TABLE {$stats} (
+			test_key varchar(100) NOT NULL DEFAULT '',
+			day date NOT NULL,
+			views int(10) unsigned NOT NULL DEFAULT 0,
+			results int(10) unsigned NOT NULL DEFAULT 0,
+			PRIMARY KEY  (test_key,day)
 		) {$charset};" );
 		update_option( 'tnp_iq_db_version', self::DB_VERSION );
 	}
@@ -54,6 +70,7 @@ class TNP_IQ_Results {
 		global $wpdb;
 		$wpdb->insert( self::table(), array(
 			'created_at' => current_time( 'mysql' ),
+			'test_key'   => $row['test_key'],
 			'iq'         => $row['iq'],
 			'correct'    => $row['correct'],
 			'total'      => $row['total'],
@@ -65,6 +82,116 @@ class TNP_IQ_Results {
 			'ip_hash'    => $row['ip_hash'],
 		) );
 		return (int) $wpdb->insert_id;
+	}
+
+	/** Tăng bộ đếm theo ngày: $field = 'views' (xem đề) hoặc 'results' (xem kết quả IQ). */
+	public static function bump( $test_key, $field ) {
+		global $wpdb;
+		if ( ! in_array( $field, array( 'views', 'results' ), true ) ) {
+			return;
+		}
+		$wpdb->query( $wpdb->prepare(
+			'INSERT INTO ' . self::stats_table() . " (test_key, day, {$field}) VALUES (%s, %s, 1) ON DUPLICATE KEY UPDATE {$field} = {$field} + 1",
+			$test_key,
+			current_time( 'Y-m-d' )
+		) );
+	}
+
+	public static function stats_menu() {
+		add_submenu_page(
+			'edit.php?post_type=' . TNP_IQ_CPT,
+			'Thống kê Test IQ',
+			'Thống kê',
+			'manage_options',
+			'tnp-iq-stats',
+			array( __CLASS__, 'render_stats' )
+		);
+	}
+
+	public static function render_stats() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		global $wpdb;
+		$ranges = array( '1' => 'Hôm nay', '7' => '7 ngày', '30' => '30 ngày', 'all' => 'Tất cả' );
+		$range  = sanitize_key( $_GET['range'] ?? '30' );
+		$range  = isset( $ranges[ $range ] ) ? $range : '30';
+		$from   = 'all' === $range ? '1970-01-01' : gmdate( 'Y-m-d', strtotime( current_time( 'Y-m-d' ) . ' -' . ( (int) $range - 1 ) . ' days' ) );
+
+		$st = self::stats_table();
+		$rt = self::table();
+		$counts = $wpdb->get_results( $wpdb->prepare( "SELECT test_key, SUM(views) views, SUM(results) results FROM {$st} WHERE day >= %s GROUP BY test_key", $from ), OBJECT_K );
+		$iqs    = $wpdb->get_results( $wpdb->prepare( "SELECT test_key, AVG(iq) avg_iq FROM {$rt} WHERE created_at >= %s GROUP BY test_key", $from . ' 00:00:00' ), OBJECT_K );
+
+		// Mọi bài test: bài mặc định (tất cả câu hỏi), các bộ đề, và bộ đề đã xoá nhưng còn số liệu.
+		$tests = array( '' => TNP_IQ_Questions::test_name( '' ) );
+		foreach ( get_terms( array( 'taxonomy' => TNP_IQ_Questions::TAX, 'hide_empty' => false ) ) as $term ) {
+			$tests[ $term->slug ] = $term->name;
+		}
+		foreach ( array_keys( $counts ) as $k ) {
+			if ( ! isset( $tests[ $k ] ) ) {
+				$tests[ $k ] = $k . ' (đã xoá)';
+			}
+		}
+
+		$daily = $wpdb->get_results( $wpdb->prepare( "SELECT day, SUM(views) views, SUM(results) results FROM {$st} WHERE day >= %s GROUP BY day ORDER BY day DESC LIMIT 31", $from ) );
+		$tv    = 0;
+		$tr    = 0;
+		?>
+		<div class="wrap tnp-iq-admin">
+			<h1>Thống kê Test IQ</h1>
+			<p class="description"><strong>Lượt xem đề</strong>: số lần người dùng bấm bắt đầu và tải đề bài. <strong>Lượt xem kết quả IQ</strong>: số lần làm xong, nhập tuổi và xem điểm IQ.</p>
+			<ul class="subsubsub">
+				<?php
+				$links = array();
+				foreach ( $ranges as $k => $label ) {
+					$url     = add_query_arg( array( 'post_type' => TNP_IQ_CPT, 'page' => 'tnp-iq-stats', 'range' => $k ), admin_url( 'edit.php' ) );
+					$links[] = '<li><a href="' . esc_url( $url ) . '"' . ( $k === $range ? ' class="current"' : '' ) . '>' . esc_html( $label ) . '</a></li>';
+				}
+				echo implode( ' | ', $links ); // phpcs:ignore WordPress.Security.EscapeOutput
+				?>
+			</ul>
+			<table class="widefat striped tnp-stats-table">
+				<thead><tr><th>Tên bài test</th><th>Lượt xem đề</th><th>Lượt xem kết quả IQ</th><th>Tỉ lệ hoàn thành</th><th>IQ trung bình</th><th>Shortcode</th></tr></thead>
+				<tbody>
+				<?php foreach ( $tests as $key => $name ) : ?>
+					<?php
+					$v   = (int) ( $counts[ $key ]->views ?? 0 );
+					$r   = (int) ( $counts[ $key ]->results ?? 0 );
+					$tv += $v;
+					$tr += $r;
+					?>
+					<tr>
+						<td><strong><?php echo esc_html( $name ); ?></strong></td>
+						<td><?php echo esc_html( number_format_i18n( $v ) ); ?></td>
+						<td><?php echo esc_html( number_format_i18n( $r ) ); ?></td>
+						<td><?php echo $v ? esc_html( round( $r / $v * 100 ) . '%' ) : '–'; ?></td>
+						<td><?php echo isset( $iqs[ $key ] ) ? (int) round( $iqs[ $key ]->avg_iq ) : '–'; ?></td>
+						<td><code><?php echo esc_html( '' === $key ? '[tnp_iq_test]' : '[tnp_iq_test test="' . $key . '"]' ); ?></code></td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+				<tfoot><tr><th>Tổng</th><th><?php echo esc_html( number_format_i18n( $tv ) ); ?></th><th><?php echo esc_html( number_format_i18n( $tr ) ); ?></th><th><?php echo $tv ? esc_html( round( $tr / $tv * 100 ) . '%' ) : '–'; ?></th><th></th><th></th></tr></tfoot>
+			</table>
+
+			<?php if ( $daily ) : ?>
+				<h2>Theo ngày</h2>
+				<table class="widefat striped tnp-stats-table">
+					<thead><tr><th>Ngày</th><th>Lượt xem đề</th><th>Lượt xem kết quả IQ</th><th>Tỉ lệ hoàn thành</th></tr></thead>
+					<tbody>
+					<?php foreach ( $daily as $d ) : ?>
+						<tr>
+							<td><?php echo esc_html( mysql2date( 'd/m/Y', $d->day ) ); ?></td>
+							<td><?php echo esc_html( number_format_i18n( (int) $d->views ) ); ?></td>
+							<td><?php echo esc_html( number_format_i18n( (int) $d->results ) ); ?></td>
+							<td><?php echo $d->views ? esc_html( round( $d->results / $d->views * 100 ) . '%' ) : '–'; ?></td>
+						</tr>
+					<?php endforeach; ?>
+					</tbody>
+				</table>
+			<?php endif; ?>
+		</div>
+		<?php
 	}
 
 	public static function menu() {
@@ -144,16 +271,17 @@ class TNP_IQ_Results {
 
 			<h2>Lượt làm gần đây</h2>
 			<table class="widefat striped">
-				<thead><tr><th>#</th><th>Thời điểm</th><th>IQ</th><th>Đúng</th><th>Tuổi</th><th>Thời gian</th><th>Theo nhóm năng lực</th></tr></thead>
+				<thead><tr><th>#</th><th>Thời điểm</th><th>Bài test</th><th>IQ</th><th>Đúng</th><th>Tuổi</th><th>Thời gian</th><th>Theo nhóm năng lực</th></tr></thead>
 				<tbody>
 				<?php if ( ! $rows ) : ?>
-					<tr><td colspan="7">Chưa có lượt làm bài nào.</td></tr>
+					<tr><td colspan="8">Chưa có lượt làm bài nào.</td></tr>
 				<?php endif; ?>
 				<?php foreach ( $rows as $r ) : ?>
 					<?php $cats = json_decode( $r->categories, true ) ?: array(); ?>
 					<tr>
 						<td><?php echo (int) $r->id; ?></td>
 						<td><?php echo esc_html( mysql2date( 'd/m/Y H:i', $r->created_at ) ); ?></td>
+						<td><?php echo esc_html( TNP_IQ_Questions::test_name( (string) $r->test_key ) ); ?></td>
 						<td><strong><?php echo (int) $r->iq; ?></strong></td>
 						<td><?php echo (int) $r->correct . '/' . (int) $r->total; ?></td>
 						<td><?php echo (int) $r->age; ?></td>
@@ -186,10 +314,10 @@ class TNP_IQ_Results {
 			<?php endif; ?>
 
 			<?php if ( $total ) : ?>
-				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" onsubmit="return confirm('Xoá toàn bộ kết quả? Không thể khôi phục.');" style="margin-top:24px">
+				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" onsubmit="return confirm('Xoá toàn bộ kết quả và số liệu thống kê? Không thể khôi phục.');" style="margin-top:24px">
 					<input type="hidden" name="action" value="tnp_iq_clear">
 					<?php wp_nonce_field( 'tnp_iq_clear' ); ?>
-					<button class="button button-link-delete">Xoá toàn bộ kết quả</button>
+					<button class="button button-link-delete">Xoá toàn bộ kết quả và thống kê</button>
 				</form>
 			<?php endif; ?>
 		</div>
@@ -201,13 +329,13 @@ class TNP_IQ_Results {
 			wp_die( 'Không có quyền.' );
 		}
 		global $wpdb;
-		$rows = $wpdb->get_results( 'SELECT id, created_at, iq, correct, total, ratio, age, duration, categories FROM ' . self::table() . ' ORDER BY id DESC', ARRAY_A );
+		$rows = $wpdb->get_results( 'SELECT id, created_at, test_key, iq, correct, total, ratio, age, duration, categories FROM ' . self::table() . ' ORDER BY id DESC', ARRAY_A );
 		nocache_headers();
 		header( 'Content-Type: text/csv; charset=utf-8' );
 		header( 'Content-Disposition: attachment; filename=ket-qua-test-iq-' . gmdate( 'Y-m-d' ) . '.csv' );
 		$out = fopen( 'php://output', 'w' );
 		fwrite( $out, "\xEF\xBB\xBF" ); // BOM để Excel đọc đúng tiếng Việt.
-		fputcsv( $out, array( 'ID', 'Thời điểm', 'IQ', 'Đúng', 'Tổng câu', 'Tỉ lệ điểm', 'Tuổi', 'Thời gian (giây)', 'Theo nhóm năng lực' ) );
+		fputcsv( $out, array( 'ID', 'Thời điểm', 'Bộ đề', 'IQ', 'Đúng', 'Tổng câu', 'Tỉ lệ điểm', 'Tuổi', 'Thời gian (giây)', 'Theo nhóm năng lực' ) );
 		foreach ( $rows as $r ) {
 			fputcsv( $out, array_values( $r ) );
 		}
@@ -221,6 +349,7 @@ class TNP_IQ_Results {
 		}
 		global $wpdb;
 		$wpdb->query( 'TRUNCATE TABLE ' . self::table() );
+		$wpdb->query( 'TRUNCATE TABLE ' . self::stats_table() );
 		wp_safe_redirect( admin_url( 'edit.php?post_type=' . TNP_IQ_CPT . '&page=tnp-iq-results&cleared=1' ) );
 		exit;
 	}

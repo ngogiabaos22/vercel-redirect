@@ -2,7 +2,9 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * [tnp_iq_test count="20" time="15"]
+ * [tnp_iq_test test="slug-bo-de" count="20" time="15"]
+ * test  – slug bộ đề (bỏ trống = toàn bộ câu hỏi)
+ * count – số câu, time – số phút tối đa (đồng hồ vẫn đếm xuôi)
  */
 class TNP_IQ_Shortcode {
 
@@ -17,7 +19,8 @@ class TNP_IQ_Shortcode {
 	}
 
 	public static function render( $atts ) {
-		$atts = shortcode_atts( array( 'count' => '', 'time' => '' ), $atts, 'tnp_iq_test' );
+		$atts = shortcode_atts( array( 'test' => '', 'count' => '', 'time' => '' ), $atts, 'tnp_iq_test' );
+		$test = sanitize_title( $atts['test'] );
 		$s    = TNP_IQ_Settings::get();
 
 		wp_enqueue_style( 'tnp-iq-quiz' );
@@ -27,20 +30,19 @@ class TNP_IQ_Shortcode {
 		$time  = '' !== $atts['time'] ? absint( $atts['time'] ) : (int) $s['time_limit'];
 
 		// Số câu thực tế hiển thị ở màn hình bắt đầu.
-		$available = count( TNP_IQ_Rest::questions( 0, 'menu_order' ) );
+		$available = count( TNP_IQ_Rest::questions( 0, 'menu_order', $test ) );
 		$shown     = $count > 0 ? min( $count, $available ) : $available;
 
 		$config = array(
 			'api'        => esc_url_raw( rest_url( TNP_IQ_Rest::NS ) ),
+			'test'       => $test,
 			'count'      => '' !== $atts['count'] ? $count : null,
 			'time'       => '' !== $atts['time'] ? $time : null,
 			'questions'  => $shown,
 			'minutes'    => $time,
-			'introTitle' => $s['intro_title'],
+			'introTitle' => TNP_IQ_Questions::test_name( $test ),
 			'introText'  => $s['intro_text'],
 			'ageNote'    => $s['age_note'],
-			'ctaText'    => $s['cta_text'],
-			'ctaUrl'     => $s['cta_url'],
 		);
 
 		return '<div class="tnp-iq" data-config="' . esc_attr( wp_json_encode( $config ) ) . '"><noscript>Vui lòng bật JavaScript để làm bài test IQ.</noscript></div>';

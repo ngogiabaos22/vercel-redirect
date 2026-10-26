@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TNP IQ Test
  * Description: Bài test IQ dạng ma trận hình: quản trị câu hỏi, tính giờ, hỏi tuổi ở bước cuối để quy đổi điểm IQ theo độ tuổi, lưu và thống kê kết quả. Dùng shortcode [tnp_iq_test].
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Trắc nghiệm PLUS
  * Requires at least: 5.8
  * Requires PHP: 7.4
@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'TNP_IQ_VERSION', '1.0.0' );
+define( 'TNP_IQ_VERSION', '1.1.0' );
 define( 'TNP_IQ_FILE', __FILE__ );
 define( 'TNP_IQ_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TNP_IQ_URL', plugin_dir_url( __FILE__ ) );

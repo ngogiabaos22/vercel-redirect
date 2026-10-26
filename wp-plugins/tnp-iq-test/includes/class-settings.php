@@ -26,8 +26,8 @@ class TNP_IQ_Settings {
 		return array(
 			'question_count' => 20,
 			'order'          => 'menu_order',
-			'time_limit'     => 15,
-			'show_review'    => 1,
+			'time_limit'     => 0,
+			'speed_ref'      => 45,
 			'speed_bonus'    => 3,
 			'iq_min'         => 55,
 			'iq_max'         => 160,
@@ -35,8 +35,6 @@ class TNP_IQ_Settings {
 			'intro_title'    => 'Test IQ miễn phí',
 			'intro_text'     => 'Chuẩn bị giấy nháp, chọn nơi yên tĩnh. Bạn có thể bỏ qua câu khó và quay lại sau. Ở bước cuối, hãy nhập đúng tuổi để điểm IQ được quy đổi chính xác theo độ tuổi.',
 			'age_note'       => 'Điểm IQ được so sánh với những người cùng độ tuổi, vì vậy hãy nhập đúng tuổi của bạn để có kết quả chính xác nhất.',
-			'cta_text'       => '',
-			'cta_url'        => '',
 		);
 	}
 
@@ -69,15 +67,13 @@ class TNP_IQ_Settings {
 		$out['question_count'] = max( 0, (int) ( $in['question_count'] ?? $d['question_count'] ) );
 		$out['order']          = in_array( $in['order'] ?? '', array( 'menu_order', 'random' ), true ) ? $in['order'] : 'menu_order';
 		$out['time_limit']     = max( 0, (int) ( $in['time_limit'] ?? $d['time_limit'] ) );
-		$out['show_review']    = empty( $in['show_review'] ) ? 0 : 1;
+		$out['speed_ref']      = max( 5, min( 600, (int) ( $in['speed_ref'] ?? $d['speed_ref'] ) ) );
 		$out['speed_bonus']    = max( 0, min( 15, (int) ( $in['speed_bonus'] ?? $d['speed_bonus'] ) ) );
 		$out['iq_min']         = max( 40, min( 100, (int) ( $in['iq_min'] ?? $d['iq_min'] ) ) );
 		$out['iq_max']         = max( 100, min( 200, (int) ( $in['iq_max'] ?? $d['iq_max'] ) ) );
 		$out['intro_title']    = sanitize_text_field( $in['intro_title'] ?? $d['intro_title'] );
 		$out['intro_text']     = sanitize_textarea_field( $in['intro_text'] ?? $d['intro_text'] );
 		$out['age_note']       = sanitize_textarea_field( $in['age_note'] ?? $d['age_note'] );
-		$out['cta_text']       = sanitize_text_field( $in['cta_text'] ?? '' );
-		$out['cta_url']        = esc_url_raw( $in['cta_url'] ?? '' );
 
 		$norms = sanitize_textarea_field( $in['norms'] ?? '' );
 		if ( ! self::parse_norms( $norms ) ) {
@@ -119,7 +115,7 @@ class TNP_IQ_Settings {
 
 			<div class="tnp-iq-box">
 				<h2>Cách dùng</h2>
-				<p>Chèn shortcode <code>[tnp_iq_test]</code> vào trang làm bài (ví dụ trang <em>/bai-thi/test-iq-mien-phi/</em>). Có thể ghi đè số câu và thời gian: <code>[tnp_iq_test count="20" time="15"]</code>.</p>
+				<p>Chèn shortcode <code>[tnp_iq_test]</code> vào trang làm bài để dùng toàn bộ câu hỏi. Muốn tách thành nhiều bài test riêng, gom câu hỏi vào <a href="<?php echo esc_url( admin_url( 'edit-tags.php?taxonomy=' . TNP_IQ_Questions::TAX . '&post_type=' . TNP_IQ_CPT ) ); ?>">Bộ đề</a> rồi dùng <code>[tnp_iq_test test="duong-dan-bo-de"]</code>. Có thể ghi đè số câu và thời gian tối đa: <code>[tnp_iq_test count="20" time="15"]</code>.</p>
 				<p>Hiện có <strong><?php echo (int) wp_count_posts( TNP_IQ_CPT )->publish; ?></strong> câu hỏi đã xuất bản. <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=' . TNP_IQ_CPT ) ); ?>">Thêm câu hỏi</a></p>
 				<?php TNP_IQ_Demo::render_button(); ?>
 			</div>
@@ -139,16 +135,16 @@ class TNP_IQ_Settings {
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><label for="tnp-tl">Thời gian (phút)</label></th>
-						<td><input id="tnp-tl" type="number" min="0" name="<?php echo esc_attr( $n ); ?>[time_limit]" value="<?php echo esc_attr( $o['time_limit'] ); ?>" class="small-text"> <span class="description">0 = không giới hạn.</span></td>
+						<th scope="row"><label for="tnp-tl">Thời gian tối đa (phút)</label></th>
+						<td><input id="tnp-tl" type="number" min="0" name="<?php echo esc_attr( $n ); ?>[time_limit]" value="<?php echo esc_attr( $o['time_limit'] ); ?>" class="small-text"> <span class="description">Đồng hồ luôn đếm xuôi. Nếu đặt số phút, bài tự chuyển sang bước nhập tuổi khi hết thời gian. 0 = không giới hạn.</span></td>
 					</tr>
 					<tr>
-						<th scope="row">Xem lại đáp án</th>
-						<td><label><input type="checkbox" name="<?php echo esc_attr( $n ); ?>[show_review]" value="1" <?php checked( $o['show_review'], 1 ); ?>> Hiện đáp án đúng và giải thích sau khi nộp bài</label></td>
+						<th scope="row"><label for="tnp-sr">Thời gian chuẩn mỗi câu</label></th>
+						<td><input id="tnp-sr" type="number" min="5" max="600" name="<?php echo esc_attr( $n ); ?>[speed_ref]" value="<?php echo esc_attr( $o['speed_ref'] ); ?>" class="small-text"> giây <span class="description">Dùng để tính thưởng tốc độ: làm xong trong khoảng một nửa thời gian chuẩn (số câu × số giây này) thì được thưởng tối đa.</span></td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="tnp-sb">Thưởng tốc độ (tối đa)</label></th>
-						<td><input id="tnp-sb" type="number" min="0" max="15" name="<?php echo esc_attr( $n ); ?>[speed_bonus]" value="<?php echo esc_attr( $o['speed_bonus'] ); ?>" class="small-text"> điểm IQ <span class="description">Chỉ cộng khi đúng từ 60% trở lên; làm càng nhanh cộng càng nhiều. 0 = tắt.</span></td>
+						<td><input id="tnp-sb" type="number" min="0" max="15" name="<?php echo esc_attr( $n ); ?>[speed_bonus]" value="<?php echo esc_attr( $o['speed_bonus'] ); ?>" class="small-text"> điểm IQ <span class="description">Chỉ cộng khi đạt từ 60% điểm trở lên; làm càng nhanh cộng càng nhiều. 0 = tắt.</span></td>
 					</tr>
 					<tr>
 						<th scope="row">Giới hạn điểm IQ</th>
@@ -165,8 +161,8 @@ class TNP_IQ_Settings {
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><label for="tnp-it">Tiêu đề màn hình bắt đầu</label></th>
-						<td><input id="tnp-it" type="text" name="<?php echo esc_attr( $n ); ?>[intro_title]" value="<?php echo esc_attr( $o['intro_title'] ); ?>" class="regular-text"></td>
+						<th scope="row"><label for="tnp-it">Tên bài test mặc định</label></th>
+						<td><input id="tnp-it" type="text" name="<?php echo esc_attr( $n ); ?>[intro_title]" value="<?php echo esc_attr( $o['intro_title'] ); ?>" class="regular-text"> <p class="description">Hiện ở màn hình bắt đầu và trong Thống kê khi shortcode không chọn bộ đề. Bài test theo bộ đề dùng tên của bộ đề.</p></td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="tnp-ix">Hướng dẫn trước khi làm</label></th>
@@ -175,13 +171,6 @@ class TNP_IQ_Settings {
 					<tr>
 						<th scope="row"><label for="tnp-an">Ghi chú ở bước nhập tuổi</label></th>
 						<td><textarea id="tnp-an" name="<?php echo esc_attr( $n ); ?>[age_note]" rows="2" cols="60"><?php echo esc_textarea( $o['age_note'] ); ?></textarea></td>
-					</tr>
-					<tr>
-						<th scope="row">Nút ở trang kết quả</th>
-						<td>
-							<input type="text" name="<?php echo esc_attr( $n ); ?>[cta_text]" value="<?php echo esc_attr( $o['cta_text'] ); ?>" placeholder="Chữ trên nút (để trống = ẩn)" class="regular-text"><br>
-							<input type="url" name="<?php echo esc_attr( $n ); ?>[cta_url]" value="<?php echo esc_attr( $o['cta_url'] ); ?>" placeholder="https://..." class="regular-text" style="margin-top:6px">
-						</td>
 					</tr>
 				</table>
 				<?php submit_button( 'Lưu cài đặt' ); ?>

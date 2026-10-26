@@ -33,3 +33,5 @@
 .tnp-stats b{display:block;font-size:26px;line-height:1.2}
 .tnp-stats span{color:#646970}
 .tnp-age-table{max-width:900px}
+.tnp-stats-table{max-width:1000px;margin-top:12px}
+.tnp-stats-table td,.tnp-stats-table th{vertical-align:middle}

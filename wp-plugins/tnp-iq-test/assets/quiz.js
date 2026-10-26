@@ -2,7 +2,7 @@
 (function () {
 	'use strict';
 
-	var STORE = 'tnp_iq_state_v1';
+	var STORE = 'tnp_iq_state_v2';
 
 	function esc(s) {
 		return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -13,14 +13,16 @@
 		sec = Math.max(0, Math.round(sec));
 		return Math.floor(sec / 60) + ':' + ('0' + (sec % 60)).slice(-2);
 	}
-	function load() {
-		try { return JSON.parse(sessionStorage.getItem(STORE) || 'null'); } catch (e) { return null; }
+	// Mỗi bộ đề lưu bài đang làm riêng, để nhiều bài test trên site không lẫn nhau.
+	function key(test) { return STORE + ':' + (test || ''); }
+	function load(test) {
+		try { return JSON.parse(sessionStorage.getItem(key(test)) || 'null'); } catch (e) { return null; }
 	}
 	function save(st) {
-		try { sessionStorage.setItem(STORE, JSON.stringify(st)); } catch (e) { /* bỏ qua */ }
+		try { sessionStorage.setItem(key(st.test), JSON.stringify(st)); } catch (e) { /* bỏ qua */ }
 	}
-	function clear() {
-		try { sessionStorage.removeItem(STORE); } catch (e) { /* bỏ qua */ }
+	function clear(test) {
+		try { sessionStorage.removeItem(key(test)); } catch (e) { /* bỏ qua */ }
 	}
 
 	function Quiz(root) {
@@ -39,7 +41,7 @@
 
 	/* ---------- Màn hình bắt đầu ---------- */
 	Quiz.prototype.renderIntro = function () {
-		var c = this.cfg, saved = load(), self = this;
+		var c = this.cfg, saved = load(c.test), self = this;
 		var resume = saved && saved.api === c.api && saved.stage !== 'done' && !this.timeUp(saved);
 		this.html(
 			'<div class="tnp-card tnp-intro">' +
@@ -47,7 +49,7 @@
 				'<h2>' + esc(c.introTitle) + '</h2>' +
 				'<div class="tnp-intro-meta">' +
 					'<span><b>' + esc(c.questions) + '</b> câu hỏi</span>' +
-					(c.minutes ? '<span><b>' + esc(c.minutes) + '</b> phút</span>' : '<span>Không giới hạn thời gian</span>') +
+					(c.minutes ? '<span>Tối đa <b>' + esc(c.minutes) + '</b> phút</span>' : '<span>⏱ Có tính giờ</span>') +
 				'</div>' +
 				'<p>' + esc(c.introText) + '</p>' +
 				'<div class="tnp-actions">' +
@@ -63,6 +65,7 @@
 
 	Quiz.prototype.start = function (btn) {
 		var self = this, c = this.cfg, q = [];
+		if (c.test) { q.push('test=' + encodeURIComponent(c.test)); }
 		if (c.count !== null && c.count !== undefined) { q.push('count=' + encodeURIComponent(c.count)); }
 		if (c.time !== null && c.time !== undefined) { q.push('time=' + encodeURIComponent(c.time)); }
 		btn.disabled = true;
@@ -71,7 +74,7 @@
 			.then(function (r) { return r.json().then(function (d) { if (!r.ok) { throw d; } return d; }); })
 			.then(function (d) {
 				self.st = {
-					api: c.api, token: d.token, questions: d.questions, limit: d.timeLimit,
+					api: c.api, test: c.test || '', token: d.token, questions: d.questions, limit: d.timeLimit,
 					answers: {}, index: 0, startedAt: Date.now(), finishedAt: null, stage: 'quiz'
 				};
 				save(self.st);
@@ -94,25 +97,28 @@
 		else { this.renderQuestion(); }
 	};
 
-	/* ---------- Đồng hồ ---------- */
-	Quiz.prototype.remaining = function (st) {
+	/* ---------- Đồng hồ (đếm xuôi) ---------- */
+	Quiz.prototype.elapsed = function (st) {
 		st = st || this.st;
-		return st.limit ? st.limit - (Date.now() - st.startedAt) / 1000 : Infinity;
+		return (Date.now() - st.startedAt) / 1000;
 	};
-	Quiz.prototype.timeUp = function (st) { return this.remaining(st) <= 0; };
+	// Chỉ hết giờ khi bài có đặt thời gian tối đa.
+	Quiz.prototype.timeUp = function (st) {
+		st = st || this.st;
+		return !!st.limit && this.elapsed(st) >= st.limit;
+	};
 
 	Quiz.prototype.tick = function () {
 		var self = this;
 		clearInterval(this.timer);
-		if (!this.st.limit) { return; }
 		var el = this.root.querySelector('.tnp-timer');
 		var update = function () {
-			var left = self.remaining();
+			var used = self.elapsed();
 			if (el) {
-				el.textContent = '⏱ ' + fmt(left);
-				el.classList.toggle('is-low', left <= 60);
+				el.textContent = '⏱ ' + fmt(used);
+				el.classList.toggle('is-low', !!self.st.limit && self.st.limit - used <= 60);
 			}
-			if (left <= 0) { clearInterval(self.timer); self.finishQuestions(true); }
+			if (self.timeUp()) { clearInterval(self.timer); self.finishQuestions(true); }
 		};
 		update();
 		this.timer = setInterval(update, 1000);
@@ -154,7 +160,7 @@
 			'<div class="tnp-card tnp-quiz">' +
 				'<div class="tnp-top">' +
 					'<span class="tnp-count">Câu <b>' + (st.index + 1) + '</b>/' + n + ' · Đã trả lời ' + answered + '</span>' +
-					(st.limit ? '<span class="tnp-timer"></span>' : '') +
+					'<span class="tnp-timer" title="Thời gian đã làm"></span>' +
 				'</div>' +
 				'<div class="tnp-bar"><span style="width:' + Math.round(answered / n * 100) + '%"></span></div>' +
 				'<h3 class="tnp-qtitle"><span>' + (st.index + 1) + '.</span> ' + esc(q.prompt) + '</h3>' +
@@ -163,7 +169,7 @@
 					'<button type="button" class="tnp-btn tnp-btn-ghost" data-act="prev"' + (st.index === 0 ? ' disabled' : '') + '>← Câu trước</button>' +
 					(last
 						? '<button type="button" class="tnp-btn" data-act="finish">Nộp bài</button>'
-						: '<button type="button" class="tnp-btn" data-act="next">' + (st.answers[q.id] ? 'Câu tiếp →' : 'Bỏ qua →') + '</button>') +
+						: '<button type="button" class="tnp-btn" data-act="next">Câu tiếp →</button>') +
 				'</div>' +
 				dots +
 			'</div>'
@@ -214,7 +220,7 @@
 	Quiz.prototype.renderAge = function (timeout) {
 		var self = this, st = this.st;
 		clearInterval(this.timer);
-		if (!st.finishedAt) { st.finishedAt = st.startedAt + st.limit * 1000; st.stage = 'age'; save(st); }
+		if (!st.finishedAt) { st.finishedAt = st.limit ? Math.min(Date.now(), st.startedAt + st.limit * 1000) : Date.now(); st.stage = 'age'; save(st); }
 		this.html(
 			'<form class="tnp-card tnp-age">' +
 				(timeout ? '<div class="tnp-note">⏰ Đã hết giờ làm bài. Các câu bạn đã trả lời vẫn được tính điểm.</div>' : '') +
@@ -261,7 +267,7 @@
 			.then(function (r) { return r.json().then(function (d) { if (!r.ok) { throw d; } return d; }); })
 			.then(function (res) {
 				st.stage = 'done';
-				clear();
+				clear(st.test);
 				self.renderResult(res);
 			})
 			.catch(function (e) {
@@ -274,58 +280,84 @@
 	};
 
 	/* ---------- Kết quả ---------- */
-	Quiz.prototype.renderResult = function (r) {
-		var self = this, qs = this.st.questions, byId = {};
-		qs.forEach(function (q) { byId[q.id] = q; });
-
-		var cats = '';
-		r.categories.forEach(function (c) {
-			var p = c.total ? Math.round(c.correct / c.total * 100) : 0;
-			cats += '<div class="tnp-cat"><div class="tnp-cat-head"><span>' + esc(c.name) + '</span><b>' + c.correct + '/' + c.total + '</b></div>' +
-				'<div class="tnp-bar"><span style="width:' + p + '%"></span></div></div>';
+	// Đường cong phân phối chuẩn, tô phần dân số thấp hơn và đánh dấu vị trí IQ của người làm.
+	function bell(iq) {
+		var W = 600, H = 190, base = 160, lo = 40, hi = 160;
+		var x = function (v) { return 20 + (v - lo) / (hi - lo) * (W - 40); };
+		var y = function (v) { return base - 130 * Math.exp(-Math.pow((v - 100) / 15, 2) / 2); };
+		var line = '', area = '', v;
+		for (v = lo; v <= hi; v += 1) { line += (v === lo ? 'M' : 'L') + x(v).toFixed(1) + ',' + y(v).toFixed(1); }
+		var cap = Math.max(lo, Math.min(hi, iq));
+		area = 'M' + x(lo) + ',' + base;
+		for (v = lo; v <= cap; v += 1) { area += 'L' + x(v).toFixed(1) + ',' + y(v).toFixed(1); }
+		area += 'L' + x(cap).toFixed(1) + ',' + y(cap).toFixed(1) + 'L' + x(cap).toFixed(1) + ',' + base + 'Z';
+		var ticks = '';
+		[55, 70, 85, 100, 115, 130, 145].forEach(function (t) {
+			ticks += '<line x1="' + x(t) + '" y1="' + base + '" x2="' + x(t) + '" y2="' + (base + 5) + '" stroke="#cbd5e1"/>' +
+				'<text x="' + x(t) + '" y="' + (base + 20) + '" text-anchor="middle">' + t + '</text>';
 		});
+		var mx = x(cap), my = y(cap);
+		return '<svg class="tnp-bell" viewBox="0 0 ' + W + ' ' + (H + 10) + '" role="img" aria-label="Vị trí điểm IQ ' + iq + ' trên phân phối chuẩn">' +
+			'<defs><linearGradient id="tnpBellFill" x1="0" x2="1"><stop offset="0" stop-color="#6366f1" stop-opacity=".15"/><stop offset="1" stop-color="#06b6d4" stop-opacity=".45"/></linearGradient></defs>' +
+			'<path d="' + area + '" fill="url(#tnpBellFill)"/>' +
+			'<path d="' + line + '" fill="none" stroke="#6366f1" stroke-width="3"/>' +
+			'<line x1="20" y1="' + base + '" x2="' + (W - 20) + '" y2="' + base + '" stroke="#cbd5e1"/>' + ticks +
+			'<line x1="' + mx + '" y1="' + (my - 26) + '" x2="' + mx + '" y2="' + base + '" stroke="#0f172a" stroke-width="2" stroke-dasharray="4 4"/>' +
+			'<circle cx="' + mx + '" cy="' + my + '" r="7" fill="#fff" stroke="#4f46e5" stroke-width="4"/>' +
+			'<rect x="' + (mx - 34) + '" y="' + (my - 54) + '" width="68" height="26" rx="13" fill="#0f172a"/>' +
+			'<text x="' + mx + '" y="' + (my - 36) + '" text-anchor="middle" fill="#fff" font-weight="700">IQ ' + iq + '</text>' +
+		'</svg>';
+	}
 
-		var review = '';
-		if (r.review && r.review.length) {
-			review = '<details class="tnp-review"><summary>Xem lại đáp án (' + r.correct + '/' + r.total + ' câu đúng)</summary>';
-			r.review.forEach(function (it, i) {
-				var q = byId[it.id];
-				if (!q) { return; }
-				var right = q.options.filter(function (o) { return o.key === it.correct; })[0] || {};
-				review += '<div class="tnp-rv ' + (it.ok ? 'is-ok' : 'is-bad') + '">' +
-					'<div class="tnp-rv-head"><span class="tnp-rv-num">' + (i + 1) + '</span><span>' + esc(q.prompt) + '</span><span class="tnp-rv-mark">' + (it.ok ? '✓' : '✗') + '</span></div>' +
-					'<div class="tnp-rv-body">' +
-						(right.img ? '<img src="' + esc(right.img) + '" alt="">' : '') +
-						'<div><div>Bạn chọn: <b>' + (it.your || 'Bỏ trống') + '</b> · Đáp án đúng: <b>' + esc(it.correct) + '</b>' + (right.text ? ' (' + esc(right.text) + ')' : '') + '</div>' +
-						(it.explain ? '<div class="tnp-rv-ex">' + esc(it.explain) + '</div>' : '') + '</div>' +
-					'</div></div>';
-			});
-			review += '</details>';
+	Quiz.prototype.renderResult = function (r) {
+		var self = this, L = r.label;
+		var rank = Math.max(1, Math.round(100 - r.percentile));
+
+		var cats = r.categories.slice().sort(function (a, b) { return b.pct - a.pct; });
+		var catHtml = '';
+		cats.forEach(function (c) {
+			catHtml += '<div class="tnp-cat">' +
+				'<div class="tnp-cat-head"><span>' + esc(c.name) + '</span><b class="tnp-lvl tnp-lvl-' + (c.pct >= 80 ? 4 : c.pct >= 60 ? 3 : c.pct >= 40 ? 2 : 1) + '">' + esc(c.level) + '</b></div>' +
+				'<div class="tnp-bar"><span style="width:' + Math.max(4, c.pct) + '%"></span></div>' +
+				'<p>' + esc(c.about) + '</p>' +
+			'</div>';
+		});
+		var strong = cats[0], weak = cats[cats.length - 1];
+		var focus = '';
+		if (cats.length > 1 && strong.pct !== weak.pct) {
+			focus = '<div class="tnp-focus">' +
+				'<div><span>💪 Điểm mạnh nhất</span><b>' + esc(strong.name) + '</b><p>' + esc(strong.about) + '</p></div>' +
+				'<div><span>🎯 Nên luyện thêm</span><b>' + esc(weak.name) + '</b><p>' + esc(weak.tip) + '</p></div>' +
+			'</div>';
 		}
 
-		var cta = this.cfg.ctaText && this.cfg.ctaUrl ? '<a class="tnp-btn tnp-btn-ghost" href="' + esc(this.cfg.ctaUrl) + '">' + esc(this.cfg.ctaText) + '</a>' : '';
+		var list = function (arr) { return '<ul>' + arr.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>'; };
+
+		var lv = '';
+		r.levels.forEach(function (l, i) {
+			lv += '<tr' + (i === L.index ? ' class="is-you"' : '') + '><td>' + esc(l.range) + '</td><td>' + esc(l.name) + (i === L.index ? ' <em>Bạn ở đây</em>' : '') + '</td><td>' + esc(l.share) + '</td></tr>';
+		});
 
 		this.html(
 			'<div class="tnp-card tnp-result">' +
 				'<div class="tnp-result-top">' +
-					'<div class="tnp-score"><span>Chỉ số IQ của bạn</span><b>' + r.iq + '</b><em>' + esc(r.label.name) + '</em></div>' +
+					'<div class="tnp-score"><span>Chỉ số IQ của bạn</span><b>' + r.iq + '</b><em>' + esc(L.name) + '</em></div>' +
 					'<div class="tnp-result-text">' +
-						'<p class="tnp-pct">Cao hơn khoảng <b>' + r.percentile + '%</b> dân số</p>' +
-						'<p>' + esc(r.label.desc) + '</p>' +
-						'<div class="tnp-scale"><span style="left:' + Math.max(2, Math.min(98, (r.iq - 55) / 90 * 100)) + '%"></span></div>' +
-						'<div class="tnp-scale-lbl">' + [70, 85, 100, 115, 130].map(function (v) { return '<span style="left:' + ((v - 55) / 90 * 100) + '%">' + v + '</span>'; }).join('') + '</div>' +
+						'<p class="tnp-pct">Cao hơn khoảng <b>' + r.percentile + '%</b> người cùng độ tuổi</p>' +
+						'<p>Nếu xếp 100 người cùng độ tuổi theo điểm IQ, bạn đứng ở khoảng <b>vị trí thứ ' + rank + '</b>.</p>' +
 					'</div>' +
 				'</div>' +
-				'<div class="tnp-facts">' +
-					'<div><b>' + r.correct + '/' + r.total + '</b><span>Câu đúng</span></div>' +
-					'<div><b>' + fmt(r.elapsed) + '</b><span>Thời gian</span></div>' +
-					'<div><b>' + r.age + '</b><span>Tuổi (nhóm ' + esc(r.ageGroup) + ')</span></div>' +
-					(r.bonus ? '<div><b>+' + r.bonus + '</b><span>Thưởng tốc độ</span></div>' : '') +
+				'<div class="tnp-section"><h4>Bạn đang ở đâu trên thang IQ?</h4>' + bell(r.iq) + '</div>' +
+				'<div class="tnp-section"><h4>Ý nghĩa kết quả: ' + esc(L.name) + '</h4><p>' + esc(L.desc) + '</p>' +
+					'<div class="tnp-two">' +
+						'<div class="tnp-box"><h5>Đặc điểm thường gặp</h5>' + list(L.traits) + '</div>' +
+						'<div class="tnp-box"><h5>Gợi ý phát triển</h5>' + list(L.tips) + '</div>' +
+					'</div>' +
 				'</div>' +
-				(cats ? '<h4>Theo nhóm năng lực</h4><div class="tnp-cats">' + cats + '</div>' : '') +
-				review +
+				(catHtml ? '<div class="tnp-section"><h4>Phân tích theo nhóm năng lực</h4>' + focus + '<div class="tnp-cats">' + catHtml + '</div></div>' : '') +
+				'<div class="tnp-section"><h4>Thang xếp loại IQ</h4><table class="tnp-levels"><thead><tr><th>Điểm IQ</th><th>Xếp loại</th><th>Tỷ lệ dân số</th></tr></thead><tbody>' + lv + '</tbody></table></div>' +
 				'<p class="tnp-disclaimer">Kết quả online mang tính tham khảo, không thay thế đánh giá lâm sàng bằng bộ công cụ chuẩn (WAIS, Stanford–Binet).</p>' +
-				'<div class="tnp-actions"><button type="button" class="tnp-btn" data-act="again">Làm lại bài test</button>' + cta + '</div>' +
+				'<div class="tnp-actions"><button type="button" class="tnp-btn" data-act="again">Làm lại bài test</button></div>' +
 			'</div>'
 		);
 		this.root.querySelector('[data-act="again"]').onclick = function () { self.st = null; self.renderIntro(); };
