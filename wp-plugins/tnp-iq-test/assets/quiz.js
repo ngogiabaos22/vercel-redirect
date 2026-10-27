@@ -2,8 +2,6 @@
 (function () {
 	'use strict';
 
-	var STORE = 'tnp_iq_state_v2';
-
 	function esc(s) {
 		return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
 			return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -13,17 +11,11 @@
 		sec = Math.max(0, Math.round(sec));
 		return Math.floor(sec / 60) + ':' + ('0' + (sec % 60)).slice(-2);
 	}
-	// Mỗi bộ đề lưu bài đang làm riêng, để nhiều bài test trên site không lẫn nhau.
-	function key(test) { return STORE + ':' + (test || ''); }
-	function load(test) {
-		try { return JSON.parse(sessionStorage.getItem(key(test)) || 'null'); } catch (e) { return null; }
-	}
-	function save(st) {
-		try { sessionStorage.setItem(key(st.test), JSON.stringify(st)); } catch (e) { /* bỏ qua */ }
-	}
-	function clear(test) {
-		try { sessionStorage.removeItem(key(test)); } catch (e) { /* bỏ qua */ }
-	}
+	// Bài đang làm chỉ nằm trong bộ nhớ trang: tải lại (F5) là bắt đầu lại từ đầu.
+	// Xoá dữ liệu "bài đang làm" mà các bản trước (1.1–1.2) từng lưu trong trình duyệt.
+	try {
+		Object.keys(sessionStorage).forEach(function (k) { if (k.indexOf('tnp_iq_state') === 0) { sessionStorage.removeItem(k); } });
+	} catch (e) { /* bỏ qua */ }
 
 	function Quiz(root) {
 		this.root = root;
@@ -41,26 +33,18 @@
 
 	/* ---------- Màn hình bắt đầu ---------- */
 	Quiz.prototype.renderIntro = function () {
-		var c = this.cfg, saved = load(c.test), self = this;
-		var resume = saved && saved.api === c.api && saved.stage !== 'done' && !this.timeUp(saved);
+		var c = this.cfg, self = this;
 		this.html(
 			'<div class="tnp-card tnp-intro">' +
 				'<div class="tnp-intro-icon" aria-hidden="true">🧠</div>' +
 				'<h2>' + esc(c.introTitle) + '</h2>' +
-				'<div class="tnp-intro-meta">' +
-					'<span><b>' + esc(c.questions) + '</b> câu hỏi</span>' +
-					(c.minutes ? '<span>Tối đa <b>' + esc(c.minutes) + '</b> phút</span>' : '<span>⏱ Có tính giờ</span>') +
-				'</div>' +
 				'<p>' + esc(c.introText) + '</p>' +
 				'<div class="tnp-actions">' +
-					(resume ? '<button type="button" class="tnp-btn" data-act="resume">Tiếp tục bài đang làm (câu ' + (saved.index + 1) + ')</button>' : '') +
-					'<button type="button" class="tnp-btn' + (resume ? ' tnp-btn-ghost' : '') + '" data-act="start">' + (resume ? 'Làm bài mới' : 'Bắt đầu làm bài') + '</button>' +
+					'<button type="button" class="tnp-btn" data-act="start">Bắt đầu làm bài</button>' +
 				'</div>' +
 			'</div>'
 		);
 		this.root.querySelector('[data-act="start"]').onclick = function () { self.start(this); };
-		var r = this.root.querySelector('[data-act="resume"]');
-		if (r) { r.onclick = function () { self.st = saved; self.continue(); }; }
 	};
 
 	Quiz.prototype.start = function (btn) {
@@ -77,7 +61,6 @@
 					api: c.api, test: c.test || '', token: d.token, questions: d.questions, limit: d.timeLimit,
 					answers: {}, index: 0, startedAt: Date.now(), finishedAt: null, stage: 'quiz'
 				};
-				save(self.st);
 				self.preload();
 				self.continue();
 			})
@@ -192,7 +175,6 @@
 		this.root.querySelectorAll('.tnp-opt').forEach(function (b) {
 			b.onclick = function () {
 				st.answers[q.id] = b.getAttribute('data-key');
-				save(st);
 				self.root.querySelectorAll('.tnp-opt').forEach(function (x) {
 					x.classList.toggle('is-selected', x === b);
 					x.setAttribute('aria-checked', x === b);
@@ -218,7 +200,6 @@
 	Quiz.prototype.go = function (i) {
 		if (i < 0 || i >= this.st.questions.length) { return; }
 		this.st.index = i;
-		save(this.st);
 		this.renderQuestion();
 	};
 
@@ -226,7 +207,6 @@
 		clearInterval(this.timer);
 		if (!this.st.finishedAt) { this.st.finishedAt = Date.now(); }
 		this.st.stage = 'age';
-		save(this.st);
 		this.renderAge(timeout);
 	};
 
@@ -234,7 +214,7 @@
 	Quiz.prototype.renderAge = function (timeout) {
 		var self = this, st = this.st;
 		clearInterval(this.timer);
-		if (!st.finishedAt) { st.finishedAt = st.limit ? Math.min(Date.now(), st.startedAt + st.limit * 1000) : Date.now(); st.stage = 'age'; save(st); }
+		if (!st.finishedAt) { st.finishedAt = st.limit ? Math.min(Date.now(), st.startedAt + st.limit * 1000) : Date.now(); st.stage = 'age'; }
 		this.html(
 			'<form class="tnp-card tnp-age">' +
 				(timeout ? '<div class="tnp-note">⏰ Đã hết giờ làm bài. Các câu bạn đã trả lời vẫn được tính điểm.</div>' : '') +
@@ -258,7 +238,6 @@
 				return;
 			}
 			st.age = age;
-			save(st);
 			self.submit(form.querySelector('button'));
 		};
 	};
@@ -281,7 +260,6 @@
 			.then(function (r) { return r.json().then(function (d) { if (!r.ok) { throw d; } return d; }); })
 			.then(function (res) {
 				st.stage = 'done';
-				clear(st.test);
 				self.renderResult(res);
 			})
 			.catch(function (e) {

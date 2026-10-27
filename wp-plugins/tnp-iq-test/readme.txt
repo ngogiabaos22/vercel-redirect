@@ -1,7 +1,7 @@
 === TNP IQ Test ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 
 Bài test IQ dạng ma trận hình cho WordPress: quản trị câu hỏi, tính giờ, hỏi tuổi ở bước cuối để quy đổi IQ theo độ tuổi, lưu và thống kê kết quả.
 

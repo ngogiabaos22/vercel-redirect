@@ -29,17 +29,11 @@ class TNP_IQ_Shortcode {
 		$count = '' !== $atts['count'] ? absint( $atts['count'] ) : (int) $s['question_count'];
 		$time  = '' !== $atts['time'] ? absint( $atts['time'] ) : (int) $s['time_limit'];
 
-		// Số câu thực tế hiển thị ở màn hình bắt đầu.
-		$available = count( TNP_IQ_Rest::questions( 0, 'menu_order', $test ) );
-		$shown     = $count > 0 ? min( $count, $available ) : $available;
-
 		$config = array(
 			'api'        => esc_url_raw( rest_url( TNP_IQ_Rest::NS ) ),
 			'test'       => $test,
 			'count'      => '' !== $atts['count'] ? $count : null,
 			'time'       => '' !== $atts['time'] ? $time : null,
-			'questions'  => $shown,
-			'minutes'    => $time,
 			'introTitle' => TNP_IQ_Questions::test_name( $test ),
 			'introText'  => $s['intro_text'],
 			'ageNote'    => $s['age_note'],
