@@ -1,7 +1,7 @@
 === TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland) ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 2.2.0
 
 Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu hỏi, chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê kết quả.
 
@@ -33,6 +33,10 @@ Trắc nghiệm → Nhập câu hỏi: chọn bài test, dán văn bản, bấm 
   NHÓM: A=D, B=I, C=S, D=C      ← DISC, MBTI: nhóm từng đáp án
   ĐIỂM: A=1, B=3, C=1, D=0      ← điểm từng đáp án (bỏ trống = 1)
 Nhóm ghi bằng chữ cái/khoá (sr, D, E…) hoặc tên (Tự điều chỉnh, Thủ lĩnh, Influence…). Dòng bắt đầu bằng # là ghi chú.
+Ảnh (tải lên Thư viện Media trước, ghi theo tên ảnh, tên file, đường dẫn hoặc ID):
+  ẢNH: câu 1                    ← đặt trước các đáp án: ảnh đề bài
+  A. [ảnh: 1.1]                 ← đáp án là ảnh (có thể thêm chữ phía sau)
+Quản trị viên cũng có thể nhập qua REST: POST /wp-json/tnp-iq/v1/admin/import (test, name, type, text, status, dry_run, replace).
 
 == Xáo trộn đáp án ==
 Trong Bài test → Sửa: "Xáo trộn thứ tự đáp án mỗi lượt làm" (mặc định bật khi tạo bài mới). Nhãn A, B, C… theo thứ tự hiển thị; máy chủ chấm theo đáp án gốc.

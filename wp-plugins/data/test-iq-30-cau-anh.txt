@@ -1,0 +1,333 @@
+# Bài test IQ – 30 câu ảnh (định dạng nhập của plugin TNP Trắc nghiệm)
+# Ảnh đề bài: 'câu N'; ảnh đáp án: 'N.1' … 'N.6' (A … F) trong Thư viện Media.
+# Thay '?' ở dòng ĐÁP ÁN bằng chữ cái đáp án đúng (A–F).
+
+CÂU 1
+Hình nào điền vào ô trống?
+ẢNH: câu 1
+A. [ảnh: 1.1]
+B. [ảnh: 1.2]
+C. [ảnh: 1.3]
+D. [ảnh: 1.4]
+E. [ảnh: 1.5]
+F. [ảnh: 1.6]
+ĐÁP ÁN: ?
+
+CÂU 2
+Hình nào điền vào ô trống?
+ẢNH: câu 2
+A. [ảnh: 2.1]
+B. [ảnh: 2.2]
+C. [ảnh: 2.3]
+D. [ảnh: 2.4]
+E. [ảnh: 2.5]
+F. [ảnh: 2.6]
+ĐÁP ÁN: ?
+
+CÂU 3
+Hình nào điền vào ô trống?
+ẢNH: câu 3
+A. [ảnh: 3.1]
+B. [ảnh: 3.2]
+C. [ảnh: 3.3]
+D. [ảnh: 3.4]
+E. [ảnh: 3.5]
+F. [ảnh: 3.6]
+ĐÁP ÁN: ?
+
+CÂU 4
+Hình nào điền vào ô trống?
+ẢNH: câu 4
+A. [ảnh: 4.1]
+B. [ảnh: 4.2]
+C. [ảnh: 4.3]
+D. [ảnh: 4.4]
+E. [ảnh: 4.5]
+F. [ảnh: 4.6]
+ĐÁP ÁN: ?
+
+CÂU 5
+Hình nào điền vào ô trống?
+ẢNH: câu 5
+A. [ảnh: 5.1]
+B. [ảnh: 5.2]
+C. [ảnh: 5.3]
+D. [ảnh: 5.4]
+E. [ảnh: 5.5]
+F. [ảnh: 5.6]
+ĐÁP ÁN: ?
+
+CÂU 6
+Hình nào điền vào ô trống?
+ẢNH: câu 6
+A. [ảnh: 6.1]
+B. [ảnh: 6.2]
+C. [ảnh: 6.3]
+D. [ảnh: 6.4]
+E. [ảnh: 6.5]
+F. [ảnh: 6.6]
+ĐÁP ÁN: ?
+
+CÂU 7
+Hình nào điền vào ô trống?
+ẢNH: câu 7
+A. [ảnh: 7.1]
+B. [ảnh: 7.2]
+C. [ảnh: 7.3]
+D. [ảnh: 7.4]
+E. [ảnh: 7.5]
+F. [ảnh: 7.6]
+ĐÁP ÁN: ?
+
+CÂU 8
+Hình nào điền vào ô trống?
+ẢNH: câu 8
+A. [ảnh: 8.1]
+B. [ảnh: 8.2]
+C. [ảnh: 8.3]
+D. [ảnh: 8.4]
+E. [ảnh: 8.5]
+F. [ảnh: 8.6]
+ĐÁP ÁN: ?
+
+CÂU 9
+Hình nào điền vào ô trống?
+ẢNH: câu 9
+A. [ảnh: 9.1]
+B. [ảnh: 9.2]
+C. [ảnh: 9.3]
+D. [ảnh: 9.4]
+E. [ảnh: 9.5]
+F. [ảnh: 9.6]
+ĐÁP ÁN: ?
+
+CÂU 10
+Hình nào điền vào ô trống?
+ẢNH: câu 10
+A. [ảnh: 10.1]
+B. [ảnh: 10.2]
+C. [ảnh: 10.3]
+D. [ảnh: 10.4]
+E. [ảnh: 10.5]
+F. [ảnh: 10.6]
+ĐÁP ÁN: ?
+
+CÂU 11
+Hình nào điền vào ô trống?
+ẢNH: câu 11
+A. [ảnh: 11.1]
+B. [ảnh: 11.2]
+C. [ảnh: 11.3]
+D. [ảnh: 11.4]
+E. [ảnh: 11.5]
+F. [ảnh: 11.6]
+ĐÁP ÁN: ?
+
+CÂU 12
+Hình nào điền vào ô trống?
+ẢNH: câu 12
+A. [ảnh: 12.1]
+B. [ảnh: 12.2]
+C. [ảnh: 12.3]
+D. [ảnh: 12.4]
+E. [ảnh: 12.5]
+F. [ảnh: 12.6]
+ĐÁP ÁN: ?
+
+CÂU 13
+Hình nào điền vào ô trống?
+ẢNH: câu 13
+A. [ảnh: 13.1]
+B. [ảnh: 13.2]
+C. [ảnh: 13.3]
+D. [ảnh: 13.4]
+E. [ảnh: 13.5]
+F. [ảnh: 13.6]
+ĐÁP ÁN: ?
+
+CÂU 14
+Hình nào điền vào ô trống?
+ẢNH: câu 14
+A. [ảnh: 14.1]
+B. [ảnh: 14.2]
+C. [ảnh: 14.3]
+D. [ảnh: 14.4]
+E. [ảnh: 14.5]
+F. [ảnh: 14.6]
+ĐÁP ÁN: ?
+
+CÂU 15
+Hình nào điền vào ô trống?
+ẢNH: câu 15
+A. [ảnh: 15.1]
+B. [ảnh: 15.2]
+C. [ảnh: 15.3]
+D. [ảnh: 15.4]
+E. [ảnh: 15.5]
+F. [ảnh: 15.6]
+ĐÁP ÁN: ?
+
+CÂU 16
+Hình nào điền vào ô trống?
+ẢNH: câu 16
+A. [ảnh: 16.1]
+B. [ảnh: 16.2]
+C. [ảnh: 16.3]
+D. [ảnh: 16.4]
+E. [ảnh: 16.5]
+F. [ảnh: 16.6]
+ĐÁP ÁN: ?
+
+CÂU 17
+Hình nào điền vào ô trống?
+ẢNH: câu 17
+A. [ảnh: 17.1]
+B. [ảnh: 17.2]
+C. [ảnh: 17.3]
+D. [ảnh: 17.4]
+E. [ảnh: 17.5]
+F. [ảnh: 17.6]
+ĐÁP ÁN: ?
+
+CÂU 18
+Hình nào điền vào ô trống?
+ẢNH: câu 18
+A. [ảnh: 18.1]
+B. [ảnh: 18.2]
+C. [ảnh: 18.3]
+D. [ảnh: 18.4]
+E. [ảnh: 18.5]
+F. [ảnh: 18.6]
+ĐÁP ÁN: ?
+
+CÂU 19
+Hình nào điền vào ô trống?
+ẢNH: câu 19
+A. [ảnh: 19.1]
+B. [ảnh: 19.2]
+C. [ảnh: 19.3]
+D. [ảnh: 19.4]
+E. [ảnh: 19.5]
+F. [ảnh: 19.6]
+ĐÁP ÁN: ?
+
+CÂU 20
+Hình nào điền vào ô trống?
+ẢNH: câu 20
+A. [ảnh: 20.1]
+B. [ảnh: 20.2]
+C. [ảnh: 20.3]
+D. [ảnh: 20.4]
+E. [ảnh: 20.5]
+F. [ảnh: 20.6]
+ĐÁP ÁN: ?
+
+CÂU 21
+Hình nào điền vào ô trống?
+ẢNH: câu 21
+A. [ảnh: 21.1]
+B. [ảnh: 21.2]
+C. [ảnh: 21.3]
+D. [ảnh: 21.4]
+E. [ảnh: 21.5]
+F. [ảnh: 21.6]
+ĐÁP ÁN: ?
+
+CÂU 22
+Hình nào điền vào ô trống?
+ẢNH: câu 22
+A. [ảnh: 22.1]
+B. [ảnh: 22.2]
+C. [ảnh: 22.3]
+D. [ảnh: 22.4]
+E. [ảnh: 22.5]
+F. [ảnh: 22.6]
+ĐÁP ÁN: ?
+
+CÂU 23
+Hình nào điền vào ô trống?
+ẢNH: câu 23
+A. [ảnh: 23.1]
+B. [ảnh: 23.2]
+C. [ảnh: 23.3]
+D. [ảnh: 23.4]
+E. [ảnh: 23.5]
+F. [ảnh: 23.6]
+ĐÁP ÁN: ?
+
+CÂU 24
+Hình nào điền vào ô trống?
+ẢNH: câu 24
+A. [ảnh: 24.1]
+B. [ảnh: 24.2]
+C. [ảnh: 24.3]
+D. [ảnh: 24.4]
+E. [ảnh: 24.5]
+F. [ảnh: 24.6]
+ĐÁP ÁN: ?
+
+CÂU 25
+Hình nào điền vào ô trống?
+ẢNH: câu 25
+A. [ảnh: 25.1]
+B. [ảnh: 25.2]
+C. [ảnh: 25.3]
+D. [ảnh: 25.4]
+E. [ảnh: 25.5]
+F. [ảnh: 25.6]
+ĐÁP ÁN: ?
+
+CÂU 26
+Hình nào điền vào ô trống?
+ẢNH: câu 26
+A. [ảnh: 26.1]
+B. [ảnh: 26.2]
+C. [ảnh: 26.3]
+D. [ảnh: 26.4]
+E. [ảnh: 26.5]
+F. [ảnh: 26.6]
+ĐÁP ÁN: ?
+
+CÂU 27
+Hình nào điền vào ô trống?
+ẢNH: câu 27
+A. [ảnh: 27.1]
+B. [ảnh: 27.2]
+C. [ảnh: 27.3]
+D. [ảnh: 27.4]
+E. [ảnh: 27.5]
+F. [ảnh: 27.6]
+ĐÁP ÁN: ?
+
+CÂU 28
+Hình nào điền vào ô trống?
+ẢNH: câu 28
+A. [ảnh: 28.1]
+B. [ảnh: 28.2]
+C. [ảnh: 28.3]
+D. [ảnh: 28.4]
+E. [ảnh: 28.5]
+F. [ảnh: 28.6]
+ĐÁP ÁN: ?
+
+CÂU 29
+Hình nào điền vào ô trống?
+ẢNH: câu 29
+A. [ảnh: 29.1]
+B. [ảnh: 29.2]
+C. [ảnh: 29.3]
+D. [ảnh: 29.4]
+E. [ảnh: 29.5]
+F. [ảnh: 29.6]
+ĐÁP ÁN: ?
+
+CÂU 30
+Hình nào điền vào ô trống?
+ẢNH: câu 30
+A. [ảnh: 30.1]
+B. [ảnh: 30.2]
+C. [ảnh: 30.3]
+D. [ảnh: 30.4]
+E. [ảnh: 30.5]
+F. [ảnh: 30.6]
+ĐÁP ÁN: ?
