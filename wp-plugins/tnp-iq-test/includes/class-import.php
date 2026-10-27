@@ -54,6 +54,8 @@ class TNP_IQ_Import {
 				'status'  => array( 'type' => 'string', 'enum' => array( 'publish', 'draft' ), 'default' => 'publish' ),
 				'dry_run' => array( 'type' => 'boolean', 'default' => false ),
 				'replace' => array( 'type' => 'boolean', 'default' => false ),
+				// IQ: cho phép câu chưa có ĐÁP ÁN — câu đó được lưu nháp để điền đáp án sau.
+				'allow_no_answer' => array( 'type' => 'boolean', 'default' => false ),
 			),
 		) );
 	}
@@ -63,7 +65,8 @@ class TNP_IQ_Import {
 		$term = get_term_by( 'slug', $slug, TNP_IQ_Questions::TAX );
 		$type = $term ? TNP_IQ_Tests::type_of( $slug ) : ( $req['type'] ?: 'iq' );
 
-		$result = self::parse( (string) $req['text'], $type );
+		$loose  = 'iq' === $type && $req['allow_no_answer'];
+		$result = self::parse( (string) $req['text'], $type, ! $loose );
 		$out    = array(
 			'test'      => array( 'slug' => $slug, 'name' => $term ? $term->name : ( $req['name'] ?: $slug ), 'type' => $type, 'exists' => (bool) $term ),
 			'found'     => count( $result['questions'] ),
@@ -78,6 +81,7 @@ class TNP_IQ_Import {
 				);
 			}, $result['questions'] ),
 			'created'   => array(),
+			'drafts'    => array(),
 			'trashed'   => 0,
 		);
 		if ( $req['dry_run'] || $result['errors'] ) {
@@ -100,9 +104,13 @@ class TNP_IQ_Import {
 			}
 		}
 		foreach ( $result['questions'] as $i => $q ) {
-			$id = self::create( $q, $term->term_id, $req['status'], $i + 1 );
+			$no_answer = 'iq' === $type && '' === $q['correct'];
+			$id        = self::create( $q, $term->term_id, $no_answer ? 'draft' : $req['status'], $i + 1 );
 			if ( $id ) {
 				$out['created'][] = $id;
+				if ( $no_answer ) {
+					$out['drafts'][] = $id;
+				}
 			}
 		}
 		$out['test']['exists'] = true;
@@ -202,7 +210,7 @@ class TNP_IQ_Import {
 	 * @param string $type iq | eq | disc | mbti | holland
 	 * @return array [ 'questions' => [ [title, body, options => [ [text, dim, pts] ], correct], … ], 'errors' => [ 'Câu 3: …' ] ]
 	 */
-	public static function parse( $text, $type ) {
+	public static function parse( $text, $type, $require_answer = true ) {
 		$dims  = 'iq' === $type ? array() : TNP_IQ_Tests::types()[ $type ]['dims'];
 		$lines = preg_split( '/\r\n|\r|\n/', (string) $text );
 		$qs    = array();
@@ -351,7 +359,7 @@ class TNP_IQ_Import {
 			if ( count( $opts ) > TNP_IQ_Questions::MAX_OPTIONS ) {
 				$err[] = 'tối đa ' . TNP_IQ_Questions::MAX_OPTIONS . ' đáp án';
 			}
-			if ( 'iq' === $type && ! isset( $q['options'][ $q['correct'] ] ) ) {
+			if ( 'iq' === $type && $require_answer && ! isset( $q['options'][ $q['correct'] ] ) ) {
 				$err[] = 'thiếu dòng “ĐÁP ÁN: …” (bài IQ cần đáp án đúng)';
 			}
 			if ( $err ) {
