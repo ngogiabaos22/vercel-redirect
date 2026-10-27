@@ -1,7 +1,7 @@
 === TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland) ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 
 Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu hỏi, chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê kết quả.
 
@@ -19,6 +19,23 @@ Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu h�
 * MBTI: mỗi câu thường 2 đáp án thuộc hai cực của một cặp (E/I, S/N, T/F, J/P). Nên có số câu đều cho 4 cặp. Kết quả: 1 trong 16 kiểu (vd INTJ – Nhà kiến trúc), % từng cặp, điểm mạnh, lưu ý, nghề gợi ý.
 * Holland: mỗi câu là một hoạt động thuộc R, I, A, S, E hoặc C; đáp án là mức độ thích (vd Rất thích 3 … Không thích 0), cùng nhóm với câu. Kết quả: mã 3 chữ (vd RIA), mô tả và nghề gợi ý cho 3 nhóm, biểu đồ 6 nhóm.
 Test tính cách không hỏi tuổi, không hiện đồng hồ (trừ khi đặt time="…").
+
+== Nhập câu hỏi hàng loạt ==
+Trắc nghiệm → Nhập câu hỏi: chọn bài test, dán văn bản, bấm "Kiểm tra" để xem trước rồi "Nhập câu hỏi".
+  CÂU 1
+  Nội dung câu hỏi
+  A
+  Đáp án A            (hoặc viết liền: A. Đáp án A)
+  B
+  Đáp án B
+  ĐÁP ÁN: B                     ← bài IQ
+  NHÓM: Tự điều chỉnh           ← EQ, Holland: một nhóm cho cả câu
+  NHÓM: A=D, B=I, C=S, D=C      ← DISC, MBTI: nhóm từng đáp án
+  ĐIỂM: A=1, B=3, C=1, D=0      ← điểm từng đáp án (bỏ trống = 1)
+Nhóm ghi bằng chữ cái/khoá (sr, D, E…) hoặc tên (Tự điều chỉnh, Thủ lĩnh, Influence…). Dòng bắt đầu bằng # là ghi chú.
+
+== Xáo trộn đáp án ==
+Trong Bài test → Sửa: "Xáo trộn thứ tự đáp án mỗi lượt làm" (mặc định bật khi tạo bài mới). Nhãn A, B, C… theo thứ tự hiển thị; máy chủ chấm theo đáp án gốc.
 
 == Thêm câu hỏi ==
 Trắc nghiệm → Thêm câu hỏi (chọn bài test ở khung "Bài test" bên phải trước):

@@ -119,7 +119,7 @@ class TNP_IQ_Rest {
 			'kind'      => $kind,
 			'needsAge'  => $is_iq,
 			'showTimer' => $is_iq || $time > 0,
-			'questions' => array_map( array( 'TNP_IQ_Questions', 'public_data' ), $posts ),
+			'questions' => self::maybe_shuffle( array_map( array( 'TNP_IQ_Questions', 'public_data' ), $posts ), TNP_IQ_Tests::shuffle_of( $test ) ),
 		) );
 	}
 
@@ -255,5 +255,16 @@ class TNP_IQ_Rest {
 		TNP_IQ_Results::bump( $test, 'results' );
 
 		return rest_ensure_response( array( 'kind' => $kind ) + $result );
+	}
+
+	/** Xáo trộn thứ tự đáp án (giữ nguyên khoá gốc để máy chủ chấm đúng). */
+	private static function maybe_shuffle( array $questions, $on ) {
+		if ( $on ) {
+			foreach ( $questions as &$q ) {
+				shuffle( $q['options'] );
+			}
+			unset( $q );
+		}
+		return $questions;
 	}
 }

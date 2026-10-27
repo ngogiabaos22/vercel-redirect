@@ -142,6 +142,7 @@ class TNP_IQ_Demo {
 		}
 		$term_id = (int) $term['term_id'];
 		update_term_meta( $term_id, 'tnp_type', $type );
+		update_term_meta( $term_id, 'tnp_shuffle', '1' );
 		foreach ( $questions as $i => $q ) {
 			$options = array();
 			foreach ( $q[1] as $j => $o ) {

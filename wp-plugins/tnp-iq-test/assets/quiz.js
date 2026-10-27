@@ -133,11 +133,12 @@
 		var cols = nOpt <= 4 ? nOpt : (nOpt <= 6 ? 3 : 4);
 		var layout = hasImg ? 'is-cards' : (shortText && nOpt > 2 ? 'is-list is-2col' : 'is-list');
 		var opts = '<div class="tnp-opts ' + layout + '" style="--cols:' + cols + '" role="radiogroup" aria-label="Chọn đáp án">';
-		q.options.forEach(function (o) {
+		q.options.forEach(function (o, i) {
 			var sel = st.answers[q.id] === o.key;
+			var label = 'ABCDEFGH'.charAt(i); // nhãn theo vị trí hiển thị (đáp án có thể đã được xáo trộn)
 			opts += '<button type="button" class="tnp-opt' + (sel ? ' is-selected' : '') + '" data-key="' + esc(o.key) + '" role="radio" aria-checked="' + sel + '">' +
-				'<span class="tnp-opt-key">' + esc(o.key) + '</span>' +
-				(o.img ? '<span class="tnp-opt-img"><img src="' + esc(o.img) + '" alt="Đáp án ' + esc(o.key) + '"></span>' : '') +
+				'<span class="tnp-opt-key">' + label + '</span>' +
+				(o.img ? '<span class="tnp-opt-img"><img src="' + esc(o.img) + '" alt="Đáp án ' + label + '"></span>' : '') +
 				(o.text ? '<span class="tnp-opt-text">' + esc(o.text) + '</span>' : '') +
 			'</button>';
 		});

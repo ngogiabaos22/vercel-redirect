@@ -1,0 +1,393 @@
+# Bài test EQ – 30 câu (định dạng nhập của plugin TNP Trắc nghiệm)
+# Điểm: 3 = cách ứng xử trưởng thành nhất; 1 = né tránh, kìm nén hoặc chưa hiệu quả; 0 = công kích, đổ lỗi, bùng nổ.
+# Dòng bắt đầu bằng # là ghi chú, plugin bỏ qua.
+
+CÂU 1
+Khi bị ai đó chỉ trích trước nhiều người, bạn thường phản ứng thế nào?
+A
+Phản bác ngay để bảo vệ mình
+B
+Cố giữ bình tĩnh, lắng nghe rồi phản hồi khi phù hợp
+C
+Bỏ đi ngay mà không nói gì
+D
+Công kích lại người chỉ trích
+NHÓM: Tự điều chỉnh
+ĐIỂM: A=1, B=3, C=1, D=0
+
+CÂU 2
+Khi đang rất tức giận, điều nào nên làm trước khi đưa ra một quyết định quan trọng?
+A
+Quyết định ngay để giải tỏa cảm xúc
+B
+Tạm dừng để cảm xúc ổn định hơn rồi mới quyết định
+C
+Để người khác quyết định thay
+D
+Chọn phương án khiến mình hả giận nhất
+NHÓM: Tự điều chỉnh
+ĐIỂM: A=0, B=3, C=1, D=0
+
+CÂU 3
+Bạn đang căng thẳng vì công việc và một người vô tình làm phiền. Cách phản ứng phù hợp nhất là gì?
+A
+Cáu gắt với họ
+B
+Nhận ra mình đang căng thẳng và tránh trút cảm xúc lên họ
+C
+Không nói chuyện với bất kỳ ai
+D
+Cho rằng họ cố tình làm phiền mình
+NHÓM: Tự nhận thức
+ĐIỂM: A=0, B=3, C=1, D=0
+
+CÂU 4
+Khi một cuộc tranh luận bắt đầu trở nên căng thẳng, bạn nhận thấy mình nói ngày càng to. Bạn nên làm gì?
+A
+Tiếp tục nói to hơn để chiếm ưu thế
+B
+Tạm dừng, hạ giọng và tập trung lại vào vấn đề
+C
+Bỏ đi và không bao giờ nói lại chuyện đó
+D
+Nhắc lại tất cả lỗi cũ của đối phương
+NHÓM: Tự điều chỉnh
+ĐIỂM: A=0, B=3, C=1, D=0
+
+CÂU 5
+Khi kế hoạch quan trọng bị thay đổi vào phút cuối, bạn thường nên làm gì?
+A
+Mất bình tĩnh và bỏ cuộc
+B
+Chấp nhận sự thay đổi và tìm phương án thay thế
+C
+Đổ lỗi ngay cho người khác
+D
+Cố giữ nguyên kế hoạch dù không còn phù hợp
+NHÓM: Động lực
+ĐIỂM: A=0, B=3, C=0, D=1
+
+CÂU 6
+Bạn nhận được một tin nhắn khiến mình tức giận. Cách xử lý nào thường tốt hơn?
+A
+Trả lời ngay khi đang tức
+B
+Dành thời gian bình tĩnh rồi mới phản hồi
+C
+Đăng nội dung tin nhắn lên mạng xã hội
+D
+Gửi nhiều tin nhắn gay gắt liên tục
+NHÓM: Tự điều chỉnh
+ĐIỂM: A=1, B=3, C=0, D=0
+
+CÂU 7
+Khi công việc dồn dập khiến bạn cảm thấy quá tải, điều nào hữu ích nhất?
+A
+Cố làm tất cả cùng lúc
+B
+Xác định việc ưu tiên và xử lý từng phần
+C
+Bỏ hết công việc
+D
+Than phiền liên tục nhưng không thay đổi cách làm
+NHÓM: Động lực
+ĐIỂM: A=1, B=3, C=0, D=0
+
+CÂU 8
+Khi ai đó nói điều khiến bạn khó chịu nhưng có thể họ không cố ý, bạn nên làm gì?
+A
+Phản ứng gay gắt ngay
+B
+Kiểm tra lại ý của họ trước khi kết luận
+C
+Giữ giận trong lòng thật lâu
+D
+Nói xấu họ với người khác
+NHÓM: Đồng cảm
+ĐIỂM: A=0, B=3, C=1, D=0
+
+CÂU 9
+Bạn vừa mắc một lỗi lớn và cảm thấy hoảng. Phản ứng nào phù hợp nhất?
+A
+Che giấu lỗi bằng mọi cách
+B
+Bình tĩnh đánh giá hậu quả và tìm cách khắc phục
+C
+Tự trách mình liên tục
+D
+Đổ lỗi ngay cho người khác
+NHÓM: Động lực
+ĐIỂM: A=0, B=3, C=1, D=0
+
+CÂU 10
+Khi cảm thấy lo lắng trước một sự kiện quan trọng, điều nào hữu ích nhất?
+A
+Tưởng tượng tất cả tình huống xấu nhất
+B
+Chuẩn bị những gì có thể kiểm soát và chấp nhận phần không thể kiểm soát
+C
+Hủy sự kiện chỉ vì đang lo
+D
+Giả vờ rằng mình không hề lo lắng
+NHÓM: Tự nhận thức
+ĐIỂM: A=1, B=3, C=0, D=1
+
+CÂU 11
+Khi ai đó từ chối đề nghị của bạn, phản ứng nào thể hiện khả năng kiểm soát cảm xúc tốt nhất?
+A
+Tức giận vì cảm thấy bị coi thường
+B
+Chấp nhận câu trả lời và xem xét lý do nếu cần
+C
+Ép họ phải đồng ý
+D
+Không nói chuyện với họ nữa
+NHÓM: Kỹ năng xã hội
+ĐIỂM: A=1, B=3, C=0, D=0
+
+CÂU 12
+Bạn đang rất mệt và nhận thấy mình dễ cáu hơn bình thường. Bạn nên làm gì?
+A
+Tiếp tục làm mọi việc như bình thường và mặc kệ
+B
+Nhận ra trạng thái của mình và hạn chế phản ứng vội vàng
+C
+Cho rằng mọi người hôm nay đều khó chịu
+D
+Tranh luận để giải tỏa cảm xúc
+NHÓM: Tự nhận thức
+ĐIỂM: A=1, B=3, C=0, D=0
+
+CÂU 13
+Khi một việc nhỏ liên tục không thuận lợi, bạn bắt đầu bực bội. Cách nào phù hợp nhất?
+A
+Đập hoặc ném đồ để giải tỏa
+B
+Tạm dừng vài phút rồi quay lại xử lý
+C
+Bỏ cuộc ngay
+D
+Trút giận lên người bên cạnh
+NHÓM: Tự điều chỉnh
+ĐIỂM: A=0, B=3, C=1, D=0
+
+CÂU 14
+Trong lúc bị áp lực, bạn nhận thấy mình suy nghĩ theo kiểu 'mọi thứ đều sẽ thất bại'. Bạn nên làm gì?
+A
+Tin ngay suy nghĩ đó
+B
+Nhận ra đây có thể là phản ứng do căng thẳng và xem lại dữ kiện thực tế
+C
+Bỏ hết kế hoạch
+D
+Tìm người để trách
+NHÓM: Tự nhận thức
+ĐIỂM: A=1, B=3, C=0, D=0
+
+CÂU 15
+Khi người khác đang tức giận với bạn, điều nào thường giúp tình huống không căng thẳng thêm?
+A
+Tức giận lại để họ biết cảm giác của mình
+B
+Giữ giọng bình tĩnh và tập trung vào điều họ đang muốn truyền đạt
+C
+Cắt ngang liên tục
+D
+Chế giễu phản ứng của họ
+NHÓM: Đồng cảm
+ĐIỂM: A=0, B=3, C=1, D=0
+
+CÂU 16
+Khi nhận được một lời góp ý khiến bạn cảm thấy tự ái, điều nào nên làm?
+A
+Bác bỏ ngay mọi điều họ nói
+B
+Tách cảm giác tự ái khỏi nội dung góp ý và xem phần nào hữu ích
+C
+Tìm lỗi của người góp ý để phản công
+D
+Không bao giờ nghe góp ý nữa
+NHÓM: Tự điều chỉnh
+ĐIỂM: A=1, B=3, C=0, D=0
+
+CÂU 17
+Bạn bị trễ vì một sự cố ngoài ý muốn và đang rất sốt ruột. Cách xử lý nào phù hợp nhất?
+A
+Cáu gắt với tất cả mọi người
+B
+Thông báo cho người liên quan và tập trung vào những gì mình còn có thể xử lý
+C
+Liên tục tự trách bản thân
+D
+Bỏ luôn kế hoạch trong ngày
+NHÓM: Tự điều chỉnh
+ĐIỂM: A=0, B=3, C=1, D=1
+
+CÂU 18
+Khi bạn cảm thấy thất vọng vì kết quả không như mong đợi, điều nào tích cực nhất?
+A
+Cho phép mình thất vọng nhưng không để cảm xúc quyết định mọi hành động tiếp theo
+B
+Giả vờ rằng mình hoàn toàn không quan tâm
+C
+Từ bỏ ngay mục tiêu
+D
+Đổ lỗi cho tất cả mọi người
+NHÓM: Động lực
+ĐIỂM: A=3, B=1, C=0, D=0
+
+CÂU 19
+Khi bạn cảm thấy mình sắp nói điều có thể khiến người khác tổn thương, cách nào phù hợp nhất?
+A
+Nói ngay vì đó là cảm xúc thật
+B
+Dừng lại và cân nhắc cách diễn đạt trước khi nói
+C
+Nói nặng hơn để họ nhớ
+D
+Không bao giờ nói về vấn đề đó nữa
+NHÓM: Kỹ năng xã hội
+ĐIỂM: A=1, B=3, C=0, D=1
+
+CÂU 20
+Khi có quá nhiều việc không thể hoàn thành cùng lúc, bạn nên làm gì?
+A
+Cố làm tất cả cùng một lúc
+B
+Sắp xếp ưu tiên, điều chỉnh kỳ vọng và xử lý từng việc
+C
+Không làm gì vì quá áp lực
+D
+Tức giận vì mọi người giao quá nhiều việc
+NHÓM: Động lực
+ĐIỂM: A=1, B=3, C=0, D=0
+
+CÂU 21
+Bạn nhận được tin xấu ngay trước khi phải tham gia một cuộc họp quan trọng. Điều nào phù hợp nhất?
+A
+Giả vờ như không có cảm xúc gì
+B
+Nhận diện cảm xúc, dành vài phút ổn định và quyết định cách xử lý phù hợp
+C
+Trút cảm xúc lên những người trong cuộc họp
+D
+Bỏ cuộc họp mà không thông báo
+NHÓM: Tự nhận thức
+ĐIỂM: A=1, B=3, C=0, D=0
+
+CÂU 22
+Khi một người liên tục làm bạn khó chịu, điều nào hiệu quả hơn việc giữ tức giận trong lòng?
+A
+Nói chuyện rõ ràng về hành vi khiến bạn khó chịu
+B
+Chờ đến khi quá tức rồi bùng nổ
+C
+Nói xấu họ với nhiều người
+D
+Cố tình làm họ khó chịu lại
+NHÓM: Kỹ năng xã hội
+ĐIỂM: A=3, B=1, C=0, D=0
+
+CÂU 23
+Khi cảm xúc tiêu cực kéo dài và bạn khó tập trung, điều nào nên làm?
+A
+Ép bản thân không được cảm thấy như vậy
+B
+Nhận diện cảm xúc, tìm nguyên nhân và lựa chọn cách hỗ trợ bản thân phù hợp
+C
+Trút cảm xúc lên người khác
+D
+Cố gắng không nghĩ đến bất cứ điều gì
+NHÓM: Tự nhận thức
+ĐIỂM: A=1, B=3, C=0, D=1
+
+CÂU 24
+Bạn đang làm việc dưới áp lực thời gian và mắc một lỗi nhỏ. Phản ứng nào hiệu quả nhất?
+A
+Hoảng lên và nghĩ rằng mọi thứ đã hỏng
+B
+Xác định mức độ ảnh hưởng, sửa lỗi rồi tiếp tục
+C
+Tự trách mình đến mức không thể làm tiếp
+D
+Che giấu lỗi dù có thể gây hậu quả
+NHÓM: Tự điều chỉnh
+ĐIỂM: A=1, B=3, C=1, D=0
+
+CÂU 25
+Khi một người khiến bạn thất vọng nhiều lần, cách phản ứng nào cân bằng nhất?
+A
+Bùng nổ và nói tất cả những điều khó nghe
+B
+Bình tĩnh trao đổi, đặt giới hạn và điều chỉnh kỳ vọng nếu cần
+C
+Giả vờ rằng mọi chuyện đều ổn
+D
+Cố trả đũa họ
+NHÓM: Kỹ năng xã hội
+ĐIỂM: A=0, B=3, C=1, D=0
+
+CÂU 26
+Khi bạn nhận thấy mình đang suy nghĩ quá nhiều về một chuyện đã xảy ra, điều nào hữu ích nhất?
+A
+Tiếp tục nghĩ cho đến khi tìm được mọi khả năng có thể xảy ra
+B
+Xác định điều có thể học được rồi chuyển sự chú ý sang việc mình có thể làm hiện tại
+C
+Tự trách mình liên tục
+D
+Tránh mọi tình huống tương tự trong tương lai
+NHÓM: Tự điều chỉnh
+ĐIỂM: A=1, B=3, C=1, D=1
+
+CÂU 27
+Khi bạn rất phấn khích về một cơ hội mới, điều nào vẫn quan trọng?
+A
+Quyết định càng nhanh càng tốt
+B
+Vẫn xem xét rủi ro và thông tin thực tế trước khi quyết định
+C
+Cho rằng cảm giác tích cực luôn chứng minh quyết định đúng
+D
+Bỏ qua mọi lời khuyên trái chiều
+NHÓM: Tự nhận thức
+ĐIỂM: A=1, B=3, C=1, D=0
+
+CÂU 28
+Khi xảy ra mâu thuẫn, bạn thấy mình muốn nhắc lại những lỗi từ rất lâu của đối phương. Điều nào tốt hơn?
+A
+Nhắc tất cả để giành lợi thế
+B
+Tập trung vào vấn đề hiện tại và điều cần giải quyết
+C
+Không nói gì và giữ sự tức giận
+D
+Kết thúc mối quan hệ ngay
+NHÓM: Kỹ năng xã hội
+ĐIỂM: A=0, B=3, C=1, D=0
+
+CÂU 29
+Khi cảm thấy áp lực kéo dài, cách nào thể hiện khả năng quản lý cảm xúc tốt hơn?
+A
+Tiếp tục chịu đựng cho đến khi không thể nữa
+B
+Nhận biết giới hạn, điều chỉnh khối lượng công việc và tìm sự hỗ trợ khi cần
+C
+Giả vờ rằng mình hoàn toàn ổn
+D
+Ngừng mọi trách nhiệm ngay lập tức
+NHÓM: Tự nhận thức
+ĐIỂM: A=1, B=3, C=1, D=0
+
+CÂU 30
+Điều nào mô tả chính xác nhất một người có khả năng kiểm soát cảm xúc tốt?
+A
+Không bao giờ tức giận, buồn hay lo lắng
+B
+Luôn giấu cảm xúc để người khác không biết
+C
+Nhận biết cảm xúc nhưng vẫn lựa chọn cách phản ứng phù hợp với tình huống
+D
+Luôn nhường nhịn người khác để tránh xung đột
+NHÓM: Tự nhận thức
+ĐIỂM: A=1, B=1, C=3, D=1

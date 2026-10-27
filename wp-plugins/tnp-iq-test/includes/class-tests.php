@@ -115,6 +115,15 @@ class TNP_IQ_Tests {
 		return 'iq' === $type ? TNP_IQ_Settings::get( 'intro_text' ) : self::types()[ $type ]['intro'];
 	}
 
+	/** Bài test có bật xáo trộn thứ tự đáp án không. */
+	public static function shuffle_of( $slug ) {
+		if ( '' === $slug ) {
+			return false;
+		}
+		$term = get_term_by( 'slug', $slug, TNP_IQ_Questions::TAX );
+		return $term && '1' === (string) get_term_meta( $term->term_id, 'tnp_shuffle', true );
+	}
+
 	/** Loại test của một câu hỏi = loại của bài test (term) đầu tiên nó thuộc về. */
 	public static function type_of_question( $post_id ) {
 		$terms = get_the_terms( $post_id, TNP_IQ_Questions::TAX );
@@ -140,6 +149,10 @@ class TNP_IQ_Tests {
 			<p>Quyết định cách chấm điểm và trang kết quả. Nên chọn trước khi thêm câu hỏi.</p>
 		</div>
 		<div class="form-field">
+			<label><input type="checkbox" name="tnp_shuffle" value="1" checked style="width:auto"> Xáo trộn thứ tự đáp án mỗi lượt làm</label>
+			<p>Nên bật cho EQ, DISC, Holland để người làm không đoán theo vị trí đáp án.</p>
+		</div>
+		<div class="form-field">
 			<label for="tnp-intro">Hướng dẫn trước khi làm</label>
 			<textarea name="tnp_intro" id="tnp-intro" rows="3"></textarea>
 			<p>Hiện ở màn hình bắt đầu. Để trống = dùng hướng dẫn mặc định của loại test.</p>
@@ -155,6 +168,11 @@ class TNP_IQ_Tests {
 			<th scope="row"><label for="tnp-type">Loại bài test</label></th>
 			<td><?php self::type_select( $type ); ?>
 				<p class="description">Đổi loại khi đã có câu hỏi: nhớ kiểm tra lại phần chấm điểm của từng đáp án.</p></td>
+		</tr>
+		<tr class="form-field">
+			<th scope="row">Thứ tự đáp án</th>
+			<td><label><input type="checkbox" name="tnp_shuffle" value="1" <?php checked( '1', (string) get_term_meta( $term->term_id, 'tnp_shuffle', true ) ); ?> style="width:auto"> Xáo trộn thứ tự đáp án mỗi lượt làm</label>
+				<p class="description">Nhãn A, B, C… vẫn theo thứ tự hiển thị; máy chủ chấm theo đáp án gốc.</p></td>
 		</tr>
 		<tr class="form-field">
 			<th scope="row"><label for="tnp-intro">Hướng dẫn trước khi làm</label></th>
@@ -175,6 +193,7 @@ class TNP_IQ_Tests {
 		$type = sanitize_key( wp_unslash( $_POST['tnp_type'] ?? 'iq' ) );
 		update_term_meta( $term_id, 'tnp_type', isset( self::types()[ $type ] ) ? $type : 'iq' );
 		update_term_meta( $term_id, 'tnp_intro', sanitize_textarea_field( wp_unslash( $_POST['tnp_intro'] ?? '' ) ) );
+		update_term_meta( $term_id, 'tnp_shuffle', empty( $_POST['tnp_shuffle'] ) ? '0' : '1' );
 	}
 
 	public static function term_columns( $cols ) {
