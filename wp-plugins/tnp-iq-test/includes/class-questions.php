@@ -41,13 +41,13 @@ class TNP_IQ_Questions {
 	public static function register_cpt() {
 		register_post_type( TNP_IQ_CPT, array(
 			'labels'          => array(
-				'name'               => 'Câu hỏi IQ',
-				'singular_name'      => 'Câu hỏi IQ',
-				'menu_name'          => 'Test IQ',
+				'name'               => 'Câu hỏi',
+				'singular_name'      => 'Câu hỏi',
+				'menu_name'          => 'Trắc nghiệm',
 				'all_items'          => 'Câu hỏi',
 				'add_new'            => 'Thêm câu hỏi',
-				'add_new_item'       => 'Thêm câu hỏi IQ',
-				'edit_item'          => 'Sửa câu hỏi IQ',
+				'add_new_item'       => 'Thêm câu hỏi',
+				'edit_item'          => 'Sửa câu hỏi',
 				'search_items'       => 'Tìm câu hỏi',
 				'not_found'          => 'Chưa có câu hỏi nào',
 				'not_found_in_trash' => 'Thùng rác trống',
@@ -62,19 +62,21 @@ class TNP_IQ_Questions {
 			'map_meta_cap'    => true,
 		) );
 
-		// Bộ đề: gom câu hỏi thành các bài test riêng, mỗi bài một shortcode [tnp_iq_test test="slug"].
+		// Bài test: mỗi bài một loại (IQ, EQ, DISC, MBTI, Holland) và một shortcode [tnp_test test="slug"].
 		register_taxonomy( self::TAX, TNP_IQ_CPT, array(
 			'labels'            => array(
-				'name'          => 'Bộ đề',
-				'singular_name' => 'Bộ đề',
-				'menu_name'     => 'Bộ đề',
-				'all_items'     => 'Tất cả bộ đề',
-				'edit_item'     => 'Sửa bộ đề',
-				'add_new_item'  => 'Thêm bộ đề',
-				'new_item_name' => 'Tên bộ đề mới',
-				'search_items'  => 'Tìm bộ đề',
-				'not_found'     => 'Chưa có bộ đề nào',
+				'name'          => 'Bài test',
+				'singular_name' => 'Bài test',
+				'menu_name'     => 'Bài test',
+				'all_items'     => 'Tất cả bài test',
+				'edit_item'     => 'Sửa bài test',
+				'update_item'   => 'Cập nhật bài test',
+				'add_new_item'  => 'Thêm bài test',
+				'new_item_name' => 'Tên bài test mới',
+				'search_items'  => 'Tìm bài test',
+				'not_found'     => 'Chưa có bài test nào',
 			),
+			'meta_box_cb'       => false, // Chọn bài test bằng hộp riêng ở trang sửa câu hỏi (mỗi câu thuộc một bài).
 			'public'            => false,
 			'show_ui'           => true,
 			'show_admin_column' => true,
@@ -83,7 +85,7 @@ class TNP_IQ_Questions {
 		) );
 	}
 
-	/** Tên hiển thị của một bài test theo slug bộ đề ('' = tất cả câu hỏi). */
+	/** Tên hiển thị của một bài test theo slug ('' = bài IQ chung). */
 	public static function test_name( $slug ) {
 		if ( '' !== $slug ) {
 			$term = get_term_by( 'slug', $slug, self::TAX );
@@ -122,15 +124,18 @@ class TNP_IQ_Questions {
 				$options[ self::letter( $i ) ] = array(
 					'img'  => (int) ( $o['img'] ?? 0 ),
 					'text' => (string) ( $o['text'] ?? '' ),
+					'dim'  => (string) ( $o['dim'] ?? '' ),
+					'pts'  => isset( $o['pts'] ) ? (float) $o['pts'] : 1.0,
 				);
 			}
 		}
 		// Câu hỏi mới: mặc định 4 đáp án trống.
 		for ( $i = count( $options ); $i < 4 && ! $saved; $i++ ) {
-			$options[ self::letter( $i ) ] = array( 'img' => 0, 'text' => '' );
+			$options[ self::letter( $i ) ] = array( 'img' => 0, 'text' => '', 'dim' => '', 'pts' => 1.0 );
 		}
 
 		return array(
+			'test_type'  => TNP_IQ_Tests::type_of_question( $post_id ),
 			'type'       => in_array( $type, array( 'question', 'image', 'grid' ), true ) ? $type : 'question',
 			'grid'       => in_array( $size, array( 2, 3, 4 ), true ) ? $size : 3,
 			'cells'      => array_map( 'intval', (array) get_post_meta( $post_id, '_tnp_cells', true ) ),
@@ -146,11 +151,20 @@ class TNP_IQ_Questions {
 
 	/** Câu hỏi đủ dữ liệu để đưa vào bài thi chưa. */
 	public static function is_complete( $q ) {
-		if ( count( $q['options'] ) < self::MIN_OPTIONS || ! isset( $q['options'][ $q['correct'] ] ) ) {
+		$tt = $q['test_type'] ?? 'iq';
+		if ( count( $q['options'] ) < self::MIN_OPTIONS ) {
 			return false;
 		}
+		if ( 'iq' === $tt && ! isset( $q['options'][ $q['correct'] ] ) ) {
+			return false;
+		}
+		$dims = 'iq' === $tt ? array() : TNP_IQ_Tests::types()[ $tt ]['dims'];
 		foreach ( $q['options'] as $o ) {
 			if ( ! $o['img'] && '' === trim( $o['text'] ) ) {
+				return false;
+			}
+			// Test tính cách: mỗi đáp án phải thuộc một nhóm hợp lệ.
+			if ( 'iq' !== $tt && ! isset( $dims[ $o['dim'] ] ) ) {
 				return false;
 			}
 		}
@@ -207,10 +221,18 @@ class TNP_IQ_Questions {
 		if ( in_array( $hook, array( 'post.php', 'post-new.php' ), true ) ) {
 			wp_enqueue_media();
 			wp_enqueue_script( 'tnp-iq-admin', TNP_IQ_URL . 'assets/admin.js', array( 'jquery' ), TNP_IQ_VERSION, true );
+			$dims = array();
+			$help = array();
+			foreach ( TNP_IQ_Tests::types() as $k => $t ) {
+				$dims[ $k ] = $t['dims'];
+				$help[ $k ] = $t['help'];
+			}
 			wp_localize_script( 'tnp-iq-admin', 'tnpIqAdmin', array(
 				'keys' => self::KEYS,
 				'min'  => self::MIN_OPTIONS,
 				'max'  => self::MAX_OPTIONS,
+				'dims' => $dims,
+				'help' => $help,
 			) );
 		}
 	}
@@ -236,15 +258,25 @@ class TNP_IQ_Questions {
 	}
 
 	/** Một dòng đáp án trong trang soạn câu hỏi. $i = vị trí (0, 1, 2…). */
-	private static function option_row( $i, $o, $is_correct ) {
-		$k = self::letter( $i );
+	private static function option_row( $i, $o, $is_correct, $test_type = 'iq' ) {
+		$k    = self::letter( $i );
+		$dims = 'iq' === $test_type ? array() : TNP_IQ_Tests::types()[ $test_type ]['dims'];
 		?>
 		<div class="tnp-option<?php echo $is_correct ? ' is-correct' : ''; ?>">
 			<span class="tnp-option-key"><?php echo esc_html( $k ); ?></span>
 			<?php self::slot( 'tnp_options[' . $i . '][img]', $o['img'] ); ?>
 			<div class="tnp-option-fields">
 				<input type="text" name="tnp_options[<?php echo (int) $i; ?>][text]" value="<?php echo esc_attr( $o['text'] ); ?>" placeholder="Nội dung đáp án (có thể để trống nếu đã có ảnh)">
-				<label class="tnp-correct"><input type="radio" name="tnp_correct" value="<?php echo (int) $i; ?>" <?php checked( $is_correct ); ?>> Đáp án đúng</label>
+				<label class="tnp-correct tnp-iq-only"><input type="radio" name="tnp_correct" value="<?php echo (int) $i; ?>" <?php checked( $is_correct ); ?>> Đáp án đúng</label>
+				<div class="tnp-scoring tnp-trait-only">
+					<label>Nhóm <select name="tnp_options[<?php echo (int) $i; ?>][dim]" class="tnp-dim" data-value="<?php echo esc_attr( $o['dim'] ?? '' ); ?>">
+						<option value="">— Chọn nhóm —</option>
+						<?php foreach ( $dims as $dk => $dl ) : ?>
+							<option value="<?php echo esc_attr( $dk ); ?>" <?php selected( $o['dim'] ?? '', $dk ); ?>><?php echo esc_html( $dl ); ?></option>
+						<?php endforeach; ?>
+					</select></label>
+					<label>Điểm <input type="number" step="0.5" min="-100" max="100" name="tnp_options[<?php echo (int) $i; ?>][pts]" value="<?php echo esc_attr( (string) ( $o['pts'] ?? 1 ) ); ?>" class="small-text"></label>
+				</div>
 			</div>
 			<button type="button" class="button-link tnp-option-del" title="Xoá đáp án này">Xoá</button>
 		</div>
@@ -253,9 +285,11 @@ class TNP_IQ_Questions {
 
 	public static function render_box( $post ) {
 		wp_nonce_field( 'tnp_iq_save', 'tnp_iq_nonce' );
-		$q = self::get( $post->ID );
+		$q  = self::get( $post->ID );
+		$tt = $q['test_type'];
 		?>
-		<div class="tnp-iq-edit">
+		<div class="tnp-iq-edit" data-test-type="<?php echo esc_attr( $tt ); ?>">
+			<p class="tnp-type-help"><strong>Loại bài test: <span class="tnp-type-name"><?php echo esc_html( TNP_IQ_Tests::types()[ $tt ]['label'] ); ?></span></strong> — <span class="tnp-type-text"><?php echo esc_html( TNP_IQ_Tests::types()[ $tt ]['help'] ); ?></span> <span class="description">(Đổi bài test ở khung “Bài test” bên phải.)</span></p>
 			<p class="tnp-row">
 				<strong>Kiểu đề bài:</strong>
 				<label><input type="radio" name="tnp_type" value="question" <?php checked( $q['type'], 'question' ); ?>> Câu hỏi <span class="description">(chữ, có thể kèm ảnh minh hoạ)</span></label>
@@ -286,28 +320,44 @@ class TNP_IQ_Questions {
 			<?php endif; ?>
 
 			<h3>Đáp án</h3>
-			<p class="description">Từ <?php echo (int) self::MIN_OPTIONS; ?> đến <?php echo (int) self::MAX_OPTIONS; ?> đáp án. Mỗi đáp án là chữ, ảnh hoặc cả hai. Chọn “Đáp án đúng” ở một đáp án.</p>
+			<p class="description">Từ <?php echo (int) self::MIN_OPTIONS; ?> đến <?php echo (int) self::MAX_OPTIONS; ?> đáp án. Mỗi đáp án là chữ, ảnh hoặc cả hai.
+				<span class="tnp-iq-only">Chọn “Đáp án đúng” ở một đáp án.</span>
+				<span class="tnp-trait-only">Mỗi đáp án chọn <strong>Nhóm</strong> mà nó cộng điểm vào và số <strong>Điểm</strong> (để 1 nếu chỉ cần đếm số lần chọn).</span></p>
 			<div class="tnp-options">
 				<?php $i = 0; foreach ( $q['options'] as $k => $o ) : ?>
-					<?php self::option_row( $i, $o, $q['correct'] === $k ); ?>
+					<?php self::option_row( $i, $o, $q['correct'] === $k, $tt ); ?>
 				<?php $i++; endforeach; ?>
 			</div>
 			<p><button type="button" class="button tnp-option-add">+ Thêm đáp án</button></p>
-			<script type="text/html" id="tmpl-tnp-option"><?php self::option_row( 99, array( 'img' => 0, 'text' => '' ), false ); ?></script>
+			<script type="text/html" id="tmpl-tnp-option"><?php self::option_row( 99, array( 'img' => 0, 'text' => '', 'dim' => '', 'pts' => 1 ), false, $tt ); ?></script>
 
 			<h3><label for="tnp-explain">Giải thích đáp án</label> <span class="description" style="font-weight:400">(ghi chú nội bộ, không hiện cho người làm bài)</span></h3>
 			<textarea id="tnp-explain" name="tnp_explain" rows="3" class="large-text" placeholder="Ví dụ: Mỗi hàng, hình xoay thêm 20° theo chiều kim đồng hồ."><?php echo esc_textarea( $q['explain'] ); ?></textarea>
 
 			<?php if ( 'publish' === $post->post_status && ! self::is_complete( $q ) ) : ?>
-				<p class="tnp-warn">Câu hỏi này chưa đủ dữ liệu (thiếu ảnh đề bài, có đáp án trống, ít hơn <?php echo (int) self::MIN_OPTIONS; ?> đáp án hoặc chưa chọn đáp án đúng) nên sẽ <strong>không</strong> xuất hiện trong bài thi.</p>
+				<p class="tnp-warn">Câu hỏi này chưa đủ dữ liệu (thiếu ảnh đề bài, có đáp án trống, ít hơn <?php echo (int) self::MIN_OPTIONS; ?> đáp án, chưa chọn đáp án đúng với test IQ, hoặc có đáp án chưa chọn nhóm với test tính cách) nên sẽ <strong>không</strong> xuất hiện trong bài thi.</p>
 			<?php endif; ?>
 		</div>
 		<?php
 	}
 
 	public static function render_side( $post ) {
-		$q = self::get( $post->ID );
+		$q       = self::get( $post->ID );
+		$current = wp_get_object_terms( $post->ID, self::TAX, array( 'fields' => 'ids' ) );
+		$current = $current && ! is_wp_error( $current ) ? (int) $current[0] : 0;
+		$terms   = get_terms( array( 'taxonomy' => self::TAX, 'hide_empty' => false ) );
 		?>
+		<p><label for="tnp-test"><strong>Bài test</strong></label><br>
+			<select id="tnp-test" name="tnp_test" class="widefat">
+				<option value="0" data-type="iq">— Chung (IQ, dùng cho [tnp_iq_test]) —</option>
+				<?php foreach ( is_wp_error( $terms ) ? array() : $terms as $t ) : ?>
+					<?php $type = TNP_IQ_Tests::type_of( $t->slug ); ?>
+					<option value="<?php echo (int) $t->term_id; ?>" data-type="<?php echo esc_attr( $type ); ?>" <?php selected( $current, $t->term_id ); ?>><?php echo esc_html( $t->name . ' (' . TNP_IQ_Tests::types()[ $type ]['short'] . ')' ); ?></option>
+				<?php endforeach; ?>
+			</select>
+			<span class="description"><a href="<?php echo esc_url( admin_url( 'edit-tags.php?taxonomy=' . self::TAX . '&post_type=' . TNP_IQ_CPT ) ); ?>">Tạo bài test mới</a> (IQ, EQ, DISC, MBTI, Holland).</span>
+		</p>
+		<div class="tnp-iq-only">
 		<p><label for="tnp-cat"><strong>Nhóm năng lực</strong></label><br>
 			<select id="tnp-cat" name="tnp_category" class="widefat">
 				<?php foreach ( self::CATEGORIES as $k => $label ) : ?>
@@ -323,6 +373,7 @@ class TNP_IQ_Questions {
 			</select>
 			<span class="description">Câu khó được tính nhiều điểm hơn (trọng số = độ khó).</span>
 		</p>
+		</div>
 		<?php
 	}
 
@@ -336,6 +387,14 @@ class TNP_IQ_Questions {
 		$p = wp_unslash( $_POST );
 
 		$type = in_array( $p['tnp_type'] ?? '', array( 'question', 'image', 'grid' ), true ) ? $p['tnp_type'] : 'question';
+
+		// Bài test (mỗi câu thuộc tối đa một bài) — lưu trước để biết loại test khi kiểm tra đáp án.
+		if ( isset( $p['tnp_test'] ) ) {
+			$term_id = absint( $p['tnp_test'] );
+			wp_set_object_terms( $post_id, $term_id ? array( $term_id ) : array(), self::TAX );
+		}
+		$tt   = TNP_IQ_Tests::type_of_question( $post_id );
+		$dims = 'iq' === $tt ? array() : TNP_IQ_Tests::types()[ $tt ]['dims'];
 
 		// Đáp án: giữ theo thứ tự trên màn hình, bỏ dòng trống hoàn toàn, đánh lại chữ cái A, B, C…
 		$options     = array();
@@ -351,7 +410,13 @@ class TNP_IQ_Questions {
 				break;
 			}
 			$k             = self::letter( count( $options ) );
-			$options[ $k ] = array( 'img' => $img, 'text' => $text );
+			$dim           = sanitize_text_field( $o['dim'] ?? '' );
+			$options[ $k ] = array(
+				'img'  => $img,
+				'text' => $text,
+				'dim'  => isset( $dims[ $dim ] ) ? $dim : '',
+				'pts'  => isset( $o['pts'] ) && is_numeric( $o['pts'] ) ? max( -100, min( 100, (float) $o['pts'] ) ) : 1.0,
+			);
 			if ( (int) $i === $correct_idx ) {
 				$correct = $k;
 			}
@@ -401,13 +466,17 @@ class TNP_IQ_Questions {
 				echo $id ? wp_get_attachment_image( $id, array( 48, 48 ) ) : '<span class="tnp-thumb-text">Aa</span>';
 				break;
 			case 'tnp_cat':
-				echo esc_html( self::CATEGORIES[ $q['category'] ] ?? '' );
+				echo 'iq' === $q['test_type'] ? esc_html( self::CATEGORIES[ $q['category'] ] ?? '' ) : esc_html( TNP_IQ_Tests::types()[ $q['test_type'] ]['short'] );
 				break;
 			case 'tnp_dif':
-				echo esc_html( str_repeat( '★', $q['difficulty'] ) );
+				echo 'iq' === $q['test_type'] ? esc_html( str_repeat( '★', $q['difficulty'] ) ) : '–';
 				break;
 			case 'tnp_ans':
-				echo $q['correct'] ? '<strong>' . esc_html( $q['correct'] ) . '</strong>' : '';
+				if ( 'iq' === $q['test_type'] ) {
+					echo $q['correct'] ? '<strong>' . esc_html( $q['correct'] ) . '</strong>' : '';
+				} else {
+					echo esc_html( count( $q['options'] ) . ' lựa chọn' );
+				}
 				if ( ! self::is_complete( $q ) ) {
 					echo ' <span class="tnp-badge-warn">Thiếu dữ liệu</span>';
 				}

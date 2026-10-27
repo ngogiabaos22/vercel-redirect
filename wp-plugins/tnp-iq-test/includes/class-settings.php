@@ -46,7 +46,7 @@ class TNP_IQ_Settings {
 	public static function menu() {
 		add_submenu_page(
 			'edit.php?post_type=' . TNP_IQ_CPT,
-			'Cài đặt Test IQ',
+			'Cài đặt trắc nghiệm',
 			'Cài đặt',
 			'manage_options',
 			'tnp-iq-settings',
@@ -115,7 +115,9 @@ class TNP_IQ_Settings {
 
 			<div class="tnp-iq-box">
 				<h2>Cách dùng</h2>
-				<p>Chèn shortcode <code>[tnp_iq_test]</code> vào trang làm bài để dùng toàn bộ câu hỏi. Muốn tách thành nhiều bài test riêng, gom câu hỏi vào <a href="<?php echo esc_url( admin_url( 'edit-tags.php?taxonomy=' . TNP_IQ_Questions::TAX . '&post_type=' . TNP_IQ_CPT ) ); ?>">Bộ đề</a> rồi dùng <code>[tnp_iq_test test="duong-dan-bo-de"]</code>. Có thể ghi đè số câu và thời gian tối đa: <code>[tnp_iq_test count="20" time="15"]</code>.</p>
+				<p><strong>Tạo bài test:</strong> vào <a href="<?php echo esc_url( admin_url( 'edit-tags.php?taxonomy=' . TNP_IQ_Questions::TAX . '&post_type=' . TNP_IQ_CPT ) ); ?>">Bài test</a>, đặt tên và chọn loại (IQ, EQ, DISC, MBTI, Holland). Khi thêm câu hỏi, chọn bài test ở khung bên phải. Chèn <code>[tnp_test test="duong-dan-bai-test"]</code> vào trang (bảng Bài test có sẵn shortcode để chép).</p>
+				<p><strong>Bài IQ chung:</strong> <code>[tnp_iq_test]</code> dùng các câu IQ không thuộc bài test nào. Có thể ghi đè số câu và thời gian tối đa: <code>[tnp_test test="…" count="20" time="15"]</code>.</p>
+				<p class="description">Các cài đặt bên dưới (số câu, thời gian, thưởng tốc độ, chuẩn theo độ tuổi…) chỉ dùng cho test IQ.</p>
 				<p>Hiện có <strong><?php echo (int) wp_count_posts( TNP_IQ_CPT )->publish; ?></strong> câu hỏi đã xuất bản. <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=' . TNP_IQ_CPT ) ); ?>">Thêm câu hỏi</a></p>
 				<?php TNP_IQ_Demo::render_button(); ?>
 			</div>
@@ -162,7 +164,7 @@ class TNP_IQ_Settings {
 					</tr>
 					<tr>
 						<th scope="row"><label for="tnp-it">Tên bài test mặc định</label></th>
-						<td><input id="tnp-it" type="text" name="<?php echo esc_attr( $n ); ?>[intro_title]" value="<?php echo esc_attr( $o['intro_title'] ); ?>" class="regular-text"> <p class="description">Hiện ở màn hình bắt đầu và trong Thống kê khi shortcode không chọn bộ đề. Bài test theo bộ đề dùng tên của bộ đề.</p></td>
+						<td><input id="tnp-it" type="text" name="<?php echo esc_attr( $n ); ?>[intro_title]" value="<?php echo esc_attr( $o['intro_title'] ); ?>" class="regular-text"> <p class="description">Tên của bài IQ chung [tnp_iq_test]. Các bài test khác dùng tên đặt trong mục Bài test.</p></td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="tnp-ix">Hướng dẫn trước khi làm</label></th>

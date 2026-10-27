@@ -46,3 +46,8 @@
 .tnp-age-table{max-width:900px}
 .tnp-stats-table{max-width:1000px;margin-top:12px}
 .tnp-stats-table td,.tnp-stats-table th{vertical-align:middle}
+/* Loại bài test */
+body.tnp-tt-iq .tnp-trait-only,body.tnp-tt-trait .tnp-iq-only{display:none!important}
+.tnp-type-help{background:#f0f6fc;border-left:4px solid #2271b1;padding:8px 12px;margin:0 0 12px}
+.tnp-scoring{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.tnp-scoring select{max-width:260px}

@@ -59,6 +59,7 @@
 			.then(function (d) {
 				self.st = {
 					api: c.api, test: c.test || '', token: d.token, questions: d.questions, limit: d.timeLimit,
+					kind: d.kind || 'iq', needsAge: d.needsAge !== false, showTimer: d.showTimer !== false,
 					answers: {}, index: 0, startedAt: Date.now(), finishedAt: null, stage: 'quiz'
 				};
 				self.preload();
@@ -76,7 +77,7 @@
 	};
 
 	Quiz.prototype.continue = function () {
-		if (this.st.stage === 'age' || this.timeUp(this.st)) { this.renderAge(this.timeUp(this.st) && !this.st.finishedAt); }
+		if (this.st.stage === 'age' || this.timeUp(this.st)) { this.finishQuestions(this.timeUp(this.st) && !this.st.finishedAt); }
 		else { this.renderQuestion(); }
 	};
 
@@ -153,7 +154,7 @@
 			'<div class="tnp-card tnp-quiz">' +
 				'<div class="tnp-top">' +
 					'<span class="tnp-count">Câu <b>' + (st.index + 1) + '</b>/' + n + ' · Đã trả lời ' + answered + '</span>' +
-					'<span class="tnp-timer" title="Thời gian đã làm"></span>' +
+					(st.showTimer ? '<span class="tnp-timer" title="Thời gian đã làm"></span>' : '') +
 				'</div>' +
 				'<div class="tnp-bar"><span style="width:' + Math.round(answered / n * 100) + '%"></span></div>' +
 				'<h3 class="tnp-qtitle"><span>' + (st.index + 1) + '.</span> ' + esc(q.prompt) + '</h3>' +
@@ -207,7 +208,24 @@
 		clearInterval(this.timer);
 		if (!this.st.finishedAt) { this.st.finishedAt = Date.now(); }
 		this.st.stage = 'age';
-		this.renderAge(timeout);
+		if (this.st.needsAge) { this.renderAge(timeout); } else { this.renderSubmitting(timeout); }
+	};
+
+	/* Test tính cách: không hỏi tuổi, chấm điểm ngay. */
+	Quiz.prototype.renderSubmitting = function (timeout) {
+		var self = this;
+		this.html(
+			'<div class="tnp-card tnp-age">' +
+				(timeout ? '<div class="tnp-note">⏰ Đã hết giờ làm bài. Các câu bạn đã trả lời vẫn được tính.</div>' : '') +
+				'<div class="tnp-intro-icon" aria-hidden="true">✨</div>' +
+				'<p>Đang phân tích câu trả lời của bạn…</p>' +
+				'<div class="tnp-err" hidden></div>' +
+				'<div class="tnp-actions"><button type="button" class="tnp-btn" disabled>Đang chấm điểm…</button></div>' +
+			'</div>'
+		);
+		var btn = this.root.querySelector('.tnp-btn');
+		btn.onclick = function () { self.submit(btn); };
+		this.submit(btn);
 	};
 
 	/* ---------- Bước cuối: nhập tuổi ---------- */
@@ -253,7 +271,7 @@
 			body: JSON.stringify({
 				token: st.token,
 				answers: st.answers,
-				age: st.age,
+				age: st.needsAge ? st.age : 0,
 				elapsed: Math.round((st.finishedAt - st.startedAt) / 1000)
 			})
 		})
@@ -302,6 +320,100 @@
 	}
 
 	Quiz.prototype.renderResult = function (r) {
+		var fn = { eq: 'renderEq', disc: 'renderDisc', mbti: 'renderMbti', holland: 'renderHolland' }[r.kind];
+		if (fn) { this[fn](r); } else { this.renderIq(r); }
+		var self = this, again = this.root.querySelector('[data-act="again"]');
+		if (again) { again.onclick = function () { self.st = null; self.renderIntro(); }; }
+	};
+
+	/* Khung chung cho trang kết quả các test tính cách. */
+	function list(arr) { return '<ul>' + (arr || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>'; }
+	function chips(arr) { return '<div class="tnp-chips">' + (arr || []).map(function (c) { return '<span>' + esc(c) + '</span>'; }).join('') + '</div>'; }
+	function bars(items, cls) {
+		return '<div class="tnp-traits ' + (cls || '') + '">' + items.map(function (b) {
+			return '<div class="tnp-trait tnp-trait-' + esc(b.key) + '"><div class="tnp-cat-head"><span>' + esc(b.name) + '</span><b>' + b.pct + '%</b></div>' +
+				'<div class="tnp-bar"><span style="width:' + Math.max(3, b.pct) + '%"></span></div></div>';
+		}).join('') + '</div>';
+	}
+	function shell(top, body, note) {
+		return '<div class="tnp-card tnp-result">' + top + body +
+			'<p class="tnp-disclaimer">' + esc(note) + '</p>' +
+			'<div class="tnp-actions"><button type="button" class="tnp-btn" data-act="again">Làm lại bài test</button></div>' +
+		'</div>';
+	}
+	var NOTE = 'Kết quả mang tính tham khảo, giúp bạn hiểu thêm về bản thân; không phải chẩn đoán tâm lý hay đánh giá chuyên môn.';
+
+	Quiz.prototype.renderEq = function (r) {
+		var focus = '';
+		if (r.strong || r.weak) {
+			focus = '<div class="tnp-focus">' +
+				(r.strong ? '<div><span>💪 Điểm mạnh nhất</span><b>' + esc(r.strong.name) + '</b></div>' : '') +
+				(r.weak ? '<div><span>🎯 Nên rèn luyện thêm</span><b>' + esc(r.weak.name) + '</b><p>' + esc(r.weak.tip) + '</p></div>' : '') +
+			'</div>';
+		}
+		this.html(shell(
+			'<div class="tnp-result-top"><div class="tnp-score tnp-score-eq"><span>Điểm EQ của bạn</span><b>' + r.score + '</b><em>' + esc(r.level.name) + '</em></div>' +
+			'<div class="tnp-result-text"><p class="tnp-pct">Trí tuệ cảm xúc: <b>' + esc(r.level.name) + '</b></p><p>' + esc(r.level.desc) + '</p>' +
+			'<div class="tnp-meter"><span style="width:' + r.score + '%"></span></div><div class="tnp-meter-lbl"><span>0</span><span>50</span><span>100</span></div></div></div>',
+			(r.bars.length ? '<div class="tnp-section"><h4>5 thành phần của trí tuệ cảm xúc</h4>' + focus + bars(r.bars) + '</div>' : ''),
+			NOTE
+		));
+	};
+
+	Quiz.prototype.renderDisc = function (r) {
+		var P = r.primary, S = r.secondary;
+		this.html(shell(
+			'<div class="tnp-result-top"><div class="tnp-score tnp-score-disc tnp-disc-' + esc(P.key) + '"><span>Nhóm DISC của bạn</span><b>' + esc(r.code) + '</b><em>' + esc(P.name) + '</em></div>' +
+			'<div class="tnp-result-text"><p class="tnp-pct">' + esc(P.summary) + '</p><p>' + esc(P.desc) + '</p>' +
+			(S ? '<p>Nhóm phụ: <b>' + esc(S.name) + '</b> — ' + esc(S.summary) + '</p>' : '') + '</div></div>',
+			'<div class="tnp-section"><h4>Biểu đồ DISC của bạn</h4>' + bars(r.bars, 'tnp-traits-disc') + '</div>' +
+			'<div class="tnp-section"><div class="tnp-two">' +
+				'<div class="tnp-box"><h5>Điểm mạnh</h5>' + list(P.strengths) + '</div>' +
+				'<div class="tnp-box"><h5>Điều cần lưu ý</h5>' + list(P.watch) + '</div>' +
+			'</div></div>' +
+			'<div class="tnp-section"><h4>Trong công việc</h4><p>' + esc(P.work) + '</p><p class="tnp-tip">💬 ' + esc(P.talk) + '</p></div>',
+			NOTE
+		));
+	};
+
+	Quiz.prototype.renderMbti = function (r) {
+		var T = r.type;
+		var axes = r.axes.map(function (a) {
+			var leftWin = a.pick === a.left.key;
+			return '<div class="tnp-axis"><div class="tnp-axis-title">' + esc(a.title) + '</div>' +
+				'<div class="tnp-axis-row"><span class="' + (leftWin ? 'is-pick' : '') + '"><b>' + esc(a.left.key) + '</b> ' + esc(a.left.name) + ' ' + a.left.pct + '%</span>' +
+				'<span class="' + (leftWin ? '' : 'is-pick') + '">' + a.right.pct + '% ' + esc(a.right.name) + ' <b>' + esc(a.right.key) + '</b></span></div>' +
+				'<div class="tnp-axis-bar"><span style="width:' + a.left.pct + '%"></span></div></div>';
+		}).join('');
+		this.html(shell(
+			'<div class="tnp-result-top"><div class="tnp-score tnp-score-mbti"><span>Nhóm tính cách MBTI</span><b>' + esc(T.code) + '</b><em>' + esc(T.name) + '</em></div>' +
+			'<div class="tnp-result-text"><p class="tnp-pct">' + esc(T.code) + ' – ' + esc(T.name) + ' <small>(' + esc(T.group) + ')</small></p><p>' + esc(T.desc) + '</p></div></div>',
+			'<div class="tnp-section"><h4>Xu hướng của bạn trên 4 cặp tính cách</h4>' + axes + '</div>' +
+			'<div class="tnp-section"><div class="tnp-two">' +
+				'<div class="tnp-box"><h5>Điểm mạnh</h5>' + list(T.strengths) + '</div>' +
+				'<div class="tnp-box"><h5>Điều cần lưu ý</h5>' + list(T.watch) + '</div>' +
+			'</div></div>' +
+			'<div class="tnp-section"><h4>Nghề nghiệp gợi ý</h4>' + chips(T.careers) + '</div>',
+			NOTE
+		));
+	};
+
+	Quiz.prototype.renderHolland = function (r) {
+		var tops = r.top.map(function (t, i) {
+			return '<div class="tnp-hcard"><div class="tnp-hcard-head"><span class="tnp-hletter">' + esc(t.key) + '</span><div><b>' + (i + 1) + '. ' + esc(t.name) + '</b><small>' + t.pct + '% mức độ yêu thích</small></div></div>' +
+				'<p>' + esc(t.desc) + '</p>' + chips(t.careers) + '</div>';
+		}).join('');
+		this.html(shell(
+			'<div class="tnp-result-top"><div class="tnp-score tnp-score-holland"><span>Mã Holland của bạn</span><b>' + esc(r.code) + '</b><em>' + esc(r.top[0].name) + '</em></div>' +
+			'<div class="tnp-result-text"><p class="tnp-pct">Nhóm sở thích nổi bật: <b>' + r.top.map(function (t) { return esc(t.name); }).join(', ') + '</b></p>' +
+			'<p>Mã Holland gồm 3 nhóm bạn yêu thích nhất, theo thứ tự. Nghề nghiệp phù hợp thường nằm ở chỗ giao nhau của các nhóm này.</p></div></div>',
+			'<div class="tnp-section"><h4>3 nhóm sở thích nổi bật</h4><div class="tnp-hcards">' + tops + '</div></div>' +
+			'<div class="tnp-section"><h4>Mức độ yêu thích 6 nhóm nghề</h4>' + bars(r.bars) + '</div>',
+			'Kết quả mang tính tham khảo cho định hướng nghề nghiệp; hãy kết hợp với năng lực, điều kiện và tư vấn của thầy cô, chuyên gia.'
+		));
+	};
+
+	Quiz.prototype.renderIq = function (r) {
 		var self = this, L = r.label;
 		var rank = Math.max(1, Math.round(100 - r.percentile));
 

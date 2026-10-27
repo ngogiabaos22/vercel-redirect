@@ -73,3 +73,33 @@ jQuery(function ($) {
 		$(this).closest('.tnp-option').addClass('is-correct');
 	});
 });
+
+/* Loại bài test: ẩn/hiện "Đáp án đúng" (IQ) hoặc "Nhóm / Điểm" (test tính cách) và đổi danh sách nhóm. */
+jQuery(function ($) {
+	var $sel = $('#tnp-test');
+	if (!$sel.length) { return; }
+	var cfg = window.tnpIqAdmin || {};
+	function sync() {
+		var type = $sel.find(':selected').data('type') || 'iq';
+		var dims = (cfg.dims && cfg.dims[type]) || {};
+		$('body').toggleClass('tnp-tt-iq', type === 'iq').toggleClass('tnp-tt-trait', type !== 'iq');
+		$('.tnp-iq-edit').attr('data-test-type', type);
+		$('.tnp-type-name').text($sel.find(':selected').text().replace(/^.*\((.*)\)\s*$/, '$1').replace(/^— Chung.*$/, 'IQ'));
+		$('.tnp-type-text').text((cfg.help && cfg.help[type]) || '');
+		// Dựng lại danh sách nhóm cho mọi đáp án (kể cả mẫu dùng khi bấm "+ Thêm đáp án"), giữ lựa chọn cũ nếu còn hợp lệ.
+		var opts = '<option value="">— Chọn nhóm —</option>';
+		$.each(dims, function (k, label) { opts += '<option value="' + k + '">' + $('<span>').text(label).html() + '</option>'; });
+		$('select.tnp-dim').each(function () {
+			var v = $(this).val() || $(this).attr('data-value') || '';
+			$(this).html(opts).val(dims[v] ? v : '');
+		});
+		var $tpl = $('#tmpl-tnp-option');
+		if ($tpl.length) {
+			var $t = $('<div>').html($tpl.html());
+			$t.find('select.tnp-dim').html(opts);
+			$tpl.html($t.html());
+		}
+	}
+	$sel.on('change', sync);
+	sync();
+});
