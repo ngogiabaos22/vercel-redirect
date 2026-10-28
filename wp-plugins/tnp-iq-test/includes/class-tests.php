@@ -197,63 +197,90 @@ class TNP_IQ_Tests {
 			'fields'         => 'ids',
 			'tax_query'      => array( array( 'taxonomy' => TNP_IQ_Questions::TAX, 'field' => 'term_id', 'terms' => $term->term_id ) ),
 		) );
-		$cols = array(
-			'tnp_thumb' => 'Hình',
-			'title'     => 'Đề bài',
-			'tnp_cat'   => 'Nhóm',
-			'tnp_dif'   => 'Độ khó',
-			'tnp_ans'   => 'Đáp án',
-			'status'    => 'Trạng thái',
-			'tnp_order' => 'Thứ tự',
-		);
-		$ready  = 0;
+		$ready = 0;
+		$rows  = array();
 		foreach ( $ids as $id ) {
-			if ( 'publish' === get_post_status( $id ) && TNP_IQ_Questions::is_complete( TNP_IQ_Questions::get( $id ) ) ) {
+			$q      = TNP_IQ_Questions::get( $id );
+			$status = get_post_status( $id );
+			$ok     = TNP_IQ_Questions::is_complete( $q );
+			if ( 'publish' === $status && $ok ) {
 				$ready++;
 			}
+			$rows[] = array( $id, $q, $status, $ok );
 		}
 		$list_url = admin_url( 'edit.php?post_type=' . TNP_IQ_CPT . '&' . TNP_IQ_Questions::TAX . '=' . $term->slug );
 		$new_url  = admin_url( 'post-new.php?post_type=' . TNP_IQ_CPT . '&tnp_test=' . $term->term_id );
+		$is_iq    = 'iq' === self::type_of( $term->slug );
 		?>
-		<div class="tnp-term-questions">
-			<h2>Câu hỏi trong bài test (<?php echo count( $ids ); ?>)</h2>
-			<p class="description">Đang dùng trong bài thi: <strong><?php echo (int) $ready; ?></strong> câu (đã đăng và đủ dữ liệu). Câu nháp hoặc thiếu dữ liệu không được đưa vào bài.</p>
-			<p>
-				<a class="button button-primary" href="<?php echo esc_url( $new_url ); ?>">+ Thêm câu hỏi vào bài này</a>
-				<a class="button" href="<?php echo esc_url( $list_url ); ?>">Mở trong Quản lý câu hỏi</a>
-			</p>
-			<table class="wp-list-table widefat fixed striped posts">
+		<div class="tnp-tq">
+			<div class="tnp-tq-head">
+				<div>
+					<h2>Câu hỏi trong bài test <span class="tnp-tq-count"><?php echo count( $ids ); ?></span></h2>
+					<p>Đang dùng trong bài thi: <strong><?php echo (int) $ready; ?>/<?php echo count( $ids ); ?></strong> câu. Câu nháp hoặc thiếu dữ liệu không được đưa vào bài.</p>
+				</div>
+				<div class="tnp-tq-actions">
+					<a class="button button-primary" href="<?php echo esc_url( $new_url ); ?>">+ Thêm câu hỏi</a>
+					<a class="button" href="<?php echo esc_url( $list_url ); ?>">Quản lý câu hỏi</a>
+				</div>
+			</div>
+			<?php if ( ! $ids ) : ?>
+				<p class="tnp-tq-empty">Chưa có câu hỏi nào. Bấm “+ Thêm câu hỏi” hoặc dùng Trắc nghiệm → Nhập câu hỏi.</p>
+			<?php else : ?>
+			<table class="tnp-tq-table">
 				<thead><tr>
-					<th class="column-tnp_idx">#</th>
-					<?php foreach ( $cols as $k => $label ) : ?>
-						<th class="column-<?php echo esc_attr( $k ); ?>"><?php echo esc_html( $label ); ?></th>
-					<?php endforeach; ?>
+					<th class="c-idx">#</th>
+					<th class="c-img">Hình</th>
+					<th class="c-title">Đề bài</th>
+					<?php if ( $is_iq ) : ?>
+						<th class="c-cat">Nhóm</th>
+						<th class="c-dif">Độ khó</th>
+						<th class="c-ans">Đáp án</th>
+					<?php else : ?>
+						<th class="c-ans">Lựa chọn</th>
+					<?php endif; ?>
+					<th class="c-st">Trạng thái</th>
 				</tr></thead>
 				<tbody>
-				<?php if ( ! $ids ) : ?>
-					<tr><td colspan="<?php echo count( $cols ) + 1; ?>">Chưa có câu hỏi nào. Bấm “Thêm câu hỏi vào bài này” hoặc dùng Trắc nghiệm → Nhập câu hỏi.</td></tr>
-				<?php endif; ?>
-				<?php foreach ( $ids as $i => $id ) : ?>
-					<tr>
-						<td class="column-tnp_idx"><?php echo (int) ( $i + 1 ); ?></td>
-						<?php foreach ( array_keys( $cols ) as $k ) : ?>
-							<td class="column-<?php echo esc_attr( $k ); ?>">
-							<?php
-							if ( 'title' === $k ) {
-								printf( '<strong><a class="row-title" href="%s">%s</a></strong>', esc_url( get_edit_post_link( $id ) ), esc_html( get_the_title( $id ) ?: '(không có tiêu đề)' ) );
-							} elseif ( 'status' === $k ) {
-								$obj = get_post_status_object( get_post_status( $id ) );
-								echo esc_html( $obj ? $obj->label : get_post_status( $id ) );
-							} else {
-								TNP_IQ_Questions::column( $k, $id );
-							}
-							?>
+				<?php foreach ( $rows as $i => $row ) : ?>
+					<?php
+					list( $id, $q, $status, $ok ) = $row;
+					$edit  = get_edit_post_link( $id );
+					$thumb = $q['image'] ?: ( 'grid' === $q['type'] ? ( $q['cells'][0] ?? 0 ) : 0 );
+					$right = $q['options'][ $q['correct'] ]['img'] ?? 0;
+					?>
+					<tr class="<?php echo $ok ? '' : 'is-warn'; ?>">
+						<td class="c-idx"><?php echo (int) ( $i + 1 ); ?></td>
+						<td class="c-img"><a href="<?php echo esc_url( $edit ); ?>" class="tnp-tq-thumb"><?php echo $thumb ? wp_get_attachment_image( $thumb, 'thumbnail' ) : '<span>Aa</span>'; ?></a></td>
+						<td class="c-title">
+							<a class="tnp-tq-title" href="<?php echo esc_url( $edit ); ?>"><?php echo esc_html( get_the_title( $id ) ?: '(không có tiêu đề)' ); ?></a>
+							<div class="tnp-tq-meta">
+								<?php echo esc_html( count( $q['options'] ) . ' đáp án · thứ tự ' . (int) get_post_field( 'menu_order', $id ) ); ?>
+								· <a href="<?php echo esc_url( $edit ); ?>">Sửa</a>
+							</div>
+						</td>
+						<?php if ( $is_iq ) : ?>
+							<td class="c-cat"><span class="tnp-pill"><?php echo esc_html( TNP_IQ_Questions::CATEGORIES[ $q['category'] ] ?? '' ); ?></span></td>
+							<td class="c-dif"><span class="tnp-stars" title="<?php echo (int) $q['difficulty']; ?>/5"><?php echo str_repeat( '★', $q['difficulty'] ); ?><i><?php echo str_repeat( '★', 5 - $q['difficulty'] ); ?></i></span></td>
+							<td class="c-ans">
+								<?php if ( isset( $q['options'][ $q['correct'] ] ) ) : ?>
+									<span class="tnp-ans"><b><?php echo esc_html( $q['correct'] ); ?></b><?php echo $right ? wp_get_attachment_image( $right, 'thumbnail' ) : ''; ?></span>
+								<?php else : ?>
+									<span class="tnp-tag is-bad">Chưa chọn</span>
+								<?php endif; ?>
 							</td>
-						<?php endforeach; ?>
+						<?php else : ?>
+							<td class="c-ans"><?php echo esc_html( count( $q['options'] ) ); ?></td>
+						<?php endif; ?>
+						<td class="c-st">
+							<?php $obj = get_post_status_object( $status ); ?>
+							<span class="tnp-tag <?php echo 'publish' === $status ? 'is-ok' : 'is-draft'; ?>"><?php echo esc_html( $obj ? $obj->label : $status ); ?></span>
+							<?php if ( ! $ok ) : ?><span class="tnp-tag is-bad">Thiếu dữ liệu</span><?php endif; ?>
+						</td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>
 			</table>
+			<?php endif; ?>
 		</div>
 		<?php
 	}

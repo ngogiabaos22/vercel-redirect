@@ -1,7 +1,7 @@
 === TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland) ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 2.3.0
+Stable tag: 2.4.0
 
 Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu hỏi, chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê kết quả.
 
@@ -42,6 +42,15 @@ Bài IQ: ghi "ĐÁP ÁN: ?" (hoặc bỏ trống) và bật allow_no_answer → 
 
 == Xáo trộn đáp án ==
 Trong Bài test → Sửa: "Xáo trộn thứ tự đáp án mỗi lượt làm" (mặc định bật khi tạo bài mới). Nhãn A, B, C… theo thứ tự hiển thị; máy chủ chấm theo đáp án gốc.
+
+== Mở bài test bằng nút (cửa sổ bật lên) ==
+Bấm nút là bài test hiện ngay trong cửa sổ bật lên, vào thẳng câu 1, không cần trang riêng. Dùng được với mọi nút/liên kết trên web (Flatsome Button, menu, ảnh…):
+* Đặt Link của nút là:  #tnp-test=test-iq   (thay test-iq bằng slug bài test; "#tnp-test" = bài IQ chung).
+  Có thể giữ link cũ phía trước, ví dụ https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/#tnp-test=test-iq — khi plugin tắt, nút vẫn mở trang cũ.
+* Hoặc thêm thuộc tính data-tnp-test="test-iq" cho phần tử bất kỳ.
+* Hoặc dùng shortcode nút: [tnp_button test="test-iq" text="Test IQ nhanh"] (class="primary" mặc định, đổi được).
+* Gửi link thẳng tới bài test: https://tracnghiemplus.com/trang-bat-ky/#tnp-test=test-iq
+Đóng bằng nút ×, phím Esc hoặc bấm ra ngoài. Mã mở cửa sổ rất nhẹ (~3 KB); phần bài test chỉ tải khi bấm nút.
 
 == Câu hỏi trong bài test ==
 Trắc nghiệm → Bài test → bấm Sửa một bài: cuối trang có bảng toàn bộ câu hỏi của bài (hình, đề bài, nhóm, độ khó, đáp án, trạng thái, thứ tự), số câu đang được dùng trong bài thi, nút "Thêm câu hỏi vào bài này" (tự chọn sẵn bài test) và "Mở trong Quản lý câu hỏi".

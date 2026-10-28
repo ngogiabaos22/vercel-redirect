@@ -145,7 +145,16 @@
 .tnp-hcard p{font-size:14px}
 .tnp-hcard .tnp-chips span{background:#ecfdf5;color:#065f46;font-size:12.5px}
 
+/* Tự co ảnh cho vừa màn hình (quiz.js đặt --qimg-h / --opt-h) */
+.tnp-quiz.is-fit .tnp-qimg img{max-height:var(--qimg-h,60vh)}
+.tnp-quiz.is-fit[style*="--opt-h"] .tnp-opt-img{aspect-ratio:auto;height:var(--opt-h);padding:5px}
+.tnp-quiz.is-fit .tnp-qimg{margin-bottom:16px}
+.tnp-quiz.is-fit .tnp-opts.is-cards .tnp-opt{padding:5px}
+.tnp-quiz.is-fit .tnp-opts.is-cards .tnp-opt-key{z-index:1;background:rgba(241,245,249,.92)}
+.tnp-quiz.is-fit .tnp-opts.is-cards .tnp-opt.is-selected .tnp-opt-key{background:var(--p)}
+.tnp-modal-body .tnp-quiz .tnp-dots{margin-top:14px}
 @media (max-width:600px){
+	.tnp-quiz.is-fit .tnp-qimg img{max-height:var(--qimg-h,42vh)}
 	.tnp-iq{font-size:15px}
 	.tnp-card{padding:18px 14px;border-radius:16px}
 	.tnp-intro,.tnp-age{padding:30px 18px}
@@ -170,12 +179,7 @@
 	/* Vừa một màn hình: JS đặt --qimg-h / --opt-h khi cả câu cao hơn màn hình */
 	.tnp-quiz.is-fit .tnp-qtitle{margin:12px 0 10px!important;font-size:17px!important}
 	.tnp-quiz.is-fit .tnp-qimg{margin-bottom:12px}
-	.tnp-quiz.is-fit .tnp-qimg img{max-height:var(--qimg-h,42vh)}
-	.tnp-quiz.is-fit .tnp-opts.is-cards .tnp-opt{padding:5px}
-	.tnp-quiz.is-fit .tnp-opts.is-cards .tnp-opt-key{z-index:1;background:rgba(241,245,249,.92)}
-	.tnp-quiz.is-fit .tnp-opts.is-cards .tnp-opt.is-selected .tnp-opt-key{background:var(--p)}
 	.tnp-quiz.is-fit .tnp-opt-img{padding:8%}
-	.tnp-quiz.is-fit[style*="--opt-h"] .tnp-opt-img{aspect-ratio:auto;height:var(--opt-h)}
 	.tnp-quiz.is-fit .tnp-nav{margin-top:12px}
 	.tnp-result-top{grid-template-columns:1fr}
 	.tnp-cats,.tnp-two,.tnp-focus,.tnp-traits,.tnp-hcards{grid-template-columns:1fr}

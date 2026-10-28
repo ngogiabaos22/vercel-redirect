@@ -23,10 +23,19 @@
 		this.st = null;
 		this.timer = null;
 		this.renderIntro();
+		// Mở từ nút (cửa sổ bật lên): vào thẳng bài làm, không dừng ở màn hình giới thiệu.
+		if (this.cfg.autostart) { this.start(this.root.querySelector('[data-act="start"]')); }
 	}
+
+	// Khung cuộn chứa bài test: cửa sổ bật lên (nếu mở từ nút) hoặc cả trang.
+	Quiz.prototype.scroller = function () {
+		return this.root.closest ? this.root.closest('.tnp-modal-body') : null;
+	};
 
 	Quiz.prototype.html = function (h) {
 		this.root.innerHTML = h;
+		var sc = this.scroller();
+		if (sc) { sc.scrollTop = 0; return; }
 		var top = this.root.getBoundingClientRect().top;
 		if (top < 0) { window.scrollBy(0, top - 90); }
 	};
@@ -200,7 +209,7 @@
 		this.fit(true);
 	};
 
-	/* ---------- Điện thoại: cả câu (đề + ảnh + đáp án + nút) nằm gọn trong một màn hình ---------- */
+	/* ---------- Cả câu (đề + ảnh + đáp án + nút) nằm gọn trong một màn hình / cửa sổ bật lên ---------- */
 	var mobile = window.matchMedia ? window.matchMedia('(max-width:600px)') : { matches: false };
 
 	// Chiều cao phần đầu trang đang dính trên cùng (vd header Flatsome khi cuộn), để không che đề bài.
@@ -222,7 +231,7 @@
 		var qimg = card.querySelector('.tnp-qimg img'), oimg = card.querySelector('.tnp-opts.is-cards .tnp-opt-img');
 		card.style.removeProperty('--qimg-h');
 		card.style.removeProperty('--opt-h');
-		card.classList.toggle('is-fit', !!(mobile.matches && (qimg || oimg)));
+		card.classList.toggle('is-fit', !!(qimg || oimg));
 		if (!card.classList.contains('is-fit')) { return; }
 
 		if (!this.fitBound) { // ảnh tải xong thì tính lại; lắng nghe một lần cho mỗi khung
@@ -231,26 +240,30 @@
 			window.addEventListener('resize', function () { clearTimeout(self.fitT); self.fitT = setTimeout(function () { self.fit(false); }, 150); });
 		}
 
-		var top = stuckTop();
-		if (align) {
+		var sc = this.scroller(), box = sc ? sc.getBoundingClientRect() : null;
+		var top = sc ? box.top : stuckTop(), bottom = sc ? box.bottom : window.innerHeight;
+		if (align && !sc && mobile.matches) {
 			var y = card.getBoundingClientRect().top - top - 6;
 			if (Math.abs(y) > 2) { window.scrollBy(0, y); top = stuckTop(); }
 		}
 		var opts = card.querySelector('.tnp-opts'), nav = card.querySelector('.tnp-nav');
-		var avail = window.innerHeight - top - 6;
-		var used = opts.getBoundingClientRect().bottom - card.getBoundingClientRect().top + nav.offsetHeight + 12;
+		var avail = bottom - top - 6;
+		var ctop = card.getBoundingClientRect().top;
+		var lead = sc ? ctop + sc.scrollTop - top : 0; // khoảng đệm phía trên thẻ trong cửa sổ bật lên
+		// Nút điều hướng dính đáy (điện thoại): cần chỗ cho đáp án + nút; nếu không dính: tới hết nút (gồm dãy số câu).
+		var sticky = window.getComputedStyle(nav).position === 'sticky';
+		var used = lead + (sticky ? opts.getBoundingClientRect().bottom - ctop + nav.offsetHeight + 12 : nav.getBoundingClientRect().bottom - ctop + 8);
 		var over = used - avail;
 		if (over <= 0) { return; }
 
-		// Thu ảnh đề và ảnh đáp án cùng một tỉ lệ (ảnh đề tối thiểu 140px, ảnh đáp án 46px).
+		// Chia lại chiều cao còn lại: ảnh đề ~1/2 (tối thiểu 140px), phần còn lại cho các hàng ảnh đáp án (tối thiểu 46px).
 		var cols = parseInt(opts.style.getPropertyValue('--cols'), 10) || 3;
 		var rows = oimg ? Math.ceil(opts.children.length / cols) : 0;
 		var qh = qimg ? qimg.getBoundingClientRect().height : 0, oh = oimg ? oimg.getBoundingClientRect().height : 0;
-		var flex = qh + rows * oh;
-		if (!flex) { return; }
-		var k = Math.max(0, (flex - over) / flex);
-		var nq = qh ? Math.max(140, Math.floor(qh * k)) : 0;
-		var no = oh ? Math.max(46, Math.floor((flex - over - nq) / rows)) : 0;
+		var room = qh + rows * oh - over;
+		if (room <= 0 && !qh) { return; }
+		var nq = qh ? Math.min(qh, Math.max(140, Math.floor(rows ? room * 0.55 : room))) : 0;
+		var no = rows ? Math.min(oh, Math.max(46, Math.floor((room - nq) / rows))) : 0;
 		if (qh) { card.style.setProperty('--qimg-h', nq + 'px'); }
 		if (oh && no < oh) { card.style.setProperty('--opt-h', no + 'px'); }
 	};
@@ -530,10 +543,13 @@
 		this.root.querySelector('[data-act="back"]').onclick = function () { self.renderIntro(); };
 	};
 
-	function boot() {
-		document.querySelectorAll('.tnp-iq[data-config]').forEach(function (el) {
-			if (!el.tnpQuiz) { el.tnpQuiz = new Quiz(el); }
-		});
+	function mount(el) {
+		if (!el.tnpQuiz) { el.tnpQuiz = new Quiz(el); }
+		return el.tnpQuiz;
 	}
+	function boot() {
+		document.querySelectorAll('.tnp-iq[data-config]').forEach(mount);
+	}
+	window.TNPQuiz = { mount: mount };
 	if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', boot); } else { boot(); }
 })();
