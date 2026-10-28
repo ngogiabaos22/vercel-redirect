@@ -100,6 +100,32 @@ class TNP_IQ_Tests {
 		return 'iq';
 	}
 
+	/** Cách trình bày: 'step' (từng câu, bấm Câu tiếp) hoặc 'list' (dải câu: tất cả câu trên một trang). */
+	public static function layout_of( $slug ) {
+		$term = '' !== $slug ? get_term_by( 'slug', $slug, TNP_IQ_Questions::TAX ) : null;
+		return $term && 'list' === get_term_meta( $term->term_id, 'tnp_layout', true ) ? 'list' : 'step';
+	}
+
+	/** Cho chọn nhiều đáp án mỗi câu (chỉ test tính cách; IQ luôn một đáp án đúng). */
+	public static function multi_of( $slug ) {
+		if ( '' === $slug || 'iq' === self::type_of( $slug ) ) {
+			return false;
+		}
+		$term = get_term_by( 'slug', $slug, TNP_IQ_Questions::TAX );
+		return $term && '1' === (string) get_term_meta( $term->term_id, 'tnp_multi', true );
+	}
+
+	private static function display_fields( $layout, $multi ) {
+		?>
+		<select name="tnp_layout" id="tnp-layout" style="max-width:320px">
+			<option value="step" <?php selected( $layout, 'step' ); ?>>Từng câu (bấm “Câu tiếp”)</option>
+			<option value="list" <?php selected( $layout, 'list' ); ?>>Dải câu (tất cả câu trên một trang, cuộn để làm)</option>
+		</select>
+		<p><label><input type="checkbox" name="tnp_multi" value="1" <?php checked( $multi ); ?> style="width:auto"> Cho chọn nhiều đáp án mỗi câu</label></p>
+		<p class="description">Chọn nhiều: điểm của mọi đáp án được chọn đều được cộng (vd Holland: chọn mọi hoạt động bạn thích). Không áp dụng cho bài IQ.</p>
+		<?php
+	}
+
 	/** Bài test có bật xáo trộn thứ tự đáp án không. */
 	public static function shuffle_of( $slug ) {
 		if ( '' === $slug ) {
@@ -160,6 +186,10 @@ class TNP_IQ_Tests {
 			<label><input type="checkbox" name="tnp_shuffle" value="1" checked style="width:auto"> Xáo trộn thứ tự đáp án mỗi lượt làm</label>
 			<p>Nên bật cho EQ, DISC, Holland để người làm không đoán theo vị trí đáp án.</p>
 		</div>
+		<div class="form-field">
+			<label for="tnp-layout">Cách trình bày</label>
+			<?php self::display_fields( 'step', false ); ?>
+		</div>
 		<div class="form-field tnp-task-field">
 			<label>Nhiệm vụ</label>
 			<?php self::task_fields( false, '' ); ?>
@@ -180,6 +210,10 @@ class TNP_IQ_Tests {
 			<th scope="row">Thứ tự đáp án</th>
 			<td><label><input type="checkbox" name="tnp_shuffle" value="1" <?php checked( '1', (string) get_term_meta( $term->term_id, 'tnp_shuffle', true ) ); ?> style="width:auto"> Xáo trộn thứ tự đáp án mỗi lượt làm</label>
 				<p class="description">Nhãn A, B, C… vẫn theo thứ tự hiển thị; máy chủ chấm theo đáp án gốc.</p></td>
+		</tr>
+		<tr class="form-field">
+			<th scope="row"><label for="tnp-layout">Cách trình bày</label></th>
+			<td><?php self::display_fields( 'list' === get_term_meta( $term->term_id, 'tnp_layout', true ) ? 'list' : 'step', '1' === (string) get_term_meta( $term->term_id, 'tnp_multi', true ) ); ?></td>
 		</tr>
 		<tr class="form-field tnp-task-field">
 			<th scope="row">Nhiệm vụ</th>
@@ -298,6 +332,8 @@ class TNP_IQ_Tests {
 		update_term_meta( $term_id, 'tnp_type', isset( self::types()[ $type ] ) ? $type : 'iq' );
 		update_term_meta( $term_id, 'tnp_shuffle', empty( $_POST['tnp_shuffle'] ) ? '0' : '1' );
 		update_term_meta( $term_id, 'tnp_task_on', empty( $_POST['tnp_task_on'] ) ? '0' : '1' );
+		update_term_meta( $term_id, 'tnp_layout', 'list' === ( $_POST['tnp_layout'] ?? '' ) ? 'list' : 'step' );
+		update_term_meta( $term_id, 'tnp_multi', empty( $_POST['tnp_multi'] ) ? '0' : '1' );
 		update_term_meta( $term_id, 'tnp_task_tag', sanitize_text_field( wp_unslash( $_POST['tnp_task_tag'] ?? '' ) ) );
 	}
 
@@ -362,7 +398,15 @@ class TNP_IQ_Tests {
 	public static function term_column( $out, $col, $term_id ) {
 		$term = get_term( $term_id );
 		if ( 'tnp_type' === $col ) {
-			return esc_html( self::types()[ self::type_of( $term->slug ) ]['short'] );
+			$tags = array();
+			if ( 'list' === self::layout_of( $term->slug ) ) {
+				$tags[] = 'Dải câu';
+			}
+			if ( self::multi_of( $term->slug ) ) {
+				$tags[] = 'Chọn nhiều';
+			}
+			return esc_html( self::types()[ self::type_of( $term->slug ) ]['short'] )
+				. ( $tags ? '<br><small class="tnp-any">' . esc_html( implode( ' · ', $tags ) ) . '</small>' : '' );
 		}
 		if ( 'tnp_task' === $col ) {
 			$tag = (string) get_term_meta( $term_id, 'tnp_task_tag', true );
@@ -393,20 +437,24 @@ class TNP_IQ_Tests {
 		$got  = array_fill_keys( $dims, 0 );
 		$max  = array_fill_keys( $dims, 0 );
 		foreach ( $picked as $q ) {
-			// Điểm tối đa có thể đạt cho từng nhóm ở câu này (dùng để quy ra %).
-			$best = array();
+			// Điểm tối đa có thể đạt cho từng nhóm ở câu này (dùng để quy ra %):
+			// chọn một → đáp án điểm cao nhất của nhóm; chọn nhiều → tổng mọi đáp án điểm dương của nhóm.
+			$multi = is_array( $q['chosen'] );
+			$best  = array();
 			foreach ( $q['options'] as $o ) {
 				if ( isset( $max[ $o['dim'] ] ) ) {
-					$best[ $o['dim'] ] = max( $best[ $o['dim'] ] ?? 0, $o['pts'] );
+					$best[ $o['dim'] ] = $multi ? ( $best[ $o['dim'] ] ?? 0 ) + max( 0, $o['pts'] ) : max( $best[ $o['dim'] ] ?? 0, $o['pts'] );
 				}
 			}
 			foreach ( $best as $d => $v ) {
 				$max[ $d ] += $v;
 			}
-			if ( '' !== $q['chosen'] && isset( $q['options'][ $q['chosen'] ] ) ) {
-				$o = $q['options'][ $q['chosen'] ];
-				if ( isset( $got[ $o['dim'] ] ) ) {
-					$got[ $o['dim'] ] += $o['pts'];
+			foreach ( (array) $q['chosen'] as $k ) {
+				if ( '' !== $k && isset( $q['options'][ $k ] ) ) {
+					$o = $q['options'][ $k ];
+					if ( isset( $got[ $o['dim'] ] ) ) {
+						$got[ $o['dim'] ] += $o['pts'];
+					}
 				}
 			}
 		}

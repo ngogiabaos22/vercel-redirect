@@ -1,7 +1,7 @@
 === TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland) ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 2.6.1
+Stable tag: 2.7.0
 
 Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu hỏi, chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê kết quả.
 
@@ -42,6 +42,16 @@ Bài IQ: ghi "ĐÁP ÁN: ?" (hoặc bỏ trống) và bật allow_no_answer → 
 
 == Xáo trộn đáp án ==
 Trong Bài test → Sửa: "Xáo trộn thứ tự đáp án mỗi lượt làm" (mặc định bật khi tạo bài mới). Nhãn A, B, C… theo thứ tự hiển thị; máy chủ chấm theo đáp án gốc.
+
+== Cách trình bày và chọn nhiều đáp án ==
+Trắc nghiệm → Bài test → Sửa (hoặc khi thêm mới) → "Cách trình bày". Hai tuỳ chọn độc lập, dùng cho mọi loại bài:
+* Từng câu (mặc định): mỗi lần một câu, bấm "Câu tiếp" (câu chọn một tự sang câu sau).
+* Dải câu: tất cả câu trên một trang, cuộn để làm. Mỗi câu có nút "Lát kiểm tra lại" để đánh dấu; thanh dưới cùng hiện số câu đã trả lời,
+  số câu cần xem lại (bấm để nhảy tới) và nút "Nộp bài". Nộp khi còn câu trống: các câu đó được đánh dấu đỏ.
+* "Cho chọn nhiều đáp án mỗi câu" (không áp dụng cho IQ): đáp án hiện ô vuông, chọn/bỏ chọn tuỳ ý; điểm của mọi đáp án được chọn
+  đều được cộng vào nhóm của đáp án đó. Phần trăm mỗi nhóm = điểm đạt / tổng điểm có thể đạt của nhóm.
+  Ví dụ Holland: mỗi câu 6 đáp án thuộc R, I, A, S, E, C (NHÓM: A=R, B=I, C=A, D=S, E=E, F=C), người làm chọn mọi đáp án đúng với mình.
+Cột "Loại" trong danh sách Bài test ghi thêm "Dải câu" / "Chọn nhiều" nếu bật.
 
 == Nhiệm vụ (kết nối Traffic Hila) ==
 Bắt người làm bài làm nhiệm vụ của Traffic Hila (traffic.io.vn) và nhập mã đúng mới xem được kết quả, giống TestSpace.

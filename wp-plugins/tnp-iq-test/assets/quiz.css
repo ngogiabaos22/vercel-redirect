@@ -146,6 +146,43 @@
 .tnp-hcard p{font-size:14px}
 .tnp-hcard .tnp-chips span{background:#ecfdf5;color:#065f46;font-size:12.5px}
 
+/* Chọn nhiều đáp án: ô vuông, đáp án đã chọn hiện dấu ✓ */
+.tnp-opts.is-multi .tnp-opt-key{border-radius:6px}
+.tnp-opts.is-multi .tnp-opt.is-selected .tnp-opt-key{font-size:0}
+.tnp-opts.is-multi .tnp-opt.is-selected .tnp-opt-key:after{content:"✓";font-size:15px}
+.tnp-multi-hint{margin:8px 0 0!important;font-size:13px;color:var(--mu);text-align:center}
+
+/* Dải câu: tất cả câu trên một trang */
+.tnp-litems{margin-top:14px}
+.tnp-litem{padding:20px 0;border-bottom:1px solid var(--bd);scroll-margin-top:90px}
+.tnp-litem:last-child{border-bottom:0}
+.tnp-list .tnp-qtitle{margin:0 0 12px!important;font-size:18px!important}
+.tnp-list .tnp-qtitle span{display:block;font-size:14px;color:var(--ink);margin:0 0 4px}
+.tnp-list .tnp-opts.is-list{max-width:none;gap:2px}
+.tnp-list .tnp-opts.is-list .tnp-opt{min-height:0;padding:9px 10px;border:0;background:transparent;border-radius:10px;align-items:flex-start;box-shadow:none}
+.tnp-list .tnp-opts.is-list .tnp-opt.is-selected{background:#f5f6ff}
+.tnp-list .tnp-opts.is-list .tnp-opt-key{flex:0 0 22px;width:22px;height:22px;margin-top:1px;border-radius:50%;border:2px solid #cbd5e1;background:#fff;font-size:0;color:transparent}
+.tnp-list .tnp-opts.is-list.is-multi .tnp-opt-key{border-radius:6px}
+.tnp-list .tnp-opts.is-list .tnp-opt.is-selected .tnp-opt-key{border-color:var(--p);background:var(--p);box-shadow:inset 0 0 0 3px #fff}
+.tnp-list .tnp-opts.is-list.is-multi .tnp-opt.is-selected .tnp-opt-key{box-shadow:none;color:#fff}
+.tnp-list .tnp-opts.is-list.is-multi .tnp-opt.is-selected .tnp-opt-key:after{font-size:13px}
+.tnp-list .tnp-opts.is-list .tnp-opt-text{font-weight:400;font-size:15px}
+.tnp-list .tnp-opts.is-list .tnp-opt-text:before{content:attr(data-l) ". ";font-weight:600}
+.tnp-list .tnp-multi-hint{text-align:left}
+.tnp-list .tnp-qimg img{max-height:42vh}
+.tnp-litem.is-missing .tnp-qtitle span{color:var(--bad)}
+.tnp-litem.is-missing .tnp-opts{box-shadow:0 0 0 2px #fecdd3;border-radius:14px}
+.tnp-litem-foot{display:flex;justify-content:flex-end;margin-top:10px}
+.tnp-flag{display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:4px 0;color:var(--mu);font-size:14px;cursor:pointer}
+.tnp-flag i{width:22px;height:22px;border-radius:50%;border:2px solid #c7d2fe;display:inline-block;transition:background .15s,border-color .15s}
+.tnp-flag[aria-pressed="true"]{color:#b45309}
+.tnp-flag[aria-pressed="true"] i{background:#f59e0b;border-color:#f59e0b;box-shadow:inset 0 0 0 3px #fff}
+.tnp-litem.is-flagged{background:linear-gradient(90deg,#fffbeb,transparent 60%)}
+.tnp-lnav{position:sticky;bottom:0;z-index:5;align-items:center;background:rgba(255,255,255,.96);border-top:1px solid var(--bd);margin:0 -28px -28px;padding:14px 28px;border-radius:0 0 22px 22px;backdrop-filter:blur(6px)}
+.tnp-lstat{font-size:14px;color:var(--mu)}
+.tnp-lstat b{color:var(--ink)}
+.tnp-lstat a{color:#b45309}
+
 /* Tự co ảnh cho vừa màn hình (quiz.js đặt --qimg-h / --opt-h) */
 .tnp-quiz.is-fit .tnp-qimg img{max-height:var(--qimg-h,60vh)}
 .tnp-quiz.is-fit[style*="--opt-h"] .tnp-opt-img{aspect-ratio:auto;height:var(--opt-h);padding:5px}
@@ -175,6 +212,10 @@
 	/* Nút điều hướng dính đáy màn hình để bấm bằng ngón cái */
 	.tnp-nav{position:sticky;bottom:0;z-index:5;margin:18px -14px -18px;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--bd);border-radius:0 0 16px 16px;backdrop-filter:blur(6px)}
 	.tnp-nav .tnp-btn{flex:1;padding:13px 10px;font-size:15px}
+	.tnp-lnav{margin:0 -14px -18px;padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+	.tnp-lnav .tnp-btn{flex:0 0 auto;padding:12px 22px}
+	.tnp-list .tnp-qtitle{font-size:16px!important}
+	.tnp-litem{padding:16px 0}
 	.tnp-dots{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;padding:2px 2px 6px;margin:16px 0 0;scrollbar-width:none}
 	.tnp-dots::-webkit-scrollbar{display:none}
 	/* Vừa một màn hình: JS đặt --qimg-h / --opt-h khi cả câu cao hơn màn hình */

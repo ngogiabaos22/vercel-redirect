@@ -184,6 +184,8 @@ class TNP_IQ_Rest {
 			'needsAge'  => $is_iq,
 			'showTimer' => $is_iq || $time > 0,
 			'task'      => self::task_client( $test ),
+			'layout'    => TNP_IQ_Tests::layout_of( $test ),
+			'multi'     => TNP_IQ_Tests::multi_of( $test ),
 			'questions' => self::maybe_shuffle( array_map( array( 'TNP_IQ_Questions', 'public_data' ), $posts ), TNP_IQ_Tests::shuffle_of( $test ) ),
 		) );
 	}
@@ -294,16 +296,25 @@ class TNP_IQ_Rest {
 	private static function submit_trait( $kind, $data, $answers, $test, $elapsed, $ip_hash, $rate, $used ) {
 		$picked = array();
 		$stored = array();
+		$multi  = TNP_IQ_Tests::multi_of( $test );
 		foreach ( $data['ids'] as $id ) {
 			$id   = (int) $id;
 			$q    = TNP_IQ_Questions::get( $id );
-			$your = isset( $answers[ $id ] ) && isset( $q['options'][ $answers[ $id ] ] ) ? $answers[ $id ] : '';
+			$raw  = $answers[ $id ] ?? '';
+			if ( $multi ) { // chọn nhiều: danh sách đáp án hợp lệ, không trùng
+				$your = array_values( array_unique( array_filter( array_map( 'strval', (array) $raw ), function ( $k ) use ( $q ) {
+					return isset( $q['options'][ $k ] );
+				} ) ) );
+			} else {
+				$raw  = is_array( $raw ) ? (string) reset( $raw ) : (string) $raw;
+				$your = isset( $q['options'][ $raw ] ) ? $raw : '';
+			}
 			$opts = array();
 			foreach ( $q['options'] as $k => $o ) {
 				$opts[ $k ] = array( 'dim' => $o['dim'], 'pts' => (float) $o['pts'] );
 			}
 			$picked[]      = array( 'options' => $opts, 'chosen' => $your );
-			$stored[ $id ] = $your;
+			$stored[ $id ] = is_array( $your ) ? implode( ',', $your ) : $your;
 		}
 		$result = TNP_IQ_Tests::score( $kind, $picked );
 		$answered = count( array_filter( $stored ) );

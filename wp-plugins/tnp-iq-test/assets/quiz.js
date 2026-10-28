@@ -53,6 +53,7 @@
 					api: c.api, test: c.test || '', token: d.token, questions: d.questions, limit: d.timeLimit,
 					kind: d.kind || 'iq', needsAge: d.needsAge !== false, showTimer: d.showTimer !== false,
 					task: d.task || null, unlocked: false,
+					layout: d.layout === 'list' ? 'list' : 'step', multi: !!d.multi, flags: {},
 					answers: {}, index: 0, startedAt: Date.now(), finishedAt: null, stage: 'quiz'
 				};
 				self.preload();
@@ -102,11 +103,32 @@
 	};
 
 	/* ---------- Câu hỏi ---------- */
-	Quiz.prototype.renderQuestion = function () {
-		var self = this, st = this.st, q = st.questions[st.index], n = st.questions.length;
-		var answered = Object.keys(st.answers).length;
-		var body = '';
 
+	// Đáp án đã chọn của một câu: chuỗi (chọn một) hoặc mảng (chọn nhiều).
+	function picked(st, q) { return st.answers[q.id]; }
+	function isPicked(st, q, key) {
+		var a = picked(st, q);
+		return st.multi ? !!a && a.indexOf(key) !== -1 : a === key;
+	}
+	function isAnswered(st, q) {
+		var a = picked(st, q);
+		return st.multi ? !!a && a.length > 0 : !!a;
+	}
+	function answeredCount(st) {
+		return st.questions.filter(function (q) { return isAnswered(st, q); }).length;
+	}
+	// Chọn / bỏ chọn một đáp án; trả về true nếu là câu chọn một và vừa chọn.
+	function pick(st, q, key) {
+		if (!st.multi) { st.answers[q.id] = key; return true; }
+		var a = (st.answers[q.id] || []).slice(), i = a.indexOf(key);
+		if (i === -1) { a.push(key); } else { a.splice(i, 1); }
+		st.answers[q.id] = a;
+		return false;
+	}
+
+	// Phần đề (đoạn văn, lưới cũ, ảnh) của một câu.
+	function bodyHtml(q) {
+		var body = '';
 		if (q.body) {
 			body += '<div class="tnp-qbody">' + esc(q.body).replace(/\n/g, '<br>') + '</div>';
 		}
@@ -118,41 +140,63 @@
 		if (q.image) {
 			body += '<div class="tnp-qimg' + (q.type === 'image' ? ' is-main' : '') + '"><img src="' + esc(q.image) + '" alt=""></div>';
 		}
+		return body;
+	}
 
-		// Cách xếp đáp án: có ảnh → lưới thẻ (2–4 cột tuỳ số đáp án); chỉ có chữ → danh sách.
+	// Các đáp án của một câu. Có ảnh → lưới thẻ (2–4 cột tuỳ số đáp án); chỉ có chữ → danh sách.
+	function optsHtml(st, q) {
 		var nOpt = q.options.length;
 		var hasImg = q.options.some(function (o) { return o.img; });
 		var shortText = q.options.every(function (o) { return (o.text || '').length <= 28; });
 		var cols = nOpt <= 4 ? nOpt : (nOpt <= 6 ? 3 : 4);
-		var layout = hasImg ? 'is-cards' : (shortText && nOpt > 2 ? 'is-list is-2col' : 'is-list');
-		var opts = '<div class="tnp-opts ' + layout + '" style="--cols:' + cols + '" role="radiogroup" aria-label="Chọn đáp án">';
+		var layout = hasImg ? 'is-cards' : (shortText && nOpt > 2 && st.layout !== 'list' ? 'is-list is-2col' : 'is-list');
+		var role = st.multi ? 'checkbox' : 'radio';
+		var h = '<div class="tnp-opts ' + layout + (st.multi ? ' is-multi' : '') + '" style="--cols:' + cols + '" role="' + (st.multi ? 'group' : 'radiogroup') + '" aria-label="' + (st.multi ? 'Chọn một hoặc nhiều đáp án' : 'Chọn đáp án') + '">';
 		q.options.forEach(function (o, i) {
-			var sel = st.answers[q.id] === o.key;
+			var sel = isPicked(st, q, o.key);
 			var label = 'ABCDEFGH'.charAt(i); // nhãn theo vị trí hiển thị (đáp án có thể đã được xáo trộn)
-			opts += '<button type="button" class="tnp-opt' + (sel ? ' is-selected' : '') + '" data-key="' + esc(o.key) + '" role="radio" aria-checked="' + sel + '">' +
+			h += '<button type="button" class="tnp-opt' + (sel ? ' is-selected' : '') + '" data-q="' + esc(q.id) + '" data-key="' + esc(o.key) + '" role="' + role + '" aria-checked="' + sel + '">' +
 				'<span class="tnp-opt-key">' + label + '</span>' +
 				(o.img ? '<span class="tnp-opt-img"><img src="' + esc(o.img) + '" alt="Đáp án ' + label + '"></span>' : '') +
-				(o.text ? '<span class="tnp-opt-text">' + esc(o.text) + '</span>' : '') +
+				(o.text ? '<span class="tnp-opt-text" data-l="' + label + '">' + esc(o.text) + '</span>' : '') +
 			'</button>';
 		});
-		opts += '</div>';
+		return h + '</div>' + (st.multi ? '<p class="tnp-multi-hint">Có thể chọn nhiều đáp án.</p>' : '');
+	}
+
+	// Cập nhật trạng thái chọn của các nút đáp án trong một câu (không vẽ lại cả trang).
+	function syncOpts(scope, st, q) {
+		scope.querySelectorAll('.tnp-opt[data-q="' + q.id + '"]').forEach(function (x) {
+			var on = isPicked(st, q, x.getAttribute('data-key'));
+			x.classList.toggle('is-selected', on);
+			x.setAttribute('aria-checked', on);
+		});
+	}
+
+	function topHtml(st, label) {
+		return '<div class="tnp-top">' +
+				'<span class="tnp-count">' + label + '</span>' +
+				(st.showTimer ? '<span class="tnp-timer" title="Thời gian đã làm"></span>' : '') +
+			'</div>' +
+			'<div class="tnp-bar"><span style="width:' + Math.round(answeredCount(st) / st.questions.length * 100) + '%"></span></div>';
+	}
+
+	Quiz.prototype.renderQuestion = function () {
+		if (this.st.layout === 'list') { this.renderList(); return; }
+		var self = this, st = this.st, q = st.questions[st.index], n = st.questions.length;
 
 		var dots = '<div class="tnp-dots" aria-label="Chuyển câu">';
 		st.questions.forEach(function (qq, i) {
-			dots += '<button type="button" class="tnp-dot' + (i === st.index ? ' is-current' : '') + (st.answers[qq.id] ? ' is-done' : '') + '" data-go="' + i + '" aria-label="Câu ' + (i + 1) + '">' + (i + 1) + '</button>';
+			dots += '<button type="button" class="tnp-dot' + (i === st.index ? ' is-current' : '') + (isAnswered(st, qq) ? ' is-done' : '') + '" data-go="' + i + '" aria-label="Câu ' + (i + 1) + '">' + (i + 1) + '</button>';
 		});
 		dots += '</div>';
 
 		var last = st.index === n - 1;
 		this.html(
 			'<div class="tnp-card tnp-quiz">' +
-				'<div class="tnp-top">' +
-					'<span class="tnp-count">Câu <b>' + (st.index + 1) + '</b>/' + n + ' · Đã trả lời ' + answered + '</span>' +
-					(st.showTimer ? '<span class="tnp-timer" title="Thời gian đã làm"></span>' : '') +
-				'</div>' +
-				'<div class="tnp-bar"><span style="width:' + Math.round(answered / n * 100) + '%"></span></div>' +
+				topHtml(st, 'Câu <b>' + (st.index + 1) + '</b>/' + n + ' · Đã trả lời ' + answeredCount(st)) +
 				'<h3 class="tnp-qtitle"><span>' + (st.index + 1) + '.</span> ' + esc(q.prompt) + '</h3>' +
-				body + opts + dots +
+				bodyHtml(q) + optsHtml(st, q) + dots +
 				'<div class="tnp-nav">' +
 					'<button type="button" class="tnp-btn tnp-btn-ghost" data-act="prev"' + (st.index === 0 ? ' disabled' : '') + '>← Câu trước</button>' +
 					(last
@@ -166,14 +210,16 @@
 		if (dotsEl && cur && dotsEl.scrollWidth > dotsEl.clientWidth) {
 			dotsEl.scrollLeft = cur.offsetLeft - dotsEl.offsetLeft - dotsEl.clientWidth / 2 + cur.offsetWidth / 2;
 		}
-
 		this.root.querySelectorAll('.tnp-opt').forEach(function (b) {
 			b.onclick = function () {
-				st.answers[q.id] = b.getAttribute('data-key');
-				self.root.querySelectorAll('.tnp-opt').forEach(function (x) {
-					x.classList.toggle('is-selected', x === b);
-					x.setAttribute('aria-checked', x === b);
-				});
+				var single = pick(st, q, b.getAttribute('data-key'));
+				if (!single) { // chọn nhiều: chỉ đổi trạng thái, không tự chuyển câu
+					syncOpts(self.root, st, q);
+					self.root.querySelector('.tnp-dot.is-current').classList.toggle('is-done', isAnswered(st, q));
+					self.root.querySelector('.tnp-count').innerHTML = 'Câu <b>' + (st.index + 1) + '</b>/' + n + ' · Đã trả lời ' + answeredCount(st);
+					return;
+				}
+				syncOpts(self.root, st, q);
 				if (!last) { setTimeout(function () { if (self.st.index === st.questions.indexOf(q)) { self.go(st.index + 1); } }, 350); }
 				else { self.renderQuestion(); }
 			};
@@ -184,13 +230,90 @@
 		var on = function (act, fn) { var b = self.root.querySelector('[data-act="' + act + '"]'); if (b) { b.onclick = fn; } };
 		on('prev', function () { self.go(st.index - 1); });
 		on('next', function () { self.go(st.index + 1); });
-		on('finish', function () {
-			var miss = n - Object.keys(st.answers).length;
-			if (miss > 0 && !window.confirm('Bạn còn ' + miss + ' câu chưa trả lời. Vẫn nộp bài?')) { return; }
-			self.finishQuestions(false);
-		});
+		on('finish', function () { self.confirmFinish(); });
 		this.tick();
 		this.fit(true);
+	};
+
+	Quiz.prototype.confirmFinish = function () {
+		var miss = this.st.questions.length - answeredCount(this.st);
+		if (miss > 0 && !window.confirm('Bạn còn ' + miss + ' câu chưa trả lời. Vẫn nộp bài?')) { return false; }
+		this.finishQuestions(false);
+		return true;
+	};
+
+	/* ---------- Dải câu: tất cả câu trên một trang, cuộn để làm ---------- */
+	Quiz.prototype.renderList = function () {
+		var self = this, st = this.st, n = st.questions.length;
+		st.flags = st.flags || {};
+		var items = '';
+		st.questions.forEach(function (q, i) {
+			items += '<section class="tnp-litem' + (st.flags[q.id] ? ' is-flagged' : '') + '" data-qi="' + i + '" id="tnp-q-' + esc(q.id) + '">' +
+				'<h3 class="tnp-qtitle"><span>Câu ' + (i + 1) + '</span>' + esc(q.prompt) + '</h3>' +
+				bodyHtml(q) + optsHtml(st, q) +
+				'<div class="tnp-litem-foot"><button type="button" class="tnp-flag" data-flag="' + esc(q.id) + '" aria-pressed="' + !!st.flags[q.id] + '">Lát kiểm tra lại <i aria-hidden="true"></i></button></div>' +
+			'</section>';
+		});
+		this.html(
+			'<div class="tnp-card tnp-quiz tnp-list">' +
+				topHtml(st, '<b class="tnp-lcount">' + answeredCount(st) + '</b>/' + n + ' câu đã trả lời') +
+				'<div class="tnp-litems">' + items + '</div>' +
+				'<div class="tnp-nav tnp-lnav">' +
+					'<span class="tnp-lstat"></span>' +
+					'<button type="button" class="tnp-btn" data-act="finish">Nộp bài</button>' +
+				'</div>' +
+			'</div>'
+		);
+		var stat = this.root.querySelector('.tnp-lstat'), count = this.root.querySelector('.tnp-lcount'), bar = this.root.querySelector('.tnp-bar span');
+		var update = function () {
+			var done = answeredCount(st), flagged = Object.keys(st.flags).filter(function (k) { return st.flags[k]; }).length;
+			count.textContent = done;
+			bar.style.width = Math.round(done / n * 100) + '%';
+			stat.innerHTML = '<b>' + done + '/' + n + '</b> câu' + (flagged ? ' · <a href="#" data-jump="flag">' + flagged + ' câu cần xem lại</a>' : '');
+		};
+		update();
+
+		this.root.querySelectorAll('.tnp-opt').forEach(function (b) {
+			b.onclick = function () {
+				var q = st.questions[+b.closest('.tnp-litem').getAttribute('data-qi')];
+				pick(st, q, b.getAttribute('data-key'));
+				syncOpts(self.root, st, q);
+				b.closest('.tnp-litem').classList.remove('is-missing');
+				update();
+			};
+		});
+		this.root.querySelectorAll('[data-flag]').forEach(function (b) {
+			b.onclick = function () {
+				var id = b.getAttribute('data-flag');
+				st.flags[id] = !st.flags[id];
+				b.setAttribute('aria-pressed', st.flags[id]);
+				b.closest('.tnp-litem').classList.toggle('is-flagged', st.flags[id]);
+				update();
+			};
+		});
+		var jump = function (el) {
+			if (!el) { return; }
+			el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		};
+		stat.onclick = function (e) {
+			if (e.target.getAttribute('data-jump') !== 'flag') { return; }
+			e.preventDefault();
+			jump(self.root.querySelector('.tnp-litem.is-flagged'));
+		};
+		this.root.querySelector('[data-act="finish"]').onclick = function () {
+			var missing = st.questions.filter(function (q) { return !isAnswered(st, q); });
+			if (missing.length) {
+				self.root.querySelectorAll('.tnp-litem').forEach(function (el) {
+					el.classList.toggle('is-missing', !isAnswered(st, st.questions[+el.getAttribute('data-qi')]));
+				});
+				if (!window.confirm('Bạn còn ' + missing.length + ' câu chưa trả lời (đánh dấu đỏ). Vẫn nộp bài?')) {
+					jump(self.root.querySelector('#tnp-q-' + missing[0].id));
+					return;
+				}
+			}
+			self.finishQuestions(false);
+		};
+		this.tick();
 	};
 
 	/* ---------- Cả câu (đề + ảnh + đáp án + nút) nằm gọn trong một màn hình / cửa sổ bật lên ---------- */
@@ -211,7 +334,7 @@
 
 	Quiz.prototype.fit = function (align) {
 		var self = this, card = this.root.querySelector('.tnp-quiz');
-		if (!card) { return; }
+		if (!card || card.classList.contains('tnp-list')) { return; } // dải câu: cuộn tự nhiên, không co ảnh
 		var qimg = card.querySelector('.tnp-qimg img'), oimg = card.querySelector('.tnp-opts.is-cards .tnp-opt-img');
 		card.style.removeProperty('--qimg-h');
 		card.style.removeProperty('--opt-h');
