@@ -1,0 +1,658 @@
+{
+  "format": "tnp-test",
+  "version": 1,
+  "test": {
+    "name": "Test DISC",
+    "slug": "test-disc",
+    "type": "disc",
+    "layout": "step",
+    "multi": false,
+    "shuffle": false,
+    "task": {
+      "on": false,
+      "tag": ""
+    }
+  },
+  "questions": [
+    {
+      "title": "Bạn phản ứng như thế nào với sự không chắc chắn?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Cố gắng duy trì sự bình tĩnh và không để tình hình ảnh hưởng.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Phân tích cẩn thận để tìm ra cách tốt nhất.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Quyết định nhanh và tìm cách kiểm soát tình hình.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Tìm kiếm ý tưởng mới và đổi mới cách tiếp cận.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn thích tiếp cận vấn đề mới bằng cách:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Lên kế hoạch cẩn thận trước khi bắt đầu hành động.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Trao đổi với mọi người để cùng tìm ý tưởng trước khi bắt đầu.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Nhanh chóng bắt tay vào hành động và thử nghiệm các giải pháp.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Phân tích tất cả các yếu tố liên quan trước khi quyết định.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn cảm thấy tự tin nhất khi:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Làm việc trong môi trường quen thuộc và ổn định.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Kiểm soát được tình huống và đưa ra quyết định nhanh chóng.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Có thời gian để đảm bảo rằng mọi thứ được hoàn thành chính xác.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Có sự ủng hộ và động viên từ đồng nghiệp.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điều gì khiến bạn không thoải mái trong môi trường làm việc?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Quá nhiều sự thay đổi và rối loạn.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Thiếu cơ hội để giao tiếp và hợp tác với người khác.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Thiếu sự chủ động và sáng tạo.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Công việc bị bỏ qua các chi tiết quan trọng hoặc thiếu chính xác.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điều gì làm bạn cảm thấy căng thẳng?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Không có cơ hội giao tiếp và chia sẻ ý tưởng.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Không có quyền kiểm soát tình huống.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Mọi thứ không được tổ chức rõ ràng và chi tiết.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Có quá nhiều thay đổi đột ngột.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi bị đặt trong một tình huống căng thẳng, bạn thường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Đối mặt trực tiếp và nhanh chóng tìm ra giải pháp.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Giữ bình tĩnh và tránh làm tình hình trở nên tồi tệ hơn.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Nói chuyện với người khác để giảm bớt căng thẳng.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Phân tích tình huống để tìm ra giải pháp hợp lý nhất.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Trong tình huống giao tiếp với người khác, bạn thường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Nói thẳng và đi vào vấn đề chính.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Thảo luận kỹ lưỡng về các chi tiết và logic.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Lắng nghe và hỗ trợ người khác.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Tạo ra không khí vui vẻ và thoải mái.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi phải ra quyết định khó khăn, bạn thường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Ra quyết định nhanh chóng mà không do dự.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Phân tích dữ liệu và đảm bảo quyết định là hợp lý.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Suy nghĩ cẩn thận và cân nhắc mọi lựa chọn.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Hỏi ý kiến người khác trước khi quyết định.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điều gì quan trọng nhất khi giao tiếp với người khác?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Trực tiếp và tập trung vào mục tiêu chính.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Tạo ra không khí tích cực và vui vẻ.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Truyền đạt thông tin một cách chi tiết và rõ ràng.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Giữ sự hòa hợp và đồng thuận.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn đánh giá cao điều gì nhất ở đồng nghiệp của mình?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Sự hỗ trợ và hợp tác.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Khả năng đạt được kết quả nhanh chóng.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Sự thân thiện và cởi mở.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Sự chính xác và chú ý đến chi tiết.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi làm việc trong một dự án, điều gì là quan trọng nhất đối với bạn?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Hoàn thành dự án nhanh chóng và đạt được kết quả.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Đảm bảo chất lượng và tính chính xác của từng bước.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Tạo mối quan hệ tốt với các thành viên trong nhóm.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Đảm bảo dự án diễn ra theo đúng kế hoạch.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi người khác không tuân thủ đúng kế hoạch, bạn sẽ:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Đảm bảo rằng họ hiểu tầm quan trọng của kế hoạch.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Thảo luận với họ để tìm giải pháp phù hợp hơn.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Cố gắng điều chỉnh kế hoạch để mọi người thoải mái.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Đưa ra yêu cầu rõ ràng để họ làm việc đúng cách.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn thích làm việc trong môi trường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Đầy cạnh tranh và thử thách.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Năng động và sáng tạo, có nhiều người tham gia.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Ổn định và có ít sự thay đổi.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Có tổ chức và tuân theo quy trình cụ thể.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi đối mặt với một nhiệm vụ mới, bạn sẽ:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Tìm kiếm sự hợp tác và hỗ trợ từ người khác.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Nhảy ngay vào hành động và tìm ra cách để hoàn thành.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Nghiên cứu kỹ lưỡng trước khi bắt đầu.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Lên kế hoạch cụ thể và từ từ tiến hành.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi làm việc theo nhóm, bạn thường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Tạo không khí vui vẻ và làm việc dễ chịu với mọi người.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Hỗ trợ và giữ cho nhóm hoạt động êm ả.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Đảm nhận vai trò lãnh đạo và thúc đẩy nhóm tiến lên.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Đảm bảo mọi chi tiết đều đúng và hoàn thành tốt.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điều gì làm bạn mất hứng thú trong công việc?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Môi trường làm việc cô lập, ít sự giao tiếp.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Thiếu cơ hội để cạnh tranh và tiến bộ.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Công việc không có quy trình rõ ràng và chính xác.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Quá nhiều thay đổi và thiếu sự ổn định.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi gặp phải một trở ngại lớn, bạn sẽ:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Quyết tâm vượt qua nó ngay lập tức.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Bình tĩnh đối mặt và từ từ xử lý nó.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Tìm kiếm sự giúp đỡ từ người khác để giải quyết.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Phân tích và tìm giải pháp tối ưu nhất.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điều gì quan trọng nhất đối với bạn khi làm việc?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Giao tiếp và tương tác với đồng nghiệp.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Hoàn thành công việc một cách nhanh chóng và hiệu quả.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Duy trì sự ổn định và cân bằng.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Đảm bảo công việc được thực hiện một cách hoàn hảo và chi tiết.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn thích đạt được thành công bằng cách:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Làm việc nhóm và kết nối với người khác.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Đảm bảo mọi chi tiết đều hoàn hảo.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Chiếm lấy cơ hội và thể hiện năng lực cá nhân.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Tuân theo quy trình và duy trì sự ổn định.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn thích làm việc trong một nhóm như thế nào?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Mục tiêu rõ ràng và quyết đoán.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Hỗ trợ và đoàn kết.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Tích cực và giao tiếp thường xuyên.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Có quy trình chặt chẽ và chi tiết.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    }
+  ]
+}
