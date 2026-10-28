@@ -1,0 +1,503 @@
+# Test EQ – 50 câu (thang Likert 5 mức, mô hình EQ của Daniel Goleman)
+# Nhóm xoay vòng theo thứ tự câu: 1 Tự nhận thức (sa), 2 Tự điều chỉnh (sr), 3 Động lực (mo), 4 Đồng cảm (em), 5 Kỹ năng xã hội (ss), câu 6 lại là sa…
+# Điểm: Hoàn toàn không đồng ý 0 → Hoàn toàn đồng ý 4 (mỗi nhóm 10 câu, tối đa 40 điểm; điểm EQ = % trên tổng 200).
+
+CÂU 1
+Tôi nhận ra ngay lập tức khi nào thì bản thân đang mất bình tĩnh.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 2
+Tôi có khả năng nhanh chóng thay đổi góc nhìn, đánh giá của chính mình về một tình huống xấu.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 3
+Tôi luôn có thể tự thúc đẩy mình thực hiện các nhiệm vụ khó khăn.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 4
+Tôi luôn có thể nhìn nhận sự việc từ quan điểm của người khác.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 5
+Tôi là một người lắng nghe xuất sắc.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 6
+Tôi biết khi nào tôi đang cảm nhận hạnh phúc.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 7
+Tôi không thể hiện cảm xúc của mình ra ngoài.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 8
+Tôi có khả năng ưu tiên các việc quan trọng và nhanh chóng bắt tay vào thực hiện.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 9
+Tôi xuất sắc trong việc thấu cảm với vấn đề của người khác.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 10
+Tôi không bao giờ xen vào và ngắt lời cuộc trò chuyện của người khác.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 11
+Tôi thường nhận biết được khi mình đang bị căng thẳng.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 12
+Người khác hiếm khi nhận biết được tôi đang ở trong tâm trạng nào.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 13
+Tôi luôn hoàn thành công việc đúng hạn.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 14
+Tôi có thể nhận biết khi ai đó không hài lòng với tôi.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 15
+Tôi có khả năng tốt trong việc thích nghi và hòa nhập với nhiều người có tính cách khác nhau.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 16
+Tôi nhận biết được khi cảm xúc của bản thân đang bắt đầu dâng trào.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 17
+Tôi hiếm khi nổi nóng với người khác.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 18
+Tôi không bao giờ lãng phí thời gian.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 19
+Tôi có thể nhận ra một nhóm người đang không hoà hợp với nhau.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 20
+Đối với tôi, con người là điều thú vị nhất trong cuộc sống.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 21
+Khi tôi cảm thấy lo lắng, tôi có thể biết được lý do vì sao.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 22
+Những người khó tính không làm tôi khó chịu.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 23
+Tôi không vòng vo, né tránh đưa ra câu trả lời trực tiếp hoặc quyết định chắc chắn.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 24
+Tôi thường có thể hiểu được nguyên nhân của việc người khác gây khó khăn cho tôi.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 25
+Tôi thích gặp gỡ những người mới và tìm hiểu điều cốt lõi nào đã thúc đẩy cách họ hành xử mỗi ngày.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 26
+Tôi luôn nhận biết được khi nào mình đang suy nghĩ hoặc hành động vô lý.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 27
+Trong trạng thái chủ động, có ý thức, tôi có khả năng thay đổi thói quen, khuôn mẫu suy nghĩ của mình về một sự vật, sự việc.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 28
+Tôi tin rằng bạn nên làm những việc khó khăn trước.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 29
+Người khác không khó tính, họ chỉ khác biệt.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 30
+Tôi cần nhiều đồng nghiệp khác nhau, đa dạng về tính cách, suy nghĩ, cách làm việc,.... để khiến công việc của tôi trở nên thú vị.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 31
+Khả năng nhận biết được bản thân đang có cảm xúc gì và nguyên nhân của nó là rất quan trọng với tôi.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 32
+Tôi không để các tình huống hoặc người gây căng thẳng tại công sở ảnh hưởng đến tôi sau khi tan làm.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 33
+Tôi có khả năng chống lại cám dỗ của sự thỏa mãn tức thời để hướng đến mục tiêu sau cùng với sự hài lòng lớn hơn ở tương lai.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 34
+Tôi có thể hiểu được lý do đằng sau những suy nghĩ, hành vi vô lý của mình.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 35
+Tôi thích đặt câu hỏi để tìm ra đâu là điều quan trọng với một người.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 36
+Tôi có thể nhận ra việc ai đó đang làm tôi khó chịu hoặc tức giận.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 37
+Tôi hiếm khi lo lắng về công việc hoặc cuộc sống nói chung.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 38
+Tôi tin vào việc cần có sự ưu tiên và tập trung năng lượng vào các hoạt động quan trọng nhất.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 39
+Tôi hiểu được vì sao hành động của mình đôi lúc khiến người khác cảm thấy bị xúc phạm.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 40
+Đối với tôi, làm việc với người khó tính đơn giản là một thử thách để tôi nâng cao khả năng hợp tác và thuyết phục của mình.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 41
+Tôi có thể nhanh chóng buông bỏ cơn giận để nó không còn ảnh hưởng đến tôi.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 42
+Tôi có thể kiềm chế cảm xúc của mình khi cần thiết.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 43
+Tôi luôn có khả năng tự động viên, tạo động lực cho bản thân, ngay cả khi đang cảm thấy chán nản.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 44
+Đôi lúc, tôi có thể nhìn nhận sự việc từ quan điểm của người khác.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 45
+Tôi giỏi trong việc dung hòa những điểm khác biệt của bản thân với người khác.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 46
+Tôi biết điều gì khiến tôi hạnh phúc.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sa
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 47
+Người khác thường không biết tôi đang cảm thấy thế nào về một sự vật, sự việc.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: sr
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 48
+Động lực là chìa khóa thành công của tôi.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: mo
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 49
+Tôi luôn có khả năng nhìn rõ lý do cho những bất đồng khi chúng xảy ra.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: em
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
+
+CÂU 50
+Tôi thường xây dựng mối quan hệ vững chắc với những người tôi làm việc cùng.
+A. Hoàn toàn không đồng ý
+B. Không đồng ý
+C. Trung lập
+D. Đồng ý
+E. Hoàn toàn đồng ý
+NHÓM: ss
+ĐIỂM: A=0, B=1, C=2, D=3, E=4
