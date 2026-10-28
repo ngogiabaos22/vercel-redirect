@@ -95,7 +95,7 @@ class TNP_IQ_Import {
 				'id'         => $id,
 				'order'      => (int) get_post_field( 'menu_order', $id ),
 				'status'     => get_post_status( $id ),
-				'title'      => get_the_title( $id ),
+				'title'      => TNP_IQ_Questions::plain( get_the_title( $id ) ),
 				'image'      => $q['image'],
 				'options'    => count( $q['options'] ),
 				'correct'    => $q['correct'],

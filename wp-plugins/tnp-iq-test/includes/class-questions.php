@@ -86,11 +86,19 @@ class TNP_IQ_Questions {
 	}
 
 	/** Tên hiển thị của một bài test theo slug ('' = bài IQ chung). */
+	/**
+	 * Chữ thuần để gửi xuống trình duyệt (trình duyệt tự escape khi hiển thị).
+	 * get_the_title() và tên term trả về dạng HTML: "..." thành &#8230;, dấu nháy thành &#8220;, & thành &amp;.
+	 */
+	public static function plain( $s ) {
+		return html_entity_decode( (string) $s, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+	}
+
 	public static function test_name( $slug ) {
 		if ( '' !== $slug ) {
 			$term = get_term_by( 'slug', $slug, self::TAX );
 			if ( $term ) {
-				return $term->name;
+				return self::plain( $term->name );
 			}
 		}
 		return TNP_IQ_Settings::get( 'intro_title' );
@@ -186,7 +194,7 @@ class TNP_IQ_Questions {
 		};
 		$data = array(
 			'id'      => $post->ID,
-			'prompt'  => get_the_title( $post ),
+			'prompt'  => self::plain( get_the_title( $post ) ),
 			'body'    => $q['body'],
 			'type'    => $q['type'],
 			'grid'    => $q['grid'],

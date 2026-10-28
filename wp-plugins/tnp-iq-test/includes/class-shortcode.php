@@ -31,7 +31,7 @@ class TNP_IQ_Shortcode {
 		);
 		$terms = get_terms( array( 'taxonomy' => TNP_IQ_Questions::TAX, 'hide_empty' => false ) );
 		foreach ( is_wp_error( $terms ) ? array() : $terms as $t ) {
-			$tests[ $t->slug ] = array( 'kind' => TNP_IQ_Tests::type_of( $t->slug ), 'title' => $t->name );
+			$tests[ $t->slug ] = array( 'kind' => TNP_IQ_Tests::type_of( $t->slug ), 'title' => TNP_IQ_Questions::plain( $t->name ) );
 		}
 		return array(
 			'api'     => esc_url_raw( rest_url( TNP_IQ_Rest::NS ) ),
