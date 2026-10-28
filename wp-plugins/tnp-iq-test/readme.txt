@@ -1,7 +1,7 @@
 === TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland) ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 
 Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu hỏi, chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê kết quả.
 
@@ -53,7 +53,7 @@ Bắt người làm bài làm nhiệm vụ của Traffic Hila (traffic.io.vn) v�
 * Khi nộp bài: hiện popup nhiệm vụ của Traffic Hila (giao diện chỉnh ở Hila → Cài đặt → Giao diện Popup). Người dùng nhập mã → máy chủ web này
   gửi mã sang Hila (/iats/v1/code/verify) để kiểm tra; đúng mới chấm điểm và trả kết quả, sai thì popup báo lỗi để nhập lại.
 * Kết quả chỉ được tính sau khi mã đúng; mỗi mã dùng một lần, mỗi lượt làm bài cần một mã.
-* Nếu máy chủ Traffic Hila không phản hồi, người làm bài vẫn được xem kết quả (không bị kẹt).
+* Nếu máy chủ Traffic Hila không phản hồi hoặc lỗi, kết quả không được mở: popup báo "Chưa kiểm tra được mã nhiệm vụ…" để người làm bài thử lại sau (bài làm vẫn giữ trên trang).
 
 == Mở bài test bằng nút (cửa sổ bật lên) ==
 Bấm nút là bài test hiện ngay trong cửa sổ bật lên, vào thẳng câu 1, không cần trang riêng. Dùng được với mọi nút/liên kết trên web (Flatsome Button, menu, ảnh…):

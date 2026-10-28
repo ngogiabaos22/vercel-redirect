@@ -83,7 +83,7 @@ class TNP_IQ_Rest {
 	/**
 	 * true nếu được xem kết quả, WP_Error nếu còn thiếu/sai mã nhiệm vụ.
 	 * Mã đúng mở khoá cho đúng lượt làm này (token) trong 6 giờ, nộp lại không cần mã mới.
-	 * Máy chủ nhiệm vụ không phản hồi: cho qua để người làm bài không bị kẹt.
+	 * Máy chủ nhiệm vụ không phản hồi: không cho xem kết quả, người làm bài nhập lại mã sau.
 	 */
 	private static function check_task( $test, WP_REST_Request $req ) {
 		if ( ! TNP_IQ_Tests::task_of( $test ) ) {
@@ -109,7 +109,7 @@ class TNP_IQ_Rest {
 		$status = is_wp_error( $res ) ? 0 : (int) wp_remote_retrieve_response_code( $res );
 		$body   = is_wp_error( $res ) ? null : json_decode( wp_remote_retrieve_body( $res ), true );
 		if ( ! is_array( $body ) || $status >= 500 || 0 === $status ) {
-			return true; // máy chủ nhiệm vụ lỗi
+			return new WP_Error( 'tnp_task_down', 'Chưa kiểm tra được mã nhiệm vụ. Vui lòng thử lại sau ít phút.', array( 'status' => 503 ) );
 		}
 		if ( empty( $body['success'] ) ) {
 			$msg = sanitize_text_field( (string) ( $body['message'] ?? '' ) );
