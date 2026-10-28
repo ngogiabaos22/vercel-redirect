@@ -1,0 +1,167 @@
+# Test Holland – 15 câu, chọn nhiều đáp án (bài bật: Dải câu + Chọn nhiều)
+# Mỗi câu: A=R Kỹ thuật, B=I Nghiên cứu, C=A Nghệ thuật, D=S Xã hội, E=E Quản lý, F=C Nghiệp vụ; mỗi đáp án 1 điểm.
+
+CÂU 1
+Tôi cảm thấy hứng thú nhất khi...
+A. Tự tay sửa chữa, lắp ráp hoặc tạo ra một sản phẩm cụ thể.
+B. Tìm hiểu nguyên nhân và khám phá cách giải quyết một vấn đề.
+C. Sáng tạo ý tưởng mới, thiết kế hoặc thể hiện phong cách cá nhân.
+D. Lắng nghe, chia sẻ và giúp người khác giải quyết khó khăn.
+E. Đưa ra quyết định, dẫn dắt mọi người và chinh phục mục tiêu.
+F. Sắp xếp công việc, quản lý thông tin và đảm bảo mọi thứ chính xác.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 2
+Nếu được chọn một công việc trải nghiệm, tôi muốn...
+A. Thực hành tại xưởng cơ khí, công trình hoặc phòng kỹ thuật.
+B. Tham gia nghiên cứu khoa học, lập trình hoặc phân tích dữ liệu.
+C. Thiết kế poster, quay video hoặc sáng tạo nội dung truyền thông.
+D. Tham gia hoạt động tình nguyện, hỗ trợ học sinh hoặc cộng đồng.
+E. Tổ chức một sự kiện, thử sức kinh doanh hoặc quản lý nhóm.
+F. Phụ trách nhập liệu, kiểm kê, lập bảng biểu hoặc quản lý hồ sơ.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 3
+Môi trường học tập hoặc làm việc lý tưởng của tôi là...
+A. Có máy móc, công cụ, hoạt động thực hành và trải nghiệm thực tế.
+B. Có nhiều kiến thức chuyên sâu, dữ liệu và vấn đề cần nghiên cứu.
+C. Linh hoạt, cởi mở và khuyến khích sáng tạo.
+D. Thân thiện, có sự hợp tác và tương tác thường xuyên giữa mọi người.
+E. Năng động, có tính cạnh tranh và cơ hội phát triển sự nghiệp.
+F. Có quy trình rõ ràng, kế hoạch cụ thể và tiêu chuẩn ổn định.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 4
+Khi gặp một vấn đề khó, tôi thường...
+A. Bắt tay thử nghiệm hoặc thao tác trực tiếp để tìm cách giải quyết.
+B. Thu thập thông tin, phân tích nguyên nhân và kiểm chứng giả thuyết.
+C. Nghĩ ra nhiều hướng tiếp cận khác biệt và thử ý tưởng mới.
+D. Trao đổi với những người liên quan để hiểu nhu cầu và cảm xúc của họ.
+E. Chọn phương án khả thi, phân công nhiệm vụ và thúc đẩy hành động.
+F. Chia vấn đề thành các bước, lập danh sách và kiểm tra từng phần.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 5
+Môn học hoặc lĩnh vực tôi muốn tìm hiểu sâu hơn là...
+A. Công nghệ kỹ thuật, điện – điện tử, cơ khí, xây dựng hoặc nông nghiệp.
+B. Toán học, khoa học tự nhiên, y sinh, công nghệ thông tin hoặc dữ liệu.
+C. Mỹ thuật, thiết kế, ngôn ngữ, truyền thông hoặc nghệ thuật.
+D. Tâm lý học, giáo dục, sức khỏe cộng đồng hoặc công tác xã hội.
+E. Kinh tế, kinh doanh, marketing, quản trị hoặc luật.
+F. Kế toán, tài chính, thống kê, hành chính hoặc quản trị hồ sơ.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 6
+Trong một dự án nhóm, tôi thường muốn...
+A. Trực tiếp làm sản phẩm, thiết lập thiết bị hoặc xử lý phần kỹ thuật.
+B. Phân tích dữ liệu, nghiên cứu thông tin và đánh giá các phương án.
+C. Lên ý tưởng, thiết kế hình ảnh hoặc xây dựng nội dung.
+D. Hỗ trợ thành viên, kết nối mọi người và giải quyết mâu thuẫn.
+E. Điều phối nhóm, phân chia nhiệm vụ và chịu trách nhiệm về mục tiêu.
+F. Lập kế hoạch, theo dõi tiến độ và quản lý tài liệu.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 7
+Hoạt động nào khiến tôi cảm thấy tự hào nhất?
+A. Hoàn thành một món đồ, sửa được thiết bị hoặc xử lý thành công việc thực tế.
+B. Tìm ra lời giải đúng hoặc khám phá được một điều mới.
+C. Tạo ra sản phẩm sáng tạo có dấu ấn riêng.
+D. Giúp một người tiến bộ hoặc vượt qua khó khăn.
+E. Đạt được mục tiêu lớn hoặc thuyết phục mọi người ủng hộ ý tưởng.
+F. Hoàn thành công việc chính xác, đúng hạn và không bỏ sót chi tiết.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 8
+Nếu tham gia một câu lạc bộ tại trường, tôi sẽ ưu tiên...
+A. Câu lạc bộ robot, STEM, chế tạo mô hình hoặc thể thao.
+B. Câu lạc bộ nghiên cứu, lập trình, toán học hoặc khoa học.
+C. Câu lạc bộ nhiếp ảnh, thiết kế, âm nhạc, viết lách hoặc truyền thông.
+D. Câu lạc bộ tình nguyện, kỹ năng sống hoặc hỗ trợ cộng đồng.
+E. Câu lạc bộ khởi nghiệp, kinh doanh, tranh biện hoặc tổ chức sự kiện.
+F. Câu lạc bộ tài chính, kế toán, hậu cần hoặc quản lý học thuật.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 9
+Khi lựa chọn công việc trong tương lai, tôi coi trọng nhất...
+A. Được làm việc thực tế, sử dụng công cụ hoặc tạo ra kết quả hữu hình.
+B. Được học hỏi liên tục, nghiên cứu và giải quyết vấn đề phức tạp.
+C. Được tự do sáng tạo và thể hiện quan điểm cá nhân.
+D. Được giúp đỡ con người và tạo ra giá trị tích cực cho xã hội.
+E. Có cơ hội thăng tiến, lãnh đạo và đạt thành tựu lớn.
+F. Có sự ổn định, quy trình rõ ràng và trách nhiệm cụ thể.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 10
+Nếu được giao một khoản ngân sách nhỏ để thực hiện dự án, tôi muốn...
+A. Mua vật liệu hoặc thiết bị để chế tạo một sản phẩm hữu ích.
+B. Thu thập dữ liệu, tiến hành thử nghiệm và đánh giá kết quả.
+C. Sản xuất video, thiết kế bộ nhận diện hoặc tạo sản phẩm nghệ thuật.
+D. Tổ chức chương trình hỗ trợ học tập hoặc hoạt động cộng đồng.
+E. Xây dựng kế hoạch kinh doanh và tìm cách thu hút khách hàng.
+F. Lập dự toán, quản lý thu chi và kiểm soát ngân sách.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 11
+Tôi thường tiếp thu kiến thức tốt nhất khi...
+A. Được trực tiếp thao tác, thực hành và học qua trải nghiệm.
+B. Được tìm hiểu nguyên lý, phân tích và giải thích vì sao sự việc xảy ra.
+C. Được thử nghiệm ý tưởng, sáng tạo sản phẩm hoặc thể hiện theo cách riêng.
+D. Được thảo luận, trao đổi và học hỏi cùng người khác.
+E. Được tham gia thử thách, giải quyết tình huống và dẫn dắt hoạt động.
+F. Được học theo trình tự, làm bài tập có cấu trúc và kiểm tra kết quả.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 12
+Người khác có thể tìm đến tôi để nhờ...
+A. Sửa đồ dùng, lắp ráp, sử dụng thiết bị hoặc giải quyết việc thực tế.
+B. Giải thích kiến thức, phân tích vấn đề hoặc tìm thông tin đáng tin cậy.
+C. Góp ý thiết kế, viết nội dung hoặc nghĩ ra ý tưởng mới.
+D. Lắng nghe tâm sự, đưa ra lời khuyên hoặc hỗ trợ tinh thần.
+E. Thuyết phục người khác, thương lượng hoặc tổ chức công việc.
+F. Sắp xếp giấy tờ, kiểm tra số liệu hoặc lập kế hoạch chi tiết.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 13
+Nếu có cơ hội thực tập tại một đơn vị, tôi thích...
+A. Xưởng sản xuất, công trường, trung tâm kỹ thuật hoặc cơ sở nông nghiệp.
+B. Phòng nghiên cứu, phòng xét nghiệm, công ty công nghệ hoặc bộ phận phân tích dữ liệu.
+C. Công ty thiết kế, studio sáng tạo, tòa soạn hoặc đơn vị truyền thông.
+D. Trường học, cơ sở y tế, tổ chức xã hội hoặc bộ phận hỗ trợ con người.
+E. Doanh nghiệp kinh doanh, công ty marketing, bộ phận phát triển thị trường hoặc startup.
+F. Phòng kế toán, ngân hàng, bộ phận hành chính hoặc quản lý dữ liệu.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 14
+Điều nào khiến tôi ít hứng thú với một công việc nhất?
+A. Chủ yếu ngồi làm việc trên giấy tờ, ít được vận động hoặc thao tác thực tế.
+B. Chỉ làm theo hướng dẫn có sẵn, ít cần tư duy hoặc tìm hiểu nguyên nhân.
+C. Phải tuân theo khuôn mẫu cứng nhắc và không được sáng tạo.
+D. Ít có cơ hội giao tiếp, hỗ trợ hoặc tương tác với người khác.
+E. Không được chủ động, thiếu mục tiêu thử thách hoặc cơ hội phát triển.
+F. Công việc thiếu tổ chức, thường xuyên bỏ qua quy trình và chi tiết.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
+
+CÂU 15
+Trong tương lai, tôi muốn được biết đến là người...
+A. Có tay nghề tốt, giỏi thực hành và giải quyết được các vấn đề kỹ thuật.
+B. Có kiến thức chuyên môn sâu, tư duy logic và khả năng tìm ra giải pháp.
+C. Có tư duy sáng tạo, phong cách riêng và những sản phẩm độc đáo.
+D. Biết quan tâm, hỗ trợ và tạo ảnh hưởng tích cực đến cuộc sống của người khác.
+E. Có năng lực lãnh đạo, kinh doanh và biến ý tưởng thành kết quả.
+F. Làm việc đáng tin cậy, chính xác, có tổ chức và trách nhiệm.
+NHÓM: A=R, B=I, C=A, D=S, E=E, F=C
+ĐIỂM: A=1, B=1, C=1, D=1, E=1, F=1
