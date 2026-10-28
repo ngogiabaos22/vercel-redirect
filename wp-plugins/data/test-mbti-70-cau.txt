@@ -1,0 +1,423 @@
+# Test MBTI – 70 câu (bộ Keirsey Temperament Sorter, bản tiếng Việt)
+# Cột Keirsey theo số câu: n chia 7 dư 1 → E/I; dư 2, 3 → S/N; dư 4, 5 → T/F; dư 6, 0 → J/P.
+# Câu 49 và 65: bản dịch đảo thứ tự hai đáp án so với bản gốc nên gán nhóm theo nghĩa.
+
+CÂU 1
+Trong một buổi tiệc, bạn sẽ?
+A. Nói chuyện với tất cả mọi người, kể cả người lạ
+B. Nói chuyện với những người bạn quen
+NHÓM: A=E, B=I
+
+CÂU 2
+Xu hướng nào trong bạn mạnh hơn?
+A. Hướng tới những điều thực tế và cụ thể
+B. Hướng tới các dự đoán trong tương lai
+NHÓM: A=S, B=N
+
+CÂU 3
+Tình huống nào khiến bạn cảm thấy tệ hơn?
+A. Mọi thứ mông lung, không rõ ràng
+B. Nhàm chán, đơn điệu
+NHÓM: A=S, B=N
+
+CÂU 4
+Bạn thấy ấn tượng bởi?
+A. Nguyên lý, nguyên tắc
+B. Cảm xúc, tình cảm
+NHÓM: A=T, B=F
+
+CÂU 5
+Bạn có xu hướng nghiêng về?
+A. Những gì có tính thuyết phục
+B. Những gì cảm động
+NHÓM: A=T, B=F
+
+CÂU 6
+Bạn thích làm việc?
+A. Theo thời hạn (deadline)
+B. Tùy hứng
+NHÓM: A=J, B=P
+
+CÂU 7
+Khi lựa chọn, bạn thường?
+A. Khá cẩn thận, xem xét kĩ lưỡng
+B. Tin vào cảm giác lúc lựa chọn
+NHÓM: A=J, B=P
+
+CÂU 8
+Tại các buổi gặp mặt, bạn sẽ?
+A. Ở lại đến cuối buổi, càng lúc càng phấn khích
+B. Ra về sớm và cảm thấy mệt
+NHÓM: A=E, B=I
+
+CÂU 9
+Tuýp người nào sẽ thu hút bạn hơn?
+A. Người có đầu óc xét đoán, biết điều
+B. Người có khả năng tưởng tượng phong phú
+NHÓM: A=S, B=N
+
+CÂU 10
+Bạn hứng thú hơn với?
+A. Những việc thực tế xảy ra
+B. Những việc có khả năng xảy ra
+NHÓM: A=S, B=N
+
+CÂU 11
+Khi đánh giá người khác, bạn thường?
+A. Dựa trên các quy định, luật lệ
+B. Dựa trên hoàn cảnh cụ thể
+NHÓM: A=T, B=F
+
+CÂU 12
+Khi tiếp cận người khác, bạn nghiêng về?
+A. Tiếp cận khách quan
+B. Tiếp cận cá nhân
+NHÓM: A=T, B=F
+
+CÂU 13
+Phong cách đúng với bạn hơn?
+A. Đúng giờ
+B. Nhàn nhã, thoải mái
+NHÓM: A=J, B=P
+
+CÂU 14
+Bạn bồn chồn khi có những việc?
+A. Chưa hoàn thiện
+B. Đã hoàn thiện
+NHÓM: A=J, B=P
+
+CÂU 15
+Bạn là người?
+A. Luôn nắm bắt kịp thời thông tin về các vấn đề của mọi người
+B. Thường biết thông tin sau
+NHÓM: A=E, B=I
+
+CÂU 16
+Với các công việc thông thường, bạn nghiêng về cách?
+A. Làm theo cách thông thường
+B. Làm theo cách của riêng mình
+NHÓM: A=S, B=N
+
+CÂU 17
+Theo bạn, các nhà văn nên?
+A. Viết những gì họ nghĩ, và nghĩ những gì họ viết, một cách rõ ràng
+B. Diễn đạt sự việc bằng cách so sánh, liên tưởng
+NHÓM: A=S, B=N
+
+CÂU 18
+Điều gì lôi cuốn bạn hơn?
+A. Sự nhất quán về tư duy, suy nghĩ
+B. Sự hòa hợp trong các mối quan hệ con người
+NHÓM: A=T, B=F
+
+CÂU 19
+Bạn cảm thấy thoải mái hơn khi đưa ra nhận xét?
+A. Một cách logic
+B. Một cách có ý nghĩa, có giá trị
+NHÓM: A=T, B=F
+
+CÂU 20
+Bạn thích những điều?
+A. Được định trước
+B. Chưa được quyết định
+NHÓM: A=J, B=P
+
+CÂU 21
+Bạn là người?
+A. Nghiêm túc và quyết đoán
+B. Dễ tính, thoải mái
+NHÓM: A=J, B=P
+
+CÂU 22
+Khi nói chuyện điện thoại, bạn?
+A. Hiếm khi băn khoăn đến những điều mình sẽ nói
+B. Thường chuẩn bị trước những điều mình sẽ nói
+NHÓM: A=E, B=I
+
+CÂU 23
+Theo bạn, "các sự việc, sự kiện"?
+A. "Bản thân nó giải thích cho chính nó"
+B. Nó là bằng chứng giải thích cho các quy tắc, quy luật
+NHÓM: A=S, B=N
+
+CÂU 24
+Những người có tầm nhìn xa?
+A. Ở mức độ nào đó, họ thường gây khó chịu cho người khác
+B. Khá thú vị
+NHÓM: A=S, B=N
+
+CÂU 25
+Bạn là người?
+A. Có cái đầu lạnh
+B. Có trái tim ấm
+NHÓM: A=T, B=F
+
+CÂU 26
+Điều nào tồi tệ hơn?
+A. Không công bằng
+B. Tàn nhẫn
+NHÓM: A=T, B=F
+
+CÂU 27
+Mọi người nên để các sự kiện xảy ra?
+A. Theo sự lựa chọn và cân nhắc kĩ lưỡng
+B. Diễn ra ngẫu nhiên, tự nhiên
+NHÓM: A=J, B=P
+
+CÂU 28
+Bạn cảm thấy thoải mái hơn khi?
+A. Đã mua một thứ gì đó
+B. Có khả năng và có sự lựa chọn để mua
+NHÓM: A=J, B=P
+
+CÂU 29
+Trong công ty, bạn là người?
+A. Khởi xướng các câu chuyện
+B. Đợi người khác khởi xướng để nói chuyện
+NHÓM: A=E, B=I
+
+CÂU 30
+Những logic được mọi người chấp nhận, bạn sẽ?
+A. Tin tưởng vào những điều đó và không nghi ngờ
+B. Xem xét lại tính đúng đắn của những điều đó
+NHÓM: A=S, B=N
+
+CÂU 31
+Trẻ em thường không?
+A. Tự mình phát huy hết năng lực
+B. Thỏa mãn hết trí tưởng tượng của mình
+NHÓM: A=S, B=N
+
+CÂU 32
+Khi đưa ra các quyết định, bạn thiên về?
+A. Các tiêu chuẩn, quy định
+B. Cảm xúc, cảm nhận
+NHÓM: A=T, B=F
+
+CÂU 33
+Bạn nghiêng về tính cách?
+A. Chắc chắn hơn là nhẹ nhàng
+B. Nhẹ nhàng hơn là chắc chắn
+NHÓM: A=T, B=F
+
+CÂU 34
+Khả năng nào đáng khâm phục hơn?
+A. Khả năng tổ chức và làm việc có phương pháp
+B. Khả năng thích ứng và xoay xở trước mọi tình huống
+NHÓM: A=J, B=P
+
+CÂU 35
+Bạn đề cao?
+A. Sự chắc chắn
+B. Sự cởi mở
+NHÓM: A=J, B=P
+
+CÂU 36
+Đối mặt với những vấn đề mới, bạn thường?
+A. Thấy kích thích và hào hứng
+B. Cảm thấy mệt mỏi
+NHÓM: A=E, B=I
+
+CÂU 37
+Thường thì bạn là?
+A. Người thực tế
+B. Người có khả năng tưởng tượng phong phú
+NHÓM: A=S, B=N
+
+CÂU 38
+Bạn thường có xu hướng xem người khác?
+A. Có thể làm được việc gì hữu ích
+B. Xem người khác sẽ nghĩ và cảm nhận như thế nào
+NHÓM: A=S, B=N
+
+CÂU 39
+Bạn cảm thấy thoải mái hơn khi?
+A. Thảo luận một vấn đề kĩ lưỡng, triệt để
+B. Đạt được thỏa thuận, sự nhất trí về vấn đề
+NHÓM: A=T, B=F
+
+CÂU 40
+Cái đầu hay trái tim chi phối bạn nhiều hơn?
+A. Cái đầu
+B. Trái tim
+NHÓM: A=T, B=F
+
+CÂU 41
+Bạn thích công việc?
+A. Được giao trọn gói, làm xong hết rồi bàn giao
+B. Công việc làm hàng ngày, theo lịch
+NHÓM: A=J, B=P
+
+CÂU 42
+Bạn có xu hướng tìm kiếm những điều?
+A. Theo trật tự, thứ tự
+B. Ngẫu nhiên
+NHÓM: A=J, B=P
+
+CÂU 43
+Bạn thích kiểu nào hơn?
+A. Nhiều bạn bè với mức độ tiếp xúc ngắn gọn
+B. Một vài bạn thân với mức độ tiếp xúc sâu
+NHÓM: A=E, B=I
+
+CÂU 44
+Bạn thường dựa vào?
+A. Sự kiện, thông tin
+B. Nguyên lí, nguyên tắc
+NHÓM: A=S, B=N
+
+CÂU 45
+Bạn hứng thú với việc gì hơn?
+A. Sản xuất và phân phối
+B. Thiết kế, nghiên cứu
+NHÓM: A=S, B=N
+
+CÂU 46
+Bạn thích được khen là?
+A. Một người có logic rất tốt
+B. Một người rất tình cảm, tinh tế
+NHÓM: A=T, B=F
+
+CÂU 47
+Bạn thấy điều nào ở mình giá trị hơn?
+A. Kiên định, vững vàng
+B. Toàn tâm, cống hiến
+NHÓM: A=T, B=F
+
+CÂU 48
+Bạn thường thích?
+A. Một tuyên bố cuối cùng, không thay đổi
+B. Một tuyên bố dự kiến, ban đầu
+NHÓM: A=J, B=P
+
+CÂU 49
+Bạn thấy thoải mái hơn?
+A. Trước khi đưa ra quyết định
+B. Sau khi đưa ra quyết định
+NHÓM: A=P, B=J
+
+CÂU 50
+Bạn có thấy mình?
+A. Dễ dàng bắt chuyện với người lạ
+B. Có ít điều để nói với người lạ
+NHÓM: A=E, B=I
+
+CÂU 51
+Bạn có xu hướng tin tưởng vào?
+A. Kinh nghiệm của mình
+B. Linh cảm của mình
+NHÓM: A=S, B=N
+
+CÂU 52
+Bạn cho mình là người như thế nào?
+A. Là người thực tế hơn là khéo léo, mưu trí
+B. Là người khéo léo, mưu trí hơn là thực tế
+NHÓM: A=S, B=N
+
+CÂU 53
+Theo bạn ai sẽ là người đáng được khen ngợi?
+A. Một người giàu lý trí
+B. Một người giàu cảm xúc
+NHÓM: A=T, B=F
+
+CÂU 54
+Bạn có xu hướng nhiều hơn về?
+A. Công bằng, vô tư
+B. Thông cảm, đồng cảm
+NHÓM: A=T, B=F
+
+CÂU 55
+Mọi việc sẽ hợp lý hơn nếu?
+A. Được chuẩn bị trước
+B. Diễn ra tự nhiên
+NHÓM: A=J, B=P
+
+CÂU 56
+Mọi việc?
+A. Có thể nói chuyện để giải quyết được
+B. Nên để mọi việc diễn ra ngẫu nhiên theo điều kiện hoàn cảnh
+NHÓM: A=J, B=P
+
+CÂU 57
+Khi chuông điện thoại reo, bạn sẽ?
+A. Là người đầu tiên nhấc máy để nghe
+B. Hi vọng có người khác sẽ nhấc máy
+NHÓM: A=E, B=I
+
+CÂU 58
+Bạn đánh giá cao điều gì trong mình hơn?
+A. Cảm nhận tốt các yếu tố thực tế
+B. Trí tưởng tượng phong phú, rực rỡ
+NHÓM: A=S, B=N
+
+CÂU 59
+Bạn sẽ chú tâm hơn đến?
+A. Các nguyên tắc, nguyên lý cơ bản
+B. Các ngụ ý, hàm ý, ẩn ý
+NHÓM: A=S, B=N
+
+CÂU 60
+Bạn không thích những người?
+A. Quá nồng nhiệt, thiết tha
+B. Quá khách quan
+NHÓM: A=T, B=F
+
+CÂU 61
+Bạn sẽ đánh giá mình là người thế nào?
+A. Thiết thực, ít bị chi phối bởi tình cảm
+B. Từ tâm, đa cảm
+NHÓM: A=T, B=F
+
+CÂU 62
+Tình huống nào sẽ lôi cuốn bạn?
+A. Tình huống rõ ràng, có kế hoạch
+B. Tình huống không xác định, không có kế hoạch
+NHÓM: A=J, B=P
+
+CÂU 63
+Bạn là người có xu hướng nào hơn?
+A. Theo thói quen
+B. Hay thay đổi
+NHÓM: A=J, B=P
+
+CÂU 64
+Bạn có xu hướng?
+A. Là người dễ tiếp cận
+B. Ở mức độ nào đó là người kín đáo
+NHÓM: A=E, B=I
+
+CÂU 65
+Khi viết, bạn thích?
+A. Viết theo hướng văn chương hơn
+B. Viết theo số liệu, dữ liệu hơn
+NHÓM: A=N, B=S
+
+CÂU 66
+Điều gì khó thực hiện hơn?
+A. Hiểu và chia sẻ với người khác
+B. Sử dụng người khác
+NHÓM: A=S, B=N
+
+CÂU 67
+Bạn mong ước mình sẽ có thêm?
+A. Lí trí suy xét rõ ràng
+B. Tình thương, lòng trắc ẩn sâu sắc
+NHÓM: A=T, B=F
+
+CÂU 68
+Điều gì sẽ là lỗi lớn hơn?
+A. Hành động bừa bãi, không cân nhắc
+B. Hành động chỉ trích, phê phán
+NHÓM: A=T, B=F
+
+CÂU 69
+Bạn sẽ thích?
+A. Sự kiện có kế hoạch trước
+B. Sự kiện không có kế hoạch trước
+NHÓM: A=J, B=P
+
+CÂU 70
+Bạn thiên về xu hướng hành động?
+A. Cân nhắc thận trọng
+B. Tự nhiên, tự phát
+NHÓM: A=J, B=P
