@@ -29,7 +29,10 @@
 	function close() {
 		if (!open) { return; }
 		var q = open.querySelector('.tnp-iq');
-		if (q && q.tnpQuiz) { clearInterval(q.tnpQuiz.timer); }
+		if (q && q.tnpQuiz) {
+			clearInterval(q.tnpQuiz.timer);
+			if (q.tnpQuiz.taskPopup) { q.tnpQuiz.taskPopup.close(); }
+		}
 		open.remove();
 		open = null;
 		document.documentElement.classList.remove('tnp-modal-open');
@@ -38,7 +41,11 @@
 			history.replaceState(null, '', location.pathname + location.search);
 		}
 	}
-	function onKey(e) { if (e.key === 'Escape') { close(); } }
+	function onKey(e) {
+		var q = open && open.querySelector('.tnp-iq');
+		if (q && q.tnpQuiz && q.tnpQuiz.taskPopup) { return; } // đang làm nhiệm vụ: Esc không đóng bài test
+		if (e.key === 'Escape') { close(); }
+	}
 
 	function show(slug) {
 		var t = (D.tests || {})[slug];

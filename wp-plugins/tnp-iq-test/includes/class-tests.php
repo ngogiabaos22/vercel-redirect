@@ -126,6 +126,29 @@ class TNP_IQ_Tests {
 	}
 
 	/** Loại test của một câu hỏi = loại của bài test (term) đầu tiên nó thuộc về. */
+	/**
+	 * Yêu cầu nhiệm vụ của bài test: null nếu tắt, ngược lại array( 'tag' => … ).
+	 * Bật: người làm bài phải làm nhiệm vụ (Traffic Hila) và nhập mã đúng mới xem được kết quả.
+	 */
+	public static function task_of( $slug ) {
+		if ( '' === $slug ) {
+			return null;
+		}
+		$term = get_term_by( 'slug', $slug, TNP_IQ_Questions::TAX );
+		if ( ! $term || '1' !== (string) get_term_meta( $term->term_id, 'tnp_task_on', true ) ) {
+			return null;
+		}
+		return array( 'tag' => (string) get_term_meta( $term->term_id, 'tnp_task_tag', true ) );
+	}
+
+	private static function task_fields( $on, $tag ) {
+		?>
+		<label class="tnp-switch"><input type="checkbox" name="tnp_task_on" value="1" <?php checked( $on ); ?>><span></span> Yêu cầu làm nhiệm vụ trước khi xem kết quả</label>
+		<p><input type="text" name="tnp_task_tag" id="tnp-task-tag" value="<?php echo esc_attr( $tag ); ?>" placeholder="Tag nhiệm vụ, vd: iq" style="max-width:260px"></p>
+		<p class="description">Tag trùng với “Tag phân loại” của nhiệm vụ bên Traffic Hila (để trống = lấy nhiệm vụ bất kỳ). Tắt công tắc để bỏ yêu cầu mà vẫn giữ Tag.</p>
+		<?php
+	}
+
 	public static function type_of_question( $post_id ) {
 		$terms = get_the_terms( $post_id, TNP_IQ_Questions::TAX );
 		return $terms && ! is_wp_error( $terms ) ? self::type_of( $terms[0]->slug ) : 'iq';
@@ -158,6 +181,10 @@ class TNP_IQ_Tests {
 			<textarea name="tnp_intro" id="tnp-intro" rows="3"></textarea>
 			<p>Hiện ở màn hình bắt đầu. Để trống = dùng hướng dẫn mặc định của loại test.</p>
 		</div>
+		<div class="form-field tnp-task-field">
+			<label>Nhiệm vụ</label>
+			<?php self::task_fields( false, '' ); ?>
+		</div>
 		<?php
 	}
 
@@ -179,6 +206,10 @@ class TNP_IQ_Tests {
 			<th scope="row"><label for="tnp-intro">Hướng dẫn trước khi làm</label></th>
 			<td><textarea name="tnp_intro" id="tnp-intro" rows="3"><?php echo esc_textarea( get_term_meta( $term->term_id, 'tnp_intro', true ) ); ?></textarea>
 				<p class="description">Để trống = dùng hướng dẫn mặc định của loại test.</p></td>
+		</tr>
+		<tr class="form-field tnp-task-field">
+			<th scope="row">Nhiệm vụ</th>
+			<td><?php self::task_fields( '1' === (string) get_term_meta( $term->term_id, 'tnp_task_on', true ), (string) get_term_meta( $term->term_id, 'tnp_task_tag', true ) ); ?></td>
 		</tr>
 		<tr class="form-field">
 			<th scope="row">Shortcode</th>
@@ -293,6 +324,8 @@ class TNP_IQ_Tests {
 		update_term_meta( $term_id, 'tnp_type', isset( self::types()[ $type ] ) ? $type : 'iq' );
 		update_term_meta( $term_id, 'tnp_intro', sanitize_textarea_field( wp_unslash( $_POST['tnp_intro'] ?? '' ) ) );
 		update_term_meta( $term_id, 'tnp_shuffle', empty( $_POST['tnp_shuffle'] ) ? '0' : '1' );
+		update_term_meta( $term_id, 'tnp_task_on', empty( $_POST['tnp_task_on'] ) ? '0' : '1' );
+		update_term_meta( $term_id, 'tnp_task_tag', sanitize_text_field( wp_unslash( $_POST['tnp_task_tag'] ?? '' ) ) );
 	}
 
 	public static function term_columns( $cols ) {
@@ -301,6 +334,7 @@ class TNP_IQ_Tests {
 			$new[ $k ] = $v;
 			if ( 'name' === $k ) {
 				$new['tnp_type']      = 'Loại';
+				$new['tnp_task']      = 'Nhiệm vụ';
 				$new['tnp_shortcode'] = 'Shortcode';
 			}
 		}
@@ -312,6 +346,13 @@ class TNP_IQ_Tests {
 		$term = get_term( $term_id );
 		if ( 'tnp_type' === $col ) {
 			return esc_html( self::types()[ self::type_of( $term->slug ) ]['short'] );
+		}
+		if ( 'tnp_task' === $col ) {
+			$task = self::task_of( $term->slug );
+			$tag  = (string) get_term_meta( $term_id, 'tnp_task_tag', true );
+			return $task
+				? '<span class="tnp-tag is-ok">Bật</span> ' . ( '' !== $tag ? '<code>' . esc_html( $tag ) . '</code>' : '<em>mọi tag</em>' )
+				: '<span class="tnp-tag is-draft">Tắt</span>' . ( '' !== $tag ? ' <code>' . esc_html( $tag ) . '</code>' : '' );
 		}
 		if ( 'tnp_shortcode' === $col ) {
 			return '<code>[tnp_test test="' . esc_html( $term->slug ) . '"]</code>';

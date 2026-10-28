@@ -69,6 +69,7 @@
 				self.st = {
 					api: c.api, test: c.test || '', token: d.token, questions: d.questions, limit: d.timeLimit,
 					kind: d.kind || 'iq', needsAge: d.needsAge !== false, showTimer: d.showTimer !== false,
+					task: d.task || null, unlocked: false,
 					answers: {}, index: 0, startedAt: Date.now(), finishedAt: null, stage: 'quiz'
 				};
 				self.preload();
@@ -330,11 +331,9 @@
 		};
 	};
 
-	Quiz.prototype.submit = function (btn) {
-		var self = this, st = this.st;
-		btn.disabled = true;
-		btn.textContent = 'Đang chấm điểm…';
-		fetch(this.cfg.api + '/submit', {
+	Quiz.prototype.send = function (code) {
+		var st = this.st;
+		return fetch(this.cfg.api + '/submit', {
 			method: 'POST',
 			credentials: 'same-origin',
 			headers: { 'Content-Type': 'application/json' },
@@ -342,10 +341,19 @@
 				token: st.token,
 				answers: st.answers,
 				age: st.needsAge ? st.age : 0,
-				elapsed: Math.round((st.finishedAt - st.startedAt) / 1000)
+				elapsed: Math.round((st.finishedAt - st.startedAt) / 1000),
+				task_code: code || '',
+				page: window.location.href
 			})
-		})
-			.then(function (r) { return r.json().then(function (d) { if (!r.ok) { throw d; } return d; }); })
+		}).then(function (r) { return r.json().then(function (d) { if (!r.ok) { throw d; } return d; }); });
+	};
+
+	Quiz.prototype.submit = function (btn) {
+		var self = this, st = this.st;
+		if (st.task && !st.unlocked) { this.taskGate(btn); return; }
+		btn.disabled = true;
+		btn.textContent = 'Đang chấm điểm…';
+		this.send('')
 			.then(function (res) {
 				st.stage = 'done';
 				self.renderResult(res);
@@ -353,10 +361,59 @@
 			.catch(function (e) {
 				btn.disabled = false;
 				btn.textContent = 'Thử lại';
-				var err = self.root.querySelector('.tnp-err');
-				err.textContent = (e && e.message) || 'Không gửi được bài. Kiểm tra kết nối mạng rồi thử lại.';
-				err.hidden = false;
+				self.showErr((e && e.message) || 'Không gửi được bài. Kiểm tra kết nối mạng rồi thử lại.');
 			});
+	};
+
+	Quiz.prototype.showErr = function (msg) {
+		var err = this.root.querySelector('.tnp-err');
+		if (err) { err.textContent = msg; err.hidden = !msg; }
+	};
+
+	/* ---------- Nhiệm vụ (Traffic Hila): làm nhiệm vụ, nhập mã đúng mới xem được kết quả ---------- */
+	var scripts = {};
+	function loadScript(src) {
+		if (window.IATSPopup) { return Promise.resolve(); }
+		if (!scripts[src]) {
+			scripts[src] = new Promise(function (ok, fail) {
+				var s = document.createElement('script');
+				s.src = src;
+				s.onload = function () { if (window.IATSPopup) { ok(); } else { fail(); } };
+				s.onerror = function () { delete scripts[src]; s.remove(); fail(); };
+				document.body.appendChild(s);
+			});
+		}
+		return scripts[src];
+	}
+
+	Quiz.prototype.taskGate = function (btn) {
+		var self = this, st = this.st, label = /^Đang/.test(btn.textContent) ? 'Xem kết quả' : btn.textContent;
+		btn.disabled = true;
+		btn.textContent = 'Đang tải nhiệm vụ…';
+		this.showErr('');
+		loadScript(st.task.script).then(function () {
+			btn.disabled = false;
+			btn.textContent = label;
+			self.taskPopup = window.IATSPopup.open({
+				tag: st.task.tag,
+				mode: 'result',
+				onSubmit: function (code) {
+					return self.send(code).then(function (res) {
+						st.unlocked = true;
+						self.taskPopup = null;
+						setTimeout(function () { st.stage = 'done'; self.renderResult(res); }, 0);
+						return { success: true };
+					}, function (e) {
+						return { success: false, message: (e && e.message) || 'Không kiểm tra được mã. Vui lòng thử lại.' };
+					});
+				},
+				onClose: function () { self.taskPopup = null; }
+			});
+		}, function () {
+			btn.disabled = false;
+			btn.textContent = label;
+			self.showErr('Không tải được nhiệm vụ. Kiểm tra kết nối mạng rồi bấm lại.');
+		});
 	};
 
 	/* ---------- Kết quả ---------- */

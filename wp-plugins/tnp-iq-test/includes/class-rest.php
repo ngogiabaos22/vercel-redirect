@@ -35,6 +35,8 @@ class TNP_IQ_Rest {
 				'answers' => array( 'type' => 'object', 'required' => true ),
 				'age'     => array( 'type' => 'integer', 'minimum' => 0, 'maximum' => 100 ), // bắt buộc với IQ (kiểm tra trong submit)
 				'elapsed' => array( 'type' => 'integer', 'minimum' => 0 ),
+				'task_code' => array( 'type' => 'string', 'maxLength' => 64 ), // mã nhiệm vụ (bài có yêu cầu nhiệm vụ)
+				'page'      => array( 'type' => 'string', 'maxLength' => 2000 ), // trang người dùng đang làm bài
 			),
 		) );
 	}
@@ -53,6 +55,68 @@ class TNP_IQ_Rest {
 		}
 		$data = json_decode( base64_decode( strtr( $parts[0], '-_', '+/' ) ), true );
 		return is_array( $data ) && isset( $data['ids'], $data['t'], $data['limit'] ) ? $data : false;
+	}
+
+	/** Thông tin nhiệm vụ gửi xuống trình duyệt khi bắt đầu làm bài (null = không yêu cầu). */
+	private static function task_client( $test ) {
+		$task = TNP_IQ_Tests::task_of( $test );
+		if ( ! $task ) {
+			return null;
+		}
+		$server = TNP_IQ_Settings::get( 'task_server' );
+		return array(
+			'tag'    => $task['tag'],
+			'script' => $server . '/wp-content/plugins/traffic-hila/assets/js/task-popup.js',
+		);
+	}
+
+	/** IP người làm bài như máy chủ nhiệm vụ nhìn thấy (cùng thứ tự ưu tiên với Traffic Hila). */
+	private static function client_ip() {
+		foreach ( array( 'HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'REMOTE_ADDR' ) as $k ) {
+			if ( ! empty( $_SERVER[ $k ] ) ) {
+				return sanitize_text_field( wp_unslash( $_SERVER[ $k ] ) );
+			}
+		}
+		return '';
+	}
+
+	/**
+	 * true nếu được xem kết quả, WP_Error nếu còn thiếu/sai mã nhiệm vụ.
+	 * Mã đúng mở khoá cho đúng lượt làm này (token) trong 6 giờ, nộp lại không cần mã mới.
+	 * Máy chủ nhiệm vụ không phản hồi: cho qua để người làm bài không bị kẹt.
+	 */
+	private static function check_task( $test, WP_REST_Request $req ) {
+		if ( ! TNP_IQ_Tests::task_of( $test ) ) {
+			return true;
+		}
+		$unlock = 'tnp_iq_unlock_' . md5( (string) $req['token'] );
+		if ( get_transient( $unlock ) ) {
+			return true;
+		}
+		$code = sanitize_text_field( (string) $req['task_code'] );
+		if ( '' === $code ) {
+			return new WP_Error( 'tnp_task_required', 'Vui lòng làm nhiệm vụ và nhập mã để xem kết quả.', array( 'status' => 403 ) );
+		}
+		$res = wp_remote_post( TNP_IQ_Settings::get( 'task_server' ) . '/wp-json/iats/v1/code/verify', array(
+			'timeout' => 15,
+			'body'    => array(
+				'code'          => $code,
+				'forwarded_ip'  => self::client_ip(),
+				'forwarded_url' => esc_url_raw( (string) $req['page'] ),
+				'forwarded_ua'  => sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ?? '' ) ),
+			),
+		) );
+		$status = is_wp_error( $res ) ? 0 : (int) wp_remote_retrieve_response_code( $res );
+		$body   = is_wp_error( $res ) ? null : json_decode( wp_remote_retrieve_body( $res ), true );
+		if ( ! is_array( $body ) || $status >= 500 || 0 === $status ) {
+			return true; // máy chủ nhiệm vụ lỗi
+		}
+		if ( empty( $body['success'] ) ) {
+			$msg = sanitize_text_field( (string) ( $body['message'] ?? '' ) );
+			return new WP_Error( 'tnp_task_code', $msg ?: 'Mã nhiệm vụ không đúng. Vui lòng kiểm tra lại.', array( 'status' => 403 ) );
+		}
+		set_transient( $unlock, 1, 6 * HOUR_IN_SECONDS );
+		return true;
 	}
 
 	private static function ip_hash() {
@@ -119,6 +183,7 @@ class TNP_IQ_Rest {
 			'kind'      => $kind,
 			'needsAge'  => $is_iq,
 			'showTimer' => $is_iq || $time > 0,
+			'task'      => self::task_client( $test ),
 			'questions' => self::maybe_shuffle( array_map( array( 'TNP_IQ_Questions', 'public_data' ), $posts ), TNP_IQ_Tests::shuffle_of( $test ) ),
 		) );
 	}
@@ -148,6 +213,12 @@ class TNP_IQ_Rest {
 		if ( 'iq' === $kind && ( $age < 5 || $age > 100 ) ) {
 			return new WP_Error( 'tnp_iq_age', 'Vui lòng nhập tuổi từ 5 đến 100.', array( 'status' => 400 ) );
 		}
+		// Bài có yêu cầu nhiệm vụ: phải có mã nhiệm vụ hợp lệ mới chấm và trả kết quả.
+		$task = self::check_task( $test, $req );
+		if ( is_wp_error( $task ) ) {
+			return $task;
+		}
+
 		$server  = max( 0, time() - (int) $data['t'] );
 		$n       = count( $data['ids'] );
 		// Thời gian làm phần câu hỏi do trình duyệt báo (không tính bước nhập tuổi), không vượt thời gian máy chủ đo được.

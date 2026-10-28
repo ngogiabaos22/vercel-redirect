@@ -34,6 +34,7 @@ class TNP_IQ_Settings {
 			'norms'          => self::default_norms(),
 			'intro_title'    => 'Test IQ miễn phí',
 			'intro_text'     => 'Chuẩn bị giấy nháp, chọn nơi yên tĩnh. Bạn có thể bỏ qua câu khó và quay lại sau. Ở bước cuối, hãy nhập đúng tuổi để điểm IQ được quy đổi chính xác theo độ tuổi.',
+			'task_server'    => 'https://traffic.io.vn',
 			'age_note'       => 'Điểm IQ được so sánh với những người cùng độ tuổi, vì vậy hãy nhập đúng tuổi của bạn để có kết quả chính xác nhất.',
 		);
 	}
@@ -74,6 +75,7 @@ class TNP_IQ_Settings {
 		$out['intro_title']    = sanitize_text_field( $in['intro_title'] ?? $d['intro_title'] );
 		$out['intro_text']     = sanitize_textarea_field( $in['intro_text'] ?? $d['intro_text'] );
 		$out['age_note']       = sanitize_textarea_field( $in['age_note'] ?? $d['age_note'] );
+		$out['task_server']    = untrailingslashit( esc_url_raw( trim( (string) ( $in['task_server'] ?? $d['task_server'] ) ), array( 'https', 'http' ) ) ) ?: $d['task_server'];
 
 		$norms = sanitize_textarea_field( $in['norms'] ?? '' );
 		if ( ! self::parse_norms( $norms ) ) {
@@ -173,6 +175,11 @@ class TNP_IQ_Settings {
 					<tr>
 						<th scope="row"><label for="tnp-an">Ghi chú ở bước nhập tuổi</label></th>
 						<td><textarea id="tnp-an" name="<?php echo esc_attr( $n ); ?>[age_note]" rows="2" cols="60"><?php echo esc_textarea( $o['age_note'] ); ?></textarea></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="tnp-ts">Web nhiệm vụ (Traffic Hila)</label></th>
+						<td><input id="tnp-ts" type="url" class="regular-text" name="<?php echo esc_attr( $n ); ?>[task_server]" value="<?php echo esc_attr( $o['task_server'] ); ?>">
+							<p class="description">Địa chỉ web cài plugin Traffic Hila. Bật “Yêu cầu nhiệm vụ” và điền Tag trong từng Bài test: người làm bài phải làm nhiệm vụ, nhập mã đúng mới xem được kết quả.</p></td>
 					</tr>
 				</table>
 				<?php submit_button( 'Lưu cài đặt' ); ?>

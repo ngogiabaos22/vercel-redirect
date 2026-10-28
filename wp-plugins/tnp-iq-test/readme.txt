@@ -1,7 +1,7 @@
 === TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland) ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 2.4.0
+Stable tag: 2.5.0
 
 Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu hỏi, chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê kết quả.
 
@@ -42,6 +42,18 @@ Bài IQ: ghi "ĐÁP ÁN: ?" (hoặc bỏ trống) và bật allow_no_answer → 
 
 == Xáo trộn đáp án ==
 Trong Bài test → Sửa: "Xáo trộn thứ tự đáp án mỗi lượt làm" (mặc định bật khi tạo bài mới). Nhãn A, B, C… theo thứ tự hiển thị; máy chủ chấm theo đáp án gốc.
+
+== Nhiệm vụ (kết nối Traffic Hila) ==
+Bắt người làm bài làm nhiệm vụ của Traffic Hila (traffic.io.vn) và nhập mã đúng mới xem được kết quả, giống TestSpace.
+* Trắc nghiệm → Cài đặt → "Web nhiệm vụ (Traffic Hila)": địa chỉ web cài Traffic Hila (mặc định https://traffic.io.vn).
+* Trắc nghiệm → Bài test → Sửa (hoặc khi thêm mới) → mục "Nhiệm vụ":
+  - Công tắc "Yêu cầu làm nhiệm vụ trước khi xem kết quả": bật/tắt yêu cầu.
+  - Ô Tag: trùng "Tag phân loại" của nhiệm vụ bên Traffic Hila (để trống = nhiệm vụ bất kỳ). Tắt công tắc vẫn giữ Tag.
+  Bảng danh sách Bài test có cột "Nhiệm vụ" (Bật/Tắt + tag).
+* Khi nộp bài: hiện popup nhiệm vụ của Traffic Hila (giao diện chỉnh ở Hila → Cài đặt → Giao diện Popup). Người dùng nhập mã → máy chủ web này
+  gửi mã sang Hila (/iats/v1/code/verify) để kiểm tra; đúng mới chấm điểm và trả kết quả, sai thì popup báo lỗi để nhập lại.
+* Kết quả chỉ được tính sau khi mã đúng; mỗi mã dùng một lần, mỗi lượt làm bài cần một mã.
+* Nếu máy chủ Traffic Hila không phản hồi, người làm bài vẫn được xem kết quả (không bị kẹt).
 
 == Mở bài test bằng nút (cửa sổ bật lên) ==
 Bấm nút là bài test hiện ngay trong cửa sổ bật lên, vào thẳng câu 1, không cần trang riêng. Dùng được với mọi nút/liên kết trên web (Flatsome Button, menu, ảnh…):
