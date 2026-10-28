@@ -58,6 +58,74 @@ class TNP_IQ_Import {
 				'allow_no_answer' => array( 'type' => 'boolean', 'default' => false ),
 			),
 		) );
+
+		$admin = function () {
+			return current_user_can( 'manage_options' );
+		};
+		// GET: danh sách câu hỏi của một bài test (kể cả nháp) để kiểm tra; POST: sửa nhóm năng lực / độ khó hàng loạt.
+		register_rest_route( TNP_IQ_Rest::NS, '/admin/questions', array(
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( __CLASS__, 'rest_list' ),
+				'permission_callback' => $admin,
+				'args'                => array( 'test' => array( 'type' => 'string', 'required' => true ) ),
+			),
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( __CLASS__, 'rest_update' ),
+				'permission_callback' => $admin,
+				'args'                => array( 'items' => array( 'type' => 'array', 'required' => true ) ),
+			),
+		) );
+	}
+
+	public static function rest_list( WP_REST_Request $req ) {
+		$ids = get_posts( array(
+			'post_type'      => TNP_IQ_CPT,
+			'post_status'    => array( 'publish', 'draft', 'pending', 'private' ),
+			'posts_per_page' => -1,
+			'orderby'        => 'menu_order',
+			'order'          => 'ASC',
+			'fields'         => 'ids',
+			'tax_query'      => array( array( 'taxonomy' => TNP_IQ_Questions::TAX, 'field' => 'slug', 'terms' => sanitize_title( $req['test'] ) ) ),
+		) );
+		return array_map( function ( $id ) {
+			$q = TNP_IQ_Questions::get( $id );
+			return array(
+				'id'         => $id,
+				'order'      => (int) get_post_field( 'menu_order', $id ),
+				'status'     => get_post_status( $id ),
+				'title'      => get_the_title( $id ),
+				'image'      => $q['image'],
+				'options'    => count( $q['options'] ),
+				'correct'    => $q['correct'],
+				'category'   => $q['category'],
+				'difficulty' => $q['difficulty'],
+				'complete'   => TNP_IQ_Questions::is_complete( $q ),
+			);
+		}, $ids );
+	}
+
+	/** items: [{id, category?, difficulty?, explain?}] — chỉ sửa câu hỏi thuộc plugin, giá trị được kiểm tra như khi lưu trong trang quản trị. */
+	public static function rest_update( WP_REST_Request $req ) {
+		$done = array();
+		foreach ( (array) $req['items'] as $it ) {
+			$id = absint( $it['id'] ?? 0 );
+			if ( ! $id || TNP_IQ_CPT !== get_post_type( $id ) ) {
+				continue;
+			}
+			if ( isset( $it['category'] ) && array_key_exists( $it['category'], TNP_IQ_Questions::CATEGORIES ) ) {
+				update_post_meta( $id, '_tnp_category', $it['category'] );
+			}
+			if ( isset( $it['difficulty'] ) ) {
+				update_post_meta( $id, '_tnp_difficulty', max( 1, min( 5, (int) $it['difficulty'] ) ) );
+			}
+			if ( isset( $it['explain'] ) ) {
+				update_post_meta( $id, '_tnp_explain', sanitize_textarea_field( $it['explain'] ) );
+			}
+			$done[] = $id;
+		}
+		return array( 'updated' => $done );
 	}
 
 	public static function rest_import( WP_REST_Request $req ) {
