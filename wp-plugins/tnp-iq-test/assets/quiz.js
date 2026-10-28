@@ -197,6 +197,62 @@
 			self.finishQuestions(false);
 		});
 		this.tick();
+		this.fit(true);
+	};
+
+	/* ---------- Điện thoại: cả câu (đề + ảnh + đáp án + nút) nằm gọn trong một màn hình ---------- */
+	var mobile = window.matchMedia ? window.matchMedia('(max-width:600px)') : { matches: false };
+
+	// Chiều cao phần đầu trang đang dính trên cùng (vd header Flatsome khi cuộn), để không che đề bài.
+	function stuckTop() {
+		var el = document.elementFromPoint(window.innerWidth / 2, 2), h = 0;
+		for (; el && el !== document.body && el !== document.documentElement; el = el.parentElement) {
+			var pos = window.getComputedStyle(el).position;
+			if (pos === 'fixed' || pos === 'sticky') {
+				var b = el.getBoundingClientRect().bottom;
+				if (b > 0 && b < window.innerHeight / 3) { h = b; }
+			}
+		}
+		return h;
+	}
+
+	Quiz.prototype.fit = function (align) {
+		var self = this, card = this.root.querySelector('.tnp-quiz');
+		if (!card) { return; }
+		var qimg = card.querySelector('.tnp-qimg img'), oimg = card.querySelector('.tnp-opts.is-cards .tnp-opt-img');
+		card.style.removeProperty('--qimg-h');
+		card.style.removeProperty('--opt-h');
+		card.classList.toggle('is-fit', !!(mobile.matches && (qimg || oimg)));
+		if (!card.classList.contains('is-fit')) { return; }
+
+		if (!this.fitBound) { // ảnh tải xong thì tính lại; lắng nghe một lần cho mỗi khung
+			this.fitBound = true;
+			this.root.addEventListener('load', function (e) { if (e.target.tagName === 'IMG') { self.fit(false); } }, true);
+			window.addEventListener('resize', function () { clearTimeout(self.fitT); self.fitT = setTimeout(function () { self.fit(false); }, 150); });
+		}
+
+		var top = stuckTop();
+		if (align) {
+			var y = card.getBoundingClientRect().top - top - 6;
+			if (Math.abs(y) > 2) { window.scrollBy(0, y); top = stuckTop(); }
+		}
+		var opts = card.querySelector('.tnp-opts'), nav = card.querySelector('.tnp-nav');
+		var avail = window.innerHeight - top - 6;
+		var used = opts.getBoundingClientRect().bottom - card.getBoundingClientRect().top + nav.offsetHeight + 12;
+		var over = used - avail;
+		if (over <= 0) { return; }
+
+		// Thu ảnh đề và ảnh đáp án cùng một tỉ lệ (ảnh đề tối thiểu 140px, ảnh đáp án 46px).
+		var cols = parseInt(opts.style.getPropertyValue('--cols'), 10) || 3;
+		var rows = oimg ? Math.ceil(opts.children.length / cols) : 0;
+		var qh = qimg ? qimg.getBoundingClientRect().height : 0, oh = oimg ? oimg.getBoundingClientRect().height : 0;
+		var flex = qh + rows * oh;
+		if (!flex) { return; }
+		var k = Math.max(0, (flex - over) / flex);
+		var nq = qh ? Math.max(140, Math.floor(qh * k)) : 0;
+		var no = oh ? Math.max(46, Math.floor((flex - over - nq) / rows)) : 0;
+		if (qh) { card.style.setProperty('--qimg-h', nq + 'px'); }
+		if (oh && no < oh) { card.style.setProperty('--opt-h', no + 'px'); }
 	};
 
 	Quiz.prototype.go = function (i) {

@@ -51,3 +51,9 @@ body.tnp-tt-iq .tnp-trait-only,body.tnp-tt-trait .tnp-iq-only{display:none!impor
 .tnp-type-help{background:#f0f6fc;border-left:4px solid #2271b1;padding:8px 12px;margin:0 0 12px}
 .tnp-scoring{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .tnp-scoring select{max-width:260px}
+.tnp-term-questions{margin:28px 0 8px;max-width:1100px}
+.tnp-term-questions h2{margin-bottom:4px}
+.tnp-term-questions table{margin-top:8px}
+.tnp-term-questions .column-tnp_idx{width:36px}
+.tnp-term-questions .column-status{width:100px}
+.tnp-term-questions td{vertical-align:middle}

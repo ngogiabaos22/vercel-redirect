@@ -167,6 +167,16 @@
 	.tnp-nav .tnp-btn{flex:1;padding:13px 10px;font-size:15px}
 	.tnp-dots{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;padding:2px 2px 6px;margin:16px 0 0;scrollbar-width:none}
 	.tnp-dots::-webkit-scrollbar{display:none}
+	/* Vừa một màn hình: JS đặt --qimg-h / --opt-h khi cả câu cao hơn màn hình */
+	.tnp-quiz.is-fit .tnp-qtitle{margin:12px 0 10px!important;font-size:17px!important}
+	.tnp-quiz.is-fit .tnp-qimg{margin-bottom:12px}
+	.tnp-quiz.is-fit .tnp-qimg img{max-height:var(--qimg-h,42vh)}
+	.tnp-quiz.is-fit .tnp-opts.is-cards .tnp-opt{padding:5px}
+	.tnp-quiz.is-fit .tnp-opts.is-cards .tnp-opt-key{z-index:1;background:rgba(241,245,249,.92)}
+	.tnp-quiz.is-fit .tnp-opts.is-cards .tnp-opt.is-selected .tnp-opt-key{background:var(--p)}
+	.tnp-quiz.is-fit .tnp-opt-img{padding:8%}
+	.tnp-quiz.is-fit[style*="--opt-h"] .tnp-opt-img{aspect-ratio:auto;height:var(--opt-h)}
+	.tnp-quiz.is-fit .tnp-nav{margin-top:12px}
 	.tnp-result-top{grid-template-columns:1fr}
 	.tnp-cats,.tnp-two,.tnp-focus,.tnp-traits,.tnp-hcards{grid-template-columns:1fr}
 	.tnp-score b{font-size:56px}

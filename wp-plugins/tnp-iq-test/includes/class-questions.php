@@ -345,6 +345,9 @@ class TNP_IQ_Questions {
 		$q       = self::get( $post->ID );
 		$current = wp_get_object_terms( $post->ID, self::TAX, array( 'fields' => 'ids' ) );
 		$current = $current && ! is_wp_error( $current ) ? (int) $current[0] : 0;
+		if ( ! $current && isset( $_GET['tnp_test'] ) ) { // từ nút "Thêm câu hỏi vào bài này"
+			$current = absint( $_GET['tnp_test'] );
+		}
 		$terms   = get_terms( array( 'taxonomy' => self::TAX, 'hide_empty' => false ) );
 		?>
 		<p><label for="tnp-test"><strong>Bài test</strong></label><br>

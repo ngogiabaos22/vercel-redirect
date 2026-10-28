@@ -17,6 +17,7 @@ class TNP_IQ_Tests {
 		$tax = TNP_IQ_Questions::TAX;
 		add_action( "{$tax}_add_form_fields", array( __CLASS__, 'term_add_fields' ) );
 		add_action( "{$tax}_edit_form_fields", array( __CLASS__, 'term_edit_fields' ) );
+		add_action( "{$tax}_edit_form", array( __CLASS__, 'term_questions' ) );
 		add_action( "created_{$tax}", array( __CLASS__, 'term_save' ) );
 		add_action( "edited_{$tax}", array( __CLASS__, 'term_save' ) );
 		add_filter( "manage_edit-{$tax}_columns", array( __CLASS__, 'term_columns' ) );
@@ -183,6 +184,77 @@ class TNP_IQ_Tests {
 			<th scope="row">Shortcode</th>
 			<td><code>[tnp_test test="<?php echo esc_html( $term->slug ); ?>"]</code></td>
 		</tr>
+		<?php
+	}
+
+	/** Trang Sửa bài test: toàn bộ câu hỏi đang thuộc bài (mọi trạng thái trừ thùng rác), theo thứ tự làm bài. */
+	public static function term_questions( $term ) {
+		$ids = get_posts( array(
+			'post_type'      => TNP_IQ_CPT,
+			'post_status'    => array( 'publish', 'draft', 'pending', 'private', 'future' ),
+			'posts_per_page' => -1,
+			'orderby'        => array( 'menu_order' => 'ASC', 'ID' => 'ASC' ),
+			'fields'         => 'ids',
+			'tax_query'      => array( array( 'taxonomy' => TNP_IQ_Questions::TAX, 'field' => 'term_id', 'terms' => $term->term_id ) ),
+		) );
+		$cols = array(
+			'tnp_thumb' => 'Hình',
+			'title'     => 'Đề bài',
+			'tnp_cat'   => 'Nhóm',
+			'tnp_dif'   => 'Độ khó',
+			'tnp_ans'   => 'Đáp án',
+			'status'    => 'Trạng thái',
+			'tnp_order' => 'Thứ tự',
+		);
+		$ready  = 0;
+		foreach ( $ids as $id ) {
+			if ( 'publish' === get_post_status( $id ) && TNP_IQ_Questions::is_complete( TNP_IQ_Questions::get( $id ) ) ) {
+				$ready++;
+			}
+		}
+		$list_url = admin_url( 'edit.php?post_type=' . TNP_IQ_CPT . '&' . TNP_IQ_Questions::TAX . '=' . $term->slug );
+		$new_url  = admin_url( 'post-new.php?post_type=' . TNP_IQ_CPT . '&tnp_test=' . $term->term_id );
+		?>
+		<div class="tnp-term-questions">
+			<h2>Câu hỏi trong bài test (<?php echo count( $ids ); ?>)</h2>
+			<p class="description">Đang dùng trong bài thi: <strong><?php echo (int) $ready; ?></strong> câu (đã đăng và đủ dữ liệu). Câu nháp hoặc thiếu dữ liệu không được đưa vào bài.</p>
+			<p>
+				<a class="button button-primary" href="<?php echo esc_url( $new_url ); ?>">+ Thêm câu hỏi vào bài này</a>
+				<a class="button" href="<?php echo esc_url( $list_url ); ?>">Mở trong Quản lý câu hỏi</a>
+			</p>
+			<table class="wp-list-table widefat fixed striped posts">
+				<thead><tr>
+					<th class="column-tnp_idx">#</th>
+					<?php foreach ( $cols as $k => $label ) : ?>
+						<th class="column-<?php echo esc_attr( $k ); ?>"><?php echo esc_html( $label ); ?></th>
+					<?php endforeach; ?>
+				</tr></thead>
+				<tbody>
+				<?php if ( ! $ids ) : ?>
+					<tr><td colspan="<?php echo count( $cols ) + 1; ?>">Chưa có câu hỏi nào. Bấm “Thêm câu hỏi vào bài này” hoặc dùng Trắc nghiệm → Nhập câu hỏi.</td></tr>
+				<?php endif; ?>
+				<?php foreach ( $ids as $i => $id ) : ?>
+					<tr>
+						<td class="column-tnp_idx"><?php echo (int) ( $i + 1 ); ?></td>
+						<?php foreach ( array_keys( $cols ) as $k ) : ?>
+							<td class="column-<?php echo esc_attr( $k ); ?>">
+							<?php
+							if ( 'title' === $k ) {
+								printf( '<strong><a class="row-title" href="%s">%s</a></strong>', esc_url( get_edit_post_link( $id ) ), esc_html( get_the_title( $id ) ?: '(không có tiêu đề)' ) );
+							} elseif ( 'status' === $k ) {
+								$obj = get_post_status_object( get_post_status( $id ) );
+								echo esc_html( $obj ? $obj->label : get_post_status( $id ) );
+							} else {
+								TNP_IQ_Questions::column( $k, $id );
+							}
+							?>
+							</td>
+						<?php endforeach; ?>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
 		<?php
 	}
 
