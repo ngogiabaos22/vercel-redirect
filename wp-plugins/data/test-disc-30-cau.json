@@ -1,0 +1,978 @@
+{
+  "format": "tnp-test",
+  "version": 1,
+  "test": {
+    "name": "Test DISC miễn phí",
+    "slug": "test-disc",
+    "type": "disc",
+    "layout": "step",
+    "multi": false,
+    "shuffle": false,
+    "task": {
+      "on": true,
+      "tag": "tagiq"
+    }
+  },
+  "questions": [
+    {
+      "title": "Trong công việc, bạn thường là người:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Quyết đoán, thích dẫn dắt",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Nhiệt tình, dễ tạo không khí",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Điềm tĩnh, hợp tác",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Cẩn thận, chính xác",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi gặp vấn đề khó, bạn thường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Giải quyết nhanh, không vòng vo",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Trao đổi với người khác để tìm ý tưởng",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Kiên nhẫn xử lý từng bước",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Phân tích kỹ trước khi hành động",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn cảm thấy khó chịu nhất khi:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Mọi việc diễn ra quá chậm",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Không được giao tiếp, chia sẻ",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Môi trường thiếu ổn định",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Mọi thứ thiếu logic, lộn xộn",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Trong nhóm, bạn thường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Chủ động đưa ra quyết định",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Kết nối các thành viên",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Hỗ trợ người khác",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Kiểm tra chi tiết, chất lượng",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Phong cách làm việc của bạn là:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Nhanh – trực tiếp",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Linh hoạt – sáng tạo",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Ổn định – đều đặn",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Có kế hoạch – rõ ràng",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi giao tiếp, bạn thường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Đi thẳng vào vấn đề",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Nói chuyện cởi mở, thoải mái",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Lắng nghe nhiều hơn nói",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Chọn lọc từ ngữ cẩn thận",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn đưa ra quyết định dựa nhiều vào:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Kết quả",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Cảm xúc và con người",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Sự an toàn",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Dữ liệu và logic",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi bị áp lực, bạn thường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Thúc ép mọi thứ nhanh hơn",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Nói nhiều và tìm người chia sẻ",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Im lặng và chịu đựng",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Kiểm soát chặt chẽ hơn",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điều khiến bạn có động lực nhất là:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Thách thức và quyền kiểm soát",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Sự công nhận",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Sự ổn định",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Độ chính xác và chất lượng",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn thường được tin tưởng vì:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Dám chịu trách nhiệm",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Truyền năng lượng tích cực",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Luôn sẵn sàng giúp đỡ",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Làm việc rất chuẩn chỉnh",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi làm việc nhóm, bạn không thích:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Do dự quá lâu",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Không khí căng thẳng",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Xung đột",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Làm việc thiếu quy trình",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn thường ưu tiên:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Kết quả cuối cùng",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Mối quan hệ",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Sự hài hòa",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Độ chính xác",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi học điều mới, bạn thích:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Thử ngay",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Học qua trao đổi",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Học từ từ",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Hiểu kỹ bản chất",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Người khác có thể thấy bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Mạnh mẽ",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Cởi mở",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Nhẹ nhàng",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Khó tính",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Trong công việc, bạn thường:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Dẫn dắt",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Thuyết phục",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Hỗ trợ",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Phân tích",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn không thích khi:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Bị kiểm soát",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Bị phớt lờ",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Bị thúc ép",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Bị sai thông tin",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Phong cách của bạn là:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Táo bạo",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Sôi nổi",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Điềm đạm",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Chuẩn mực",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi làm việc, bạn thường chú trọng:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Tốc độ",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Không khí",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Sự bền vững",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Chi tiết",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn dễ thành công nhất khi:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Có quyền quyết định",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Được giao tiếp nhiều",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Môi trường ổn định",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Có quy trình rõ ràng",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn thường xử lý mâu thuẫn bằng cách:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Đối mặt trực tiếp",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Nói chuyện để làm dịu",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Tránh đối đầu",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Phân tích đúng – sai",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điểm mạnh lớn nhất của bạn là:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Quyết đoán",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Truyền cảm hứng",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Kiên nhẫn",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Chính xác",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn cảm thấy thoải mái nhất khi:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Được thử thách",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Ở cùng mọi người",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Mọi thứ ổn định",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Mọi thứ rõ ràng",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Nhìn chung, bạn là người:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Mạnh mẽ",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Cởi mở",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Ổn định",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Cẩn trọng",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Người khác thường nhận xét bạn là:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Thẳng thắn",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Hòa đồng",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Đáng tin cậy",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Nguyên tắc",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Cách bạn phản ứng khi bị áp lực thời gian:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Tìm cách duy trì sự bình tĩnh và tập trung vào quy trình.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Tạo ra một kế hoạch chi tiết để đảm bảo không sai sót.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Quyết định nhanh chóng và làm việc hiệu quả.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Dành thời gian nói chuyện để giảm căng thẳng.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn cảm thấy tự hào nhất khi:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Bạn được công nhận và đánh giá cao bởi đồng nghiệp.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Bạn đạt được một mục tiêu quan trọng.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Bạn giúp duy trì hòa khí trong nhóm.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Bạn hoàn thành công việc với chất lượng cao và không sai sót.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Cách bạn đối phó với các xung đột:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Đối mặt trực tiếp và tìm cách giải quyết nhanh chóng.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Phân tích lý do và đưa ra các giải pháp hợp lý.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Tìm cách thương lượng và giải quyết theo hướng tích cực.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Cố gắng tránh xung đột và giữ hòa khí.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điều gì khiến bạn cảm thấy hài lòng nhất trong công việc:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Được làm việc với nhiều người khác.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Công việc được hoàn thành chính xác và không có sai sót.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Môi trường làm việc ổn định và dễ chịu.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Đạt được kết quả nhanh chóng và hiệu quả.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn thích làm việc trong một nhóm như thế nào:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Mục tiêu rõ ràng và quyết đoán.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Hỗ trợ và đoàn kết.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Tích cực và giao tiếp thường xuyên.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Có quy trình chặt chẽ và chi tiết.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điều gì gây khó khăn nhất cho bạn khi làm việc:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Thiếu cấu trúc và quy trình rõ ràng.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Sự thiếu kiểm soát và quyền hạn.",
+          "image": null,
+          "group": "D",
+          "points": 1
+        },
+        {
+          "text": "Sự cô lập và thiếu sự tương tác.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Quá nhiều sự thay đổi đột ngột.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        }
+      ]
+    }
+  ]
+}
