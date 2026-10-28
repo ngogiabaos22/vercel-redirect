@@ -99,7 +99,7 @@
 <div class="tq-badge">Trắc nghiệm chỉ số thông minh chuẩn hoá</div>
 <h1>Test IQ <span class="tq-grad">miễn phí</span></h1>
 <p class="tq-hero-desc">20 câu hỏi mô phỏng các dạng bài Raven's Matrices và WAIS, đánh giá 4 năng lực cốt lõi: tư duy logic, số học, ngôn ngữ và không gian. Kết quả quy đổi theo thang điểm quốc tế.</p>
-<div><a class="tq-btn" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/">Test IQ nhanh</a></div>
+<div><a class="tq-btn" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/#tnp-test=test-iq">Test IQ nhanh</a></div>
 <div class="tq-trust"><div class="tq-avatars"><span style="background:#6366f1">H</span><span style="background:#06b6d4">L</span><span style="background:#f59e0b">M</span><span style="background:#22c55e">T</span></div><div>Hơn 1,2 triệu lượt làm bài</div></div>
 <div class="tq-stats"><div><b>20</b><span>Câu hỏi</span></div><div><b>15</b><span>Phút giới hạn</span></div><div><b>4</b><span>Nhóm năng lực</span></div></div>
 [/ux_html]
@@ -184,7 +184,7 @@
 <div class="tq-step"><div class="tq-n">2</div><h3>Trả lời 20 câu trong 15 phút</h3><p>Đồng hồ đếm ngược; câu khó có thể bỏ qua và quay lại sau.</p></div>
 <div class="tq-step"><div class="tq-n">3</div><h3>Nhận điểm IQ &amp; giải thích</h3><p>Xem điểm, xếp loại, vị trí so với dân số và lời giải từng câu.</p></div>
 </div>
-<div class="tq-center" style="margin-top:36px"><a class="tq-btn" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/">Test IQ nhanh</a></div>
+<div class="tq-center" style="margin-top:36px"><a class="tq-btn" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/#tnp-test=test-iq">Test IQ nhanh</a></div>
 [/ux_html]
 
 [/col]
@@ -255,7 +255,7 @@
 
 [ux_html]
 <div class="tq-cta">
-<div><h2>Sẵn sàng đo chỉ số IQ của bạn?</h2><p>20 câu hỏi · 15 phút · Có kết quả và lời giải ngay sau khi nộp bài.</p><div><a class="tq-btn tq-light" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/">Test IQ nhanh</a></div></div>
+<div><h2>Sẵn sàng đo chỉ số IQ của bạn?</h2><p>20 câu hỏi · 15 phút · Có kết quả và lời giải ngay sau khi nộp bài.</p><div><a class="tq-btn tq-light" href="https://tracnghiemplus.com/bai-thi/test-iq-mien-phi/#tnp-test=test-iq">Test IQ nhanh</a></div></div>
 <div><img src="https://tracnghiemplus.com/wp-content/uploads/test-iq-cta.webp" width="630" height="450" alt="Bóng đèn IQ minh hoạ bắt đầu làm bài test IQ" loading="lazy"></div>
 </div>
 [/ux_html]
