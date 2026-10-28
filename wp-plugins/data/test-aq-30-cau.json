@@ -1,0 +1,978 @@
+{
+  "format": "tnp-test",
+  "version": 1,
+  "test": {
+    "name": "Test AQ",
+    "slug": "test-aq",
+    "type": "aq",
+    "layout": "step",
+    "multi": false,
+    "shuffle": false,
+    "task": {
+      "on": false,
+      "tag": ""
+    }
+  },
+  "questions": [
+    {
+      "title": "Dự án bạn phụ trách bị cắt một nửa ngân sách vào phút chót. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Đề xuất xin thêm ngân sách, nếu không được sẽ tính tiếp",
+          "image": null,
+          "group": "C",
+          "points": 2
+        },
+        {
+          "text": "Rà lại mục tiêu, chọn phần quan trọng nhất và lên phương án mới ngay",
+          "image": null,
+          "group": "C",
+          "points": 3
+        },
+        {
+          "text": "Cho rằng dự án coi như hỏng, mình không thể làm gì",
+          "image": null,
+          "group": "C",
+          "points": 0
+        },
+        {
+          "text": "Làm tiếp theo kế hoạch cũ và chờ xem sao",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Nhóm bạn trễ hạn nộp báo cáo vì một thành viên làm chậm. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Cho rằng lỗi hoàn toàn thuộc về người làm chậm",
+          "image": null,
+          "group": "O",
+          "points": 0
+        },
+        {
+          "text": "Nhận phần trách nhiệm của mình, cùng nhóm tìm cách hoàn thành sớm nhất",
+          "image": null,
+          "group": "O",
+          "points": 3
+        },
+        {
+          "text": "Báo cáo với quản lý và đề nghị hỗ trợ",
+          "image": null,
+          "group": "O",
+          "points": 2
+        },
+        {
+          "text": "Giải thích rằng phần việc của mình đã xong đúng hạn",
+          "image": null,
+          "group": "O",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn bị sếp phê bình trước cuộc họp. Sau đó:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Hơi buồn trong buổi chiều nhưng vẫn hoàn thành công việc",
+          "image": null,
+          "group": "R",
+          "points": 2
+        },
+        {
+          "text": "Nghĩ mình làm gì cũng hỏng, kể cả ở nhà cũng thấy chán nản",
+          "image": null,
+          "group": "R",
+          "points": 0
+        },
+        {
+          "text": "Mất hứng làm việc cả ngày",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Ghi nhận góp ý cho đúng việc đó, các việc khác vẫn làm bình thường",
+          "image": null,
+          "group": "R",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "title": "Bạn trượt một kỳ thi quan trọng. Bạn nghĩ:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Có lẽ mình không hợp với kỳ thi này",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Đây là lần trượt này, mình sẽ ôn lại cách khác và thi tiếp",
+          "image": null,
+          "group": "E",
+          "points": 3
+        },
+        {
+          "text": "Cần thời gian để lấy lại tinh thần rồi thử lại",
+          "image": null,
+          "group": "E",
+          "points": 2
+        },
+        {
+          "text": "Mình sẽ không bao giờ đỗ được",
+          "image": null,
+          "group": "E",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "title": "Máy tính hỏng ngay trước buổi thuyết trình 30 phút. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Hoảng hốt, chạy đi hỏi khắp nơi",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Báo người tổ chức xin dời giờ",
+          "image": null,
+          "group": "C",
+          "points": 2
+        },
+        {
+          "text": "Bỏ cuộc vì thấy không còn cách nào",
+          "image": null,
+          "group": "C",
+          "points": 0
+        },
+        {
+          "text": "Bình tĩnh mượn máy khác, mở bản dự phòng và tiếp tục",
+          "image": null,
+          "group": "C",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "title": "Khách hàng phàn nàn về một lỗi do bộ phận khác gây ra. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Tiếp nhận, xin lỗi khách và chủ động phối hợp để xử lý đến cùng",
+          "image": null,
+          "group": "O",
+          "points": 3
+        },
+        {
+          "text": "Nói rõ đây không phải việc của mình",
+          "image": null,
+          "group": "O",
+          "points": 0
+        },
+        {
+          "text": "Hướng dẫn khách liên hệ bộ phận khác",
+          "image": null,
+          "group": "O",
+          "points": 1
+        },
+        {
+          "text": "Chuyển ngay cho bộ phận liên quan và theo dõi",
+          "image": null,
+          "group": "O",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "title": "Một mối quan hệ tình cảm vừa kết thúc. Trong công việc, bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Thấy mọi thứ trong cuộc sống đều mất ý nghĩa",
+          "image": null,
+          "group": "R",
+          "points": 0
+        },
+        {
+          "text": "Vẫn giữ nhịp làm việc, tách bạch chuyện riêng và công việc",
+          "image": null,
+          "group": "R",
+          "points": 3
+        },
+        {
+          "text": "Có vài ngày kém tập trung nhưng vẫn ổn",
+          "image": null,
+          "group": "R",
+          "points": 2
+        },
+        {
+          "text": "Hiệu suất giảm rõ trong nhiều tuần",
+          "image": null,
+          "group": "R",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Doanh số tháng này giảm mạnh. Bạn cho rằng:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Đây là biến động tạm thời, mình sẽ tìm nguyên nhân và cải thiện",
+          "image": null,
+          "group": "E",
+          "points": 3
+        },
+        {
+          "text": "Tình hình khó mà khá lên",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Từ nay sẽ ngày càng tệ hơn",
+          "image": null,
+          "group": "E",
+          "points": 0
+        },
+        {
+          "text": "Có thể mất vài tháng mới hồi phục",
+          "image": null,
+          "group": "E",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "title": "Bạn được giao một nhiệm vụ hoàn toàn mới, chưa từng làm. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Chần chừ vì sợ làm sai",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Chia nhỏ việc, tìm hiểu và bắt tay làm từng phần",
+          "image": null,
+          "group": "C",
+          "points": 3
+        },
+        {
+          "text": "Từ chối vì nghĩ mình không làm được",
+          "image": null,
+          "group": "C",
+          "points": 0
+        },
+        {
+          "text": "Hỏi người có kinh nghiệm hướng dẫn rồi mới làm",
+          "image": null,
+          "group": "C",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "title": "Bạn nhận ra mình gửi nhầm số liệu cho đối tác. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Chủ động báo ngay, gửi bản đúng và đề xuất cách tránh lặp lại",
+          "image": null,
+          "group": "O",
+          "points": 3
+        },
+        {
+          "text": "Im lặng vì nghĩ chuyện nhỏ, không ai để ý",
+          "image": null,
+          "group": "O",
+          "points": 0
+        },
+        {
+          "text": "Gửi lại bản đúng kèm lời xin lỗi",
+          "image": null,
+          "group": "O",
+          "points": 2
+        },
+        {
+          "text": "Đợi xem đối tác có phát hiện không",
+          "image": null,
+          "group": "O",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn gặp áp lực tài chính trong tháng này. Điều đó:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Làm bạn hơi căng thẳng nhưng vẫn tập trung làm việc",
+          "image": null,
+          "group": "R",
+          "points": 2
+        },
+        {
+          "text": "Khiến bạn cáu gắt với người thân, đồng nghiệp",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Làm bạn mất ngủ, chán nản mọi việc",
+          "image": null,
+          "group": "R",
+          "points": 0
+        },
+        {
+          "text": "Chỉ khiến bạn điều chỉnh chi tiêu, các mặt khác vẫn bình thường",
+          "image": null,
+          "group": "R",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "title": "Bạn bị từ chối sau một buổi phỏng vấn xin việc. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Nghỉ ngơi vài ngày rồi tìm cơ hội khác",
+          "image": null,
+          "group": "E",
+          "points": 2
+        },
+        {
+          "text": "Nghĩ mình sẽ khó mà tìm được việc",
+          "image": null,
+          "group": "E",
+          "points": 0
+        },
+        {
+          "text": "Rút kinh nghiệm và nộp đơn tiếp ngay tuần sau",
+          "image": null,
+          "group": "E",
+          "points": 3
+        },
+        {
+          "text": "Mất tự tin một thời gian dài",
+          "image": null,
+          "group": "E",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Đồng nghiệp liên tục làm bạn khó chịu. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Nhờ quản lý hỗ trợ điều phối",
+          "image": null,
+          "group": "C",
+          "points": 2
+        },
+        {
+          "text": "Cho rằng không thể thay đổi được gì, đành chấp nhận",
+          "image": null,
+          "group": "C",
+          "points": 0
+        },
+        {
+          "text": "Chủ động nói chuyện thẳng thắn để tìm cách làm việc tốt hơn",
+          "image": null,
+          "group": "C",
+          "points": 3
+        },
+        {
+          "text": "Cố gắng chịu đựng và tránh mặt",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Một hoạt động chung của lớp/nhóm có nguy cơ bị hủy vì thiếu người lo. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Nhận làm một phần nếu có người phân công",
+          "image": null,
+          "group": "O",
+          "points": 2
+        },
+        {
+          "text": "Chờ xem ai đó đứng ra",
+          "image": null,
+          "group": "O",
+          "points": 1
+        },
+        {
+          "text": "Đứng ra nhận việc và kêu gọi thêm người cùng làm",
+          "image": null,
+          "group": "O",
+          "points": 3
+        },
+        {
+          "text": "Nghĩ đó không phải trách nhiệm của mình",
+          "image": null,
+          "group": "O",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "title": "Bạn bị ốm và phải nghỉ học/làm một tuần. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Lo lắng nhưng vẫn lên kế hoạch theo kịp",
+          "image": null,
+          "group": "R",
+          "points": 2
+        },
+        {
+          "text": "Thấy mọi kế hoạch đều đổ vỡ",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Cho rằng cả năm nay của mình coi như hỏng",
+          "image": null,
+          "group": "R",
+          "points": 0
+        },
+        {
+          "text": "Tập trung hồi phục, sau đó sắp xếp bù lại phần việc dang dở",
+          "image": null,
+          "group": "R",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "title": "Bạn tập thể dục giảm cân nhưng một tháng chưa thấy kết quả. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Điều chỉnh cách tập, ăn uống và kiên trì thêm",
+          "image": null,
+          "group": "E",
+          "points": 3
+        },
+        {
+          "text": "Bỏ hẳn vì nghĩ mình không thể giảm cân",
+          "image": null,
+          "group": "E",
+          "points": 0
+        },
+        {
+          "text": "Tiếp tục tập nhưng bắt đầu nghi ngờ",
+          "image": null,
+          "group": "E",
+          "points": 2
+        },
+        {
+          "text": "Tập thưa dần",
+          "image": null,
+          "group": "E",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Kế hoạch du lịch bị hủy chuyến bay vào phút chót. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Bực bội và chờ hãng thông báo",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Thấy chuyến đi coi như mất, bỏ luôn",
+          "image": null,
+          "group": "C",
+          "points": 0
+        },
+        {
+          "text": "Gọi tổng đài hỏi hướng giải quyết",
+          "image": null,
+          "group": "C",
+          "points": 2
+        },
+        {
+          "text": "Tìm ngay phương án thay thế: chuyến khác, phương tiện khác",
+          "image": null,
+          "group": "C",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "title": "Nhóm bạn thua một cuộc thi. Khi tổng kết, bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Cho rằng do đề thi hoặc ban giám khảo",
+          "image": null,
+          "group": "O",
+          "points": 1
+        },
+        {
+          "text": "Cùng nhóm phân tích nguyên nhân chung",
+          "image": null,
+          "group": "O",
+          "points": 2
+        },
+        {
+          "text": "Nhìn lại phần việc mình có thể làm tốt hơn và đề xuất cho lần sau",
+          "image": null,
+          "group": "O",
+          "points": 3
+        },
+        {
+          "text": "Đổ lỗi cho thành viên làm chưa tốt",
+          "image": null,
+          "group": "O",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "title": "Một dự án bạn tâm huyết bị gạt bỏ. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Thất vọng với dự án đó nhưng vẫn hào hứng với các việc khác",
+          "image": null,
+          "group": "R",
+          "points": 3
+        },
+        {
+          "text": "Bắt đầu nghi ngờ năng lực của mình trong mọi việc",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Thấy công việc và cả bản thân đều vô nghĩa",
+          "image": null,
+          "group": "R",
+          "points": 0
+        },
+        {
+          "text": "Mất động lực vài ngày rồi trở lại bình thường",
+          "image": null,
+          "group": "R",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "title": "Bạn đang học ngoại ngữ nhưng tiến bộ rất chậm. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Nghĩ mình không có khiếu và dừng lại",
+          "image": null,
+          "group": "E",
+          "points": 0
+        },
+        {
+          "text": "Đổi phương pháp học và đặt mục tiêu nhỏ từng tuần",
+          "image": null,
+          "group": "E",
+          "points": 3
+        },
+        {
+          "text": "Học khi nào có hứng",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Kiên trì nhưng thỉnh thoảng nản",
+          "image": null,
+          "group": "E",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "title": "Bạn được giao việc gấp trong khi đang quá tải. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Thấy bất lực và để mặc mọi việc trễ",
+          "image": null,
+          "group": "C",
+          "points": 0
+        },
+        {
+          "text": "Nhận nhưng lo lắng không biết bắt đầu từ đâu",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Sắp xếp lại thứ tự ưu tiên và trao đổi để dời hạn việc ít quan trọng",
+          "image": null,
+          "group": "C",
+          "points": 3
+        },
+        {
+          "text": "Làm thêm giờ để kịp hết",
+          "image": null,
+          "group": "C",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "title": "Một quy trình trong công ty còn bất cập, ai cũng than phiền. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Than phiền cùng mọi người",
+          "image": null,
+          "group": "O",
+          "points": 1
+        },
+        {
+          "text": "Góp ý khi được hỏi",
+          "image": null,
+          "group": "O",
+          "points": 2
+        },
+        {
+          "text": "Cho rằng đó là việc của cấp trên",
+          "image": null,
+          "group": "O",
+          "points": 0
+        },
+        {
+          "text": "Đề xuất cách cải tiến và xung phong làm thử",
+          "image": null,
+          "group": "O",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "title": "Bạn có một ngày tồi tệ ở chỗ làm. Buổi tối, bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Kể lại cho người thân rồi cho qua",
+          "image": null,
+          "group": "R",
+          "points": 2
+        },
+        {
+          "text": "Trút bực bội lên mọi người trong nhà",
+          "image": null,
+          "group": "R",
+          "points": 0
+        },
+        {
+          "text": "Vẫn nghĩ mãi và khó ngủ",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Gác lại chuyện công việc, tận hưởng thời gian riêng",
+          "image": null,
+          "group": "R",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "title": "Công ty đang khó khăn, phải cắt giảm thưởng. Bạn tin rằng:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Mọi thứ sẽ không bao giờ như trước",
+          "image": null,
+          "group": "E",
+          "points": 0
+        },
+        {
+          "text": "Giai đoạn khó sẽ qua nếu mọi người cùng cố gắng",
+          "image": null,
+          "group": "E",
+          "points": 3
+        },
+        {
+          "text": "Khó mà tốt lên trong thời gian tới",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Có thể kéo dài nhưng rồi sẽ ổn",
+          "image": null,
+          "group": "E",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "title": "Bạn bị mất ví có giấy tờ quan trọng. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Nhờ người thân giúp xử lý",
+          "image": null,
+          "group": "C",
+          "points": 2
+        },
+        {
+          "text": "Thấy mọi thứ rối tung, không biết làm gì",
+          "image": null,
+          "group": "C",
+          "points": 0
+        },
+        {
+          "text": "Lập tức khóa thẻ, báo mất và làm lại giấy tờ theo thứ tự",
+          "image": null,
+          "group": "C",
+          "points": 3
+        },
+        {
+          "text": "Hoảng loạn, mất nhiều giờ mới bình tĩnh lại",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn hứa giúp bạn bè nhưng lỡ quên. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Lờ đi, mong bạn không để ý",
+          "image": null,
+          "group": "O",
+          "points": 0
+        },
+        {
+          "text": "Xin lỗi, bù lại ngay và ghi nhắc để không quên lần sau",
+          "image": null,
+          "group": "O",
+          "points": 3
+        },
+        {
+          "text": "Xin lỗi và hẹn giúp dịp khác",
+          "image": null,
+          "group": "O",
+          "points": 2
+        },
+        {
+          "text": "Giải thích vì mình quá bận",
+          "image": null,
+          "group": "O",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Bạn bị một người bạn thân hiểu lầm. Điều đó:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Bạn tìm dịp nói chuyện, các mối quan hệ khác vẫn bình thường",
+          "image": null,
+          "group": "R",
+          "points": 3
+        },
+        {
+          "text": "Khiến bạn ngại mở lòng với cả những người khác",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Làm bạn buồn vài ngày",
+          "image": null,
+          "group": "R",
+          "points": 2
+        },
+        {
+          "text": "Khiến bạn nghĩ mình không có ai thật lòng",
+          "image": null,
+          "group": "R",
+          "points": 0
+        }
+      ]
+    },
+    {
+      "title": "Bạn khởi nghiệp và tháng đầu bị lỗ. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Xem đó là chi phí học hỏi, điều chỉnh và tiếp tục",
+          "image": null,
+          "group": "E",
+          "points": 3
+        },
+        {
+          "text": "Cho mình thêm vài tháng để đánh giá lại",
+          "image": null,
+          "group": "E",
+          "points": 2
+        },
+        {
+          "text": "Kết luận mình không hợp kinh doanh",
+          "image": null,
+          "group": "E",
+          "points": 0
+        },
+        {
+          "text": "Lo lắng và tính chuyện dừng lại",
+          "image": null,
+          "group": "E",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Cuộc họp quan trọng đi lệch chủ đề và kéo dài. Bạn:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Khéo léo đưa mọi người quay lại vấn đề chính và đề xuất kết luận",
+          "image": null,
+          "group": "C",
+          "points": 3
+        },
+        {
+          "text": "Thấy bực bội nhưng nghĩ mình không có quyền gì",
+          "image": null,
+          "group": "C",
+          "points": 0
+        },
+        {
+          "text": "Im lặng chờ cuộc họp kết thúc",
+          "image": null,
+          "group": "C",
+          "points": 1
+        },
+        {
+          "text": "Nhắc nhẹ người chủ trì",
+          "image": null,
+          "group": "C",
+          "points": 2
+        }
+      ]
+    },
+    {
+      "title": "Bạn mắc cùng một lỗi lần thứ hai. Bạn nghĩ:",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Có lẽ mình sẽ còn mắc lại",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Mình luôn hậu đậu, chẳng thay đổi được",
+          "image": null,
+          "group": "E",
+          "points": 0
+        },
+        {
+          "text": "Lỗi này sửa được, mình sẽ tìm nguyên nhân gốc để chấm dứt",
+          "image": null,
+          "group": "E",
+          "points": 3
+        },
+        {
+          "text": "Mình cần cẩn thận hơn trong thời gian tới",
+          "image": null,
+          "group": "E",
+          "points": 2
+        }
+      ]
+    }
+  ]
+}

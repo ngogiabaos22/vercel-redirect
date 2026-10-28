@@ -553,7 +553,7 @@
 	}
 
 	Quiz.prototype.renderResult = function (r) {
-		var fn = { eq: 'renderEq', disc: 'renderDisc', mbti: 'renderMbti', holland: 'renderHolland' }[r.kind];
+		var fn = { eq: 'renderEq', aq: 'renderAq', disc: 'renderDisc', mbti: 'renderMbti', holland: 'renderHolland' }[r.kind];
 		if (fn) { this[fn](r); } else { this.renderIq(r); }
 		var self = this, again = this.root.querySelector('[data-act="again"]');
 		if (again) { again.onclick = function () { self.start(); }; }
@@ -589,6 +589,23 @@
 			'<div class="tnp-result-text"><p class="tnp-pct">Trí tuệ cảm xúc: <b>' + esc(r.level.name) + '</b></p><p>' + esc(r.level.desc) + '</p>' +
 			'<div class="tnp-meter"><span style="width:' + r.score + '%"></span></div><div class="tnp-meter-lbl"><span>0</span><span>50</span><span>100</span></div></div></div>',
 			(r.bars.length ? '<div class="tnp-section"><h4>5 thành phần của trí tuệ cảm xúc</h4>' + focus + bars(r.bars) + '</div>' : ''),
+			NOTE
+		));
+	};
+
+	Quiz.prototype.renderAq = function (r) {
+		var focus = '';
+		if (r.strong || r.weak) {
+			focus = '<div class="tnp-focus">' +
+				(r.strong ? '<div><span>💪 Yếu tố mạnh nhất</span><b>' + esc(r.strong.name) + '</b></div>' : '') +
+				(r.weak ? '<div><span>🎯 Nên rèn luyện thêm</span><b>' + esc(r.weak.name) + '</b><p>' + esc(r.weak.tip) + '</p></div>' : '') +
+			'</div>';
+		}
+		this.html(shell(
+			'<div class="tnp-result-top"><div class="tnp-score tnp-score-eq"><span>Điểm AQ của bạn</span><b>' + r.score + '</b><em>' + esc(r.level.name) + '</em></div>' +
+			'<div class="tnp-result-text"><p class="tnp-pct">Chỉ số vượt khó: <b>' + esc(r.level.name) + '</b></p><p>' + esc(r.level.desc) + '</p>' +
+			'<div class="tnp-meter"><span style="width:' + r.score + '%"></span></div><div class="tnp-meter-lbl"><span>0</span><span>50</span><span>100</span></div></div></div>',
+			(r.bars.length ? '<div class="tnp-section"><h4>4 yếu tố vượt khó (CORE)</h4>' + focus + bars(r.bars) + '</div>' : ''),
 			NOTE
 		));
 	};

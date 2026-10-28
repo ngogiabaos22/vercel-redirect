@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
  * Các loại bài test và cách chấm.
  *
  * Mỗi "Bài test" là một term của taxonomy TNP_IQ_Questions::TAX, có term meta:
- *  - tnp_type  : iq | eq | disc | mbti | holland
+ *  - tnp_type  : iq | eq | aq | disc | mbti | holland
  *
  * IQ chấm theo đáp án đúng (TNP_IQ_Scoring). Các loại còn lại chấm theo "nhóm" và "điểm"
  * gắn trên từng đáp án: người làm chọn đáp án nào thì cộng điểm của đáp án đó vào nhóm của nó.
@@ -46,6 +46,17 @@ class TNP_IQ_Tests {
 					'ss' => 'Kỹ năng xã hội',
 				),
 				'help'  => 'Gán mỗi đáp án một số điểm (ví dụ 1–5: phản ứng càng trưởng thành về cảm xúc càng nhiều điểm) và nhóm năng lực EQ mà câu hỏi đo.',
+			),
+			'aq'      => array(
+				'label' => 'AQ – Chỉ số vượt khó',
+				'short' => 'AQ',
+				'dims'  => array(
+					'C' => 'Kiểm soát (Control)',
+					'O' => 'Trách nhiệm (Ownership)',
+					'R' => 'Phạm vi ảnh hưởng (Reach)',
+					'E' => 'Sức bền (Endurance)',
+				),
+				'help'  => 'Mô hình CORE (Paul Stoltz). Mỗi câu đo một yếu tố; gán điểm cho từng đáp án theo mức phản ứng tích cực trước nghịch cảnh (vd 0–3 hoặc 0–4).',
 			),
 			'disc'    => array(
 				'label' => 'DISC – Phong cách hành vi',
@@ -429,7 +440,7 @@ class TNP_IQ_Tests {
 	/* ---------- Chấm điểm các loại test tính cách ---------- */
 
 	/**
-	 * @param string $type    eq | disc | mbti | holland
+	 * @param string $type    eq | aq | disc | mbti | holland
 	 * @param array  $picked  [ [ 'options' => [key => [dim, pts]], 'chosen' => key|'' ], ... ]
 	 * @return array dữ liệu cho trang kết quả + 'code' (chuỗi ngắn lưu vào bảng kết quả) + 'score' (số, nếu có)
 	 */
@@ -473,6 +484,47 @@ class TNP_IQ_Tests {
 			$out[] = array( 'key' => $k, 'name' => $label, 'pct' => $values[ $k ] ?? 0 );
 		}
 		return $out;
+	}
+
+	/* AQ (CORE): tổng điểm quy về thang 100, kèm % từng yếu tố, yếu tố mạnh/yếu và gợi ý. */
+	private static function score_aq( $got, $max ) {
+		$total = self::pct( array_sum( $got ), array_sum( $max ) );
+		$used  = array();
+		foreach ( $got as $d => $v ) {
+			if ( $max[ $d ] > 0 ) {
+				$used[ $d ] = self::pct( $v, $max[ $d ] );
+			}
+		}
+		arsort( $used );
+		$levels = array(
+			80 => array( 'Rất cao', 'Bạn xem khó khăn là thử thách tạm thời và có thể vượt qua. Bạn giữ được tinh thần, chủ động hành động và thường biến nghịch cảnh thành cơ hội.' ),
+			65 => array( 'Cao', 'Bạn vượt khó khá tốt: nhanh lấy lại tinh thần và tìm cách xử lý. Một vài biến cố lớn, kéo dài vẫn có thể làm bạn chùn bước.' ),
+			50 => array( 'Trung bình', 'Bạn xoay xở được với khó khăn thông thường, nhưng khi áp lực dồn dập dễ mất động lực hoặc để vấn đề lan sang việc khác. Đây là mức phổ biến và cải thiện được.' ),
+			35 => array( 'Dưới trung bình', 'Khó khăn dễ khiến bạn nản lòng, cảm thấy bất lực hoặc kéo dài cảm xúc tiêu cực. Bắt đầu từ việc chia nhỏ vấn đề và tập trung vào điều mình làm được.' ),
+			0  => array( 'Cần cải thiện', 'Bạn đang dễ bị nghịch cảnh chi phối. Hãy kiên nhẫn với bản thân, tìm người đồng hành và rèn từng thói quen nhỏ để lấy lại cảm giác kiểm soát.' ),
+		);
+		foreach ( $levels as $min => $l ) {
+			if ( $total >= $min ) {
+				$level = $l;
+				break;
+			}
+		}
+		$tips = array(
+			'C' => 'Khi gặp khó, hãy viết ra 1–2 việc bạn có thể làm ngay trong 24 giờ tới, dù nhỏ, thay vì tập trung vào điều ngoài tầm tay.',
+			'O' => 'Tập hỏi “Mình có thể đóng góp gì để cải thiện tình hình?” thay vì “Lỗi tại ai?”, rồi nhận một phần việc cụ thể.',
+			'R' => 'Khoanh vùng vấn đề: ghi rõ điều gì bị ảnh hưởng và điều gì vẫn ổn, để một chuyện không kéo theo mọi mặt cuộc sống.',
+			'E' => 'Nhắc mình rằng khó khăn là tạm thời: nhớ lại một lần bạn đã vượt qua và đặt mốc thời gian để đánh giá lại tình hình.',
+		);
+		$names = self::types()['aq']['dims'];
+		$keys  = array_keys( $used );
+		return array(
+			'score'  => $total,
+			'code'   => (string) $total,
+			'level'  => array( 'name' => $level[0], 'desc' => $level[1] ),
+			'bars'   => array_values( array_filter( self::bars( 'aq', $used ), function ( $b ) use ( $used ) { return isset( $used[ $b['key'] ] ); } ) ),
+			'strong' => $keys ? array( 'name' => $names[ $keys[0] ] ) : null,
+			'weak'   => count( $keys ) > 1 ? array( 'name' => $names[ end( $keys ) ], 'tip' => $tips[ end( $keys ) ] ) : null,
+		);
 	}
 
 	/* EQ: tổng điểm quy về thang 100, kèm % từng nhóm. */

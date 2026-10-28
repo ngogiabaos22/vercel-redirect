@@ -1,7 +1,7 @@
-=== TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland) ===
+=== TNP Trắc nghiệm (IQ, EQ, AQ, DISC, MBTI, Holland) ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 2.8.0
+Stable tag: 2.9.0
 
 Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu hỏi, chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê kết quả.
 
@@ -15,6 +15,7 @@ Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu h�
 == Các loại bài test ==
 * IQ: mỗi câu có 1 đáp án đúng. Bước cuối hỏi tuổi; kết quả là điểm IQ quy đổi theo độ tuổi.
 * EQ: mỗi đáp án có Nhóm (Tự nhận thức, Tự điều chỉnh, Động lực, Đồng cảm, Kỹ năng xã hội) và Điểm (vd 1–4, phản ứng càng trưởng thành càng nhiều điểm). Kết quả: điểm EQ /100, mức độ, % từng nhóm, nhóm mạnh/yếu kèm gợi ý.
+* AQ (chỉ số vượt khó, mô hình CORE của Paul Stoltz): mỗi câu đo một yếu tố C – Kiểm soát, O – Trách nhiệm, R – Phạm vi ảnh hưởng, E – Sức bền; đáp án tích cực hơn nhiều điểm hơn (vd 0–3). Kết quả: điểm AQ /100, mức độ, % từng yếu tố, yếu tố mạnh/yếu kèm gợi ý.
 * DISC: mỗi đáp án thuộc D, I, S hoặc C (Điểm 1). Kết quả: nhóm chính (+ nhóm phụ nếu sát), biểu đồ DISC, điểm mạnh, điều cần lưu ý, phong cách làm việc.
 * MBTI: mỗi câu thường 2 đáp án thuộc hai cực của một cặp (E/I, S/N, T/F, J/P). Nên có số câu đều cho 4 cặp. Kết quả: 1 trong 16 kiểu (vd INTJ – Nhà kiến trúc), % từng cặp, điểm mạnh, lưu ý, nghề gợi ý.
 * Holland: mỗi câu là một hoạt động thuộc R, I, A, S, E hoặc C; đáp án là mức độ thích (vd Rất thích 3 … Không thích 0), cùng nhóm với câu. Kết quả: mã 3 chữ (vd RIA), mô tả và nghề gợi ý cho 3 nhóm, biểu đồ 6 nhóm.
@@ -52,11 +53,11 @@ Chuyển trọn bộ đề (cài đặt bài test + toàn bộ câu hỏi, đáp
 * Ảnh được ghi bằng link: cùng web thì dùng lại ảnh có sẵn; web khác thì tải về Thư viện (nếu bật tuỳ chọn).
 * Quy ước (xem đầy đủ trong khung "Quy ước JSON"):
   { "format": "tnp-test", "version": 1,
-    "test": { "name", "slug", "type": iq|eq|disc|mbti|holland, "layout": step|list, "multi", "shuffle", "task": { "on", "tag" } },
+    "test": { "name", "slug", "type": iq|eq|aq|disc|mbti|holland, "layout": step|list, "multi", "shuffle", "task": { "on", "tag" } },
     "questions": [ { "title", "type": question|image|grid, "body", "image", "status": publish|draft,
                      "correct" (IQ), "category" (IQ: logic|number|verbal|spatial), "difficulty" (IQ: 1–5), "explain",
                      "options": [ { "text", "image", "group" (test tính cách), "points" } ] } ] }
-  group — EQ: sa, sr, mo, em, ss · DISC: D, I, S, C · MBTI: E, I, S, N, T, F, J, P · Holland: R, I, A, S, E, C.
+  group — EQ: sa, sr, mo, em, ss · AQ: C, O, R, E · DISC: D, I, S, C · MBTI: E, I, S, N, T, F, J, P · Holland: R, I, A, S, E, C.
   IQ thiếu "correct" → câu lưu nháp. Câu sai quy ước (thiếu tiêu đề, ít hơn 2 hoặc hơn 8 đáp án, group sai) bị bỏ qua và báo lỗi theo số câu.
 * REST cho quản trị viên: GET /wp-json/tnp-iq/v1/admin/export?test=slug · POST /wp-json/tnp-iq/v1/admin/import-json (data, test, mode, status, sideload, dry_run).
 

@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland)
- * Description: Tạo bài test IQ, EQ, DISC, MBTI, Holland: quản trị câu hỏi (chữ hoặc ảnh, 2–8 đáp án), chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê. Shortcode [tnp_test test="..."] (bài IQ chung: [tnp_iq_test]).
- * Version: 2.8.0
+ * Plugin Name: TNP Trắc nghiệm (IQ, EQ, AQ, DISC, MBTI, Holland)
+ * Description: Tạo bài test IQ, EQ, AQ, DISC, MBTI, Holland: quản trị câu hỏi (chữ hoặc ảnh, 2–8 đáp án), chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê. Shortcode [tnp_test test="..."] (bài IQ chung: [tnp_iq_test]).
+ * Version: 2.9.0
  * Author: Trắc nghiệm PLUS
  * Requires at least: 5.8
  * Requires PHP: 7.4
@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'TNP_IQ_VERSION', '2.8.0' );
+define( 'TNP_IQ_VERSION', '2.9.0' );
 define( 'TNP_IQ_FILE', __FILE__ );
 define( 'TNP_IQ_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TNP_IQ_URL', plugin_dir_url( __FILE__ ) );

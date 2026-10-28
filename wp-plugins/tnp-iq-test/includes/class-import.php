@@ -275,7 +275,7 @@ class TNP_IQ_Import {
 
 	/**
 	 * @param string $text
-	 * @param string $type iq | eq | disc | mbti | holland
+	 * @param string $type iq | eq | aq | disc | mbti | holland
 	 * @return array [ 'questions' => [ [title, body, options => [ [text, dim, pts] ], correct], … ], 'errors' => [ 'Câu 3: …' ] ]
 	 */
 	public static function parse( $text, $type, $require_answer = true ) {

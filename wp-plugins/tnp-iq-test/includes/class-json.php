@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
  *   "format": "tnp-test", "version": 1,
  *   "test": {
  *     "name": "Test Holland", "slug": "test-holland",
- *     "type": "holland",            // iq | eq | disc | mbti | holland
+ *     "type": "holland",            // iq | eq | aq | disc | mbti | holland
  *     "layout": "list",             // step (từng câu) | list (dải câu)
  *     "multi": true,                // chọn nhiều đáp án (không áp dụng IQ)
  *     "shuffle": false,             // xáo trộn thứ tự đáp án
@@ -397,8 +397,8 @@ class TNP_IQ_Json {
 				),
 			),
 		), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES )
-		. "\n\ntype: iq | eq | disc | mbti | holland · layout: step | list\n"
-		. "group (test tính cách) — EQ: sa, sr, mo, em, ss · DISC: D, I, S, C · MBTI: E, I, S, N, T, F, J, P · Holland: R, I, A, S, E, C\n"
+		. "\n\ntype: iq | eq | aq | disc | mbti | holland · layout: step | list\n"
+		. "group (test tính cách) — EQ: sa, sr, mo, em, ss · AQ: C, O, R, E · DISC: D, I, S, C · MBTI: E, I, S, N, T, F, J, P · Holland: R, I, A, S, E, C\n"
 		. "IQ: correct = chữ cái đáp án đúng (thiếu → câu lưu nháp), category: logic | number | verbal | spatial, difficulty: 1–5";
 	}
 
