@@ -1,7 +1,7 @@
 === TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland) ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 2.7.1
+Stable tag: 2.8.0
 
 Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu hỏi, chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê kết quả.
 
@@ -42,6 +42,26 @@ Bài IQ: ghi "ĐÁP ÁN: ?" (hoặc bỏ trống) và bật allow_no_answer → 
 
 == Xáo trộn đáp án ==
 Trong Bài test → Sửa: "Xáo trộn thứ tự đáp án mỗi lượt làm" (mặc định bật khi tạo bài mới). Nhãn A, B, C… theo thứ tự hiển thị; máy chủ chấm theo đáp án gốc.
+
+== Xuất / nhập đề bằng JSON ==
+Chuyển trọn bộ đề (cài đặt bài test + toàn bộ câu hỏi, đáp án, nhóm/điểm, ảnh) sang bài khác hoặc web khác.
+* Xuất: Trắc nghiệm → Bài test → rê chuột vào tên bài → "Xuất JSON" (hoặc nút "Xuất JSON" ở trang Sửa bài test).
+* Nhập: cuối trang Bài test → khung "Nhập đề từ JSON": chọn file hoặc dán JSON, chọn "Tạo bài test mới" (dùng tên, loại, cài đặt trong file;
+  slug trùng thì tự thêm -2, -3…) hoặc một bài có sẵn (giữ cài đặt của bài đó; câu cũ: giữ và thêm vào cuối, hoặc chuyển vào thùng rác).
+  Tuỳ chọn: tải ảnh từ web khác về Thư viện, nhập dạng Bản nháp, chỉ kiểm tra file.
+* Ảnh được ghi bằng link: cùng web thì dùng lại ảnh có sẵn; web khác thì tải về Thư viện (nếu bật tuỳ chọn).
+* Quy ước (xem đầy đủ trong khung "Quy ước JSON"):
+  { "format": "tnp-test", "version": 1,
+    "test": { "name", "slug", "type": iq|eq|disc|mbti|holland, "layout": step|list, "multi", "shuffle", "task": { "on", "tag" } },
+    "questions": [ { "title", "type": question|image|grid, "body", "image", "status": publish|draft,
+                     "correct" (IQ), "category" (IQ: logic|number|verbal|spatial), "difficulty" (IQ: 1–5), "explain",
+                     "options": [ { "text", "image", "group" (test tính cách), "points" } ] } ] }
+  group — EQ: sa, sr, mo, em, ss · DISC: D, I, S, C · MBTI: E, I, S, N, T, F, J, P · Holland: R, I, A, S, E, C.
+  IQ thiếu "correct" → câu lưu nháp. Câu sai quy ước (thiếu tiêu đề, ít hơn 2 hoặc hơn 8 đáp án, group sai) bị bỏ qua và báo lỗi theo số câu.
+* REST cho quản trị viên: GET /wp-json/tnp-iq/v1/admin/export?test=slug · POST /wp-json/tnp-iq/v1/admin/import-json (data, test, mode, status, sideload, dry_run).
+
+== Cửa sổ làm bài nằm trên popup khác ==
+Cửa sổ bài test (mở bằng nút #tnp-test=…) luôn nằm trên các popup khác của trang (khuyến mãi, lightbox của theme…), chỉ nằm dưới popup nhiệm vụ Traffic Hila.
 
 == Cách trình bày và chọn nhiều đáp án ==
 Trắc nghiệm → Bài test → Sửa (hoặc khi thêm mới) → "Cách trình bày". Hai tuỳ chọn độc lập, dùng cho mọi loại bài:

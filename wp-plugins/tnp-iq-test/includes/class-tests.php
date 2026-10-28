@@ -260,6 +260,7 @@ class TNP_IQ_Tests {
 				<div class="tnp-tq-actions">
 					<a class="button button-primary" href="<?php echo esc_url( $new_url ); ?>">+ Thêm câu hỏi</a>
 					<a class="button" href="<?php echo esc_url( $list_url ); ?>">Quản lý câu hỏi</a>
+					<a class="button" href="<?php echo esc_url( TNP_IQ_Json::export_url( $term->term_id ) ); ?>">Xuất JSON</a>
 				</div>
 			</div>
 			<?php if ( ! $ids ) : ?>

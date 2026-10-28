@@ -1,0 +1,678 @@
+{
+  "format": "tnp-test",
+  "version": 1,
+  "test": {
+    "name": "Test Holland",
+    "slug": "test-holland",
+    "type": "holland",
+    "layout": "list",
+    "multi": true,
+    "shuffle": false,
+    "task": {
+      "on": false,
+      "tag": ""
+    }
+  },
+  "questions": [
+    {
+      "title": "Tôi cảm thấy hứng thú nhất khi...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Tự tay sửa chữa, lắp ráp hoặc tạo ra một sản phẩm cụ thể.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Tìm hiểu nguyên nhân và khám phá cách giải quyết một vấn đề.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Sáng tạo ý tưởng mới, thiết kế hoặc thể hiện phong cách cá nhân.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Lắng nghe, chia sẻ và giúp người khác giải quyết khó khăn.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Đưa ra quyết định, dẫn dắt mọi người và chinh phục mục tiêu.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Sắp xếp công việc, quản lý thông tin và đảm bảo mọi thứ chính xác.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Nếu được chọn một công việc trải nghiệm, tôi muốn...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Thực hành tại xưởng cơ khí, công trình hoặc phòng kỹ thuật.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Tham gia nghiên cứu khoa học, lập trình hoặc phân tích dữ liệu.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Thiết kế poster, quay video hoặc sáng tạo nội dung truyền thông.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Tham gia hoạt động tình nguyện, hỗ trợ học sinh hoặc cộng đồng.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Tổ chức một sự kiện, thử sức kinh doanh hoặc quản lý nhóm.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Phụ trách nhập liệu, kiểm kê, lập bảng biểu hoặc quản lý hồ sơ.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Môi trường học tập hoặc làm việc lý tưởng của tôi là...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Có máy móc, công cụ, hoạt động thực hành và trải nghiệm thực tế.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Có nhiều kiến thức chuyên sâu, dữ liệu và vấn đề cần nghiên cứu.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Linh hoạt, cởi mở và khuyến khích sáng tạo.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Thân thiện, có sự hợp tác và tương tác thường xuyên giữa mọi người.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Năng động, có tính cạnh tranh và cơ hội phát triển sự nghiệp.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Có quy trình rõ ràng, kế hoạch cụ thể và tiêu chuẩn ổn định.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi gặp một vấn đề khó, tôi thường...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Bắt tay thử nghiệm hoặc thao tác trực tiếp để tìm cách giải quyết.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Thu thập thông tin, phân tích nguyên nhân và kiểm chứng giả thuyết.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Nghĩ ra nhiều hướng tiếp cận khác biệt và thử ý tưởng mới.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Trao đổi với những người liên quan để hiểu nhu cầu và cảm xúc của họ.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Chọn phương án khả thi, phân công nhiệm vụ và thúc đẩy hành động.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Chia vấn đề thành các bước, lập danh sách và kiểm tra từng phần.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Môn học hoặc lĩnh vực tôi muốn tìm hiểu sâu hơn là...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Công nghệ kỹ thuật, điện – điện tử, cơ khí, xây dựng hoặc nông nghiệp.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Toán học, khoa học tự nhiên, y sinh, công nghệ thông tin hoặc dữ liệu.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Mỹ thuật, thiết kế, ngôn ngữ, truyền thông hoặc nghệ thuật.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Tâm lý học, giáo dục, sức khỏe cộng đồng hoặc công tác xã hội.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Kinh tế, kinh doanh, marketing, quản trị hoặc luật.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Kế toán, tài chính, thống kê, hành chính hoặc quản trị hồ sơ.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Trong một dự án nhóm, tôi thường muốn...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Trực tiếp làm sản phẩm, thiết lập thiết bị hoặc xử lý phần kỹ thuật.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Phân tích dữ liệu, nghiên cứu thông tin và đánh giá các phương án.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Lên ý tưởng, thiết kế hình ảnh hoặc xây dựng nội dung.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Hỗ trợ thành viên, kết nối mọi người và giải quyết mâu thuẫn.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Điều phối nhóm, phân chia nhiệm vụ và chịu trách nhiệm về mục tiêu.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Lập kế hoạch, theo dõi tiến độ và quản lý tài liệu.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Hoạt động nào khiến tôi cảm thấy tự hào nhất?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Hoàn thành một món đồ, sửa được thiết bị hoặc xử lý thành công việc thực tế.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Tìm ra lời giải đúng hoặc khám phá được một điều mới.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Tạo ra sản phẩm sáng tạo có dấu ấn riêng.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Giúp một người tiến bộ hoặc vượt qua khó khăn.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Đạt được mục tiêu lớn hoặc thuyết phục mọi người ủng hộ ý tưởng.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Hoàn thành công việc chính xác, đúng hạn và không bỏ sót chi tiết.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Nếu tham gia một câu lạc bộ tại trường, tôi sẽ ưu tiên...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Câu lạc bộ robot, STEM, chế tạo mô hình hoặc thể thao.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Câu lạc bộ nghiên cứu, lập trình, toán học hoặc khoa học.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Câu lạc bộ nhiếp ảnh, thiết kế, âm nhạc, viết lách hoặc truyền thông.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Câu lạc bộ tình nguyện, kỹ năng sống hoặc hỗ trợ cộng đồng.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Câu lạc bộ khởi nghiệp, kinh doanh, tranh biện hoặc tổ chức sự kiện.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Câu lạc bộ tài chính, kế toán, hậu cần hoặc quản lý học thuật.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Khi lựa chọn công việc trong tương lai, tôi coi trọng nhất...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Được làm việc thực tế, sử dụng công cụ hoặc tạo ra kết quả hữu hình.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Được học hỏi liên tục, nghiên cứu và giải quyết vấn đề phức tạp.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Được tự do sáng tạo và thể hiện quan điểm cá nhân.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Được giúp đỡ con người và tạo ra giá trị tích cực cho xã hội.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Có cơ hội thăng tiến, lãnh đạo và đạt thành tựu lớn.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Có sự ổn định, quy trình rõ ràng và trách nhiệm cụ thể.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Nếu được giao một khoản ngân sách nhỏ để thực hiện dự án, tôi muốn...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Mua vật liệu hoặc thiết bị để chế tạo một sản phẩm hữu ích.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Thu thập dữ liệu, tiến hành thử nghiệm và đánh giá kết quả.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Sản xuất video, thiết kế bộ nhận diện hoặc tạo sản phẩm nghệ thuật.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Tổ chức chương trình hỗ trợ học tập hoặc hoạt động cộng đồng.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Xây dựng kế hoạch kinh doanh và tìm cách thu hút khách hàng.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Lập dự toán, quản lý thu chi và kiểm soát ngân sách.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Tôi thường tiếp thu kiến thức tốt nhất khi...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Được trực tiếp thao tác, thực hành và học qua trải nghiệm.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Được tìm hiểu nguyên lý, phân tích và giải thích vì sao sự việc xảy ra.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Được thử nghiệm ý tưởng, sáng tạo sản phẩm hoặc thể hiện theo cách riêng.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Được thảo luận, trao đổi và học hỏi cùng người khác.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Được tham gia thử thách, giải quyết tình huống và dẫn dắt hoạt động.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Được học theo trình tự, làm bài tập có cấu trúc và kiểm tra kết quả.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Người khác có thể tìm đến tôi để nhờ...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Sửa đồ dùng, lắp ráp, sử dụng thiết bị hoặc giải quyết việc thực tế.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Giải thích kiến thức, phân tích vấn đề hoặc tìm thông tin đáng tin cậy.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Góp ý thiết kế, viết nội dung hoặc nghĩ ra ý tưởng mới.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Lắng nghe tâm sự, đưa ra lời khuyên hoặc hỗ trợ tinh thần.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Thuyết phục người khác, thương lượng hoặc tổ chức công việc.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Sắp xếp giấy tờ, kiểm tra số liệu hoặc lập kế hoạch chi tiết.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Nếu có cơ hội thực tập tại một đơn vị, tôi thích...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Xưởng sản xuất, công trường, trung tâm kỹ thuật hoặc cơ sở nông nghiệp.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Phòng nghiên cứu, phòng xét nghiệm, công ty công nghệ hoặc bộ phận phân tích dữ liệu.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Công ty thiết kế, studio sáng tạo, tòa soạn hoặc đơn vị truyền thông.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Trường học, cơ sở y tế, tổ chức xã hội hoặc bộ phận hỗ trợ con người.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Doanh nghiệp kinh doanh, công ty marketing, bộ phận phát triển thị trường hoặc startup.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Phòng kế toán, ngân hàng, bộ phận hành chính hoặc quản lý dữ liệu.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Điều nào khiến tôi ít hứng thú với một công việc nhất?",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Chủ yếu ngồi làm việc trên giấy tờ, ít được vận động hoặc thao tác thực tế.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Chỉ làm theo hướng dẫn có sẵn, ít cần tư duy hoặc tìm hiểu nguyên nhân.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Phải tuân theo khuôn mẫu cứng nhắc và không được sáng tạo.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Ít có cơ hội giao tiếp, hỗ trợ hoặc tương tác với người khác.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Không được chủ động, thiếu mục tiêu thử thách hoặc cơ hội phát triển.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Công việc thiếu tổ chức, thường xuyên bỏ qua quy trình và chi tiết.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    },
+    {
+      "title": "Trong tương lai, tôi muốn được biết đến là người...",
+      "type": "question",
+      "body": "",
+      "image": null,
+      "options": [
+        {
+          "text": "Có tay nghề tốt, giỏi thực hành và giải quyết được các vấn đề kỹ thuật.",
+          "image": null,
+          "group": "R",
+          "points": 1
+        },
+        {
+          "text": "Có kiến thức chuyên môn sâu, tư duy logic và khả năng tìm ra giải pháp.",
+          "image": null,
+          "group": "I",
+          "points": 1
+        },
+        {
+          "text": "Có tư duy sáng tạo, phong cách riêng và những sản phẩm độc đáo.",
+          "image": null,
+          "group": "A",
+          "points": 1
+        },
+        {
+          "text": "Biết quan tâm, hỗ trợ và tạo ảnh hưởng tích cực đến cuộc sống của người khác.",
+          "image": null,
+          "group": "S",
+          "points": 1
+        },
+        {
+          "text": "Có năng lực lãnh đạo, kinh doanh và biến ý tưởng thành kết quả.",
+          "image": null,
+          "group": "E",
+          "points": 1
+        },
+        {
+          "text": "Làm việc đáng tin cậy, chính xác, có tổ chức và trách nhiệm.",
+          "image": null,
+          "group": "C",
+          "points": 1
+        }
+      ]
+    }
+  ]
+}

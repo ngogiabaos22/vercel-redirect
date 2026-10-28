@@ -101,3 +101,9 @@ body.tnp-tt-iq .tnp-trait-only,body.tnp-tt-trait .tnp-iq-only{display:none!impor
 .column-tnp_task{width:150px}
 .column-tnp_task code{font-size:12px}
 .tnp-any{color:#8c8f94;font-size:12px}
+.tnp-json-box{margin:24px 0;padding:16px 20px;background:#fff;border:1px solid #dcdcde;border-radius:12px;max-width:900px}
+.tnp-json-box h2{margin:0 0 6px}
+.tnp-json-box select{max-width:360px}
+.tnp-json-box details{margin-top:12px}
+.tnp-json-box summary{cursor:pointer;font-weight:600}
+.tnp-json-box pre{background:#f6f7f7;border-radius:8px;padding:12px;overflow:auto;max-height:420px;font-size:12px;white-space:pre-wrap}
