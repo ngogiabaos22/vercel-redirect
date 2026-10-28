@@ -1,7 +1,7 @@
 === TNP Trắc nghiệm (IQ, EQ, DISC, MBTI, Holland) ===
 Requires at least: 5.8
 Requires PHP: 7.4
-Stable tag: 2.5.0
+Stable tag: 2.6.0
 
 Tạo bài test IQ, EQ, DISC, MBTI, Holland cho WordPress: quản trị câu hỏi, chấm điểm trên máy chủ, trang kết quả chi tiết cho từng loại, lưu và thống kê kết quả.
 
@@ -49,7 +49,7 @@ Bắt người làm bài làm nhiệm vụ của Traffic Hila (traffic.io.vn) v�
 * Trắc nghiệm → Bài test → Sửa (hoặc khi thêm mới) → mục "Nhiệm vụ":
   - Công tắc "Yêu cầu làm nhiệm vụ trước khi xem kết quả": bật/tắt yêu cầu.
   - Ô Tag: trùng "Tag phân loại" của nhiệm vụ bên Traffic Hila (để trống = nhiệm vụ bất kỳ). Tắt công tắc vẫn giữ Tag.
-  Bảng danh sách Bài test có cột "Nhiệm vụ" (Bật/Tắt + tag).
+  Bảng danh sách Bài test có cột "Nhiệm vụ": bấm công tắc để bật/tắt ngay (lưu tự động, không cần mở trang Sửa), kèm tag.
 * Khi nộp bài: hiện popup nhiệm vụ của Traffic Hila (giao diện chỉnh ở Hila → Cài đặt → Giao diện Popup). Người dùng nhập mã → máy chủ web này
   gửi mã sang Hila (/iats/v1/code/verify) để kiểm tra; đúng mới chấm điểm và trả kết quả, sai thì popup báo lỗi để nhập lại.
 * Kết quả chỉ được tính sau khi mã đúng; mỗi mã dùng một lần, mỗi lượt làm bài cần một mã.
@@ -88,7 +88,7 @@ Mẹo ảnh: ảnh đáp án nên vuông, nền trong suốt (PNG/WebP), hình n
 
 == Thống kê ==
 Trắc nghiệm → Thống kê: theo từng bài test (Tên bài test | Loại | Lượt xem đề | Lượt xem kết quả | Tỉ lệ hoàn thành | IQ TB hoặc kết quả phổ biến nhất | Shortcode), lọc Hôm nay / 7 ngày / 30 ngày / Tất cả, kèm bảng theo ngày.
-* Lượt xem đề: mỗi lần người dùng bấm bắt đầu và tải đề.
+* Lượt xem đề: mỗi lần đề được tải (bài test hiện thẳng câu 1, không có màn hình giới thiệu: mở trang có shortcode hoặc bấm nút mở bài test là tính một lượt).
 * Lượt xem kết quả: mỗi lần làm xong và xem kết quả.
 Trắc nghiệm → Kết quả: danh sách từng lượt làm (IQ hoặc mã kết quả như INTJ, DI, RIA, EQ 80), thống kê IQ theo nhóm tuổi, xuất CSV.
 

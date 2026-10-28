@@ -33,7 +33,6 @@ class TNP_IQ_Settings {
 			'iq_max'         => 160,
 			'norms'          => self::default_norms(),
 			'intro_title'    => 'Test IQ miễn phí',
-			'intro_text'     => 'Chuẩn bị giấy nháp, chọn nơi yên tĩnh. Bạn có thể bỏ qua câu khó và quay lại sau. Ở bước cuối, hãy nhập đúng tuổi để điểm IQ được quy đổi chính xác theo độ tuổi.',
 			'task_server'    => 'https://traffic.io.vn',
 			'age_note'       => 'Điểm IQ được so sánh với những người cùng độ tuổi, vì vậy hãy nhập đúng tuổi của bạn để có kết quả chính xác nhất.',
 		);
@@ -73,7 +72,6 @@ class TNP_IQ_Settings {
 		$out['iq_min']         = max( 40, min( 100, (int) ( $in['iq_min'] ?? $d['iq_min'] ) ) );
 		$out['iq_max']         = max( 100, min( 200, (int) ( $in['iq_max'] ?? $d['iq_max'] ) ) );
 		$out['intro_title']    = sanitize_text_field( $in['intro_title'] ?? $d['intro_title'] );
-		$out['intro_text']     = sanitize_textarea_field( $in['intro_text'] ?? $d['intro_text'] );
 		$out['age_note']       = sanitize_textarea_field( $in['age_note'] ?? $d['age_note'] );
 		$out['task_server']    = untrailingslashit( esc_url_raw( trim( (string) ( $in['task_server'] ?? $d['task_server'] ) ), array( 'https', 'http' ) ) ) ?: $d['task_server'];
 
@@ -167,10 +165,6 @@ class TNP_IQ_Settings {
 					<tr>
 						<th scope="row"><label for="tnp-it">Tên bài test mặc định</label></th>
 						<td><input id="tnp-it" type="text" name="<?php echo esc_attr( $n ); ?>[intro_title]" value="<?php echo esc_attr( $o['intro_title'] ); ?>" class="regular-text"> <p class="description">Tên của bài IQ chung [tnp_iq_test]. Các bài test khác dùng tên đặt trong mục Bài test.</p></td>
-					</tr>
-					<tr>
-						<th scope="row"><label for="tnp-ix">Hướng dẫn trước khi làm</label></th>
-						<td><textarea id="tnp-ix" name="<?php echo esc_attr( $n ); ?>[intro_text]" rows="3" cols="60"><?php echo esc_textarea( $o['intro_text'] ); ?></textarea></td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="tnp-an">Ghi chú ở bước nhập tuổi</label></th>

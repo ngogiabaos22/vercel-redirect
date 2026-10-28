@@ -22,9 +22,7 @@
 		this.cfg = JSON.parse(root.getAttribute('data-config') || '{}');
 		this.st = null;
 		this.timer = null;
-		this.renderIntro();
-		// Mở từ nút (cửa sổ bật lên): vào thẳng bài làm, không dừng ở màn hình giới thiệu.
-		if (this.cfg.autostart) { this.start(this.root.querySelector('[data-act="start"]')); }
+		this.start();
 	}
 
 	// Khung cuộn chứa bài test: cửa sổ bật lên (nếu mở từ nút) hoặc cả trang.
@@ -40,29 +38,14 @@
 		if (top < 0) { window.scrollBy(0, top - 90); }
 	};
 
-	/* ---------- Màn hình bắt đầu ---------- */
-	Quiz.prototype.renderIntro = function () {
-		var c = this.cfg, self = this;
-		this.html(
-			'<div class="tnp-card tnp-intro">' +
-				'<div class="tnp-intro-icon" aria-hidden="true">🧠</div>' +
-				'<h2>' + esc(c.introTitle) + '</h2>' +
-				'<p>' + esc(c.introText) + '</p>' +
-				'<div class="tnp-actions">' +
-					'<button type="button" class="tnp-btn" data-act="start">Bắt đầu làm bài</button>' +
-				'</div>' +
-			'</div>'
-		);
-		this.root.querySelector('[data-act="start"]').onclick = function () { self.start(this); };
-	};
-
-	Quiz.prototype.start = function (btn) {
+	/* ---------- Tải đề: vào thẳng bài làm, không có màn hình giới thiệu ---------- */
+	Quiz.prototype.start = function () {
 		var self = this, c = this.cfg, q = [];
 		if (c.test) { q.push('test=' + encodeURIComponent(c.test)); }
 		if (c.count !== null && c.count !== undefined) { q.push('count=' + encodeURIComponent(c.count)); }
 		if (c.time !== null && c.time !== undefined) { q.push('time=' + encodeURIComponent(c.time)); }
-		btn.disabled = true;
-		btn.textContent = 'Đang tải đề…';
+		this.st = null;
+		this.html('<div class="tnp-card tnp-msg"><div class="tnp-spin" aria-hidden="true"></div><p>Đang tải đề…</p></div>');
 		fetch(c.api + '/start' + (q.length ? '?' + q.join('&') : ''), { credentials: 'same-origin' })
 			.then(function (r) { return r.json().then(function (d) { if (!r.ok) { throw d; } return d; }); })
 			.then(function (d) {
@@ -288,7 +271,7 @@
 		this.html(
 			'<div class="tnp-card tnp-age">' +
 				(timeout ? '<div class="tnp-note">⏰ Đã hết giờ làm bài. Các câu bạn đã trả lời vẫn được tính.</div>' : '') +
-				'<div class="tnp-intro-icon" aria-hidden="true">✨</div>' +
+				'<div class="tnp-msg-icon" aria-hidden="true">✨</div>' +
 				'<p>Đang phân tích câu trả lời của bạn…</p>' +
 				'<div class="tnp-err" hidden></div>' +
 				'<div class="tnp-actions"><button type="button" class="tnp-btn" disabled>Đang chấm điểm…</button></div>' +
@@ -307,7 +290,7 @@
 		this.html(
 			'<form class="tnp-card tnp-age">' +
 				(timeout ? '<div class="tnp-note">⏰ Đã hết giờ làm bài. Các câu bạn đã trả lời vẫn được tính điểm.</div>' : '') +
-				'<div class="tnp-intro-icon" aria-hidden="true">🎂</div>' +
+				'<div class="tnp-msg-icon" aria-hidden="true">🎂</div>' +
 				'<h3 class="tnp-qtitle"><span>' + (st.questions.length + 1) + '.</span> Bạn bao nhiêu tuổi?</h3>' +
 				'<p>' + esc(this.cfg.ageNote) + '</p>' +
 				'<label class="tnp-age-field"><input type="number" name="age" min="5" max="100" inputmode="numeric" required placeholder="Ví dụ: 22" value="' + esc(st.age || '') + '"><span>tuổi</span></label>' +
@@ -450,7 +433,7 @@
 		var fn = { eq: 'renderEq', disc: 'renderDisc', mbti: 'renderMbti', holland: 'renderHolland' }[r.kind];
 		if (fn) { this[fn](r); } else { this.renderIq(r); }
 		var self = this, again = this.root.querySelector('[data-act="again"]');
-		if (again) { again.onclick = function () { self.st = null; self.renderIntro(); }; }
+		if (again) { again.onclick = function () { self.start(); }; }
 	};
 
 	/* Khung chung cho trang kết quả các test tính cách. */
@@ -591,13 +574,13 @@
 				'<div class="tnp-actions"><button type="button" class="tnp-btn" data-act="again">Làm lại bài test</button></div>' +
 			'</div>'
 		);
-		this.root.querySelector('[data-act="again"]').onclick = function () { self.st = null; self.renderIntro(); };
+		this.root.querySelector('[data-act="again"]').onclick = function () { self.start(); };
 	};
 
 	Quiz.prototype.error = function (msg) {
 		var self = this;
-		this.html('<div class="tnp-card tnp-intro"><div class="tnp-intro-icon" aria-hidden="true">⚠️</div><p>' + esc(msg) + '</p><div class="tnp-actions"><button type="button" class="tnp-btn" data-act="back">Quay lại</button></div></div>');
-		this.root.querySelector('[data-act="back"]').onclick = function () { self.renderIntro(); };
+		this.html('<div class="tnp-card tnp-msg"><div class="tnp-msg-icon" aria-hidden="true">⚠️</div><p>' + esc(msg) + '</p><div class="tnp-actions"><button type="button" class="tnp-btn" data-act="retry">Thử lại</button></div></div>');
+		this.root.querySelector('[data-act="retry"]').onclick = function () { self.start(); };
 	};
 
 	function mount(el) {

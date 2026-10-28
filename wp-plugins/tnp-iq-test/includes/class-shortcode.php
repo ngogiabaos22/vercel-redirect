@@ -27,11 +27,11 @@ class TNP_IQ_Shortcode {
 	/** Dữ liệu cho cửa sổ bật lên: mọi bài test (tên, loại, lời giới thiệu) + bài IQ chung. */
 	public static function launcher_data() {
 		$tests = array(
-			'' => array( 'kind' => 'iq', 'title' => TNP_IQ_Questions::test_name( '' ), 'intro' => TNP_IQ_Tests::intro_of( '' ) ),
+			'' => array( 'kind' => 'iq', 'title' => TNP_IQ_Questions::test_name( '' ) ),
 		);
 		$terms = get_terms( array( 'taxonomy' => TNP_IQ_Questions::TAX, 'hide_empty' => false ) );
 		foreach ( is_wp_error( $terms ) ? array() : $terms as $t ) {
-			$tests[ $t->slug ] = array( 'kind' => TNP_IQ_Tests::type_of( $t->slug ), 'title' => $t->name, 'intro' => TNP_IQ_Tests::intro_of( $t->slug ) );
+			$tests[ $t->slug ] = array( 'kind' => TNP_IQ_Tests::type_of( $t->slug ), 'title' => $t->name );
 		}
 		return array(
 			'api'     => esc_url_raw( rest_url( TNP_IQ_Rest::NS ) ),
@@ -77,8 +77,6 @@ class TNP_IQ_Shortcode {
 			'count'      => '' !== $atts['count'] ? $count : null,
 			'time'       => '' !== $atts['time'] ? $time : null,
 			'kind'       => TNP_IQ_Tests::type_of( $test ),
-			'introTitle' => TNP_IQ_Questions::test_name( $test ),
-			'introText'  => TNP_IQ_Tests::intro_of( $test ),
 			'ageNote'    => $s['age_note'],
 		);
 

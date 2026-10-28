@@ -6,7 +6,6 @@ defined( 'ABSPATH' ) || exit;
  *
  * Mỗi "Bài test" là một term của taxonomy TNP_IQ_Questions::TAX, có term meta:
  *  - tnp_type  : iq | eq | disc | mbti | holland
- *  - tnp_intro : hướng dẫn trước khi làm (bỏ trống = dùng mặc định)
  *
  * IQ chấm theo đáp án đúng (TNP_IQ_Scoring). Các loại còn lại chấm theo "nhóm" và "điểm"
  * gắn trên từng đáp án: người làm chọn đáp án nào thì cộng điểm của đáp án đó vào nhóm của nó.
@@ -22,6 +21,8 @@ class TNP_IQ_Tests {
 		add_action( "edited_{$tax}", array( __CLASS__, 'term_save' ) );
 		add_filter( "manage_edit-{$tax}_columns", array( __CLASS__, 'term_columns' ) );
 		add_filter( "manage_{$tax}_custom_column", array( __CLASS__, 'term_column' ), 10, 3 );
+		add_action( 'wp_ajax_tnp_task_toggle', array( __CLASS__, 'ajax_task_toggle' ) );
+		add_action( 'admin_footer-edit-tags.php', array( __CLASS__, 'task_toggle_script' ) );
 	}
 
 	/* ---------- Định nghĩa loại test ---------- */
@@ -32,7 +33,6 @@ class TNP_IQ_Tests {
 				'label' => 'IQ – Chỉ số thông minh',
 				'short' => 'IQ',
 				'dims'  => array(),
-				'intro' => 'Chuẩn bị giấy nháp, chọn nơi yên tĩnh. Bạn có thể bỏ qua câu khó và quay lại sau. Ở bước cuối, hãy nhập đúng tuổi để điểm IQ được quy đổi chính xác theo độ tuổi.',
 				'help'  => 'Mỗi câu có một đáp án đúng.',
 			),
 			'eq'      => array(
@@ -45,7 +45,6 @@ class TNP_IQ_Tests {
 					'em' => 'Đồng cảm',
 					'ss' => 'Kỹ năng xã hội',
 				),
-				'intro' => 'Không có đáp án đúng hay sai. Hãy chọn phương án gần với cách bạn thường suy nghĩ và hành động nhất, đừng chọn theo điều bạn cho là “nên” làm.',
 				'help'  => 'Gán mỗi đáp án một số điểm (ví dụ 1–5: phản ứng càng trưởng thành về cảm xúc càng nhiều điểm) và nhóm năng lực EQ mà câu hỏi đo.',
 			),
 			'disc'    => array(
@@ -57,7 +56,6 @@ class TNP_IQ_Tests {
 					'S' => 'S – Kiên định (Steadiness)',
 					'C' => 'C – Tuân thủ (Compliance)',
 				),
-				'intro' => 'Không có đáp án đúng hay sai. Với mỗi câu, chọn phương án mô tả bạn đúng nhất trong công việc và cuộc sống hằng ngày.',
 				'help'  => 'Mỗi đáp án thuộc một nhóm D, I, S hoặc C (thường mỗi câu có 4 đáp án, mỗi nhóm một đáp án). Điểm mặc định 1.',
 			),
 			'mbti'    => array(
@@ -73,7 +71,6 @@ class TNP_IQ_Tests {
 					'J' => 'J – Nguyên tắc',
 					'P' => 'P – Linh hoạt',
 				),
-				'intro' => 'Không có đáp án đúng hay sai. Hãy chọn theo con người thật của bạn, không phải con người bạn muốn trở thành. Trả lời nhanh theo cảm nhận đầu tiên.',
 				'help'  => 'Mỗi câu thường có 2 đáp án thuộc hai cực của cùng một cặp (E/I, S/N, T/F hoặc J/P). Nên có số câu đều nhau cho 4 cặp.',
 			),
 			'holland' => array(
@@ -87,7 +84,6 @@ class TNP_IQ_Tests {
 					'E' => 'E – Quản lý (Enterprising)',
 					'C' => 'C – Nghiệp vụ (Conventional)',
 				),
-				'intro' => 'Hãy cho biết mức độ bạn thích từng hoạt động dưới đây. Đừng nghĩ đến việc bạn có giỏi việc đó hay không — chỉ cần bạn có thích hay không.',
 				'help'  => 'Mỗi câu là một hoạt động thuộc một nhóm R, I, A, S, E hoặc C; các đáp án là mức độ thích (ví dụ Rất thích = 3 … Không thích = 0), cùng nhóm với câu.',
 			),
 		);
@@ -102,18 +98,6 @@ class TNP_IQ_Tests {
 			}
 		}
 		return 'iq';
-	}
-
-	public static function intro_of( $slug ) {
-		$type = self::type_of( $slug );
-		if ( '' !== $slug ) {
-			$term = get_term_by( 'slug', $slug, TNP_IQ_Questions::TAX );
-			$txt  = $term ? trim( (string) get_term_meta( $term->term_id, 'tnp_intro', true ) ) : '';
-			if ( '' !== $txt ) {
-				return $txt;
-			}
-		}
-		return 'iq' === $type ? TNP_IQ_Settings::get( 'intro_text' ) : self::types()[ $type ]['intro'];
 	}
 
 	/** Bài test có bật xáo trộn thứ tự đáp án không. */
@@ -176,11 +160,6 @@ class TNP_IQ_Tests {
 			<label><input type="checkbox" name="tnp_shuffle" value="1" checked style="width:auto"> Xáo trộn thứ tự đáp án mỗi lượt làm</label>
 			<p>Nên bật cho EQ, DISC, Holland để người làm không đoán theo vị trí đáp án.</p>
 		</div>
-		<div class="form-field">
-			<label for="tnp-intro">Hướng dẫn trước khi làm</label>
-			<textarea name="tnp_intro" id="tnp-intro" rows="3"></textarea>
-			<p>Hiện ở màn hình bắt đầu. Để trống = dùng hướng dẫn mặc định của loại test.</p>
-		</div>
 		<div class="form-field tnp-task-field">
 			<label>Nhiệm vụ</label>
 			<?php self::task_fields( false, '' ); ?>
@@ -201,11 +180,6 @@ class TNP_IQ_Tests {
 			<th scope="row">Thứ tự đáp án</th>
 			<td><label><input type="checkbox" name="tnp_shuffle" value="1" <?php checked( '1', (string) get_term_meta( $term->term_id, 'tnp_shuffle', true ) ); ?> style="width:auto"> Xáo trộn thứ tự đáp án mỗi lượt làm</label>
 				<p class="description">Nhãn A, B, C… vẫn theo thứ tự hiển thị; máy chủ chấm theo đáp án gốc.</p></td>
-		</tr>
-		<tr class="form-field">
-			<th scope="row"><label for="tnp-intro">Hướng dẫn trước khi làm</label></th>
-			<td><textarea name="tnp_intro" id="tnp-intro" rows="3"><?php echo esc_textarea( get_term_meta( $term->term_id, 'tnp_intro', true ) ); ?></textarea>
-				<p class="description">Để trống = dùng hướng dẫn mặc định của loại test.</p></td>
 		</tr>
 		<tr class="form-field tnp-task-field">
 			<th scope="row">Nhiệm vụ</th>
@@ -322,10 +296,53 @@ class TNP_IQ_Tests {
 		}
 		$type = sanitize_key( wp_unslash( $_POST['tnp_type'] ?? 'iq' ) );
 		update_term_meta( $term_id, 'tnp_type', isset( self::types()[ $type ] ) ? $type : 'iq' );
-		update_term_meta( $term_id, 'tnp_intro', sanitize_textarea_field( wp_unslash( $_POST['tnp_intro'] ?? '' ) ) );
 		update_term_meta( $term_id, 'tnp_shuffle', empty( $_POST['tnp_shuffle'] ) ? '0' : '1' );
 		update_term_meta( $term_id, 'tnp_task_on', empty( $_POST['tnp_task_on'] ) ? '0' : '1' );
 		update_term_meta( $term_id, 'tnp_task_tag', sanitize_text_field( wp_unslash( $_POST['tnp_task_tag'] ?? '' ) ) );
+	}
+
+	/** Bật/tắt yêu cầu nhiệm vụ ngay trong danh sách Bài test (không cần mở trang Sửa). */
+	public static function ajax_task_toggle() {
+		$term_id = absint( $_POST['term'] ?? 0 );
+		check_ajax_referer( 'tnp_task_toggle_' . $term_id, 'nonce' );
+		$term = get_term( $term_id, TNP_IQ_Questions::TAX );
+		if ( ! $term || is_wp_error( $term ) || ! current_user_can( 'edit_term', $term_id ) ) {
+			wp_send_json_error( array( 'message' => 'Không có quyền sửa bài test này.' ), 403 );
+		}
+		$on = ! empty( $_POST['on'] ) && '0' !== $_POST['on'];
+		update_term_meta( $term_id, 'tnp_task_on', $on ? '1' : '0' );
+		wp_send_json_success( array( 'on' => $on ) );
+	}
+
+	public static function task_toggle_script() {
+		if ( TNP_IQ_Questions::TAX !== ( $_GET['taxonomy'] ?? '' ) ) {
+			return;
+		}
+		?>
+		<script>
+		document.addEventListener('change', function (e) {
+			var box = e.target;
+			if (!box.matches || !box.matches('.tnp-task-toggle input')) { return; }
+			var label = box.parentNode.querySelector('b'), on = box.checked;
+			box.disabled = true;
+			label.textContent = on ? 'Bật' : 'Tắt';
+			var body = new FormData();
+			body.append('action', 'tnp_task_toggle');
+			body.append('term', box.getAttribute('data-term'));
+			body.append('nonce', box.getAttribute('data-nonce'));
+			body.append('on', on ? '1' : '0');
+			fetch(ajaxurl, { method: 'POST', credentials: 'same-origin', body: body })
+				.then(function (r) { return r.json(); })
+				.then(function (res) { if (!res || !res.success) { throw res; } })
+				.catch(function (res) {
+					box.checked = !on;
+					label.textContent = !on ? 'Bật' : 'Tắt';
+					alert((res && res.data && res.data.message) || 'Không lưu được. Vui lòng thử lại.');
+				})
+				.then(function () { box.disabled = false; });
+		});
+		</script>
+		<?php
 	}
 
 	public static function term_columns( $cols ) {
@@ -348,11 +365,15 @@ class TNP_IQ_Tests {
 			return esc_html( self::types()[ self::type_of( $term->slug ) ]['short'] );
 		}
 		if ( 'tnp_task' === $col ) {
-			$task = self::task_of( $term->slug );
-			$tag  = (string) get_term_meta( $term_id, 'tnp_task_tag', true );
-			return $task
-				? '<span class="tnp-tag is-ok">Bật</span> ' . ( '' !== $tag ? '<code>' . esc_html( $tag ) . '</code>' : '<em>mọi tag</em>' )
-				: '<span class="tnp-tag is-draft">Tắt</span>' . ( '' !== $tag ? ' <code>' . esc_html( $tag ) . '</code>' : '' );
+			$tag = (string) get_term_meta( $term_id, 'tnp_task_tag', true );
+			return sprintf(
+				'<label class="tnp-switch tnp-task-toggle" title="Bật/tắt yêu cầu nhiệm vụ"><input type="checkbox" data-term="%d" data-nonce="%s" %s><span></span><b>%s</b></label> %s',
+				$term_id,
+				esc_attr( wp_create_nonce( 'tnp_task_toggle_' . $term_id ) ),
+				self::task_of( $term->slug ) ? 'checked' : '',
+				self::task_of( $term->slug ) ? 'Bật' : 'Tắt',
+				'' !== $tag ? '<code>' . esc_html( $tag ) . '</code>' : '<em class="tnp-any">mọi tag</em>'
+			);
 		}
 		if ( 'tnp_shortcode' === $col ) {
 			return '<code>[tnp_test test="' . esc_html( $term->slug ) . '"]</code>';

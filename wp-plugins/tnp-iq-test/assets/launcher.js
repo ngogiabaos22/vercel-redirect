@@ -49,11 +49,10 @@
 
 	function show(slug) {
 		var t = (D.tests || {})[slug];
-		if (!t) { t = (D.tests || {})[''] || { kind: 'iq', title: 'Bài test', intro: '' }; slug = ''; }
+		if (!t) { t = (D.tests || {})[''] || { kind: 'iq', title: 'Bài test' }; slug = ''; }
 		close();
 		var cfg = {
-			api: D.api, test: slug, count: null, time: null, kind: t.kind,
-			introTitle: t.title, introText: t.intro, ageNote: D.ageNote, autostart: true
+			api: D.api, test: slug, count: null, time: null, kind: t.kind, ageNote: D.ageNote
 		};
 		open = document.createElement('div');
 		open.className = 'tnp-modal';

@@ -87,7 +87,7 @@ body.tnp-tt-iq .tnp-trait-only,body.tnp-tt-trait .tnp-iq-only{display:none!impor
 	.tnp-tq-table .c-cat,.tnp-tq-table .c-dif{display:none}
 	.tnp-tq-table .c-title{min-width:0}
 }
-.tnp-switch{display:inline-flex;align-items:center;gap:10px;font-weight:600;cursor:pointer}
+.tnp-switch{position:relative;display:inline-flex;align-items:center;gap:10px;font-weight:600;cursor:pointer}
 .tnp-switch input{position:absolute;opacity:0;width:1px;height:1px}
 .tnp-switch span{position:relative;width:40px;height:22px;border-radius:99px;background:#c3c4c7;transition:background .15s;flex:0 0 40px}
 .tnp-switch span:after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .15s}
@@ -95,3 +95,9 @@ body.tnp-tt-iq .tnp-trait-only,body.tnp-tt-trait .tnp-iq-only{display:none!impor
 .tnp-switch input:checked+span:after{transform:translateX(18px)}
 .tnp-switch input:focus-visible+span{outline:2px solid #2271b1;outline-offset:2px}
 .tnp-task-field input[type=text]{width:100%}
+.tnp-task-toggle{font-weight:400;vertical-align:middle}
+.tnp-task-toggle b{font-weight:600;min-width:26px}
+.tnp-task-toggle input:disabled+span{opacity:.6}
+.column-tnp_task{width:150px}
+.column-tnp_task code{font-size:12px}
+.tnp-any{color:#8c8f94;font-size:12px}
