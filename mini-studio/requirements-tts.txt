@@ -1,0 +1,3 @@
+# Giọng đọc tự động (tuỳ chọn)
+piper-tts>=1.2      # offline, có giọng tiếng Việt (tải giọng trong Cài đặt → Giọng đọc)
+edge-tts>=6.1       # giọng Microsoft rất tự nhiên, miễn phí nhưng cần internet

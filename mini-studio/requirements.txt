@@ -1,0 +1,5 @@
+# Bắt buộc (đều miễn phí, cài bằng pip, không cần cài ffmpeg riêng)
+opencv-python-headless>=4.8
+numpy>=1.24
+pillow>=10.0
+imageio-ffmpeg>=0.5
