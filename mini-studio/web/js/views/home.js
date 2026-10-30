@@ -2,12 +2,13 @@
 import { api, fileUrl } from '../api.js';
 import { h, icon, modal, toast, confirmBox, fmtMs, timeAgo } from '../ui.js';
 import { go } from '../app.js';
+import { quickCreate, batchCreate, jobsPanel } from '../auto.js';
 
 const TIPS = [
-  ['1', '#FDE8DA', '#E8590C', 'Kịch bản', 'Viết tay hoặc nhờ AI cục bộ (Ollama). App tự tách cảnh và câu.'],
-  ['2', '#E3ECFD', '#2563EB', 'Storyboard', 'Thả ảnh nét vẽ, app tự khoanh vùng nhân vật và gán với câu thoại.'],
+  ['1', '#FDE8DA', '#E8590C', 'Kịch bản', 'Dán văn xuôi hoặc nhờ AI viết. App tự chia cảnh theo độ dài.'],
+  ['2', '#E3ECFD', '#2563EB', 'Storyboard', 'Tự tạo ảnh từ nhiều nguồn AI (có nguồn miễn phí), tự khoanh vùng và gán câu thoại.'],
   ['3', '#E2F3E8', '#2F855A', 'Giọng đọc', 'Piper TTS offline, Edge TTS hoặc tự thu âm. Giọng quyết định nhịp vẽ.'],
-  ['4', '#F1E8FD', '#7C3AED', 'Xuất video', 'Bàn tay vẽ theo lời đọc, có phụ đề, nhạc nền, ảnh bìa và file SRT.'],
+  ['4', '#F1E8FD', '#7C3AED', 'Xuất video', 'Bàn tay vẽ theo lời đọc, phụ đề, nhạc nền, ảnh bìa, SRT – xong báo Telegram.'],
 ];
 
 export async function renderHome(view) {
@@ -15,9 +16,13 @@ export async function renderHome(view) {
   view.replaceChildren(
     h('div', { class: 'page-h' },
       h('div', {}, h('h1', {}, 'Xưởng video whiteboard của bạn'),
-        h('p', {}, 'Mọi thứ chạy trên máy này: không tài khoản, không giới hạn, không gửi dữ liệu đi đâu.')),
+        h('p', {}, 'Dán kịch bản, bấm "Tạo video 1 chạm": app tự chia cảnh, tạo ảnh, giọng đọc và xuất video.')),
       h('div', { class: 'spacer' }),
-      h('button', { class: 'btn accent lg', onclick: newProject }, icon('plus'), 'Dự án mới')),
+      h('div', { class: 'btn-row', style: { flexWrap: 'wrap', justifyContent: 'flex-end' } },
+        h('button', { class: 'btn accent lg', onclick: quickCreate }, icon('sparkle'), 'Tạo video 1 chạm'),
+        h('button', { class: 'btn lg', onclick: jobsPanel }, icon('history'), 'Việc đang chạy'),
+        h('button', { class: 'btn lg', onclick: batchCreate }, icon('film'), 'Hàng loạt'),
+        h('button', { class: 'btn lg', onclick: newProject }, icon('plus'), 'Dự án mới'))),
     h('div', { class: 'hero-tips' }, TIPS.map(([n, bg, fg, t, d]) => h('div', { class: 'card tip' },
       h('div', { class: 'ic', style: { background: bg, color: fg } }, n), h('div', {}, h('b', {}, t), h('span', {}, d))))),
     grid,

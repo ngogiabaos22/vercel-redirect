@@ -2,11 +2,53 @@
 
 Mini Studio là app chạy local để làm **video vẽ tay kiểu whiteboard** có giọng đọc: video giải thích kiến thức, kể chuyện, bài giảng, video ngắn TikTok/Reels/Shorts.
 
-App miễn phí và chạy hoàn toàn trên máy của bạn. Không cần tài khoản, không giới hạn số video, và dữ liệu không bị gửi lên mạng.
+App miễn phí và chạy trên máy của bạn. Không cần tài khoản, không giới hạn số video. Các nguồn AI trên mạng (tạo ảnh, viết prompt, Edge TTS, Telegram) là tuỳ chọn; chỉ khi bạn bật chúng thì nội dung tương ứng mới được gửi đi.
 
 App xây trên bộ vẽ của skill **srt-whiteboard-animation** (giấy phép MIT). Skill gốc đọc mốc thời gian từ một file SRT có sẵn. Mini Studio làm theo chiều ngược lại:
 
 > **Kịch bản → giọng đọc → tự sinh mốc thời gian, phụ đề SRT và kịch bản vẽ (annotation.json) → bàn tay vẽ đúng lúc câu thoại được đọc.**
+
+---
+
+## Mới ở bản 1.1: tự động hoá tối đa
+
+| Tính năng | Bạn làm gì | App tự làm gì |
+|---|---|---|
+| **Tạo video 1 chạm** | Dán kịch bản (văn xuôi cũng được), bấm **Tạo video 1 chạm** | Tự chia cảnh theo độ dài → AI viết prompt ảnh → tạo ảnh mọi cảnh → khoanh vùng vẽ → giọng đọc → vẽ, ghép video → báo Telegram |
+| **Hàng loạt** | Dán nhiều kịch bản, ngăn cách bằng dòng `---` | Tạo từng dự án, chạy lần lượt (để chạy qua đêm được) |
+| **Nhiều nguồn ảnh** | Bật/xếp thứ tự nguồn ở **Cài đặt → Nguồn ảnh** | Thử nguồn số 1, lỗi/hết hạn mức thì tự chuyển nguồn sau; thử lại có giãn cách; tạo song song nhiều cảnh |
+| **AI viết chữ** | Chọn ở **Cài đặt → AI viết** | Pollinations (miễn phí, mặc định), Ollama (trên máy), Gemini hoặc API kiểu OpenAI |
+| **Thông báo Telegram** | Điền Bot Token, bấm *Tìm Chat ID*, *Gửi thử* | Gửi tin + file video (≤ 50 MB, lớn hơn thì gửi ảnh bìa) khi xong; báo cả khi lỗi |
+| **Mã hoá GPU** | Không cần làm gì | Tự dùng NVIDIA NVENC / Intel QSV / AMD AMF nếu máy có, không thì CPU |
+| **Preset** | Bấm *Lưu preset* ở bước Xuất video | Áp khung hình, giọng, cài đặt xuất cho dự án mới / hàng loạt |
+
+### Tạo ảnh miễn phí như thế nào?
+
+Kết hợp nhiều nguồn trong **Cài đặt → Nguồn ảnh**; app tự chuyển khi một nguồn hết hạn mức:
+
+1. **Pollinations.ai**: miễn phí, không cần đăng ký (bật sẵn). Có thể bị giới hạn tốc độ; để *Số cảnh tạo cùng lúc* = 1–2.
+2. **Cloudflare Workers AI**: đăng ký miễn phí, có hạn mức hằng ngày (đủ vài trăm ảnh FLUX). Cần *Account ID* và *API token*.
+3. **Google Gemini API** (aistudio.google.com) / **Hugging Face**: key miễn phí, hạn mức nhỏ. Dùng làm nguồn dự phòng.
+4. **Máy có GPU**: Stable Diffusion WebUI/Forge hoặc ComfyUI. Miễn phí, không giới hạn.
+5. **Trả phí khi cần**: OpenAI hoặc bất kỳ API kiểu OpenAI nào (Together, OpenRouter…).
+
+Hạn mức miễn phí do từng nhà cung cấp quyết định và có thể thay đổi. Bấm **Thử** ở từng nguồn để kiểm tra nhanh.
+
+### Thông báo Telegram
+
+1. Trong Telegram, nhắn **@BotFather** → `/newbot` → nhận **Bot Token**.
+2. Mở bot vừa tạo, bấm *Start*, nhắn một tin bất kỳ. Muốn báo vào nhóm thì thêm bot vào nhóm rồi nhắn trong nhóm.
+3. **Cài đặt → Thông báo**: dán token → **Tìm Chat ID** → chọn → **Gửi thử**.
+
+### Đóng gói thành phần mềm cho máy khác (không cần cài Python)
+
+- **Tự build trên Windows**: chạy `packaging\build_windows.bat`. Kết quả:
+  - `dist\MiniStudio\MiniStudio.exe`: chép cả thư mục sang máy khác là chạy.
+  - `dist\MiniStudio-portable.zip`.
+  - `dist\MiniStudio-Setup.exe`, nếu máy có Inno Setup 6.
+- **Build trên GitHub** (không cần máy Windows): vào tab **Actions → Mini Studio – build Windows → Run workflow**, xong tải về ở mục *Artifacts*. Đẩy tag `mini-studio-v1.1.0` thì GitHub tự tạo bản phát hành (Release) kèm file cài đặt.
+- Bản đóng gói đã kèm sẵn ffmpeg, Piper và Edge TTS. Dữ liệu (dự án, cài đặt, key) nằm trong thư mục `data` cạnh `MiniStudio.exe`; muốn sao lưu thì chép thư mục này.
+- Mở app: bấm đúp `MiniStudio.exe`. Giao diện mở trong cửa sổ riêng (Edge/Chrome chế độ app). Đóng cửa sổ console là tắt app.
 
 ---
 
@@ -103,7 +145,7 @@ Không cài gì thêm thì app vẫn dùng đủ 4 bước: tự viết kịch b
 
 ```
 mini-studio/
-├── app.py                    # chạy app
+├── app.py                    # chạy app (--engine: bản .exe tự gọi bộ vẽ)
 ├── start.bat / start.sh      # khởi động 1 chạm
 ├── ministudio/               # máy chủ Python (chỉ dùng thư viện chuẩn + OpenCV/NumPy/Pillow)
 │   ├── server.py             # HTTP + API
@@ -116,9 +158,14 @@ mini-studio/
 │   ├── render.py             # gọi bộ vẽ, ghép cảnh, phụ đề, tiếng
 │   ├── subtitles.py          # vẽ phụ đề tiếng Việt bằng Pillow
 │   ├── extras.py             # ảnh bìa, mô tả + mốc chương
-│   └── integrations.py       # Ollama, SD WebUI, ComfyUI
+│   ├── integrations.py       # AI viết chữ (Ollama / Pollinations / Gemini / OpenAI)
+│   ├── imagegen.py           # nhiều nguồn tạo ảnh, tự chuyển nguồn khi lỗi
+│   ├── pipeline.py           # luồng 1 chạm, tạo ảnh hàng loạt, giọng đọc, preset
+│   ├── scenes.py             # lưu ảnh, khoanh vùng, gán câu
+│   └── notify.py             # thông báo Telegram
 ├── engine/                   # bộ vẽ whiteboard (từ skill srt-whiteboard-animation, MIT)
 ├── web/                      # giao diện (HTML/CSS/JS thuần, chạy offline)
+├── packaging/                # đóng gói .exe (PyInstaller), bộ cài đặt (Inno Setup)
 └── data/
     ├── projects/<dự án>/     # project.json, images/, audio/, renders/, exports/
     ├── voices/               # giọng Piper đã tải

@@ -13,7 +13,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from . import ENGINE_DIR, HAND_PNG, HANDS_DIR
+from . import ENGINE_DIR, FROZEN, HAND_PNG, HANDS_DIR
 from . import audio as A
 from . import store
 from .subtitles import composite, pick_font, render_overlay
@@ -25,6 +25,45 @@ QUALITY_EDGE = {"480": 854, "720": 1280, "1080": 1920}
 
 class Cancelled(Exception):
     pass
+
+
+ENCODERS = {
+    "libx264": ["-c:v", "libx264", "-preset", "veryfast", "-crf", "20"],
+    "h264_nvenc": ["-c:v", "h264_nvenc", "-preset", "p4", "-rc", "vbr", "-cq", "21", "-b:v", "0"],
+    "h264_qsv": ["-c:v", "h264_qsv", "-global_quality", "21"],
+    "h264_amf": ["-c:v", "h264_amf", "-quality", "balanced", "-rc", "cqp", "-qp_i", "20", "-qp_p", "22"],
+}
+_hw_probe: dict[str, bool] = {}
+
+
+def _encoder_works(name: str) -> bool:
+    """Thử mã hoá 1 khung hình nhỏ để biết máy có dùng được bộ mã hoá phần cứng này không."""
+    if name not in _hw_probe:
+        ff = A.find_ffmpeg()
+        try:
+            r = subprocess.run([ff, "-hide_banner", "-loglevel", "error", "-f", "lavfi", "-i",
+                                "color=c=black:s=256x256:d=0.1", "-frames:v", "1", *ENCODERS[name], "-f", "null", "-"],
+                               capture_output=True, timeout=20) if ff else None
+            _hw_probe[name] = bool(r and r.returncode == 0)
+        except Exception:
+            _hw_probe[name] = False
+    return _hw_probe[name]
+
+
+def encoder_name() -> str:
+    """Bộ mã hoá dùng khi ghép video: GPU NVIDIA/Intel/AMD nếu có (nhanh hơn nhiều), không thì CPU."""
+    want = store.load_settings().get("videoEncoder", "auto")
+    if want in ENCODERS and want != "libx264":
+        return want if _encoder_works(want) else "libx264"
+    if want == "auto":
+        for name in ("h264_nvenc", "h264_qsv", "h264_amf"):
+            if _encoder_works(name):
+                return name
+    return "libx264"
+
+
+def encoder_args() -> list[str]:
+    return ENCODERS[encoder_name()]
 
 
 def output_size(aspect: str, quality: str) -> tuple[int, int]:
@@ -118,11 +157,14 @@ def render_scene(proj: dict, scene: dict, opts: dict, job=None, prog=(0.0, 1.0),
         env["MINISTUDIO_FFMPEG"] = ff
     env["PYTHONIOENCODING"] = "utf-8"
     hand = hand_path(settings.get("hand", ""))
-    cmd = [sys.executable, str(RENDERER), str(img), str(ann_path), str(out), str(hand), *args]
+    # bản đóng gói .exe không có python riêng → chạy bộ vẽ qua chính file .exe (app.py --engine)
+    runner = [sys.executable, "--engine"] if FROZEN else [sys.executable]
+    cmd = [*runner, str(RENDERER), str(img), str(ann_path), str(out), str(hand), *args]
     if job:
         job.update(prog[0], f"Đang vẽ cảnh '{scene['title']}' ({len(ann['elements'])} vùng, {ann['sceneDurationMs']/1000:.1f}s)")
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env,
-                            text=True, encoding="utf-8", errors="replace")
+                            text=True, encoding="utf-8", errors="replace",
+                            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     tail: list[str] = []
     for line in proc.stdout:  # type: ignore[union-attr]
         line = line.rstrip()
@@ -191,14 +233,14 @@ def render_project(pid: str, job) -> dict:
         scene_videos.append(render_scene(proj, sc, opts, job, span))
 
     # 2) ghép cảnh + phụ đề (giải mã → vẽ phụ đề → mã hoá lại, 1 lượt)
-    job.update(0.75, f"Ghép {n} cảnh, chèn phụ đề ({W}x{H}, {fps}fps)")
+    job.update(0.75, f"Ghép {n} cảnh, chèn phụ đề ({W}x{H}, {fps}fps, mã hoá {encoder_name()})")
     sub = opts.get("subtitles", {})
     font = pick_font(store.load_settings().get("fontPath", ""))
     paper = store.load_settings().get("paperColor", "#F5EBD7").lstrip("#")
     tmp_video = pdir / "renders" / "_video_nosound.mp4"
     enc = subprocess.Popen(
         [A.find_ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
-         "-s", f"{W}x{H}", "-r", str(fps), "-i", "-", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+         "-s", f"{W}x{H}", "-r", str(fps), "-i", "-", *encoder_args(),
          "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(tmp_video)],
         stdin=subprocess.PIPE, stderr=subprocess.PIPE)
     frame_bytes = W * H * 3

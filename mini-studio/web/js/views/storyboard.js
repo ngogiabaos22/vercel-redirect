@@ -49,6 +49,7 @@ function draw(p) {
 function sceneList(p) {
   return h('div', { class: 'sb-list' },
     h('div', { class: 'muted small' }, `${p.scenes.length} cảnh · sửa nội dung ở bước Kịch bản`),
+    p.scenes.some((x) => !x.image) ? h('button', { class: 'btn sm accent', style: { width: '100%' }, onclick: () => imagesAll(p) }, icon('sparkle'), `Tạo ảnh ${p.scenes.filter((x) => !x.image).length} cảnh còn thiếu`) : null,
     p.scenes.map((s, i) => {
       const nEl = (s.elements || []).filter((e) => !e.bg).length;
       return h('div', { class: `sb-scene ${s.id === st.sid ? 'on' : ''}`, onclick: () => { st.sid = s.id; st.sel = null; stopPreview(); draw(p); } },
@@ -501,14 +502,25 @@ async function autoDetect(p, sc) {
   changed(p); repaint(p);
   toast(`Tìm thấy ${r.elements.filter((e) => !e.bg).length} vùng (phủ ${Math.round(r.coverage * 100)}% nét vẽ)`, 'ok');
 }
+async function imagesAll(p) {
+  await flush();
+  const prog = h('div', { class: 'progress' }, h('div'));
+  const msg = h('div', { class: 'muted small' }, 'Đang bắt đầu…');
+  const log = h('div', { class: 'log' });
+  const m = modal({ title: 'Tạo ảnh cho mọi cảnh còn thiếu', wide: true, body: h('div', { class: 'modal-b stack' }, prog, msg, log) });
+  try {
+    const job = await api.post(`/projects/${p.id}/images/auto`, {});
+    await watchJob(job, (j) => { prog.firstChild.style.width = (j.progress * 100) + '%'; msg.textContent = j.message; log.textContent = j.log.join('\n'); log.scrollTop = log.scrollHeight; });
+    toast('Đã tạo xong ảnh', 'ok'); m.close();
+  } catch (e) { msg.textContent = 'Lỗi: ' + e.message; toast(e.message, 'err'); }
+  await reloadProject(); refreshChrome(); draw(S.project);
+}
 async function generateImage(p, sc) {
   await flush();
   const r = await api.post(`/projects/${p.id}/scenes/${sc.id}/prompt`, {});
   const ta = h('textarea', { class: 'input', rows: 6, value: r.prompt });
   const status = h('div', { class: 'muted small' });
-  const sys = S.system?.services || {};
-  const backend = S.settings?.imageBackend || 'a1111';
-  const okSvc = backend === 'comfy' ? sys.comfy : sys.a1111;
+  const provs = S.system?.imageProviders || [];
   const prog = h('div', { class: 'progress', style: { display: 'none' } }, h('div'));
   const go1 = h('button', {
     class: 'btn accent', onclick: async () => {
@@ -521,20 +533,20 @@ async function generateImage(p, sc) {
     },
   }, icon('sparkle'), 'Tạo ảnh');
   const m = modal({
-    title: 'Tạo ảnh bằng Stable Diffusion trên máy',
+    title: 'Tạo ảnh bằng AI',
     body: h('div', { class: 'modal-b stack' },
-      h('div', { class: 'svc' }, h('span', { class: `d ${okSvc ? 'on' : ''}` }),
-        backend === 'comfy' ? 'ComfyUI' : 'Stable Diffusion WebUI / Forge', okSvc ? ' đang chạy' : ' chưa chạy (xem Cài đặt → AI)'),
+      h('div', { class: 'svc' }, h('span', { class: `d ${provs.length ? 'on' : ''}` }),
+        provs.length ? `Nguồn (thử lần lượt): ${provs.join(' → ')}` : 'Chưa bật nguồn ảnh nào (Cài đặt → Nguồn ảnh)'),
       h('label', { class: 'field' }, 'Prompt (tiếng Anh cho kết quả tốt nhất)', ta),
       h('button', {
         class: 'btn sm', style: { alignSelf: 'flex-start' }, onclick: async () => {
-          status.textContent = 'Đang nhờ Ollama dịch mô tả…';
+          status.textContent = 'Đang nhờ AI viết prompt…';
           try { ta.value = (await api.post(`/projects/${p.id}/scenes/${sc.id}/prompt`, { useAI: true })).prompt; status.textContent = ''; }
           catch (e) { status.textContent = e.message; }
         },
-      }, icon('wand'), 'Dịch mô tả sang tiếng Anh bằng Ollama'),
+      }, icon('wand'), 'Nhờ AI viết lại prompt tiếng Anh'),
       prog, status,
-      h('div', { class: 'muted small' }, 'Không có GPU? Bấm "Chép prompt", dán vào ChatGPT / Gemini / Copilot (bản miễn phí), tải ảnh về rồi thả vào đây.')),
+      h('div', { class: 'muted small' }, 'Thêm/đổi nguồn ảnh (Pollinations, Cloudflare, Gemini, Hugging Face, OpenAI, SD trên máy…) ở Cài đặt → Nguồn ảnh.')),
     footer: [h('button', { class: 'btn', onclick: () => m.close() }, 'Đóng'), go1],
   });
 }

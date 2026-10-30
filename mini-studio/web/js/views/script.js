@@ -2,6 +2,7 @@
 import { api, watchJob } from '../api.js';
 import { h, icon, modal, toast, debounce, fmtMs, confirmBox } from '../ui.js';
 import { S, markDirty, flush, go, refreshChrome } from '../app.js';
+import { autorunProject } from '../auto.js';
 
 export async function renderScript(view, p) {
   const spm = (S.settings && S.settings.readingSpeed) || 230;
@@ -69,10 +70,11 @@ export async function renderScript(view, p) {
         h('button', { class: 'btn sm', onclick: () => aiRun('hook', ta) }, 'Gợi ý câu mở đầu'),
         h('button', { class: 'btn sm', onclick: () => aiRun('titles', ta) }, 'Tiêu đề & hashtag'),
         h('div', { style: { flex: 1 } }),
-        h('span', { class: 'muted small' }, 'AI chạy bằng Ollama trên máy (tuỳ chọn)')),
+        h('span', { class: 'muted small' }, 'Chọn AI (miễn phí / trên máy / API) ở Cài đặt → AI viết')),
       ta,
       h('div', { class: 'editor-foot' }, stats, h('div', { style: { flex: 1 } }),
-        h('button', { class: 'btn accent', onclick: doSplit }, icon('scissors'), 'Tách cảnh & sang Storyboard'))),
+        h('button', { class: 'btn', onclick: doSplit }, icon('scissors'), 'Tách cảnh & sang Storyboard'),
+        h('button', { class: 'btn accent', title: 'Tách cảnh → tạo ảnh → giọng đọc → xuất video, tự động hết', onclick: () => autorunProject(p, ta.value).then(() => go(`#/p/${p.id}/export`)) }, icon('sparkle'), 'Tạo video 1 chạm'))),
     h('div', { class: 'stack', style: { minHeight: 0, overflow: 'auto' } },
       h('div', { class: 'card' },
         h('div', { class: 'card-h' }, h('h3', {}, 'Dàn cảnh'), h('span', { class: 'sub' }, 'xem trước cách app tách')),
@@ -83,7 +85,7 @@ export async function renderScript(view, p) {
           h('div', {}, h('code', {}, '## Tên cảnh'), ' bắt đầu một cảnh mới'),
           h('div', {}, h('code', {}, '> mô tả hình'), ' ghi chú hình minh hoạ (dùng làm prompt tạo ảnh)'),
           h('div', {}, 'Câu thoại tự tách theo dấu ', h('code', {}, '. ! ?'), '; câu dài tự cắt ở dấu phẩy'),
-          h('div', {}, 'Không dùng ', h('code', {}, '##'), ' thì mỗi đoạn (cách 1 dòng trống) là một cảnh'),
+          h('div', {}, 'Không dùng ', h('code', {}, '##'), ' thì app tự chia cảnh theo độ dài (Cài đặt → Tự động), ưu tiên ngắt ở chỗ xuống đoạn'),
           h('div', { class: 'divider' }),
           h('div', { class: 'muted' }, 'Mẹo: mỗi cảnh 2–4 câu, 1 ý chính, 15–30 giây. Mỗi câu nên ứng với một đối tượng trong hình để bàn tay vẽ đúng lúc nhắc tới.')))),
   ));
@@ -106,7 +108,7 @@ async function aiWrite(ta) {
   };
   const btn = h('button', { class: 'btn accent', onclick: run }, 'Viết kịch bản');
   const m = modal({
-    title: 'Viết kịch bản bằng AI cục bộ',
+    title: 'Viết kịch bản bằng AI',
     body: h('div', { class: 'modal-b stack' },
       h('label', { class: 'field' }, 'Chủ đề', topic),
       h('div', { class: 'grid2' },
@@ -115,7 +117,7 @@ async function aiWrite(ta) {
           h('option', { value: 'lesson' }, 'Bài giảng'), h('option', { value: 'short' }, 'Video ngắn MXH'))),
         h('label', { class: 'field' }, 'Độ dài (giây)', h('input', { class: 'input', type: 'number', value: 60, min: 15, max: 600, oninput: (e) => { st.seconds = +e.target.value; } }))),
       h('label', { class: 'field' }, 'Người xem', h('input', { class: 'input', value: st.audience, oninput: (e) => { st.audience = e.target.value; } })),
-      h('div', { class: 'muted small' }, 'Cần cài Ollama (miễn phí) và tải một mô hình, ví dụ: ', h('code', {}, 'ollama pull qwen2.5:7b'), '. Đổi mô hình trong Cài đặt → AI.')),
+      h('div', { class: 'muted small' }, 'Mặc định dùng Pollinations (miễn phí, cần mạng). Đổi sang Ollama trên máy, Gemini hoặc API khác ở Cài đặt → AI viết.')),
     footer: [h('button', { class: 'btn', onclick: () => m.close() }, 'Huỷ'), btn],
   });
 }

@@ -28,6 +28,32 @@ DEFAULT_SETTINGS = {
     "readingSpeed": 230,  # âm tiết / phút dùng để ước lượng khi chưa có giọng
     "paperColor": "#F5EBD7",
     "hand": "drawing-hand-clean.png",
+    # ── tự động hoá ──
+    # Nguồn tạo ảnh, thử lần lượt từ trên xuống (nguồn lỗi → chuyển nguồn sau)
+    "imageProviders": [
+        {"id": "pollinations", "type": "pollinations", "name": "Pollinations (miễn phí, không cần key)",
+         "enabled": True, "model": "flux", "apiKey": ""},
+    ],
+    "imageConcurrency": 2,      # số cảnh tạo ảnh cùng lúc
+    "imageRetries": 2,          # số lần thử lại mỗi nguồn trước khi chuyển nguồn sau
+    # AI viết chữ (kịch bản, prompt ảnh): ollama | pollinations | gemini | openai
+    "llmBackend": "pollinations",
+    "llmBaseUrl": "",
+    "llmApiKey": "",
+    "llmModel": "",
+    "autoSceneSeconds": 12,     # kịch bản không có ## → tự chia cảnh dài khoảng N giây
+    "autoVoiceEngine": "auto",  # auto | edge | piper | espeak | estimate
+    "autoVoice": "",
+    "videoEncoder": "auto",     # auto | libx264 | h264_nvenc | h264_qsv | h264_amf
+    # ── thông báo Telegram ──
+    "telegramEnabled": False,
+    "telegramToken": "",
+    "telegramChatId": "",
+    "telegramSendVideo": True,
+    "telegramOnError": True,
+    # ── preset cài đặt dự án ──
+    "presets": {},
+    "defaultPreset": "",
 }
 
 ASPECTS = {

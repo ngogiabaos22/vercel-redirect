@@ -1,7 +1,6 @@
 """Máy chủ web cục bộ (chỉ dùng thư viện chuẩn của Python) + API cho giao diện."""
 from __future__ import annotations
 
-import hashlib
 import json
 import mimetypes
 import os
@@ -17,16 +16,14 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
-import cv2
-import numpy as np
-
-from . import ENGINE_DIR, HANDS_DIR, MUSIC_DIR, WEB_DIR, __version__
+from . import ENGINE_DIR, FROZEN, HANDS_DIR, MUSIC_DIR, WEB_DIR, __version__
 from . import audio as A
 from . import integrations as AI
-from . import jobs, regions, render, store, tts
+from . import imagegen, jobs, notify, pipeline, regions, render, store, tts
+from .scenes import auto_assign as _auto_assign, build_elements as _build_elements, save_image as _save_image, update as _update
 from .extras import description_text, make_thumbnail
 from .subtitles import pick_font
-from .scriptsplit import TEMPLATES, merge_into_project, parse_script
+from .scriptsplit import TEMPLATES
 from .timeline import build_annotation, project_cues, project_timeline, scene_timeline, to_srt
 
 mimetypes.add_type("application/javascript", ".js")
@@ -71,76 +68,6 @@ def _merge_server_fields(incoming: dict, disk: dict) -> dict:
     return incoming
 
 
-def _update(pid: str, fn):
-    with store._lock:
-        p = store.load_project(pid)
-        fn(p)
-        return store.save_project(p)
-
-
-def _build_elements(rects: list[dict], cov: float, w: int, h: int) -> list[dict]:
-    els = []
-    if cov < 0.97:  # phần nét nằm ngoài các vùng (đường nền…) → vẽ trước tiên như bối cảnh
-        els.append({"id": store.uid("e"), "label": "Nền & phần còn lại", "bg": True,
-                    "region": {"x": 0, "y": 0, "width": w, "height": h}, "lineIds": [], "protectedRegions": []})
-    for i, r in enumerate(rects):
-        els.append({"id": store.uid("e"), "label": f"Vùng {i + 1}", "region": r, "lineIds": [],
-                    "protectedRegions": []})
-    return els
-
-
-def _auto_assign(scene: dict) -> None:
-    for el in scene.get("elements", []):
-        if el.get("bg"):
-            el["lineIds"] = []
-    els = [e for e in scene.get("elements", []) if not e.get("bg")]
-    lines = scene.get("lines", [])
-    n, m = len(els), len(lines)
-    for i, el in enumerate(els):
-        a, b = (i * m) // n if n else 0, ((i + 1) * m) // n if n else 0
-        el["lineIds"] = [ln["id"] for ln in lines[a:b]]
-
-
-def _save_image(pid: str, sid: str, data: bytes) -> dict:
-    arr = np.frombuffer(data, dtype=np.uint8)
-    img = cv2.imdecode(arr, cv2.IMREAD_UNCHANGED)
-    if img is None:
-        raise HttpError(400, "File không phải ảnh hợp lệ")
-    if img.ndim == 3 and img.shape[2] == 4:  # ảnh trong suốt → nền giấy
-        paper = store.load_settings().get("paperColor", "#F5EBD7").lstrip("#")
-        bg = np.array([int(paper[4:6], 16), int(paper[2:4], 16), int(paper[0:2], 16)], np.float32)
-        a = img[:, :, 3:4].astype(np.float32) / 255
-        img = (img[:, :, :3] * a + bg * (1 - a)).astype(np.uint8)
-    elif img.ndim == 2:
-        img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
-    h, w = img.shape[:2]
-    if max(w, h) > 2400:
-        s = 2400 / max(w, h)
-        img = cv2.resize(img, (int(w * s), int(h * s)), interpolation=cv2.INTER_AREA)
-        h, w = img.shape[:2]
-    name = f"images/scene-{sid}-{int(time.time())}.png"
-    dst = store.project_dir(pid) / name
-    dst.parent.mkdir(exist_ok=True)
-    ok, buf = cv2.imencode(".png", img)
-    dst.write_bytes(buf.tobytes())
-    detected = regions.detect_regions(dst)
-    cov = regions.coverage(dst, detected)
-
-    def fn(p):
-        sc = store.find_scene(p, sid)
-        old = sc.get("image")
-        same_size = sc.get("canvas") == {"width": w, "height": h}
-        sc["image"] = name
-        sc["canvas"] = {"width": w, "height": h}
-        if not sc.get("elements") or not same_size:
-            sc["elements"] = _build_elements(detected, cov, w, h)
-            _auto_assign(sc)
-        if old and old != name:
-            (store.project_dir(pid) / old).unlink(missing_ok=True)
-
-    return _update(pid, fn)
-
-
 # ───────────────────────── API: hệ thống ─────────────────────────
 @route("GET", r"/api/system")
 def api_system(h, m, q):
@@ -148,6 +75,9 @@ def api_system(h, m, q):
         "version": __version__, "python": sys.version.split()[0], "platform": platform.system(),
         "ffmpeg": A.find_ffmpeg(), "tts": tts.engines_status(), "services": AI.services_status(),
         "font": pick_font(store.load_settings().get("fontPath", "")),
+        "imageProviders": [p.get("name") or p["type"] for p in imagegen.providers()],
+        "encoder": render.encoder_name(),
+        "frozen": FROZEN,
     }
 
 
@@ -230,11 +160,21 @@ def api_projects(h, m, q):
 def api_project_create(h, m, q):
     body = h.json()
     tpl = TEMPLATES.get(body.get("template", "blank"), TEMPLATES["blank"])
-    p = store.new_project(body.get("name", "Dự án mới"), body.get("aspect", "16:9"), tpl["script"])
+    return _new_project(body.get("name", "Dự án mới"), body.get("aspect", "16:9"), tpl["script"],
+                        body.get("preset"))
+
+
+def _new_project(name: str, aspect: str, script: str, preset: str | None = None) -> dict:
+    p = store.new_project(name, aspect, script)
+    preset = preset if preset is not None else store.load_settings().get("defaultPreset", "")
+    if preset:
+        pipeline.apply_preset(p, preset)
+        if aspect:  # khung hình chọn lúc tạo dự án được ưu tiên hơn preset
+            p["aspect"] = aspect if aspect in store.ASPECTS else p["aspect"]
     if p["script"]:
-        merge_into_project(p, parse_script(p["script"]))
-        store.save_project(p)
-    return p
+        from .scriptsplit import merge_into_project
+        merge_into_project(p, pipeline.split_script(p["script"]))
+    return store.save_project(p)
 
 
 @route("GET", r"/api/projects/([a-z0-9\-]+)")
@@ -278,20 +218,12 @@ def api_version_restore(h, m, q):
 
 @route("POST", r"/api/parse")
 def api_parse(h, m, q):
-    return {"scenes": parse_script(h.json().get("script", ""))}
+    return {"scenes": pipeline.split_script(h.json().get("script", ""))}
 
 
 @route("POST", r"/api/projects/([a-z0-9\-]+)/split")
 def api_split(h, m, q):
-    pid = m.group(1)
-    body = h.json()
-
-    def fn(p):
-        if "script" in body:
-            p["script"] = body["script"]
-        store.snapshot(p, "truoc-khi-tach-canh")
-        merge_into_project(p, parse_script(p["script"]))
-    return _update(pid, fn)
+    return pipeline.split_project(m.group(1), h.json().get("script"))
 
 
 @route("GET", r"/api/projects/([a-z0-9\-]+)/timeline")
@@ -373,12 +305,25 @@ def api_generate_image(h, m, q):
 
     def work(job):
         p = store.load_project(pid)
-        job.update(0.1, "Đang tạo ảnh bằng Stable Diffusion…")
-        data = AI.generate_image(prompt, p.get("aspect", "16:9"))
-        job.update(0.9, "Đang lưu ảnh và tách vùng")
+        job.update(0.1, "Đang tạo ảnh…")
+        data, src = AI.generate_image(prompt, p.get("aspect", "16:9"), log=lambda x: job.update(None, x),
+                                      cancelled=lambda: job.cancelled)
+        job.update(0.9, f"Đã tạo bằng {src}. Đang lưu ảnh và tách vùng")
         _save_image(pid, sid, data)
-        return {"ok": True}
-    return jobs.start("image", work, pid).to_dict()
+        return {"ok": True, "source": src}
+    return jobs.start("image", work, pid, heavy=False).to_dict()
+
+
+@route("POST", r"/api/projects/([a-z0-9\-]+)/images/auto")
+def api_images_auto(h, m, q):
+    pid, force = m.group(1), bool(h.json().get("force"))
+    return jobs.start("images", lambda job: pipeline.images_all(pid, job, force), pid, heavy=False).to_dict()
+
+
+@route("POST", r"/api/projects/([a-z0-9\-]+)/autorun")
+def api_autorun(h, m, q):
+    pid, script = m.group(1), h.json().get("script")
+    return jobs.start("pipeline", lambda job: pipeline.run(pid, job, script), pid).to_dict()
 
 
 @route("POST", r"/api/projects/([a-z0-9\-]+)/scenes/(\w+)/prompt")
@@ -386,7 +331,7 @@ def api_image_prompt(h, m, q):
     p = store.load_project(m.group(1))
     sc = store.find_scene(p, m.group(2))
     note = sc.get("imageNote") or " ".join(ln["text"] for ln in sc["lines"])
-    english = ""
+    english = sc.get("imagePrompt") or ""
     if h.json().get("useAI"):
         english = AI.ai_task("image_prompt", {"text": note})
     return {"prompt": AI.build_image_prompt(note, english), "negative": AI.NEGATIVE_PROMPT}
@@ -414,52 +359,13 @@ def api_scene_preview(h, m, q):
 
 
 # ───────────────────────── API: giọng đọc ─────────────────────────
-def _line_hash(text: str, engine: str, voice: str, speed: float) -> str:
-    return hashlib.sha1(f"{text}|{engine}|{voice}|{speed}".encode()).hexdigest()[:10]
-
-
 @route("POST", r"/api/projects/([a-z0-9\-]+)/tts")
 def api_tts(h, m, q):
     pid = m.group(1)
     body = h.json()
     only = set(body.get("lineIds") or [])
     force = bool(body.get("force"))
-
-    def work(job):
-        p = store.load_project(pid)
-        v = p["voice"]
-        engine, voice, speed = v.get("engine", "estimate"), v.get("voice", ""), float(v.get("speed", 1.0))
-        if engine in ("estimate", "record"):
-            raise RuntimeError("Hãy chọn một động cơ giọng (Piper / eSpeak / Edge TTS) để tạo tự động")
-        todo = []
-        for sc in p["scenes"]:
-            for ln in sc["lines"]:
-                if only and ln["id"] not in only:
-                    continue
-                hsh = _line_hash(ln["text"], engine, voice, speed)
-                if not force and (ln.get("audio") or {}).get("hash") == hsh:
-                    continue
-                todo.append((ln["id"], ln["text"], hsh))
-        if not todo:
-            job.update(1.0, "Tất cả câu đã có giọng, không cần tạo lại")
-            return {"count": 0}
-        for i, (lid, text, hsh) in enumerate(todo):
-            if job.cancelled:
-                raise RuntimeError("Đã huỷ")
-            job.update(i / len(todo), f"Đọc câu {i + 1}/{len(todo)}: {text[:50]}")
-            rel = f"audio/{lid}-{hsh}.wav"
-            dst = store.project_dir(pid) / rel
-            dur = tts.synthesize(engine, text, voice, speed, dst)
-
-            def fn(pp, lid=lid, rel=rel, dur=dur, hsh=hsh):
-                _, ln = store.find_line(pp, lid)
-                old = (ln.get("audio") or {}).get("file")
-                ln["audio"] = {"file": rel, "durationMs": dur, "engine": engine, "voice": voice, "hash": hsh}
-                if old and old != rel:
-                    (store.project_dir(pid) / old).unlink(missing_ok=True)
-            _update(pid, fn)
-        return {"count": len(todo)}
-    return jobs.start("tts", work, pid, heavy=False).to_dict()
+    return jobs.start("tts", lambda job: pipeline.voice_all(pid, job, only, force), pid, heavy=False).to_dict()
 
 
 @route("POST", r"/api/projects/([a-z0-9\-]+)/lines/(\w+)/audio")
@@ -503,7 +409,7 @@ def api_line_audio_delete(h, m, q):
 @route("POST", r"/api/projects/([a-z0-9\-]+)/render")
 def api_render(h, m, q):
     pid = m.group(1)
-    return jobs.start("render", lambda job: render.render_project(pid, job), pid).to_dict()
+    return jobs.start("render", lambda job: pipeline.render_and_notify(pid, job), pid).to_dict()
 
 
 @route("GET", r"/api/projects/([a-z0-9\-]+)/jobs")
@@ -557,6 +463,143 @@ def api_render_delete(h, m, q):
                 if r.get(k):
                     (store.project_dir(pid) / r[k]).unlink(missing_ok=True)
     return _update(pid, fn)
+
+
+# ───────────────────────── API: tự động hoá ─────────────────────────
+@route("POST", r"/api/quick")
+def api_quick(h, m, q):
+    """Tạo dự án từ kịch bản và chạy trọn luồng ngay."""
+    b = h.json()
+    if not (b.get("script") or "").strip():
+        raise HttpError(400, "Hãy dán kịch bản")
+    p = _new_project(b.get("name") or _guess_name(b["script"]), b.get("aspect", ""), b["script"], b.get("preset"))
+    job = jobs.start("pipeline", lambda job: pipeline.run(p["id"], job), p["id"])
+    return {"project": p, "job": job.to_dict()}
+
+
+def _guess_name(script: str) -> str:
+    first = next((ln.strip("#> ").strip() for ln in script.splitlines() if ln.strip()), "")
+    return (first[:60] + ("…" if len(first) > 60 else "")) or "Dự án mới"
+
+
+def _split_batch(text: str) -> list[dict]:
+    """Nhiều kịch bản trong một ô: ngăn cách bằng dòng '---'. Dòng đầu dạng 'Tiêu đề: …' thành tên dự án."""
+    items = []
+    for block in re.split(r"(?m)^\s*-{3,}\s*$", text or ""):
+        block = block.strip()
+        if not block:
+            continue
+        name = ""
+        mm = re.match(r"^(?:tiêu đề|tieu de|title)\s*:\s*(.+)$", block.splitlines()[0], re.I)
+        if mm:
+            name = mm.group(1).strip()
+            block = "\n".join(block.splitlines()[1:]).strip()
+        items.append({"name": name or _guess_name(block), "script": block})
+    return items
+
+
+@route("POST", r"/api/batch")
+def api_batch(h, m, q):
+    """Hàng loạt: tạo nhiều dự án, xếp hàng chạy lần lượt (máy không bị quá tải)."""
+    b = h.json()
+    items = b.get("items") or _split_batch(b.get("text", ""))
+    if not items:
+        raise HttpError(400, "Không có kịch bản nào")
+    out = []
+    for it in items:
+        p = _new_project(it.get("name") or _guess_name(it["script"]), b.get("aspect", ""), it["script"], b.get("preset"))
+        job = jobs.start("pipeline", lambda job, pid=p["id"]: pipeline.run(pid, job), p["id"])
+        out.append({"project": {"id": p["id"], "name": p["name"]}, "job": job.to_dict()})
+    return {"items": out}
+
+
+@route("POST", r"/api/batch/preview")
+def api_batch_preview(h, m, q):
+    return {"items": [{"name": it["name"], "scenes": len(pipeline.split_script(it["script"]))}
+                      for it in _split_batch(h.json().get("text", ""))]}
+
+
+@route("GET", r"/api/jobs")
+def api_jobs(h, m, q):
+    return {"jobs": jobs.recent()}
+
+
+@route("GET", r"/api/presets")
+def api_presets(h, m, q):
+    s = store.load_settings()
+    return {"presets": sorted((s.get("presets") or {}).keys()), "default": s.get("defaultPreset", "")}
+
+
+@route("POST", r"/api/presets")
+def api_preset_save(h, m, q):
+    b = h.json()
+    name = (b.get("name") or "").strip()[:60]
+    if not name:
+        raise HttpError(400, "Hãy đặt tên preset")
+    pipeline.save_preset(name, store.load_project(b["project"]))
+    if b.get("default"):
+        store.save_settings({"defaultPreset": name})
+    return api_presets(h, m, q)
+
+
+@route("DELETE", r"/api/presets/(.+)")
+def api_preset_delete(h, m, q):
+    s = store.load_settings()
+    presets = dict(s.get("presets") or {})
+    presets.pop(m.group(1), None)
+    patch = {"presets": presets}
+    if s.get("defaultPreset") == m.group(1):
+        patch["defaultPreset"] = ""
+    store.save_settings(patch)
+    return api_presets(h, m, q)
+
+
+@route("POST", r"/api/projects/([a-z0-9\-]+)/preset")
+def api_preset_apply(h, m, q):
+    return _update(m.group(1), lambda p: pipeline.apply_preset(p, h.json().get("name", "")))
+
+
+@route("GET", r"/api/image/types")
+def api_image_types(h, m, q):
+    return {"types": imagegen.PROVIDER_TYPES}
+
+
+@route("POST", r"/api/image/test")
+def api_image_test(h, m, q):
+    """Thử một nguồn ảnh với prompt mẫu; trả ảnh dạng base64 để xem ngay."""
+    import base64
+    b = h.json()
+    prov = b.get("provider") or {}
+    if prov.get("type") not in imagegen.HANDLERS:
+        raise HttpError(400, "Loại nguồn không hợp lệ")
+    t0 = time.time()
+    try:
+        data = imagegen.generate_with(prov, AI.build_image_prompt(b.get("prompt") or "a cat reading a book under a tree"),
+                                      "1:1", AI.NEGATIVE_PROMPT)
+    except Exception as e:  # noqa: BLE001
+        raise HttpError(502, str(e))
+    return {"image": "data:image/png;base64," + base64.b64encode(data).decode(), "seconds": round(time.time() - t0, 1)}
+
+
+@route("POST", r"/api/notify/test")
+def api_notify_test(h, m, q):
+    s = {**store.load_settings(), **h.json()}
+    try:
+        notify.send_message("🔔 <b>Mini Studio</b>: kết nối Telegram thành công! Bạn sẽ nhận thông báo khi video xong.", s)
+    except Exception as e:  # noqa: BLE001
+        raise HttpError(502, str(e))
+    return {"ok": True}
+
+
+@route("POST", r"/api/notify/chats")
+def api_notify_chats(h, m, q):
+    token = (h.json().get("token") or store.load_settings().get("telegramToken") or "").strip()
+    if not token:
+        raise HttpError(400, "Hãy điền Bot Token trước")
+    try:
+        return {"chats": notify.find_chats(token)}
+    except Exception as e:  # noqa: BLE001
+        raise HttpError(502, str(e))
 
 
 # ───────────────────────── HTTP ─────────────────────────
@@ -671,6 +714,8 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_file(target)
         except HttpError as e:
             self.send_json({"error": str(e)}, e.code)
+        except ValueError as e:
+            self.send_json({"error": str(e)}, 400)
         except (FileNotFoundError, KeyError) as e:
             self.send_json({"error": str(e).strip("'")}, 404)
         except (BrokenPipeError, ConnectionResetError):

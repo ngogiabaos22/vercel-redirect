@@ -5,3 +5,7 @@ data/projects/
 data/trash/
 data/voices/
 data/settings.json
+data/ministudio.log
+.build-venv/
+build/
+dist/

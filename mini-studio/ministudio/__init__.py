@@ -1,10 +1,17 @@
 """Mini Studio – xưởng làm video whiteboard có giọng đọc, chạy 100% trên máy."""
+import sys
 from pathlib import Path
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
-ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = ROOT / "data"
+# Bản đóng gói (PyInstaller): file chương trình nằm trong _MEIPASS, dữ liệu ghi cạnh file .exe
+FROZEN = getattr(sys, "frozen", False)
+if FROZEN:
+    ROOT = Path(getattr(sys, "_MEIPASS", Path(sys.executable).parent))
+    DATA_DIR = Path(sys.executable).resolve().parent / "data"
+else:
+    ROOT = Path(__file__).resolve().parent.parent
+    DATA_DIR = ROOT / "data"
 PROJECTS_DIR = DATA_DIR / "projects"
 VOICES_DIR = DATA_DIR / "voices"
 MUSIC_DIR = DATA_DIR / "music"

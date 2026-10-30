@@ -71,3 +71,9 @@ def get(jid: str) -> Job | None:
 def active(project: str = "") -> list[dict]:
     return [j.to_dict() for j in _jobs.values()
             if j.state in ("queued", "running") and (not project or j.project == project)]
+
+
+def recent(limit: int = 40) -> list[dict]:
+    """Các việc gần đây (đang chạy + đã xong), mới nhất trước – dùng cho màn hình hàng loạt."""
+    js = sorted(_jobs.values(), key=lambda j: j.created, reverse=True)[:limit]
+    return [dict(j.to_dict(), created=j.created, log=j.log[-3:]) for j in js]

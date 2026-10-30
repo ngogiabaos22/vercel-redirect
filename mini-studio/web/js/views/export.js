@@ -1,7 +1,8 @@
 // Bước 4 – Xuất video
 import { api, fileUrl, watchJob } from '../api.js';
 import { h, icon, toast, seg, toggle, fmtMs, pickFile, timeAgo, confirmBox, modal } from '../ui.js';
-import { S, markDirty, flush, reloadProject, refreshChrome } from '../app.js';
+import { S, markDirty, flush, reloadProject, refreshChrome, go } from '../app.js';
+import { autorunProject, pipelinePanel, presetBar } from '../auto.js';
 
 const SUB_STYLES = {
   box: { background: 'rgba(20,20,24,.8)', color: '#fff' },
@@ -15,7 +16,8 @@ export async function renderExport(view, p) {
   const right = h('div', { class: 'stack' });
   view.replaceChildren(
     h('div', { class: 'page-h' }, h('div', {}, h('h1', {}, 'Xuất video'),
-      h('p', {}, 'Bàn tay vẽ từng vùng theo lời đọc, kèm phụ đề và nhạc nền. Cảnh không đổi sẽ được dùng lại, không render lại.'))),
+      h('p', {}, 'Bàn tay vẽ từng vùng theo lời đọc, kèm phụ đề và nhạc nền. Cảnh không đổi sẽ được dùng lại, không render lại.')),
+      h('div', { class: 'spacer' }), await presetBar(p, () => go(`#/p/${p.id}/export?r=${Date.now()}`))),
     h('div', { class: 'export-grid' }, left, right));
 
   const set = (fn) => { fn(); markDirty(); };
@@ -143,6 +145,11 @@ export async function renderExport(view, p) {
         h('div', { class: 'check' }, ci(unassigned ? 'warn' : 'ok'), unassigned ? `${unassigned} câu chưa gán vùng vẽ (không vẽ gì khi đọc)` : 'Mọi câu đều có vùng vẽ'),
         h('div', { class: 'check' }, ci(ff ? 'ok' : 'bad'), ff ? 'ffmpeg sẵn sàng' : 'Thiếu ffmpeg: pip install imageio-ffmpeg'),
         h('div', { class: 'divider' }),
+        canRender ? null : h('button', {
+          class: 'btn accent lg', style: { width: '100%', marginBottom: '8px' },
+          title: 'Tạo ảnh còn thiếu, giọng đọc rồi xuất video – tự động',
+          onclick: () => autorunProject(p).then(() => go(`#/p/${p.id}/export?r=${Date.now()}`)),
+        }, icon('sparkle'), 'Tự làm phần còn thiếu & xuất video'),
         btn, h('div', { style: { height: '10px' } }), running)),
     h('div', { class: 'row' }, h('h3', { style: { margin: '6px 0 0', fontSize: '15px' } }, 'Bản đã xuất'), h('div', { style: { flex: 1 } }),
       h('button', { class: 'btn sm', onclick: () => makeThumb(p) }, icon('image'), 'Tạo ảnh bìa')),
@@ -152,6 +159,12 @@ export async function renderExport(view, p) {
   const { jobs } = await api.get(`/projects/${p.id}/jobs`);
   const active = jobs.find((j) => j.kind === 'render');
   if (active) start(active);
+  const pipe = jobs.find((j) => j.kind === 'pipeline');
+  if (pipe) {
+    pipelinePanel(pipe, `Tạo video 1 chạm · ${p.name}`)
+      .then(async () => { Object.assign(p, await reloadProject()); refreshChrome(); drawResults(true); })
+      .catch((e) => toast(e.message, 'err'));
+  }
 }
 
 async function showDesc(p, r) {

@@ -97,6 +97,37 @@ def parse_script(raw: str) -> list[dict]:
     return out
 
 
+def has_markup(raw: str) -> bool:
+    return any(re.match(r"^\s*(#{1,3}\s+|>)", ln) for ln in (raw or "").split("\n"))
+
+
+def auto_scenes(raw: str, target_sec: float = 12, spm: int = 230) -> list[dict]:
+    """Kịch bản văn xuôi (không có ## / >) → tự chia cảnh, mỗi cảnh khoảng target_sec giây.
+    Không cắt ngang đoạn văn nếu đoạn đó vừa một cảnh; đoạn dài thì cắt theo câu."""
+    target_ms = max(4, float(target_sec)) * 1000
+    per_word = 60000 / max(60, spm)
+    scenes: list[list[str]] = []
+    cur: list[str] = []
+    cur_ms = 0.0
+    for para in re.split(r"\n\s*\n", (raw or "").strip()):
+        for s in split_sentences(para):
+            ms = len(s.split()) * per_word + 250
+            if cur and cur_ms + ms > target_ms * 1.25:
+                scenes.append(cur)
+                cur, cur_ms = [], 0.0
+            cur.append(s)
+            cur_ms += ms
+        if cur and cur_ms >= target_ms * 0.6:  # hết đoạn và cảnh đã đủ dài → ngắt ở ranh giới đoạn
+            scenes.append(cur)
+            cur, cur_ms = [], 0.0
+    if cur:
+        if scenes and cur_ms < target_ms * 0.35:
+            scenes[-1].extend(cur)
+        else:
+            scenes.append(cur)
+    return [{"title": f"Cảnh {i}", "imageNote": "", "lines": ln} for i, ln in enumerate(scenes, 1)]
+
+
 def merge_into_project(proj: dict, parsed: list[dict]) -> dict:
     """Cập nhật proj['scenes'] theo kịch bản mới, giữ lại ảnh/vùng/giọng đã có khi có thể."""
     old_scenes = proj.get("scenes", [])
@@ -112,6 +143,8 @@ def merge_into_project(proj: dict, parsed: list[dict]) -> dict:
                 lines.append({"id": uid("l"), "text": text, "audio": None})
         if old:
             sc = old
+            if [ln["text"] for ln in old.get("lines", [])] != ps["lines"] or ps["imageNote"] != old.get("imageNote", ""):
+                sc["imagePrompt"] = ""  # nội dung cảnh đổi → viết lại prompt ảnh ở lần tạo sau
             sc["title"] = ps["title"]
             sc["imageNote"] = ps["imageNote"] or sc.get("imageNote", "")
             valid = {ln["id"] for ln in lines}
