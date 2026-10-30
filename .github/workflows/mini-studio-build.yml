@@ -6,6 +6,8 @@ on:
   workflow_dispatch:
   push:
     tags: ["mini-studio-v*"]
+    branches: ["claude/**"]
+    paths: ["mini-studio/**", ".github/workflows/mini-studio-build.yml"]
 
 permissions:
   contents: write
