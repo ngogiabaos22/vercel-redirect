@@ -1,0 +1,326 @@
+[section label="Hero - Test IQ" bg_color="rgb(18, 38, 89)" dark="true" padding="70px" padding__sm="40px"]
+
+[row h_align="center"]
+
+[col span="10" span__sm="12" align="center"]
+
+[ux_text text_align="center"]
+<h1>Test IQ Online Miễn Phí – Kiểm Tra Chỉ Số IQ Chính Xác Nhất 2026</h1>
+[/ux_text]
+[gap height="15px"]
+
+[ux_text text_align="center" font_size="1.15"]
+<p class="lead">Bài trắc nghiệm IQ chuẩn quốc tế, có kết quả ngay sau khi hoàn thành.</p>
+[/ux_text]
+[gap height="20px"]
+
+[button text="Bắt Đầu Test IQ Ngay" color="success" style="shade" size="large" radius="99" link="#bat-dau-test"]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Test IQ là gì" padding="60px" padding__sm="30px"]
+
+[row]
+
+[col span__sm="12"]
+
+[title style="center" text="Test IQ Là Gì?" tag_name="h2" size="130"]
+
+[ux_text]
+<h3>Chỉ số IQ (Intelligence Quotient) là gì?</h3>
+<h3>Bài test IQ đo lường những khả năng nào?</h3>
+<h3>Bài test IQ online có chính xác không?</h3>
+[/ux_text]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Dạng câu hỏi" bg_color="rgb(245, 247, 251)" padding="60px" padding__sm="30px"]
+
+[row]
+
+[col span__sm="12"]
+
+[title style="center" text="Các Dạng Câu Hỏi Trong Bài Test IQ" tag_name="h2" size="130"]
+
+[/col]
+
+[/row]
+[row v_align="equal" h_align="center"]
+
+[col span="4" span__sm="12" span__md="6"]
+
+[featured_box pos="center"]
+<h3>Tư duy logic</h3>
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6"]
+
+[featured_box pos="center"]
+<h3>Toán học và dãy số</h3>
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6"]
+
+[featured_box pos="center"]
+<h3>Tư duy hình học – không gian</h3>
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6"]
+
+[featured_box pos="center"]
+<h3>Ngôn ngữ và từ vựng</h3>
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6"]
+
+[featured_box pos="center"]
+<h3>Trí nhớ ngắn hạn</h3>
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6"]
+
+[featured_box pos="center"]
+<h3>Ma trận hình ảnh (Raven)</h3>
+[/featured_box]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Cách làm bài" padding="60px" padding__sm="30px"]
+
+[row]
+
+[col span__sm="12"]
+
+[title style="center" text="Hướng Dẫn Làm Bài Test IQ Online" tag_name="h2" size="130"]
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+
+[col span="3" span__sm="12" span__md="6" align="center"]
+
+[ux_text text_align="center"]
+<h3>Bước 1: Nhấn “Bắt đầu test”</h3>
+[/ux_text]
+
+[/col]
+[col span="3" span__sm="12" span__md="6" align="center"]
+
+[ux_text text_align="center"]
+<h3>Bước 2: Trả lời lần lượt các câu hỏi</h3>
+[/ux_text]
+
+[/col]
+[col span="3" span__sm="12" span__md="6" align="center"]
+
+[ux_text text_align="center"]
+<h3>Bước 3: Hoàn thành trong thời gian quy định</h3>
+[/ux_text]
+
+[/col]
+[col span="3" span__sm="12" span__md="6" align="center"]
+
+[ux_text text_align="center"]
+<h3>Bước 4: Nhận kết quả và phân tích chỉ số IQ</h3>
+[/ux_text]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Thang điểm IQ" bg_color="rgb(245, 247, 251)" padding="60px" padding__sm="30px"]
+
+[row]
+
+[col span__sm="12"]
+
+[title style="center" text="Thang Điểm IQ Và Ý Nghĩa Từng Mức Điểm" tag_name="h2" size="130"]
+
+[ux_text]
+<h3>IQ trên 140 – Thiên tài</h3>
+<h3>IQ từ 120 – 139 – Rất thông minh</h3>
+<h3>IQ từ 110 – 119 – Thông minh trên trung bình</h3>
+<h3>IQ từ 90 – 109 – Trung bình</h3>
+<h3>IQ từ 80 – 89 – Dưới trung bình</h3>
+<h3>IQ dưới 80 – Thấp</h3>
+[/ux_text]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="IQ trung bình" padding="60px" padding__sm="30px"]
+
+[row]
+
+[col span__sm="12"]
+
+[title style="center" text="Chỉ Số IQ Trung Bình Là Bao Nhiêu?" tag_name="h2" size="130"]
+
+[ux_text]
+<h3>Chỉ số IQ trung bình của thế giới</h3>
+<h3>Chỉ số IQ trung bình của người Việt Nam</h3>
+<h3>Chỉ số IQ trung bình theo độ tuổi</h3>
+[/ux_text]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Các bài test phổ biến" bg_color="rgb(245, 247, 251)" padding="60px" padding__sm="30px"]
+
+[row]
+
+[col span__sm="12"]
+
+[title style="center" text="Các Bài Test IQ Phổ Biến Hiện Nay" tag_name="h2" size="130"]
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+
+[col span="3" span__sm="12" span__md="6"]
+
+[ux_text text_align="center"]
+<h3>Test IQ Mensa</h3>
+[/ux_text]
+
+[/col]
+[col span="3" span__sm="12" span__md="6"]
+
+[ux_text text_align="center"]
+<h3>Test IQ Raven</h3>
+[/ux_text]
+
+[/col]
+[col span="3" span__sm="12" span__md="6"]
+
+[ux_text text_align="center"]
+<h3>Thang đo Wechsler (WAIS, WISC)</h3>
+[/ux_text]
+
+[/col]
+[col span="3" span__sm="12" span__md="6"]
+
+[ux_text text_align="center"]
+<h3>Thang đo Stanford-Binet</h3>
+[/ux_text]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Lợi ích & mẹo" padding="60px" padding__sm="30px"]
+
+[row]
+
+[col span="6" span__sm="12"]
+
+[title text="Vì Sao Nên Test IQ?" tag_name="h2" size="120"]
+
+[ux_text]
+<h3>Hiểu rõ điểm mạnh, điểm yếu trong tư duy</h3>
+<h3>Định hướng học tập và nghề nghiệp phù hợp</h3>
+<h3>Rèn luyện khả năng tư duy mỗi ngày</h3>
+[/ux_text]
+
+[/col]
+[col span="6" span__sm="12"]
+
+[title text="Mẹo Đạt Điểm Cao Khi Làm Bài Test IQ" tag_name="h2" size="120"]
+
+[ux_text]
+<h3>Chuẩn bị tinh thần thoải mái, tập trung</h3>
+<h3>Phân bổ thời gian hợp lý cho từng câu</h3>
+<h3>Luyện tập thường xuyên với các dạng câu hỏi</h3>
+[/ux_text]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="IQ và EQ" bg_color="rgb(245, 247, 251)" padding="60px" padding__sm="30px"]
+
+[row]
+
+[col span__sm="12"]
+
+[title style="center" text="Phân Biệt Chỉ Số IQ, EQ Và CQ" tag_name="h2" size="130"]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="FAQ" padding="60px" padding__sm="30px"]
+
+[row h_align="center"]
+
+[col span="10" span__sm="12"]
+
+[title style="center" text="Câu Hỏi Thường Gặp Về Test IQ" tag_name="h2" size="130"]
+
+[accordion]
+
+[accordion-item title="Test IQ online có miễn phí không?"]
+
+[/accordion-item]
+[accordion-item title="Làm bài test IQ mất bao lâu?"]
+
+[/accordion-item]
+[accordion-item title="Trẻ em bao nhiêu tuổi có thể test IQ?"]
+
+[/accordion-item]
+[accordion-item title="Chỉ số IQ có thay đổi theo thời gian không?"]
+
+[/accordion-item]
+[accordion-item title="Có thể làm lại bài test IQ nhiều lần không?"]
+
+[/accordion-item]
+[accordion-item title="IQ bao nhiêu là thông minh?"]
+
+[/accordion-item]
+
+[/accordion]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="CTA cuối trang" bg_color="rgb(18, 38, 89)" dark="true" padding="60px" padding__sm="40px"]
+
+[row h_align="center"]
+
+[col span="8" span__sm="12" align="center"]
+
+[title style="center" text="Sẵn Sàng Kiểm Tra Chỉ Số IQ Của Bạn?" tag_name="h2" size="130"]
+
+[button text="Làm Bài Test IQ Miễn Phí" color="success" style="shade" size="large" radius="99" link="#bat-dau-test"]
+
+[/col]
+
+[/row]
+
+[/section]
