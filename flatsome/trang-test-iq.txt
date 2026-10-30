@@ -1,20 +1,25 @@
-[section label="Hero - Test IQ" bg_color="rgb(18, 38, 89)" dark="true" padding="70px" padding__sm="40px"]
+[section label="Hero - Test IQ" bg_color="rgb(19, 40, 94)" dark="true" padding="70px" padding__sm="40px"]
 
-[row h_align="center"]
+[row v_align="middle"]
 
-[col span="10" span__sm="12" align="center"]
+[col span="6" span__sm="12"]
 
-[ux_text text_align="center"]
-<h1>Test IQ Online Miễn Phí – Kiểm Tra Chỉ Số IQ Chính Xác Nhất 2026</h1>
+[ux_text]
+<h1>Test IQ Online Miễn Phí – Kiểm Tra Chỉ Số IQ <span style="color: #ffb547;">Chính Xác Nhất 2026</span></h1>
 [/ux_text]
 [gap height="15px"]
 
-[ux_text text_align="center" font_size="1.15"]
+[ux_text font_size="1.15"]
 <p class="lead">Bài trắc nghiệm IQ chuẩn quốc tế, có kết quả ngay sau khi hoàn thành.</p>
 [/ux_text]
 [gap height="20px"]
 
 [button text="Bắt Đầu Test IQ Ngay" color="success" style="shade" size="large" radius="99" link="#bat-dau-test"]
+
+[/col]
+[col span="6" span__sm="12"]
+
+[ux_image id="hero-test-iq" image_size="original"]
 
 [/col]
 
@@ -23,11 +28,16 @@
 [/section]
 [section label="Test IQ là gì" padding="60px" padding__sm="30px"]
 
-[row]
+[row v_align="middle"]
 
-[col span__sm="12"]
+[col span="6" span__sm="12"]
 
-[title style="center" text="Test IQ Là Gì?" tag_name="h2" size="130"]
+[ux_image id="test-iq-la-gi" image_size="original"]
+
+[/col]
+[col span="6" span__sm="12"]
+
+[title text="Test IQ Là Gì?" tag_name="h2" size="130"]
 
 [ux_text]
 <h3>Chỉ số IQ (Intelligence Quotient) là gì?</h3>
@@ -40,7 +50,7 @@
 [/row]
 
 [/section]
-[section label="Dạng câu hỏi" bg_color="rgb(245, 247, 251)" padding="60px" padding__sm="30px"]
+[section label="Dạng câu hỏi" bg_color="rgb(243, 246, 252)" padding="60px" padding__sm="30px"]
 
 [row]
 
@@ -55,42 +65,42 @@
 
 [col span="4" span__sm="12" span__md="6"]
 
-[featured_box pos="center"]
+[featured_box img="dang-tu-duy-logic" img_width="120" pos="center"]
 <h3>Tư duy logic</h3>
 [/featured_box]
 
 [/col]
 [col span="4" span__sm="12" span__md="6"]
 
-[featured_box pos="center"]
+[featured_box img="dang-toan-hoc" img_width="120" pos="center"]
 <h3>Toán học và dãy số</h3>
 [/featured_box]
 
 [/col]
 [col span="4" span__sm="12" span__md="6"]
 
-[featured_box pos="center"]
+[featured_box img="dang-khong-gian" img_width="120" pos="center"]
 <h3>Tư duy hình học – không gian</h3>
 [/featured_box]
 
 [/col]
 [col span="4" span__sm="12" span__md="6"]
 
-[featured_box pos="center"]
+[featured_box img="dang-ngon-ngu" img_width="120" pos="center"]
 <h3>Ngôn ngữ và từ vựng</h3>
 [/featured_box]
 
 [/col]
 [col span="4" span__sm="12" span__md="6"]
 
-[featured_box pos="center"]
+[featured_box img="dang-tri-nho" img_width="120" pos="center"]
 <h3>Trí nhớ ngắn hạn</h3>
 [/featured_box]
 
 [/col]
 [col span="4" span__sm="12" span__md="6"]
 
-[featured_box pos="center"]
+[featured_box img="dang-ma-tran-raven" img_width="120" pos="center"]
 <h3>Ma trận hình ảnh (Raven)</h3>
 [/featured_box]
 
@@ -114,43 +124,43 @@
 
 [col span="3" span__sm="12" span__md="6" align="center"]
 
-[ux_text text_align="center"]
+[featured_box img="buoc-1-bat-dau" img_width="110" pos="center"]
 <h3>Bước 1: Nhấn “Bắt đầu test”</h3>
-[/ux_text]
+[/featured_box]
 
 [/col]
 [col span="3" span__sm="12" span__md="6" align="center"]
 
-[ux_text text_align="center"]
+[featured_box img="buoc-2-tra-loi" img_width="110" pos="center"]
 <h3>Bước 2: Trả lời lần lượt các câu hỏi</h3>
-[/ux_text]
+[/featured_box]
 
 [/col]
 [col span="3" span__sm="12" span__md="6" align="center"]
 
-[ux_text text_align="center"]
+[featured_box img="buoc-3-thoi-gian" img_width="110" pos="center"]
 <h3>Bước 3: Hoàn thành trong thời gian quy định</h3>
-[/ux_text]
+[/featured_box]
 
 [/col]
 [col span="3" span__sm="12" span__md="6" align="center"]
 
-[ux_text text_align="center"]
+[featured_box img="buoc-4-ket-qua" img_width="110" pos="center"]
 <h3>Bước 4: Nhận kết quả và phân tích chỉ số IQ</h3>
-[/ux_text]
+[/featured_box]
 
 [/col]
 
 [/row]
 
 [/section]
-[section label="Thang điểm IQ" bg_color="rgb(245, 247, 251)" padding="60px" padding__sm="30px"]
+[section label="Thang điểm IQ" bg_color="rgb(243, 246, 252)" padding="60px" padding__sm="30px"]
 
-[row]
+[row v_align="middle"]
 
-[col span__sm="12"]
+[col span="6" span__sm="12"]
 
-[title style="center" text="Thang Điểm IQ Và Ý Nghĩa Từng Mức Điểm" tag_name="h2" size="130"]
+[title text="Thang Điểm IQ Và Ý Nghĩa Từng Mức Điểm" tag_name="h2" size="130"]
 
 [ux_text]
 <h3>IQ trên 140 – Thiên tài</h3>
@@ -162,17 +172,27 @@
 [/ux_text]
 
 [/col]
+[col span="6" span__sm="12"]
+
+[ux_image id="thang-diem-iq" image_size="original"]
+
+[/col]
 
 [/row]
 
 [/section]
 [section label="IQ trung bình" padding="60px" padding__sm="30px"]
 
-[row]
+[row v_align="middle"]
 
-[col span__sm="12"]
+[col span="6" span__sm="12"]
 
-[title style="center" text="Chỉ Số IQ Trung Bình Là Bao Nhiêu?" tag_name="h2" size="130"]
+[ux_image id="iq-trung-binh" image_size="original"]
+
+[/col]
+[col span="6" span__sm="12"]
+
+[title text="Chỉ Số IQ Trung Bình Là Bao Nhiêu?" tag_name="h2" size="130"]
 
 [ux_text]
 <h3>Chỉ số IQ trung bình của thế giới</h3>
@@ -185,7 +205,7 @@
 [/row]
 
 [/section]
-[section label="Các bài test phổ biến" bg_color="rgb(245, 247, 251)" padding="60px" padding__sm="30px"]
+[section label="Các bài test phổ biến" bg_color="rgb(243, 246, 252)" padding="60px" padding__sm="30px"]
 
 [row]
 
@@ -200,30 +220,30 @@
 
 [col span="3" span__sm="12" span__md="6"]
 
-[ux_text text_align="center"]
+[featured_box img="test-mensa" img_width="110" pos="center"]
 <h3>Test IQ Mensa</h3>
-[/ux_text]
+[/featured_box]
 
 [/col]
 [col span="3" span__sm="12" span__md="6"]
 
-[ux_text text_align="center"]
+[featured_box img="test-raven" img_width="110" pos="center"]
 <h3>Test IQ Raven</h3>
-[/ux_text]
+[/featured_box]
 
 [/col]
 [col span="3" span__sm="12" span__md="6"]
 
-[ux_text text_align="center"]
+[featured_box img="test-wechsler" img_width="110" pos="center"]
 <h3>Thang đo Wechsler (WAIS, WISC)</h3>
-[/ux_text]
+[/featured_box]
 
 [/col]
 [col span="3" span__sm="12" span__md="6"]
 
-[ux_text text_align="center"]
+[featured_box img="test-stanford-binet" img_width="110" pos="center"]
 <h3>Thang đo Stanford-Binet</h3>
-[/ux_text]
+[/featured_box]
 
 [/col]
 
@@ -236,6 +256,8 @@
 
 [col span="6" span__sm="12"]
 
+[ux_image id="vi-sao-nen-test-iq" image_size="original"]
+
 [title text="Vì Sao Nên Test IQ?" tag_name="h2" size="120"]
 
 [ux_text]
@@ -246,6 +268,8 @@
 
 [/col]
 [col span="6" span__sm="12"]
+
+[ux_image id="meo-dat-diem-cao" image_size="original"]
 
 [title text="Mẹo Đạt Điểm Cao Khi Làm Bài Test IQ" tag_name="h2" size="120"]
 
@@ -260,13 +284,15 @@
 [/row]
 
 [/section]
-[section label="IQ và EQ" bg_color="rgb(245, 247, 251)" padding="60px" padding__sm="30px"]
+[section label="IQ và EQ" bg_color="rgb(243, 246, 252)" padding="60px" padding__sm="30px"]
 
-[row]
+[row h_align="center"]
 
-[col span__sm="12"]
+[col span="7" span__sm="12"]
 
 [title style="center" text="Phân Biệt Chỉ Số IQ, EQ Và CQ" tag_name="h2" size="130"]
+
+[ux_image id="iq-eq-cq" image_size="original"]
 
 [/col]
 
@@ -280,6 +306,16 @@
 [col span="10" span__sm="12"]
 
 [title style="center" text="Câu Hỏi Thường Gặp Về Test IQ" tag_name="h2" size="130"]
+
+[row_inner h_align="center"]
+
+[col_inner span="5" span__sm="10"]
+
+[ux_image id="cau-hoi-thuong-gap" image_size="original"]
+
+[/col_inner]
+
+[/row_inner]
 
 [accordion]
 
@@ -309,7 +345,7 @@
 [/row]
 
 [/section]
-[section label="CTA cuối trang" bg_color="rgb(18, 38, 89)" dark="true" padding="60px" padding__sm="40px"]
+[section label="CTA cuối trang" bg_color="rgb(19, 40, 94)" dark="true" padding="60px" padding__sm="40px"]
 
 [row h_align="center"]
 
