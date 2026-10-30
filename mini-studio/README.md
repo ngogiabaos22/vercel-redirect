@@ -42,6 +42,7 @@ Hạn mức miễn phí do từng nhà cung cấp quyết định và có thể 
 
 ### Đóng gói thành phần mềm cho máy khác (không cần cài Python)
 
+- **Bộ cài đặt dựng trên Linux/macOS** (không cần máy Windows): cài `nsis`, chạy `./packaging/build_installer.sh`. Ra file `dist/MiniStudio-<phiên bản>-Setup.exe`, đã gói sẵn Python cho Windows và mọi thư viện nên máy đích không cần mạng.
 - **Tự build trên Windows**: chạy `packaging\build_windows.bat`. Kết quả:
   - `dist\MiniStudio\MiniStudio.exe`: chép cả thư mục sang máy khác là chạy.
   - `dist\MiniStudio-portable.zip`.
