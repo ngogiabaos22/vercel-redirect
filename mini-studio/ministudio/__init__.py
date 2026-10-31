@@ -1,8 +1,12 @@
 """Mini Studio – xưởng làm video whiteboard có giọng đọc, chạy 100% trên máy."""
+import subprocess
 import sys
 from pathlib import Path
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
+
+# Windows: chạy ffmpeg / bộ vẽ… không bật cửa sổ console đen
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
 # Bản đóng gói (PyInstaller): file chương trình nằm trong _MEIPASS, dữ liệu ghi cạnh file .exe
 FROZEN = getattr(sys, "frozen", False)

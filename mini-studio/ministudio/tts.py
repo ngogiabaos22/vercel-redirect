@@ -19,7 +19,7 @@ import urllib.request
 import wave
 from pathlib import Path
 
-from . import VOICES_DIR
+from . import NO_WINDOW, VOICES_DIR
 from .audio import duration_ms, to_wav
 
 PIPER_BASE = "https://huggingface.co/rhasspy/piper-voices/resolve/main"
@@ -134,7 +134,7 @@ def _synth_espeak(text: str, voice: str, speed: float, out_wav: Path) -> None:
         raise RuntimeError("Chưa cài eSpeak NG")
     wpm = int(150 * (speed or 1.0))
     subprocess.run([exe, "-v", voice or "vi", "-s", str(wpm), "-w", str(out_wav), text],
-                   check=True, capture_output=True)
+                   check=True, capture_output=True, creationflags=NO_WINDOW)
 
 
 def _synth_edge(text: str, voice: str, speed: float, out_file: Path) -> None:

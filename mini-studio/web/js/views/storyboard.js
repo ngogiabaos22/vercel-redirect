@@ -1,5 +1,5 @@
 // Bước 2 – Storyboard: ảnh mỗi cảnh, vùng vẽ, gán câu thoại, xem thử
-import { api, fileUrl, watchJob } from '../api.js';
+import { api, fileUrl, thumbUrl, watchJob } from '../api.js';
 import { h, icon, modal, toast, debounce, fmtSec, PALETTE, pickFile, confirmBox } from '../ui.js';
 import { S, markDirty, flush, reloadProject, refreshChrome, go } from '../app.js';
 
@@ -53,7 +53,7 @@ function sceneList(p) {
     p.scenes.map((s, i) => {
       const nEl = (s.elements || []).filter((e) => !e.bg).length;
       return h('div', { class: `sb-scene ${s.id === st.sid ? 'on' : ''}`, onclick: () => { st.sid = s.id; st.sel = null; stopPreview(); draw(p); } },
-        h('div', { class: 'st' }, s.image ? h('img', { src: fileUrl(p.id, s.image) }) : 'Chưa có ảnh'),
+        h('div', { class: 'st' }, s.image ? h('img', { src: thumbUrl(p.id, s.image, 240), loading: 'lazy' }) : 'Chưa có ảnh'),
         h('div', { class: 'sm' }, h('b', {}, `${i + 1}. ${s.title}`),
           h('div', { class: 'row', style: { gap: '4px', flexWrap: 'wrap' } },
             s.image ? h('span', { class: 'tag green' }, `${nEl} vùng`) : h('span', { class: 'tag amber' }, 'cần ảnh'),

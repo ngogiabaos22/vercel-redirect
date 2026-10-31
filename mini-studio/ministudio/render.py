@@ -7,13 +7,14 @@ import os
 import re
 import subprocess
 import sys
+import threading
 import time
 from pathlib import Path
 
 import cv2
 import numpy as np
 
-from . import ENGINE_DIR, FROZEN, HAND_PNG, HANDS_DIR
+from . import ENGINE_DIR, FROZEN, HAND_PNG, HANDS_DIR, NO_WINDOW
 from . import audio as A
 from . import store
 from .subtitles import composite, pick_font, render_overlay
@@ -43,7 +44,7 @@ def _encoder_works(name: str) -> bool:
         try:
             r = subprocess.run([ff, "-hide_banner", "-loglevel", "error", "-f", "lavfi", "-i",
                                 "color=c=black:s=256x256:d=0.1", "-frames:v", "1", *ENCODERS[name], "-f", "null", "-"],
-                               capture_output=True, timeout=20) if ff else None
+                               capture_output=True, timeout=20, creationflags=NO_WINDOW) if ff else None
             _hw_probe[name] = bool(r and r.returncode == 0)
         except Exception:
             _hw_probe[name] = False
@@ -60,6 +61,25 @@ def encoder_name() -> str:
             if _encoder_works(name):
                 return name
     return "libx264"
+
+
+_probe_lock = threading.Lock()
+
+
+def encoder_cached() -> str | None:
+    """Tên bộ mã hoá nếu đã dò xong; chưa xong thì bắt đầu dò ở luồng nền và trả None."""
+    want = store.load_settings().get("videoEncoder", "auto")
+    cands = ["h264_nvenc", "h264_qsv", "h264_amf"] if want == "auto" else [want] if want in ENCODERS and want != "libx264" else []
+    if all(c in _hw_probe for c in cands):
+        return encoder_name()
+    if _probe_lock.acquire(blocking=False):
+        def run():
+            try:
+                encoder_name()
+            finally:
+                _probe_lock.release()
+        threading.Thread(target=run, daemon=True).start()
+    return None
 
 
 def encoder_args() -> list[str]:
@@ -95,6 +115,14 @@ def _ensure_elements(scene: dict) -> dict:
                               "region": {"x": 0, "y": 0, "width": c["width"], "height": c["height"]},
                               "lineIds": [ln["id"] for ln in scene["lines"]]}]
     return scene
+
+
+def engine_python() -> str:
+    """Bộ vẽ in tiến độ ra stdout nên cần python.exe; app chạy bằng pythonw.exe (không cửa sổ) thì đổi sang python.exe."""
+    exe = Path(sys.executable)
+    if exe.name.lower() == "pythonw.exe" and (exe.parent / "python.exe").exists():
+        return str(exe.parent / "python.exe")
+    return sys.executable
 
 
 def hand_path(name: str) -> Path:
@@ -158,13 +186,13 @@ def render_scene(proj: dict, scene: dict, opts: dict, job=None, prog=(0.0, 1.0),
     env["PYTHONIOENCODING"] = "utf-8"
     hand = hand_path(settings.get("hand", ""))
     # bản đóng gói .exe không có python riêng → chạy bộ vẽ qua chính file .exe (app.py --engine)
-    runner = [sys.executable, "--engine"] if FROZEN else [sys.executable]
+    runner = [sys.executable, "--engine"] if FROZEN else [engine_python()]
     cmd = [*runner, str(RENDERER), str(img), str(ann_path), str(out), str(hand), *args]
     if job:
         job.update(prog[0], f"Đang vẽ cảnh '{scene['title']}' ({len(ann['elements'])} vùng, {ann['sceneDurationMs']/1000:.1f}s)")
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env,
                             text=True, encoding="utf-8", errors="replace",
-                            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+                            creationflags=NO_WINDOW)
     tail: list[str] = []
     for line in proc.stdout:  # type: ignore[union-attr]
         line = line.rstrip()
@@ -242,7 +270,7 @@ def render_project(pid: str, job) -> dict:
         [A.find_ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
          "-s", f"{W}x{H}", "-r", str(fps), "-i", "-", *encoder_args(),
          "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(tmp_video)],
-        stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+        stdin=subprocess.PIPE, stderr=subprocess.PIPE, creationflags=NO_WINDOW)
     frame_bytes = W * H * 3
     total_frames = 0
     offsets = []
@@ -255,7 +283,7 @@ def render_project(pid: str, job) -> dict:
             dec = subprocess.Popen(
                 [A.find_ffmpeg(), "-hide_banner", "-loglevel", "error", "-i", str(vid), "-vf",
                  f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2:color=0x{paper},fps={fps}",
-                 "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
+                 "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE, creationflags=NO_WINDOW)
             k = 0
             while True:
                 buf = dec.stdout.read(frame_bytes)  # type: ignore[union-attr]

@@ -32,6 +32,9 @@ if len(sys.argv) > 2 and sys.argv[1] == "--engine":
     _run_engine()
     sys.exit(0)
 
+# chạy bằng pythonw.exe / bản .exe không console → không có cửa sổ đen; app tự tắt khi đóng giao diện
+WINDOWED = sys.stdout is None
+
 for _s in (sys.stdout, sys.stderr):  # tránh lỗi in tiếng Việt trên console Windows cũ
     try:
         _s.reconfigure(encoding="utf-8", errors="replace")
@@ -41,12 +44,14 @@ for _s in (sys.stdout, sys.stderr):  # tránh lỗi in tiếng Việt trên cons
 from ministudio import DATA_DIR, __version__  # noqa: E402
 
 if sys.stdout is None or sys.stderr is None:  # bản không có cửa sổ console → ghi log ra file
-    _log = open(DATA_DIR / "ministudio.log", "a", encoding="utf-8", buffering=1)
+    _lp = DATA_DIR / "ministudio.log"
+    _log = open(_lp, "a" if _lp.exists() and _lp.stat().st_size < 2_000_000 else "w", encoding="utf-8", buffering=1)
     sys.stdout = sys.stdout or _log
     sys.stderr = sys.stderr or _log
 
 from ministudio.audio import find_ffmpeg  # noqa: E402
-from ministudio.server import serve  # noqa: E402
+from ministudio import jobs  # noqa: E402
+from ministudio.server import ACTIVITY, serve  # noqa: E402
 
 APP_BROWSERS = [
     "msedge", "chrome", "google-chrome", "chromium", "chromium-browser",
@@ -75,6 +80,35 @@ def open_ui(url: str, app_window: bool = True) -> None:
     webbrowser.open(url)
 
 
+def message_box(text: str, title: str = "Mini Studio") -> None:
+    """Báo lỗi bằng hộp thoại khi chạy không có console (Windows)."""
+    print(text)
+    if WINDOWED and sys.platform == "win32":
+        try:
+            import ctypes
+            ctypes.windll.user32.MessageBoxW(None, text, title, 0x10)
+        except Exception:
+            pass
+
+
+def watch_and_exit(httpd, started: float) -> None:
+    """Tắt app khi giao diện đã đóng: cửa sổ báo 'bye' (đóng) hoặc im lặng quá lâu. Đang render thì đợi xong."""
+    import time
+    while True:
+        time.sleep(2)
+        now = time.time()
+        if jobs.active():
+            continue
+        seen, bye = ACTIVITY["seen"], ACTIVITY["bye"]
+        closed = bye and bye >= seen and now - bye > 10       # đóng cửa sổ, không mở lại trong 10 giây
+        idle = seen and now - seen > 240                      # không còn giao diện nào gửi tín hiệu
+        never = not seen and now - started > 180              # không mở được giao diện
+        if closed or idle or never:
+            print("Giao diện đã đóng – tắt Mini Studio.")
+            httpd.shutdown()
+            os._exit(0)
+
+
 def port_in_use(host: str, port: int) -> bool:
     with socket.socket() as s:
         s.settimeout(0.5)
@@ -87,6 +121,7 @@ def main():
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--no-browser", action="store_true")
     ap.add_argument("--browser", action="store_true", help="mở bằng tab trình duyệt thường thay vì cửa sổ riêng")
+    ap.add_argument("--auto-exit", action="store_true", help="tự tắt khi đóng giao diện (mặc định khi chạy không console)")
     a = ap.parse_args()
     url = f"http://{a.host}:{a.port}"
 
@@ -98,7 +133,11 @@ def main():
 
     if not find_ffmpeg():
         print("[!] Chưa có ffmpeg. Chạy: pip install imageio-ffmpeg  (hoặc cài ffmpeg vào PATH)")
-    httpd = serve(a.host, a.port)
+    try:
+        httpd = serve(a.host, a.port)
+    except OSError as e:
+        message_box(f"Không mở được cổng {a.port}: {e}\nCó thể một phần mềm khác đang dùng cổng này.")
+        return
     print("=" * 56)
     print(f"  Mini Studio {__version__} đang chạy tại: {url}")
     print(f"  Dữ liệu: {DATA_DIR}")
@@ -106,6 +145,9 @@ def main():
     print("=" * 56)
     if not a.no_browser:
         threading.Timer(0.8, lambda: open_ui(url, not a.browser)).start()
+    if WINDOWED or a.auto_exit:
+        import time
+        threading.Thread(target=watch_and_exit, args=(httpd, time.time()), daemon=True).start()
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
@@ -113,4 +155,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:  # noqa: BLE001
+        import traceback
+        traceback.print_exc()
+        message_box(f"Mini Studio gặp lỗi khi khởi động:\n{e}\n\nChi tiết: {DATA_DIR / 'ministudio.log'}")

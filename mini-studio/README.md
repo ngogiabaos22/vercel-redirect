@@ -49,7 +49,9 @@ Hạn mức miễn phí do từng nhà cung cấp quyết định và có thể 
   - `dist\MiniStudio-Setup.exe`, nếu máy có Inno Setup 6.
 - **Build trên GitHub** (không cần máy Windows): vào tab **Actions → Mini Studio – build Windows → Run workflow**, xong tải về ở mục *Artifacts*. Đẩy tag `mini-studio-v1.1.0` thì GitHub tự tạo bản phát hành (Release) kèm file cài đặt.
 - Bản đóng gói đã kèm sẵn ffmpeg, Piper và Edge TTS. Dữ liệu (dự án, cài đặt, key) nằm trong thư mục `data` cạnh `MiniStudio.exe`; muốn sao lưu thì chép thư mục này.
-- Mở app: bấm đúp `MiniStudio.exe`. Giao diện mở trong cửa sổ riêng (Edge/Chrome chế độ app). Đóng cửa sổ console là tắt app.
+- Mở app bằng shortcut **Mini Studio**: chỉ hiện cửa sổ Mini Studio, không có cửa sổ cmd. Giao diện mở trong cửa sổ riêng (Edge/Chrome chế độ app).
+- **Đóng cửa sổ Mini Studio là app tự tắt** sau khoảng 10 giây. Nếu đang tạo video thì app chạy nền cho tới khi xong, rồi mới tắt; bật Telegram để nhận video.
+- Cần xem log để báo lỗi: mở **Mini Studio (chế độ gỡ lỗi)** trong Start Menu, hoặc chạy `MiniStudio.bat debug`. Log của chế độ thường nằm ở `app\data\ministudio.log`.
 
 ---
 

@@ -26,7 +26,9 @@ BrandingText "Mini Studio ${VERSION}"
 !define MUI_ICON "ministudio.ico"
 !define MUI_UNICON "ministudio.ico"
 !define MUI_ABORTWARNING
-!define MUI_FINISHPAGE_RUN "$INSTDIR\MiniStudio.bat"
+; mở bằng pythonw.exe: không có cửa sổ cmd, chỉ hiện cửa sổ Mini Studio
+!define MUI_FINISHPAGE_RUN
+!define MUI_FINISHPAGE_RUN_FUNCTION LaunchApp
 !define MUI_FINISHPAGE_RUN_TEXT "Mở Mini Studio ngay"
 
 !insertmacro MUI_PAGE_WELCOME
@@ -36,6 +38,10 @@ BrandingText "Mini Studio ${VERSION}"
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
 !insertmacro MUI_LANGUAGE "Vietnamese"
+
+Function LaunchApp
+  Exec '"$INSTDIR\python\pythonw.exe" "$INSTDIR\app\app.py"'
+FunctionEnd
 
 Section "Mini Studio" SecMain
   SetOutPath "$INSTDIR"
@@ -48,10 +54,12 @@ Section "Mini Studio" SecMain
   File "ministudio.ico"
 
   CreateDirectory "$SMPROGRAMS\Mini Studio"
-  CreateShortcut "$SMPROGRAMS\Mini Studio\Mini Studio.lnk" "$INSTDIR\python\python.exe" '"$INSTDIR\app\app.py"' "$INSTDIR\ministudio.ico" 0 SW_SHOWMINIMIZED
+  CreateShortcut "$SMPROGRAMS\Mini Studio\Mini Studio.lnk" "$INSTDIR\python\pythonw.exe" '"$INSTDIR\app\app.py"' "$INSTDIR\ministudio.ico" 0
+  ; bản có cửa sổ console để xem log khi cần báo lỗi
+  CreateShortcut "$SMPROGRAMS\Mini Studio\Mini Studio (chế độ gỡ lỗi).lnk" "$INSTDIR\python\python.exe" '"$INSTDIR\app\app.py"' "$INSTDIR\ministudio.ico" 0
   CreateShortcut "$SMPROGRAMS\Mini Studio\Thư mục dữ liệu.lnk" "$INSTDIR\app\data"
   CreateShortcut "$SMPROGRAMS\Mini Studio\Gỡ cài đặt Mini Studio.lnk" "$INSTDIR\Uninstall.exe"
-  CreateShortcut "$DESKTOP\Mini Studio.lnk" "$INSTDIR\python\python.exe" '"$INSTDIR\app\app.py"' "$INSTDIR\ministudio.ico" 0 SW_SHOWMINIMIZED
+  CreateShortcut "$DESKTOP\Mini Studio.lnk" "$INSTDIR\python\pythonw.exe" '"$INSTDIR\app\app.py"' "$INSTDIR\ministudio.ico" 0
 
   WriteRegStr HKCU "Software\MiniStudio" "InstallDir" "$INSTDIR"
   WriteUninstaller "$INSTDIR\Uninstall.exe"

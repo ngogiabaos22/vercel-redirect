@@ -8,6 +8,8 @@ from __future__ import annotations
 
 import json
 import re
+import time
+from concurrent.futures import ThreadPoolExecutor
 import urllib.parse
 import urllib.request
 
@@ -27,9 +29,9 @@ def _http(url: str, data: dict | None = None, timeout: int = 300) -> bytes:
         return r.read()
 
 
-def ping(url: str) -> bool:
+def ping(url: str, timeout: float = 0.6) -> bool:
     try:
-        urllib.request.urlopen(url, timeout=1.5)
+        urllib.request.urlopen(url, timeout=timeout)
         return True
     except Exception:
         return False
@@ -39,7 +41,7 @@ def ping(url: str) -> bool:
 def ollama_models() -> list[str]:
     s = load_settings()
     try:
-        data = json.loads(_http(s["ollamaUrl"].rstrip("/") + "/api/tags", timeout=3))
+        data = json.loads(_http(s["ollamaUrl"].rstrip("/") + "/api/tags", timeout=1))
         return [m["name"] for m in data.get("models", [])]
     except Exception:
         return []
@@ -177,10 +179,28 @@ def generate_image(prompt: str, aspect: str, log=None, cancelled=lambda: False) 
     return imagegen.generate(prompt, aspect, NEGATIVE_PROMPT, log, cancelled)
 
 
+_svc_cache: dict = {"at": 0.0, "key": None, "value": {}}
+
+
 def services_status() -> dict:
+    """Dịch vụ AI trên máy có đang chạy không. Chỉ kiểm tra dịch vụ đang được dùng, chạy song song,
+    nhớ kết quả 20 giây – trên Windows, gõ cửa một cổng đóng có thể mất ~2 giây mỗi lần."""
     s = load_settings()
-    return {
-        "ollama": ping(s["ollamaUrl"].rstrip("/") + "/api/tags"),
-        "a1111": ping(s["a1111Url"].rstrip("/") + "/sdapi/v1/sd-models"),
-        "comfy": ping(s["comfyUrl"].rstrip("/") + "/system_stats"),
-    }
+    provs = {p.get("type"): p for p in s.get("imageProviders") or [] if p.get("enabled")}
+    checks = {}
+    if s.get("llmBackend") == "ollama":
+        checks["ollama"] = s["ollamaUrl"].rstrip("/") + "/api/tags"
+    if "a1111" in provs:
+        checks["a1111"] = (provs["a1111"].get("baseUrl") or s["a1111Url"]).rstrip("/") + "/sdapi/v1/sd-models"
+    if "comfy" in provs:
+        checks["comfy"] = (provs["comfy"].get("baseUrl") or s["comfyUrl"]).rstrip("/") + "/system_stats"
+    key = tuple(sorted(checks.items()))
+    if _svc_cache["key"] == key and time.time() - _svc_cache["at"] < 20:
+        return _svc_cache["value"]
+    out = {"ollama": False, "a1111": False, "comfy": False}
+    if checks:
+        with ThreadPoolExecutor(max_workers=len(checks)) as ex:
+            for name, ok in zip(checks, ex.map(ping, checks.values())):
+                out[name] = ok
+    _svc_cache.update(at=time.time(), key=key, value=out)
+    return out

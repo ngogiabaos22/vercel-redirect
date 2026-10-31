@@ -1,5 +1,5 @@
 // Trang Dự án: danh sách + tạo mới
-import { api, fileUrl } from '../api.js';
+import { api, fileUrl, thumbUrl } from '../api.js';
 import { h, icon, modal, toast, confirmBox, fmtMs, timeAgo } from '../ui.js';
 import { go } from '../app.js';
 import { quickCreate, batchCreate, jobsPanel } from '../auto.js';
@@ -38,7 +38,7 @@ export async function renderHome(view) {
 function projectCard(p, refresh) {
   const pct = p.lines ? Math.round(100 * p.voiced / p.lines) : 0;
   return h('div', { class: 'card pcard', onclick: () => go(`#/p/${p.id}/script`) },
-    h('div', { class: 'thumb' }, p.thumb ? h('img', { src: fileUrl(p.id, p.thumb), loading: 'lazy' })
+    h('div', { class: 'thumb' }, p.thumb ? h('img', { src: thumbUrl(p.id, p.thumb, 480), loading: 'lazy' })
       : h('div', { class: 'ph' }, icon('image'), 'Chưa có ảnh')),
     h('div', { class: 'meta' },
       h('div', { class: 'name' }, p.name),

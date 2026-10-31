@@ -34,3 +34,5 @@ export function watchJob(job, onUpdate) {
 }
 
 export const fileUrl = (pid, rel, v) => `/files/${pid}/${rel}${v ? `?v=${v}` : ''}`;
+// ảnh thu nhỏ (JPEG rộng w px, máy chủ tạo một lần rồi lưu lại) – dùng cho danh sách, thẻ dự án
+export const thumbUrl = (pid, rel, w = 360) => `/files/${pid}/${rel}?w=${w}`;

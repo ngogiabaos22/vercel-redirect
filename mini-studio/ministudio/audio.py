@@ -9,6 +9,8 @@ from pathlib import Path
 
 import numpy as np
 
+from . import NO_WINDOW
+
 SR = 44100  # tần số mẫu chuẩn của toàn app (mono, 16-bit)
 
 
@@ -31,7 +33,7 @@ def ffmpeg(*args: str, check: bool = True) -> subprocess.CompletedProcess:
     if not exe:
         raise RuntimeError("Không tìm thấy ffmpeg. Chạy: pip install imageio-ffmpeg")
     res = subprocess.run([exe, "-y", "-hide_banner", "-loglevel", "error", *args],
-                         capture_output=True, text=True, encoding="utf-8", errors="replace")
+                         capture_output=True, text=True, encoding="utf-8", errors="replace", creationflags=NO_WINDOW)
     if check and res.returncode != 0:
         raise RuntimeError(f"ffmpeg lỗi: {res.stderr.strip()[:400]}")
     return res

@@ -171,6 +171,11 @@ export function refreshChrome() {
 
 async function boot() {
   document.getElementById('btnSettings').onclick = () => openSettings();
+  // báo máy chủ "giao diện còn mở"; đóng cửa sổ thì báo "bye" để app tự tắt (đang render thì đợi xong)
+  setInterval(() => fetch('/api/ping').catch(() => {}), 20000);
+  const bye = () => navigator.sendBeacon('/api/bye');
+  window.addEventListener('pagehide', bye);
+  window.addEventListener('beforeunload', bye);
   window.addEventListener('hashchange', route);
   try {
     [S.system, S.settings] = await Promise.all([api.get('/system'), api.get('/settings')]);

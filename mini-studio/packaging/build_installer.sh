@@ -33,7 +33,8 @@ cp -r app.py ministudio engine web "$PAYLOAD/app/"
 mkdir -p "$PAYLOAD/app/data/music" "$PAYLOAD/app/data/hands" "$PAYLOAD/app/data/voices"
 find "$PAYLOAD/app" -name "__pycache__" -type d -prune -exec rm -rf {} +
 cp README.md "$PAYLOAD/HUONG-DAN.md"
-printf '@echo off\r\ncd /d "%%~dp0app"\r\n"%%~dp0python\\python.exe" app.py %%*\r\n' > "$PAYLOAD/MiniStudio.bat"
+# MiniStudio.bat: mở không cửa sổ cmd; "MiniStudio.bat debug" để xem log trong console
+printf '@echo off\r\nif /i "%%~1"=="debug" ("%%~dp0python\\python.exe" "%%~dp0app\\app.py" & pause & exit /b)\r\nstart "" "%%~dp0python\\pythonw.exe" "%%~dp0app\\app.py"\r\n' > "$PAYLOAD/MiniStudio.bat"
 
 echo "[4/4] Đóng gói bộ cài đặt (NSIS)"
 cp packaging/ministudio.ico "$BUILD/"

@@ -16,6 +16,9 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
+import cv2
+import numpy as np
+
 from . import ENGINE_DIR, FROZEN, HANDS_DIR, MUSIC_DIR, WEB_DIR, __version__
 from . import audio as A
 from . import integrations as AI
@@ -76,9 +79,24 @@ def api_system(h, m, q):
         "ffmpeg": A.find_ffmpeg(), "tts": tts.engines_status(), "services": AI.services_status(),
         "font": pick_font(store.load_settings().get("fontPath", "")),
         "imageProviders": [p.get("name") or p["type"] for p in imagegen.providers()],
-        "encoder": render.encoder_name(),
+        "encoder": render.encoder_cached() or "đang kiểm tra…",
         "frozen": FROZEN,
     }
+
+
+# Giao diện báo "còn mở" định kỳ và báo "đã đóng" khi tắt cửa sổ → app tự tắt khi không còn ai dùng
+ACTIVITY = {"seen": 0.0, "bye": 0.0}
+
+
+@route("GET", r"/api/ping")
+def api_ping(h, m, q):
+    return {"ok": True, "jobs": len(jobs.active())}
+
+
+@route("POST", r"/api/bye")
+def api_bye(h, m, q):
+    ACTIVITY["bye"] = time.time()
+    return {"ok": True}
 
 
 @route("GET", r"/api/settings")
@@ -602,14 +620,33 @@ def api_notify_chats(h, m, q):
         raise HttpError(502, str(e))
 
 
+def _thumb(base: Path, src: Path, w: int) -> Path:
+    """Ảnh thu nhỏ JPEG, lưu trong <dự án>/thumbs; ảnh gốc đổi (tên mới) thì tạo bản mới."""
+    w = max(64, min(1280, w))
+    dst = base / "thumbs" / f"{src.stem}-{w}.jpg"
+    if not dst.exists() or dst.stat().st_mtime < src.stat().st_mtime:
+        img = cv2.imdecode(np.fromfile(str(src), np.uint8), cv2.IMREAD_COLOR)
+        if img is None:
+            return src
+        hh, ww = img.shape[:2]
+        if ww > w:
+            img = cv2.resize(img, (w, max(1, round(hh * w / ww))), interpolation=cv2.INTER_AREA)
+        dst.parent.mkdir(exist_ok=True)
+        dst.write_bytes(cv2.imencode(".jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 82])[1].tobytes())
+    return dst
+
+
 # ───────────────────────── HTTP ─────────────────────────
 class Handler(BaseHTTPRequestHandler):
     server_version = "MiniStudio/" + __version__
 
-    def log_message(self, fmt, *args):  # gọn log
-        if "/api/jobs/" in (args[0] if args else ""):
+    def log_message(self, fmt, *args):  # chỉ ghi request lỗi – in ra console Windows rất chậm
+        if len(args) >= 2 and str(args[1]).isdigit() and int(args[1]) < 400:
             return
-        sys.stderr.write("  %s\n" % (fmt % args))
+        try:
+            sys.stderr.write("  %s\n" % (fmt % args))
+        except Exception:
+            pass
 
     def body(self) -> bytes:
         n = int(self.headers.get("Content-Length") or 0)
@@ -642,8 +679,16 @@ class Handler(BaseHTTPRequestHandler):
     def send_file(self, path: Path, download: bool = False):
         if not path.exists() or not path.is_file():
             return self.send_json({"error": "Không tìm thấy file"}, 404)
-        size = path.stat().st_size
+        st = path.stat()
+        size = st.st_size
         ctype = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
+        # trình duyệt dùng lại bản đã tải nếu file chưa đổi (tránh tải lại ảnh vài MB mỗi lần vẽ lại giao diện)
+        etag = f'"{st.st_mtime_ns:x}-{size:x}"'
+        if self.headers.get("If-None-Match") == etag and not download:
+            self.send_response(304)
+            self.send_header("ETag", etag)
+            self.end_headers()
+            return
         rng = self.headers.get("Range")
         start, end = 0, size - 1
         if rng and (mm := re.match(r"bytes=(\d*)-(\d*)", rng)):
@@ -660,7 +705,10 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", ctype)
         self.send_header("Accept-Ranges", "bytes")
         self.send_header("Content-Length", str(end - start + 1))
-        self.send_header("Cache-Control", "no-cache")
+        self.send_header("ETag", etag)
+        # ảnh cảnh có tên kèm mốc thời gian (đổi ảnh = đổi tên) → cho trình duyệt giữ lâu
+        immutable = ("/images/" in self.path or "/thumbs/" in str(path)) and ctype.startswith("image/")
+        self.send_header("Cache-Control", "public, max-age=31536000, immutable" if immutable else "no-cache")
         if download:
             self.send_header("Content-Disposition", f'attachment; filename="{path.name}"')
         self.end_headers()
@@ -684,6 +732,8 @@ class Handler(BaseHTTPRequestHandler):
         self._sent = False
         try:
             if path.startswith("/api/"):
+                if path != "/api/bye":
+                    ACTIVITY["seen"] = time.time()
                 for mth, rx, fn in ROUTES:
                     if mth == method and (mm := rx.match(path)):
                         res = fn(self, mm, q)
@@ -699,6 +749,8 @@ class Handler(BaseHTTPRequestHandler):
                 target = (base / "/".join(rest)).resolve()
                 if base not in target.parents:
                     raise HttpError(403, "Không được phép")
+                if "w" in q and target.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp") and target.exists():
+                    target = _thumb(base, target, int(q["w"][0]))
                 return self.send_file(target, download="download" in q)
             if path.startswith("/hands/"):
                 nm = Path(path).name
