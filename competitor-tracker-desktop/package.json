@@ -1,0 +1,67 @@
+{
+  "name": "competitor-tracker",
+  "productName": "Competitor Tracker",
+  "version": "1.0.0",
+  "description": "Ứng dụng desktop theo dõi Facebook Page đối thủ: nhóm đối thủ, thu thập bài viết qua Meta Graph API, tải ảnh theo điều kiện, đồng bộ Google Drive và Google Sheets.",
+  "main": "src/main/main.js",
+  "author": "Competitor Tracker",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.js",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux"
+  },
+  "dependencies": {
+    "google-auth-library": "^9.15.1"
+  },
+  "devDependencies": {
+    "electron": "^38.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "vn.competitortracker.app",
+    "productName": "Competitor Tracker",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Competitor Tracker",
+      "artifactName": "CompetitorTracker-Setup-${version}.${ext}"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "build/icon.png",
+      "category": "public.app-category.business",
+      "artifactName": "CompetitorTracker-${version}-${arch}.${ext}"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "build/icon.png",
+      "category": "Office",
+      "artifactName": "CompetitorTracker-${version}.${ext}"
+    }
+  }
+}

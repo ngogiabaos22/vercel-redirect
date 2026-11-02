@@ -1,0 +1,62 @@
+name: Competitor Tracker Desktop
+
+on:
+  push:
+    paths:
+      - 'competitor-tracker-desktop/**'
+      - '.github/workflows/competitor-tracker-desktop.yml'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: competitor-tracker-desktop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: competitor-tracker-desktop/package-lock.json
+      - run: npm ci
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
+      - run: npm test
+
+  build:
+    needs: test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            target: --win
+            artifact: CompetitorTracker-Windows
+            files: competitor-tracker-desktop/release/*.exe
+          - os: macos-latest
+            target: --mac
+            artifact: CompetitorTracker-macOS
+            files: competitor-tracker-desktop/release/*.dmg
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: competitor-tracker-desktop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: competitor-tracker-desktop/package-lock.json
+      - run: npm ci
+      - run: npx electron-builder ${{ matrix.target }} --publish never
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.files }}
+          if-no-files-found: error
+          retention-days: 30
