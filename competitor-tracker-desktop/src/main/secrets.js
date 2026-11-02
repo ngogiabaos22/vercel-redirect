@@ -2,7 +2,7 @@
 // Lưu bí mật (Meta token, Google key, refresh token) đã mã hoá bằng cơ chế của hệ điều hành
 // (Windows DPAPI / macOS Keychain) thông qua Electron safeStorage. Không bao giờ gửi giá trị thật ra giao diện.
 
-const NAMES = ['metaToken', 'googleServiceAccount', 'googleOAuthSecret', 'googleRefreshToken'];
+const NAMES = ['metaToken', 'googleServiceAccount', 'googleOAuthSecret', 'googleRefreshToken', 'appsScriptKey'];
 
 class Secrets {
   /** @param {import('./db').Store} store @param {{encrypt:(s:string)=>Buffer, decrypt:(b:Buffer)=>string, available:boolean}} crypto */

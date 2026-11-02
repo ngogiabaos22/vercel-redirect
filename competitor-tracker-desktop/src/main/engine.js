@@ -5,6 +5,7 @@ const path = require('node:path');
 const { MetaClient, MetaError } = require('./meta');
 const rules = require('./rules');
 const google = require('./google');
+const { AppsScript } = require('./appsscript');
 const { loadConfig } = require('./config');
 
 const JOB_LABELS = {
@@ -24,7 +25,9 @@ class Engine {
     this.emit = deps.emit || (() => {});
     this.fetch = deps.fetchImpl || globalThis.fetch;
     this.metaFactory = deps.metaFactory || ((opts) => new MetaClient(opts));
-    this.googleFactory = deps.googleFactory || ((cfg) => new google.Google(google.createAuth(cfg, this.secrets)));
+    this.googleFactory = deps.googleFactory || ((cfg) => (cfg.drive.authType === 'apps_script'
+      ? new AppsScript(cfg.drive.scriptUrl, this.secrets.get('appsScriptKey'), this.fetch)
+      : new google.Google(google.createAuth(cfg, this.secrets))));
     this.sleep = deps.sleep;
     this.locks = new Set(); // khoá theo Page: không chạy trùng 2 job cho cùng 1 Page
     this.cancelled = new Set();
@@ -314,7 +317,7 @@ class Engine {
   }
 
   async driveContext(cfg) {
-    if (!cfg.drive.rootFolderId) throw new Error('Chưa nhập ID thư mục Google Drive gốc.');
+    if (cfg.drive.authType !== 'apps_script' && !cfg.drive.rootFolderId) throw new Error('Chưa nhập ID thư mục Google Drive gốc.');
     const g = this.googleFactory(cfg);
     return { g, root: cfg.drive.rootFolderId, folders: this.store.getSetting('driveFolders', {}) };
   }
@@ -323,27 +326,38 @@ class Engine {
     try {
       const pageName = post.page_name || post.page_input || 'Page';
       const month = (post.created_time || new Date().toISOString()).slice(0, 7);
+      const ext0 = path.extname(localPath).toLowerCase();
+      const mime0 = ext0 === '.png' ? 'image/png' : ext0 === '.webp' ? 'image/webp' : ext0 === '.gif' ? 'image/gif' : 'image/jpeg';
+      if (drive.g.uploadImage) {
+        // Apps Script: script tự quản lý thư mục <gốc>/<Page>/<tháng>
+        const f = await drive.g.uploadImage(localPath, { page: pageName, month, name: path.basename(localPath), mime: mime0 });
+        return this.finishUpload(post, idx, localPath, f, cfg);
+      }
       const key1 = `${drive.root}/${pageName}`;
       if (!drive.folders[key1]) drive.folders[key1] = await drive.g.ensureFolder(pageName, drive.root);
       const key2 = `${key1}/${month}`;
       if (!drive.folders[key2]) drive.folders[key2] = await drive.g.ensureFolder(month, drive.folders[key1]);
       this.store.setSetting('driveFolders', drive.folders);
-      const ext = path.extname(localPath).toLowerCase();
-      const mime = ext === '.png' ? 'image/png' : ext === '.webp' ? 'image/webp' : ext === '.gif' ? 'image/gif' : 'image/jpeg';
-      const f = await drive.g.uploadFile(localPath, path.basename(localPath), drive.folders[key2], mime);
-      const patch = { drive_file_id: f.id, drive_link: f.webViewLink || `https://drive.google.com/file/d/${f.id}/view`, status: 'uploaded', error: null };
-      if (cfg.images.storage === 'drive') {
-        try { fs.unlinkSync(localPath); } catch { /* đã xoá */ }
-        patch.local_path = null;
-      }
-      this.store.upsertAsset(post.id, idx, patch);
-      return true;
+      const f = await drive.g.uploadFile(localPath, path.basename(localPath), drive.folders[key2], mime0);
+      return this.finishUpload(post, idx, localPath, f, cfg);
     } catch (e) {
       this.store.upsertAsset(post.id, idx, { error: `Drive: ${e.message}` });
       this.store.log('error', 'drive', e.message);
       return false;
     }
   }
+
+  finishUpload(post, idx, localPath, f, cfg) {
+    const patch = { drive_file_id: f.id, drive_link: f.webViewLink || `https://drive.google.com/file/d/${f.id}/view`, status: 'uploaded', error: null };
+    if (cfg.images.storage === 'drive') {
+      try { fs.unlinkSync(localPath); } catch { /* đã xoá */ }
+      patch.local_path = null;
+    }
+    this.store.upsertAsset(post.id, idx, patch);
+    return true;
+  }
+
+  sheetsReady(cfg) { return cfg.drive.authType === 'apps_script' ? !!cfg.drive.scriptUrl : !!cfg.sheets.spreadsheetId; }
 
   applyRetention(cfg) {
     const months = Number(cfg.images.retentionMonths) || 0;
@@ -361,7 +375,7 @@ class Engine {
   async runSheets(trigger = 'manual') {
     if (this.busy.sheets) throw new Error('Đang đồng bộ Google Sheet.');
     const cfg = this.config();
-    if (!cfg.sheets.spreadsheetId) throw new Error('Chưa nhập ID / link file Google Sheet.');
+    if (!this.sheetsReady(cfg)) throw new Error(cfg.drive.authType === 'apps_script' ? 'Chưa kết nối Google (Cài đặt › Google).' : 'Chưa nhập ID / link file Google Sheet.');
     this.busy.sheets = true;
     const jobId = this.store.createJob('sheets', trigger, []);
     this.emit('job', { jobId });
@@ -434,7 +448,7 @@ class Engine {
     const cfg = this.config();
     let r = null;
     if (cfg.images.enabled) r = await this.runImages(trigger);
-    if (cfg.sheets.enabled && cfg.sheets.schedule === 'after_images' && cfg.sheets.spreadsheetId) {
+    if (cfg.sheets.enabled && cfg.sheets.schedule === 'after_images' && this.sheetsReady(cfg)) {
       try { await this.runSheets(trigger); } catch (e) { this.store.log('error', 'sheets', e.message); }
     }
     return r;

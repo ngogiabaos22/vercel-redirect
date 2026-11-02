@@ -198,7 +198,7 @@ test('đồng bộ Sheet: mỗi nhóm 1 tab, không ghi trùng, chỉ cập nh�
     updateRanges: async (_id, data) => { state.updates = (state.updates || 0) + data.length; for (const d of data) assert.match(d.range, /!E\d+:H\d+$/); }
   };
   engine.googleFactory = () => fakeSheets;
-  saveConfig(store, { sheets: { enabled: true, spreadsheetId: 'abc' } });
+  saveConfig(store, { drive: { authType: 'service_account' }, sheets: { enabled: true, spreadsheetId: 'abc' } });
   const pageId = store.addPage({ input: 'exampleA', groupIds: [1, 3] });
   await engine.runCrawl('initial', [pageId]);
   const r1 = await engine.runSheets();

@@ -7,6 +7,7 @@ const { dashboard } = require('./stats');
 const { nextRunText } = require('./scheduler');
 const { MetaError } = require('./meta');
 const google = require('./google');
+const appsScript = require('./appsscript');
 const { explainError, JOB_LABELS } = require('./engine');
 
 const GROUP_COLORS = ['#1D4ED8', '#F97316', '#0D9488', '#7C3AED', '#DB2777', '#475569', '#CA8A04', '#0891B2'];
@@ -22,7 +23,7 @@ function folderIdFrom(v) {
   return m ? m[1] : s;
 }
 
-function registerIpc({ ipcMain, dialog, shell, app, store, secrets, engine, getWin, applyAppSettings }) {
+function registerIpc({ ipcMain, dialog, shell, clipboard, app, store, secrets, engine, getWin, applyAppSettings }) {
   const handle = (channel, fn) => ipcMain.handle(channel, async (_e, ...args) => {
     try { return { ok: true, data: await fn(...args) }; } catch (e) { return { ok: false, error: explainError(e) }; }
   });
@@ -167,8 +168,35 @@ function registerIpc({ ipcMain, dialog, shell, app, store, secrets, engine, getW
     saveConfig(store, { drive: { accountEmail: r.email } });
     return r.email;
   });
+  // ---------- Google (cách đơn giản: Apps Script) ----------
+  handle('clipboard:write', (text) => { clipboard.writeText(String(text)); });
+  handle('google:scriptCode', () => {
+    if (!secrets.has('appsScriptKey')) secrets.set('appsScriptKey', appsScript.newKey());
+    return appsScript.scriptCode(secrets.get('appsScriptKey'));
+  });
+  handle('google:connectScript', async (url) => {
+    const u = String(url || '').trim();
+    if (!appsScript.validScriptUrl(u)) throw new Error('Link chưa đúng. Hãy dán "URL ứng dụng web" dạng https://script.google.com/macros/s/…/exec');
+    if (!secrets.has('appsScriptKey')) throw new Error('Hãy bấm "Sao chép mã" và dán mã vào Apps Script trước.');
+    const info = await new appsScript.AppsScript(u, secrets.get('appsScriptKey'), engine.fetch).info();
+    const cfg = loadConfig(store);
+    saveConfig(store, { drive: { authType: 'apps_script', scriptUrl: u }, sheets: { enabled: true }, images: { storage: cfg.images.storage === 'local' ? 'local_drive' : cfg.images.storage } });
+    store.setSetting('appsScriptInfo', { ...info, connectedAt: new Date().toISOString() });
+    return { ...info, outdated: (info.version || 0) < appsScript.SCRIPT_VERSION };
+  });
+  handle('google:disconnectScript', () => {
+    saveConfig(store, { drive: { scriptUrl: '' } });
+    store.setSetting('appsScriptInfo', null);
+  });
+  handle('google:scriptInfo', () => store.getSetting('appsScriptInfo', null));
+
   handle('google:test', async () => {
     const cfg = loadConfig(store);
+    if (cfg.drive.authType === 'apps_script') {
+      const info = await new appsScript.AppsScript(cfg.drive.scriptUrl, secrets.get('appsScriptKey'), engine.fetch).info();
+      store.setSetting('appsScriptInfo', { ...info, connectedAt: new Date().toISOString() });
+      return { drive: `OK · Thư mục "${info.folderName}"`, sheets: `OK · "${info.title}" · ${info.tabs.length} tab` };
+    }
     const g = new google.Google(google.createAuth(cfg, secrets));
     const out = {};
     if (cfg.drive.rootFolderId) {

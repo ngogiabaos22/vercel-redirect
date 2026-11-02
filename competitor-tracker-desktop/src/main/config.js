@@ -35,8 +35,9 @@ const DEFAULTS = {
     retentionMonths: 0
   },
   drive: {
-    // service_account | oauth
-    authType: 'service_account',
+    // apps_script (đơn giản, khuyên dùng) | service_account | oauth
+    authType: 'apps_script',
+    scriptUrl: '',
     rootFolderId: '',
     oauthClientId: '',
     accountEmail: ''

@@ -1,7 +1,7 @@
 {
   "name": "competitor-tracker",
   "productName": "Competitor Tracker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Ứng dụng desktop theo dõi Facebook Page đối thủ: nhóm đối thủ, thu thập bài viết qua Meta Graph API, tải ảnh theo điều kiện, đồng bộ Google Drive và Google Sheets.",
   "main": "src/main/main.js",
   "author": "Competitor Tracker",

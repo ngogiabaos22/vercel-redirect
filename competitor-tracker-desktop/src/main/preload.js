@@ -9,7 +9,8 @@ const CHANNELS = new Set([
   'crawl:run', 'crawl:retryFailed', 'crawl:cancel', 'images:run', 'images:preview', 'sheets:run',
   'jobs:list', 'jobs:items', 'jobs:running', 'jobs:errors', 'logs:list',
   'stats:dashboard', 'config:get', 'config:save', 'secrets:set', 'secrets:status',
-  'google:pickServiceAccount', 'google:oauthLogin', 'google:test', 'meta:test'
+  'google:pickServiceAccount', 'google:oauthLogin', 'google:test', 'meta:test',
+  'clipboard:write', 'google:scriptCode', 'google:connectScript', 'google:disconnectScript', 'google:scriptInfo'
 ]);
 
 contextBridge.exposeInMainWorld('api', {

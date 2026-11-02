@@ -1,5 +1,5 @@
 'use strict';
-const { app, BrowserWindow, ipcMain, dialog, shell, Tray, Menu, nativeImage, safeStorage } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, shell, clipboard, Tray, Menu, nativeImage, safeStorage } = require('electron');
 const path = require('node:path');
 const fs = require('node:fs');
 const { Store } = require('./db');
@@ -40,7 +40,7 @@ function boot() {
   const engine = new Engine({ store, secrets, dataDir, emit });
   const scheduler = new Scheduler({ engine, store });
 
-  registerIpc({ ipcMain, dialog, shell, app, store, secrets, engine, getWin: () => win, applyAppSettings: () => applyAppSettings(store) });
+  registerIpc({ ipcMain, dialog, shell, clipboard, app, store, secrets, engine, getWin: () => win, applyAppSettings: () => applyAppSettings(store) });
   applyAppSettings(store);
   createWindow();
   createTray(engine, store);

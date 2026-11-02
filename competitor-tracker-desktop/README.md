@@ -45,13 +45,16 @@ Chạy thử không cần đóng gói: `npm start`. Kiểm thử phần lõi: `n
 3. Trong app: **Cài đặt → Kết nối Meta** → nhập App ID, phiên bản API (VD `v21.0`), dán Access Token → **Lưu**.
 4. Dán link một Page đối thủ vào ô **Kiểm tra với 1 Page mẫu** để xem API trả về những trường nào.
 
-### Google Drive & Sheets
-Tạo Google Cloud Project, bật **Google Drive API** và **Google Sheets API**, rồi chọn một trong hai cách:
+### Google Sheets & Drive (cách đơn giản — không cần Google Cloud)
+Vào **Cài đặt → Google Sheets & Drive** và làm theo 4 bước hiện trong app:
+1. Bấm **Tạo Google Sheet mới** (hoặc mở file Sheet có sẵn).
+2. Trong Sheet: **Tiện ích mở rộng → Apps Script**, xoá mã có sẵn. Trong app bấm **Sao chép mã**, dán vào Apps Script, bấm **Lưu**.
+3. Bấm **Triển khai → Tùy chọn triển khai mới → Ứng dụng web**, đặt *Thực thi với tư cách: Tôi* và *Người có quyền truy cập: Bất kỳ ai* → **Triển khai** → cấp quyền (Nâng cao → Đi tới … → Cho phép).
+4. Copy **URL ứng dụng web** (dạng `https://script.google.com/macros/s/…/exec`), dán vào app, bấm **Kết nối**.
 
-- **Service Account (khuyên dùng)**: tạo Service Account → tạo khoá JSON → trong app bấm **Chọn file khoá JSON…**. Ảnh phải lưu vào **Shared Drive** (Service Account không có dung lượng Drive riêng). Chia sẻ thư mục Drive và file Google Sheet cho email của Service Account với quyền *Người chỉnh sửa*.
-- **Đăng nhập tài khoản Google**: tạo OAuth Client loại **Desktop app** → nhập Client ID và Client Secret → bấm **Đăng nhập Google** (trình duyệt sẽ mở để đăng nhập).
+App tự tạo thư mục **"Competitor Tracker - Ảnh"** trong Google Drive của bạn để lưu ảnh (xếp theo Page / tháng) và ghi dữ liệu vào các tab của Sheet. Link ứng dụng web được bảo vệ bằng khoá kết nối riêng nằm trong mã — không chia sẻ mã và link này.
 
-Sau đó dán link thư mục Drive gốc và link file Google Sheet, bấm **Kiểm tra kết nối Google**.
+Cách nâng cao (Service Account / OAuth qua Google Cloud) vẫn có trong app: bấm **Cách khác (nâng cao)**.
 
 ## 3. Nhập danh sách Page bằng CSV
 
@@ -78,7 +81,8 @@ src/main/       tiến trình chính (Electron)
   meta.js       Meta Graph API (phân trang, retry, rate limit)
   engine.js     thu thập theo Page + checkpoint, tải ảnh, Drive, Google Sheets
   rules.js      điều kiện tải ảnh
-  google.js     Google Drive / Sheets REST + xác thực
+  appsscript.js kết nối Google đơn giản qua Apps Script (mã dán vào Sheet)
+  google.js     Google Drive / Sheets REST + xác thực (cách nâng cao)
   scheduler.js  lịch hằng ngày theo giờ Việt Nam
   ipc.js        lệnh từ giao diện
 src/renderer/   giao diện (HTML/CSS/JS thuần)

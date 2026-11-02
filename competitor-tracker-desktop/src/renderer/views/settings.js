@@ -2,13 +2,13 @@
 (function () {
   const { h, call, toast, switchBtn, nextId, num } = UI;
   const st = { tab: 'general', draft: null, metaTest: null, googleTest: null, preview: null, testInput: '' };
-  const TABS = [['general', 'Chung'], ['rules', 'Điều kiện tải ảnh'], ['google', 'Google Drive & Sheets'], ['meta', 'Kết nối Meta']];
+  const TABS = [['general', 'Chung'], ['rules', 'Điều kiện tải ảnh'], ['google', 'Google Sheets & Drive'], ['meta', 'Kết nối Meta']];
 
   async function render(App) {
-    const [cfg, info, groups] = await Promise.all([call('config:get'), call('app:info'), call('groups:list')]);
+    const [cfg, info, groups, scriptInfo] = await Promise.all([call('config:get'), call('app:info'), call('groups:list'), call('google:scriptInfo')]);
     if (!st.draft) st.draft = JSON.parse(JSON.stringify(cfg));
     const d = st.draft;
-    const body = { general: general, rules: rulesTab, google: googleTab, meta: metaTab }[st.tab](d, info, groups, App);
+    const body = { general: general, rules: rulesTab, google: googleTab, meta: metaTab }[st.tab](d, info, groups, App, scriptInfo);
     return h('div', { class: 'page' },
       h('div', { class: 'head' }, h('div', null, h('h1', null, 'Cài đặt'), h('p', null, 'Lịch thu thập, điều kiện tải ảnh, Google Drive / Sheets và kết nối Meta Graph API'))),
       h('nav', { class: 'tabs', 'aria-label': 'Mục cài đặt' }, TABS.map(([id, label]) => h('button', { type: 'button', class: st.tab === id ? 'on' : '', 'aria-current': st.tab === id ? 'page' : null, onclick: () => { st.tab = id; st.draft = null; App.render(); } }, label))),
@@ -176,35 +176,81 @@
   }
 
   // ---------- Google ----------
-  function googleTab(d, info, groups, App) {
-    const sa = d.drive.authType !== 'oauth';
+  function googleTab(d, info, groups, App, scriptInfo) {
+    const simple = d.drive.authType === 'apps_script';
+    const connected = simple && d.drive.scriptUrl && scriptInfo;
+    const step = (n, title, ...body) => h('div', { style: { display: 'flex', gap: '12px', alignItems: 'flex-start' } },
+      h('span', { style: { flex: 'none', width: '28px', height: '28px', borderRadius: '999px', background: 'var(--blue-soft)', color: 'var(--blue-d)', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center' } }, String(n)),
+      h('div', { style: { flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '8px' } }, h('b', null, title), ...body));
+    const urlIn = h('input', { class: 'input', placeholder: 'https://script.google.com/macros/s/…/exec', value: st.scriptUrl ?? d.drive.scriptUrl ?? '', 'aria-label': 'URL ứng dụng web', oninput: (e) => { st.scriptUrl = e.target.value; } });
+
+    const simpleCard = h('section', { class: 'card' },
+      h('div', { class: 'toolbar', style: { justifyContent: 'space-between' } },
+        h('h2', null, 'Kết nối Google Sheets + Drive'),
+        connected ? h('span', { class: 'badge b-ok' }, 'Đã kết nối') : h('span', { class: 'badge b-off' }, 'Chưa kết nối')),
+      connected ? [
+        h('div', { class: 'callout ok' }, 'App đã kết nối với file Google Sheet của bạn. Ảnh sẽ được lưu vào thư mục Drive do app tự tạo.'),
+        h('dl', { class: 'kv' },
+          h('dt', null, 'Google Sheet'), h('dd', null, h('a', { href: scriptInfo.url, target: '_blank' }, scriptInfo.title + ' ↗')),
+          h('dt', null, 'Thư mục ảnh'), h('dd', null, h('a', { href: scriptInfo.folderUrl, target: '_blank' }, scriptInfo.folderName + ' ↗'))),
+        h('div', { class: 'toolbar' },
+          h('button', { class: 'btn', onclick: async () => { st.googleTest = await call('google:test'); toast('Kết nối Google hoạt động bình thường.'); App.render(); } }, 'Kiểm tra lại'),
+          h('button', { class: 'btn danger', onclick: async () => { await call('google:disconnectScript'); st.draft = null; st.scriptUrl = ''; App.render(); } }, 'Ngắt kết nối'))
+      ] : [
+        h('p', { class: 'note' }, 'Không cần Google Cloud. Chỉ cần một file Google Sheet và copy – dán, khoảng 3 phút. Làm một lần duy nhất.'),
+        step(1, 'Tạo một file Google Sheet mới (hoặc mở file có sẵn)',
+          h('div', null, h('button', { class: 'btn', onclick: () => call('shell:openExternal', 'https://sheets.new') }, 'Tạo Google Sheet mới ↗'))),
+        step(2, 'Mở Apps Script và dán mã kết nối',
+          h('span', { class: 'small muted' }, 'Trong Google Sheet: menu Tiện ích mở rộng → Apps Script. Xoá hết đoạn mã có sẵn, dán mã vừa sao chép, rồi bấm biểu tượng Lưu (hoặc Ctrl + S).'),
+          h('div', null, h('button', { class: 'btn primary', onclick: async () => { const code = await call('google:scriptCode'); await call('clipboard:write', code); toast('Đã sao chép mã. Dán vào Apps Script rồi bấm Lưu.'); } }, 'Sao chép mã'))),
+        step(3, 'Triển khai thành Ứng dụng web',
+          h('span', { class: 'small muted' }, 'Bấm Triển khai → Tùy chọn triển khai mới → biểu tượng bánh răng → chọn Ứng dụng web. Đặt "Thực thi với tư cách: Tôi" và "Người có quyền truy cập: Bất kỳ ai" → Triển khai.'),
+          h('span', { class: 'small muted' }, 'Google sẽ hỏi cấp quyền: chọn tài khoản → Nâng cao → Đi tới … (không an toàn) → Cho phép. Đây là mã của chính bạn nên Google hiện cảnh báo như vậy là bình thường.')),
+        step(4, 'Dán "URL ứng dụng web" vào đây',
+          h('div', { class: 'toolbar', style: { flexWrap: 'nowrap' } }, urlIn,
+            h('button', { class: 'btn primary', onclick: async () => {
+              const r = await call('google:connectScript', urlIn.value);
+              st.draft = null; st.scriptUrl = undefined;
+              toast(`Đã kết nối: ${r.title}`);
+              if (r.outdated) toast('Mã Apps Script đã cũ — bấm Sao chép mã và dán lại để cập nhật.', true);
+              App.render();
+            } }, 'Kết nối')))
+      ],
+      h('p', { class: 'note' }, 'Link ứng dụng web được bảo vệ bằng khoá kết nối riêng nằm trong mã. Không chia sẻ mã và link này cho người khác.'),
+      h('button', { class: 'btn sm', style: { alignSelf: 'flex-start' }, onclick: () => { d.drive.authType = 'service_account'; App.render(); } }, 'Cách khác (nâng cao): Service Account / OAuth')
+    );
+
+    const sa = d.drive.authType === 'service_account';
+    const advancedCard = h('section', { class: 'card' },
+      h('div', { class: 'toolbar', style: { justifyContent: 'space-between' } },
+        h('h2', null, 'Kết nối nâng cao (Google Cloud)'),
+        h('button', { class: 'btn sm', onclick: () => { d.drive.authType = 'apps_script'; App.render(); } }, '← Quay lại cách đơn giản')),
+      radio('auth', d.drive, 'authType', 'service_account', 'Service Account', 'Dùng file khoá JSON. Ảnh phải lưu vào Shared Drive; chia sẻ thư mục và file Sheet cho email của Service Account.', App),
+      radio('auth', d.drive, 'authType', 'oauth', 'Đăng nhập tài khoản Google', 'Dùng OAuth Client (loại Desktop app) tạo trong Google Cloud Console.', App),
+      sa ? h('div', { class: 'toolbar' },
+        h('button', { class: 'btn', onclick: async () => { const email = await call('google:pickServiceAccount'); if (email) { d.drive.accountEmail = email; toast(`Đã lưu khoá Service Account: ${email}`); App.render(); } } }, info.secrets.googleServiceAccount ? 'Thay file khoá JSON…' : 'Chọn file khoá JSON…'),
+        h('span', { class: 'small ' + (info.secrets.googleServiceAccount ? '' : 'muted') }, info.secrets.googleServiceAccount ? `Đã lưu · ${d.drive.accountEmail || ''}` : 'Chưa có khoá'))
+        : [
+          fld('OAuth Client ID', inp(d.drive, 'oauthClientId', { placeholder: 'xxxx.apps.googleusercontent.com' })),
+          secretField('OAuth Client Secret', 'googleOAuthSecret', info, App),
+          h('div', { class: 'toolbar' },
+            h('button', { class: 'btn', onclick: async () => { await save(App, true); toast('Đang mở trình duyệt để đăng nhập Google…'); const email = await call('google:oauthLogin'); toast(`Đã đăng nhập Google: ${email || 'OK'}`); App.render(); } }, 'Đăng nhập Google'),
+            h('span', { class: 'small' }, info.secrets.googleRefreshToken ? `Đã đăng nhập · ${d.drive.accountEmail || ''}` : 'Chưa đăng nhập'))
+        ],
+      fld('Link hoặc ID thư mục Google Drive gốc để lưu ảnh', inp(d.drive, 'rootFolderId', { placeholder: 'https://drive.google.com/drive/folders/…' })),
+      fld('Link hoặc ID file Google Sheet', inp(d.sheets, 'spreadsheetId', { placeholder: 'https://docs.google.com/spreadsheets/d/…' })),
+      h('div', { class: 'toolbar' }, h('button', { class: 'btn', onclick: async () => { await save(App, true); st.googleTest = await call('google:test'); App.render(); } }, 'Kiểm tra kết nối Google'))
+    );
+
     return h('div', { class: 'row' },
       h('div', { class: 'grow', style: { display: 'flex', flexDirection: 'column', gap: '16px' } },
-        h('section', { class: 'card' },
-          h('h2', null, 'Tài khoản Google'),
-          radio('auth', d.drive, 'authType', 'service_account', 'Service Account (khuyên dùng)', 'Dùng file khoá JSON. Ảnh phải lưu vào Shared Drive; chia sẻ thư mục và file Sheet cho email của Service Account.', App),
-          radio('auth', d.drive, 'authType', 'oauth', 'Đăng nhập tài khoản Google', 'Dùng OAuth Client (loại Desktop app) tạo trong Google Cloud Console.', App),
-          sa ? h('div', { class: 'toolbar' },
-            h('button', { class: 'btn', onclick: async () => { const email = await call('google:pickServiceAccount'); if (email) { d.drive.accountEmail = email; toast(`Đã lưu khoá Service Account: ${email}`); App.render(); } } }, info.secrets.googleServiceAccount ? 'Thay file khoá JSON…' : 'Chọn file khoá JSON…'),
-            h('span', { class: 'small ' + (info.secrets.googleServiceAccount ? '' : 'muted') }, info.secrets.googleServiceAccount ? `Đã lưu · ${d.drive.accountEmail || ''}` : 'Chưa có khoá'))
-            : [
-              fld('OAuth Client ID', inp(d.drive, 'oauthClientId', { placeholder: 'xxxx.apps.googleusercontent.com' })),
-              secretField('OAuth Client Secret', 'googleOAuthSecret', info, App),
-              h('div', { class: 'toolbar' },
-                h('button', { class: 'btn', onclick: async () => { await save(App, true); toast('Đang mở trình duyệt để đăng nhập Google…'); const email = await call('google:oauthLogin'); toast(`Đã đăng nhập Google: ${email || 'OK'}`); App.render(); } }, 'Đăng nhập Google'),
-                h('span', { class: 'small' }, info.secrets.googleRefreshToken ? `Đã đăng nhập · ${d.drive.accountEmail || ''}` : 'Chưa đăng nhập'))
-            ],
-          fld('Link hoặc ID thư mục Google Drive gốc để lưu ảnh', inp(d.drive, 'rootFolderId', { placeholder: 'https://drive.google.com/drive/folders/…' })),
-          h('div', { class: 'toolbar' },
-            h('button', { class: 'btn', onclick: async () => { await save(App, true); st.googleTest = await call('google:test'); App.render(); } }, 'Kiểm tra kết nối Google')),
-          st.googleTest ? h('dl', { class: 'kv' }, h('dt', null, 'Drive'), h('dd', null, st.googleTest.drive), h('dt', null, 'Sheets'), h('dd', null, st.googleTest.sheets)) : null
-        )
+        simple ? simpleCard : advancedCard,
+        st.googleTest ? h('section', { class: 'card' }, h('h3', null, 'Kết quả kiểm tra'), h('dl', { class: 'kv' }, h('dt', null, 'Drive'), h('dd', null, st.googleTest.drive), h('dt', null, 'Sheets'), h('dd', null, st.googleTest.sheets))) : null
       ),
       h('div', { class: 'grow', style: { display: 'flex', flexDirection: 'column', gap: '16px' } },
         h('section', { class: 'card' },
-          h('h2', null, 'Google Sheets'),
+          h('h2', null, 'Ghi dữ liệu ra Google Sheet'),
           toggleRow('Đồng bộ dữ liệu ra Google Sheet', 'Mỗi nhóm là 1 tab', d.sheets, 'enabled', App),
-          fld('Link hoặc ID file Google Sheet', inp(d.sheets, 'spreadsheetId', { placeholder: 'https://docs.google.com/spreadsheets/d/…' })),
           h('div', { class: 'grid' },
             fld('Lịch đồng bộ', sel(d.sheets, 'schedule', [['after_images', 'Sau khi tải ảnh xong mỗi ngày'], ['time', 'Mỗi ngày vào giờ cố định'], ['manual', 'Chỉ khi bấm Đồng bộ ngay']], () => App.render())),
             d.sheets.schedule === 'time' ? fld('Giờ đồng bộ', inp(d.sheets, 'time', { type: 'time' })) : null,
