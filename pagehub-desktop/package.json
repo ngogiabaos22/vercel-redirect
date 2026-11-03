@@ -1,0 +1,56 @@
+{
+  "name": "pagehub-desktop",
+  "productName": "PageHub",
+  "version": "0.1.0",
+  "description": "Đăng bài tự động lên nhiều Fanpage từ Google Sheet",
+  "main": "src/main.js",
+  "author": "PageHub",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis --x64 --publish never"
+  },
+  "build": {
+    "appId": "vn.pagehub.desktop",
+    "productName": "PageHub",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PageHub",
+      "artifactName": "PageHub-Setup-${version}.exe",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    },
+    "publish": null
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.4.0"
+  },
+  "devDependencies": {
+    "electron": "33.4.11",
+    "electron-builder": "25.1.8"
+  }
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>PageHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><div class="logo">P</div><span>PageHub</span></div>
+    <nav class="nav" id="nav">
+      <button data-v="overview">Tổng quan</button>
+      <button data-v="compose">Soạn bài từ Sheet</button>
+      <button data-v="queue">Hàng đợi đăng <span class="count" id="qCount" hidden></span></button>
+      <button data-v="nicks">Nick &amp; Fanpage</button>
+      <button data-v="connections">Cài đặt kết nối</button>
+      <button data-v="log">Nhật ký</button>
+    </nav>
+    <div class="side-foot" id="sideFoot"></div>
+  </aside>
+  <main>
+    <header class="top"><h1 id="vt">Tổng quan</h1><span class="muted small" id="topNote"></span></header>
+    <section class="view" data-view="overview"></section>
+    <section class="view" data-view="compose" hidden></section>
+    <section class="view" data-view="queue" hidden></section>
+    <section class="view" data-view="nicks" hidden></section>
+    <section class="view" data-view="connections" hidden></section>
+    <section class="view" data-view="log" hidden></section>
+  </main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="similarity.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
