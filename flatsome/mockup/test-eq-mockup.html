@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup Test EQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ---- Flatsome grid shim (mockup only) ---- */
+body{margin:0;background:#fff;color:#777}*{box-sizing:border-box}img{max-width:100%;height:auto;display:block}
+.section{position:relative}.row{display:flex;flex-wrap:wrap;max-width:1110px;margin:0 auto;width:100%}.align-middle{align-items:center}.align-center{justify-content:center}.align-equal>.col{display:flex}.align-equal>.col>.col-inner{width:100%}
+.col{padding:0 15px 30px;width:100%}.text-center{text-align:center}
+@media(min-width:850px){.large-3{flex-basis:25%;max-width:25%}.large-4{flex-basis:33.33%;max-width:33.33%}.large-5{flex-basis:41.66%;max-width:41.66%}.large-6{flex-basis:50%;max-width:50%}.large-7{flex-basis:58.33%;max-width:58.33%}.large-8{flex-basis:66.66%;max-width:66.66%}.large-9{flex-basis:75%;max-width:75%}.large-12{flex-basis:100%;max-width:100%}}
+@media(min-width:550px) and (max-width:849px){.medium-6{flex-basis:50%;max-width:50%}}
+h1,h2,h3{margin:0 0 .5em}p{margin:0 0 1.2em}
+.button{display:inline-block;min-height:2.5em;line-height:2.4em;padding:0 1.2em;margin:0 1em 1em 0;text-decoration:none;font-weight:bolder}.is-large{font-size:1.15em}
+.accordion-title{display:block;position:relative;padding:.6em 2.3em;text-decoration:none}.accordion-title .toggle{position:absolute;left:12px;top:.9em;border:0;background:none;color:inherit}.accordion-inner{display:none}.accordion-item.open .accordion-inner{display:block}
+
+/* ---- EQ design (sẽ chuyển thành CSS 1 dòng trong [ux_html]) ---- */
+.eq-s{--ink:#2a1230;--ink2:#5a3b52;--muted:#7a6272;--line:#f3dfe7;--brand:#ff5f8f;--brand2:#ff8a5c;--sun:#ffd166;--grad:linear-gradient(135deg,#ff5f8f,#ff8a5c);font-family:"Be Vietnam Pro",sans-serif;color:var(--ink)}
+.eq-s h1,.eq-s h2,.eq-s h3{color:var(--ink);letter-spacing:-.01em;font-family:inherit}
+.eq-s p,.eq-s li{color:var(--ink2);line-height:1.7}
+.eq-s h2.eq-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.25;margin:10px 0 14px}
+.eq-s .eq-center{text-align:center;max-width:700px;margin:0 auto 34px}
+.eq-s .eq-center p{color:var(--muted)}
+.eq-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#e5487a;background:#ffe8ef;padding:5px 14px;border-radius:99px}
+.eq-grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eq-soft{background:#fff7f9!important}
+.eq-s .button.eq-btn{background:var(--grad)!important;color:#fff!important;border:0;border-radius:99px;font-weight:700;padding:0 30px;line-height:52px;box-shadow:0 14px 30px -12px rgba(255,95,143,.8)}
+.eq-s .button.eq-btn-ghost{background:#fff!important;color:var(--ink)!important;border:1.5px solid var(--line);border-radius:99px;font-weight:700;padding:0 28px;line-height:50px}
+.eq-s .button.eq-btn-white{background:#fff!important;color:#e5487a!important;border-radius:99px;font-weight:700;padding:0 30px;line-height:52px}
+.eq-hero{background:linear-gradient(135deg,#fff0f4 0%,#fff6ec 100%)}
+.eq-hero h1{font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.18;margin:16px 0 18px}
+.eq-hero .lead{font-size:17px;max-width:540px}
+.eq-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--muted)}
+.eq-stats b{display:block;font-size:26px;font-weight:800;color:var(--ink);line-height:1.2}
+.eq-float img{animation:eqFloat 6s ease-in-out infinite}@keyframes eqFloat{50%{transform:translateY(-10px)}}
+/* quiz wrapper */
+.eq-quiz>.col-inner{background:#fff;border:1px solid var(--line);border-radius:28px;padding:32px;box-shadow:0 24px 50px -24px rgba(154,43,85,.35)}
+.eq-quiz-head{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.eq-quiz-head .dot{width:46px;height:46px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff;font-weight:800}
+.eq-quiz-head h2{font-size:22px!important;margin:0!important}
+.eq-quiz-head p{margin:0;font-size:14px;color:var(--muted)}
+/* cards */
+.eq-card>.col-inner{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px;height:100%;transition:transform .2s,box-shadow .2s}
+.eq-card>.col-inner:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(154,43,85,.35)}
+.eq-card img.eq-ico{width:56px;margin-bottom:16px}
+.eq-card h3{font-size:18px;font-weight:700;margin:0 0 8px}
+.eq-card p{font-size:15px;color:var(--muted);margin:0}
+.eq-card .en{display:block;font-size:12px;font-weight:700;color:#e5487a;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.eq-panel>.col-inner{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 18px 40px -18px rgba(154,43,85,.35)}
+/* scale */
+.eq-level{background:#fff;border:1px solid var(--line);border-left:6px solid var(--c);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.eq-level h3{font-size:16px;font-weight:700;margin:0 0 2px}
+.eq-level p{font-size:14px;margin:0;color:var(--muted)}
+/* check lists */
+.eq-check{position:relative;padding-left:40px;margin-bottom:16px}
+.eq-check:before{content:"";position:absolute;left:0;top:2px;width:26px;height:26px;border-radius:50%;background:#ffe8ef url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='%23e5487a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.eq-check h3{font-size:17px;font-weight:700;margin:0 0 4px}
+.eq-check p{font-size:15px;margin:0;color:var(--muted)}
+.eq-check.plain p{color:var(--ink2);font-weight:500;padding-top:2px}
+/* faq */
+.eq-faq .accordion-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.eq-faq .accordion-title{font-weight:700;font-size:16px;padding:16px 20px 16px 48px;color:var(--ink)}
+.eq-faq .accordion-item.open .accordion-title{color:#e5487a;background:#fff7f9}
+.eq-faq .accordion-inner{padding:4px 20px 18px 48px}
+.eq-faq .accordion-inner p{color:var(--muted);margin:0}
+/* cta */
+.eq-cta{background:linear-gradient(135deg,#ff5f8f,#ff8a5c)}
+.eq-cta h2,.eq-cta p{color:#fff!important}
+.eq-cta p{opacity:.92}
+
+/* mockup-only annotations */
+.mock-new{position:absolute;top:16px;right:16px;z-index:5;font:700 11px/1 "Be Vietnam Pro",sans-serif;letter-spacing:.06em;text-transform:uppercase;background:#2a1230;color:#ffd166;padding:7px 12px;border-radius:99px}
+.mock-quiz{border:2px dashed #f3b7c9;border-radius:18px;padding:26px;background:repeating-linear-gradient(135deg,#fff,#fff 12px,#fff7f9 12px,#fff7f9 24px)}
+.mock-quiz .q{font-weight:700;color:var(--ink);margin-bottom:14px}
+.mock-quiz .opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+.mock-quiz .opts span{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-size:14px;color:var(--ink2)}
+.mock-quiz small{display:block;color:var(--muted);font-size:12px}
+@media(max-width:549px){.mock-quiz .opts{grid-template-columns:1fr}.eq-quiz>.col-inner{padding:20px}}
+</style>
+</head>
+<body>
+
+<!-- 1. HERO -->
+<section class="section eq-s eq-hero" style="padding:70px 0">
+  <div class="row align-middle">
+    <div class="col large-6"><div class="col-inner">
+      <span class="eq-eyebrow">✦ Trí tuệ cảm xúc · Miễn phí</span>
+      <h1>Bài Test EQ – Kiểm tra <span class="eq-grad">trí tuệ cảm xúc</span> mới nhất 2026</h1>
+      <p class="lead">Khác với IQ, EQ đo khả năng nhận biết, hiểu và quản lý cảm xúc của bản thân cũng như người khác. Làm bài test EQ chuẩn quốc tế ngay bên dưới để biết bạn đang ở mức nào.</p>
+      <a class="button is-large eq-btn" href="#bat-dau-test">Làm bài test EQ ngay ↓</a>
+      <a class="button is-large eq-btn-ghost" href="#eq-la-gi">EQ là gì?</a>
+      <div class="eq-stats">
+        <div><b>5</b>yếu tố EQ</div>
+        <div><b>0đ</b>miễn phí</div>
+        <div><b>Ngay</b>có kết quả</div>
+      </div>
+    </div></div>
+    <div class="col large-6 eq-float"><div class="col-inner">
+      <img src="../../public/eq-test/eq-hero.svg" alt="Minh hoạ trí tuệ cảm xúc: hai người thấu hiểu nhau">
+    </div></div>
+  </div>
+</section>
+
+<!-- 2. QUIZ -->
+<section class="section eq-s" id="bat-dau-test" style="padding:20px 0 50px">
+  <div class="row align-center">
+    <div class="col large-9 eq-quiz"><div class="col-inner">
+      <div class="eq-quiz-head">
+        <span class="dot">EQ</span>
+        <div><h2>Bắt đầu bài test EQ</h2><p>Chọn đáp án đúng với bạn nhất, không có câu trả lời đúng hay sai.</p></div>
+      </div>
+      <div class="mock-quiz">
+        <div class="q">Câu 1. Khi bị phê bình trước đám đông, bạn thường…</div>
+        <div class="opts"><span>A. Im lặng và nghĩ lại</span><span>B. Phản bác ngay</span><span>C. Hỏi lại để hiểu rõ</span><span>D. Bỏ qua, không bận tâm</span></div>
+        <small>Khung minh hoạ. Vị trí này giữ nguyên shortcode <b>[traffic_quiz id="5"]</b> của trang hiện tại.</small>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 3. EQ LÀ GÌ -->
+<section class="section eq-s eq-soft" id="eq-la-gi" style="padding:70px 0">
+  <div class="row align-middle">
+    <div class="col large-6"><div class="col-inner">
+      <span class="eq-eyebrow">Kiến thức nền</span>
+      <h2 class="eq-h2">EQ là gì?</h2>
+      <p>EQ, hay Emotional Quotient, là chỉ số thể hiện khả năng cảm nhận, kiểm soát và biểu đạt cảm xúc của một cá nhân. Theo nhà tâm lý học Daniel Goleman, EQ gồm 5 yếu tố cơ bản.</p>
+    </div></div>
+    <div class="col large-6 eq-panel"><div class="col-inner">
+      <img src="../../public/eq-test/eq-radar.svg" alt="5 yếu tố của trí tuệ cảm xúc theo Daniel Goleman">
+    </div></div>
+  </div>
+  <div class="row align-equal align-center">
+    <div class="col large-4 medium-6 eq-card"><div class="col-inner"><img class="eq-ico" src="../../public/eq-test/eq-icon-self-awareness.svg" alt=""><span class="en">Self-Awareness</span><h3>Tự nhận thức</h3><p>Nhận biết cảm xúc của bản thân và hiểu tác động của chúng.</p></div></div>
+    <div class="col large-4 medium-6 eq-card"><div class="col-inner"><img class="eq-ico" src="../../public/eq-test/eq-icon-self-management.svg" alt=""><span class="en">Self-Management</span><h3>Tự quản lý</h3><p>Điều tiết cảm xúc, giữ bình tĩnh và phản ứng phù hợp trong mọi tình huống.</p></div></div>
+    <div class="col large-4 medium-6 eq-card"><div class="col-inner"><img class="eq-ico" src="../../public/eq-test/eq-icon-motivation.svg" alt=""><span class="en">Motivation</span><h3>Động lực</h3><p>Tự thúc đẩy bản thân, kiên trì hướng tới mục tiêu.</p></div></div>
+    <div class="col large-4 medium-6 eq-card"><div class="col-inner"><img class="eq-ico" src="../../public/eq-test/eq-icon-empathy.svg" alt=""><span class="en">Empathy</span><h3>Đồng cảm</h3><p>Nhận biết và thấu hiểu cảm xúc của người khác.</p></div></div>
+    <div class="col large-4 medium-6 eq-card" style="position:relative"><div class="col-inner"><span class="mock-new" style="top:12px;right:28px">Bổ sung</span><img class="eq-ico" src="../../public/eq-test/eq-icon-social.svg" alt=""><span class="en">Social Skills</span><h3>Kỹ năng xã hội</h3><p>Giao tiếp, hợp tác và giải quyết xung đột để xây dựng quan hệ tốt.</p></div></div>
+  </div>
+</section>
+
+<!-- 4. TẠI SAO QUAN TRỌNG -->
+<section class="section eq-s" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="eq-center">
+    <span class="eq-eyebrow">Vai trò</span>
+    <h2 class="eq-h2">Tại sao trí tuệ cảm xúc EQ lại quan trọng?</h2>
+    <p>Trí tuệ cảm xúc không chỉ là một kỹ năng “mềm” mà còn ảnh hưởng trực tiếp đến thành công trong cuộc sống và công việc.</p>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-3 medium-6 eq-card"><div class="col-inner"><img class="eq-ico" src="../../public/eq-test/eq-icon-relationship.svg" alt=""><h3>Cải thiện mối quan hệ cá nhân</h3><p>Người có EQ cao thường hiểu và đồng cảm với người khác, giúp xây dựng các mối quan hệ bền vững.</p></div></div>
+    <div class="col large-3 medium-6 eq-card"><div class="col-inner"><img class="eq-ico" src="../../public/eq-test/eq-icon-calm.svg" alt=""><h3>Quản lý căng thẳng và xung đột hiệu quả</h3><p>EQ giúp bạn điều tiết cảm xúc, giữ bình tĩnh và ra quyết định sáng suốt.</p></div></div>
+    <div class="col large-3 medium-6 eq-card"><div class="col-inner"><img class="eq-ico" src="../../public/eq-test/eq-icon-performance.svg" alt=""><h3>Tăng hiệu suất công việc</h3><p>Nhân viên có EQ cao làm việc nhóm tốt hơn, lãnh đạo hiệu quả và dễ thích nghi với thay đổi.</p></div></div>
+    <div class="col large-3 medium-6 eq-card"><div class="col-inner"><img class="eq-ico" src="../../public/eq-test/eq-icon-growth.svg" alt=""><h3>Hỗ trợ phát triển bản thân</h3><p>Hiểu rõ cảm xúc của mình giúp bạn cải thiện hành vi, tạo động lực và đạt mục tiêu dài hạn.</p></div></div>
+  </div>
+</section>
+
+<!-- 5. THANG ĐIỂM (đề xuất mới) -->
+<section class="section eq-s eq-soft" style="padding:70px 0">
+  <span class="mock-new">Đề xuất thêm</span>
+  <div class="row align-middle">
+    <div class="col large-6"><div class="col-inner">
+      <span class="eq-eyebrow">Thang điểm</span>
+      <h2 class="eq-h2">Thang điểm EQ và ý nghĩa</h2>
+      <div class="eq-level" style="--c:#ff5f8f"><h3>EQ từ 130 trở lên – Rất cao</h3><p>Thấu hiểu người khác sâu sắc, dẫn dắt cảm xúc tập thể tốt.</p></div>
+      <div class="eq-level" style="--c:#3ddc97"><h3>EQ từ 115 – 129 – Cao</h3><p>Giao tiếp khéo, giữ bình tĩnh tốt trước áp lực.</p></div>
+      <div class="eq-level" style="--c:#ffd166"><h3>EQ từ 85 – 114 – Trung bình</h3><p>Kiểm soát cảm xúc ổn trong đa số tình huống thường ngày.</p></div>
+      <div class="eq-level" style="--c:#ff8a3d"><h3>EQ từ 70 – 84 – Dưới trung bình</h3><p>Đôi khi khó nhận ra hoặc kiềm chế cảm xúc khi căng thẳng.</p></div>
+      <div class="eq-level" style="--c:#e5484d"><h3>EQ dưới 70 – Thấp</h3><p>Nên rèn luyện thêm kỹ năng tự nhận thức và đồng cảm.</p></div>
+    </div></div>
+    <div class="col large-6 eq-panel"><div class="col-inner">
+      <img src="../../public/eq-test/eq-gauge.svg" alt="Thang điểm EQ 5 mức, trung bình 100">
+    </div></div>
+  </div>
+</section>
+
+<!-- 6. LỢI ÍCH + CẢI THIỆN -->
+<section class="section eq-s" style="padding:70px 0">
+  <div class="row align-equal">
+    <div class="col large-5 eq-card"><div class="col-inner">
+      <span class="eq-eyebrow">Lợi ích</span>
+      <h2 class="eq-h2">Lợi ích khi làm bài test EQ</h2>
+      <div class="eq-check plain"><p>Hiểu rõ điểm mạnh và điểm cần cải thiện.</p></div>
+      <div class="eq-check plain"><p>Cải thiện hiệu quả giao tiếp và lãnh đạo.</p></div>
+      <div class="eq-check plain"><p>Tăng khả năng thích nghi với môi trường thay đổi.</p></div>
+      <div class="eq-check plain"><p>Định hướng nghề nghiệp phù hợp với khả năng cảm xúc.</p></div>
+    </div></div>
+    <div class="col large-7 eq-card"><div class="col-inner">
+      <span class="eq-eyebrow">Rèn luyện</span>
+      <h2 class="eq-h2">Cách cải thiện trí tuệ cảm xúc</h2>
+      <div class="eq-check"><h3>Tăng khả năng tự nhận thức</h3><p>Ghi nhật ký cảm xúc, tự đặt câu hỏi về phản ứng của bản thân.</p></div>
+      <div class="eq-check"><h3>Học cách tự quản lý cảm xúc</h3><p>Thực hành thiền, kỹ thuật thở và quản lý căng thẳng.</p></div>
+      <div class="eq-check"><h3>Phát triển đồng cảm</h3><p>Lắng nghe chủ động, đặt mình vào vị trí của người khác.</p></div>
+      <div class="eq-check"><h3>Rèn kỹ năng xã hội</h3><p>Tham gia hoạt động nhóm, học cách giao tiếp và giải quyết xung đột.</p></div>
+      <div class="eq-check"><h3>Tạo động lực bản thân</h3><p>Đặt mục tiêu rõ ràng, theo dõi tiến độ và tự thưởng khi đạt được.</p></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 7. FAQ (đề xuất mới) -->
+<section class="section eq-s eq-soft" style="padding:70px 0">
+  <span class="mock-new">Đề xuất thêm</span>
+  <div class="row align-center">
+    <div class="col large-9 eq-faq"><div class="col-inner">
+      <div class="eq-center"><span class="eq-eyebrow">Hỏi đáp</span><h2 class="eq-h2">Câu hỏi thường gặp về test EQ</h2></div>
+      <div class="accordion">
+        <div class="accordion-item open"><a class="accordion-title"><button class="toggle">⌄</button><span>Test EQ có mất phí không?</span></a><div class="accordion-inner"><p>Không. Bạn làm bài và xem kết quả miễn phí ngay trên trang này.</p></div></div>
+        <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>EQ và IQ khác nhau thế nào?</span></a><div class="accordion-inner"><p></p></div></div>
+        <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>EQ có thay đổi được không?</span></a><div class="accordion-inner"><p></p></div></div>
+        <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Bao nhiêu điểm EQ là cao?</span></a><div class="accordion-inner"><p></p></div></div>
+        <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Kết quả test EQ online có chính xác không?</span></a><div class="accordion-inner"><p></p></div></div>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 8. CTA -->
+<section class="section eq-s eq-cta" style="padding:60px 0">
+  <div class="row align-center"><div class="col large-8"><div class="col-inner text-center">
+    <h2 class="eq-h2">Sẵn sàng đo trí tuệ cảm xúc của bạn?</h2>
+    <p>Bài test EQ chuẩn quốc tế giúp bạn nhận diện khả năng cảm xúc, phát triển kỹ năng và xây dựng các mối quan hệ bền vững.</p>
+    <a class="button is-large eq-btn-white" href="#bat-dau-test">Làm bài test EQ ngay ↑</a>
+  </div></div></div>
+</section>
+
+</body>
+</html>
