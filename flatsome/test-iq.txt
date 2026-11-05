@@ -93,7 +93,7 @@
 [/col]
 [col span="6" span__sm="12" class="iq-float"]
 
-[ux_image id="IMG_HERO" image_size="original"]
+[ux_image id="4080" image_size="original"]
 
 
 [/col]
@@ -109,7 +109,7 @@
 
 [col span="6" span__sm="12" class="iq-panel"]
 
-[ux_image id="IMG_RADAR" image_size="original"]
+[ux_image id="4081" image_size="original"]
 
 
 [/col]
@@ -148,7 +148,7 @@
 
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="IMG_ICON_LOGIC" img_width="56" pos="top"]
+[featured_box img="4084" img_width="56" pos="top"]
 
 <h3>Tư duy logic</h3>
 <p>Tìm quy luật, suy luận đúng sai từ các mệnh đề cho trước.</p>
@@ -158,7 +158,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="IMG_ICON_NUMBER" img_width="56" pos="top"]
+[featured_box img="4085" img_width="56" pos="top"]
 
 <h3>Toán học và dãy số</h3>
 <p>Nhận ra quy luật của dãy số, tỉ lệ và phép biến đổi.</p>
@@ -168,7 +168,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="IMG_ICON_SPATIAL" img_width="56" pos="top"]
+[featured_box img="4086" img_width="56" pos="top"]
 
 <h3>Tư duy hình học – không gian</h3>
 <p>Xoay, gấp và ghép các hình khối trong trí tưởng tượng.</p>
@@ -178,7 +178,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="IMG_ICON_LANGUAGE" img_width="56" pos="top"]
+[featured_box img="4087" img_width="56" pos="top"]
 
 <h3>Ngôn ngữ và từ vựng</h3>
 <p>Tìm từ đồng nghĩa, trái nghĩa và mối liên hệ giữa các khái niệm.</p>
@@ -188,7 +188,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="IMG_ICON_MEMORY" img_width="56" pos="top"]
+[featured_box img="4088" img_width="56" pos="top"]
 
 <h3>Trí nhớ ngắn hạn</h3>
 <p>Ghi nhớ và xử lý thông tin trong thời gian giới hạn.</p>
@@ -198,7 +198,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="IMG_ICON_MATRIX" img_width="56" pos="top"]
+[featured_box img="4089" img_width="56" pos="top"]
 
 <h3>Ma trận hình ảnh (Raven)</h3>
 <p>Chọn hình còn thiếu để hoàn thành quy luật của ma trận 3×3.</p>
@@ -299,7 +299,7 @@
 [/col]
 [col span="6" span__sm="12" class="iq-panel"]
 
-[ux_image id="IMG_GAUGE" image_size="original"]
+[ux_image id="4082" image_size="original"]
 
 
 [/col]
@@ -313,7 +313,7 @@
 
 [col span="6" span__sm="12" class="iq-panel"]
 
-[ux_image id="IMG_BELL" image_size="original"]
+[ux_image id="4083" image_size="original"]
 
 
 [/col]
@@ -424,7 +424,7 @@
 
 [col span="4" span__sm="12" class="iq-card"]
 
-[featured_box img="IMG_ICON_IQ" img_width="56" pos="top"]
+[featured_box img="4090" img_width="56" pos="top"]
 
 <p><span class="iq-tag">IQ · Trí tuệ</span></p>
 <p><strong>Thông minh lý trí:</strong> khả năng suy luận, tính toán, giải quyết vấn đề logic.</p>
@@ -434,7 +434,7 @@
 [/col]
 [col span="4" span__sm="12" class="iq-card"]
 
-[featured_box img="IMG_ICON_EQ" img_width="56" pos="top"]
+[featured_box img="4091" img_width="56" pos="top"]
 
 <p><span class="iq-tag">EQ · Cảm xúc</span></p>
 <p><strong>Thông minh cảm xúc:</strong> hiểu và điều tiết cảm xúc của mình, thấu cảm với người khác.</p>
@@ -444,7 +444,7 @@
 [/col]
 [col span="4" span__sm="12" class="iq-card"]
 
-[featured_box img="IMG_ICON_CQ" img_width="56" pos="top"]
+[featured_box img="4092" img_width="56" pos="top"]
 
 <p><span class="iq-tag">CQ · Sáng tạo</span></p>
 <p><strong>Thông minh sáng tạo:</strong> nghĩ ra ý tưởng mới và cách làm khác biệt.</p>
