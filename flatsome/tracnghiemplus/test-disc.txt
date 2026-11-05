@@ -1,0 +1,195 @@
+[ux_html label="CSS ds"]<style>@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');.tpx-btn{display:inline-block;margin:0 1em 1em 0;text-decoration:none;cursor:pointer}.ds-s{--ink:#1d2b53;--ink2:#46507a;--muted:#6b7393;--line:#e4e8f3;--D:#ef4b4b;--I:#f5a524;--S:#17b47a;--C:#2f86eb;--rainbow:linear-gradient(90deg,#ef4b4b,#f5a524,#17b47a,#2f86eb);font-family:"Be Vietnam Pro",sans-serif;color:var(--ink)}.ds-s h1,.ds-s h2,.ds-s h3{color:var(--ink);letter-spacing:-.01em;font-family:inherit}.ds-s p{color:var(--ink2);line-height:1.7}.ds-s h2.ds-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.25;margin:10px 0 14px}.ds-center{text-align:center;max-width:720px;margin:0 auto 34px}.ds-center p{color:var(--muted)}.ds-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#2f6bd8;background:#e8f0ff;padding:5px 14px;border-radius:99px}.ds-letters span{font-weight:800}.ds-letters .d{color:var(--D)}.ds-letters .i{color:var(--I)}.ds-letters .s{color:var(--S)}.ds-letters .c{color:var(--C)}.ds-soft{background:#f6f8fc}.ds-s .tpx-btn.ds-btn,.ds-s .tpx-btn.ds-btn-ghost,.ds-s .tpx-btn.ds-btn-white{border-radius:99px;font-weight:700;padding:0 30px;line-height:52px;min-height:52px}.ds-s .tpx-btn.ds-btn{background:var(--ink);color:#fff;box-shadow:0 14px 30px -12px rgba(29,43,83,.7)}.ds-s .tpx-btn.ds-btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);line-height:49px}.ds-s .tpx-btn.ds-btn-white{background:#fff;color:var(--ink)}.ds-hero{background:linear-gradient(135deg,#fff4ee 0%,#edf3ff 100%);position:relative}.ds-hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--rainbow)}.ds-hero h1{font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.18;margin:16px 0 18px}.ds-hero .lead{font-size:17px;max-width:540px}.ds-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--muted)}.ds-stats b{display:block;font-size:26px;font-weight:800;color:var(--ink);line-height:1.2}.ds-float img{animation:dsFloat 6s ease-in-out infinite}@keyframes dsFloat{50%{transform:translateY(-10px)}}.ds-ver>.col-inner{position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 26px;height:100%;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}.ds-ver>.col-inner:before{content:"";position:absolute;left:24px;right:24px;top:0;height:5px;border-radius:0 0 6px 6px;background:var(--v)}.ds-ver>.col-inner:hover{transform:translateY(-6px);box-shadow:0 24px 50px -22px rgba(29,43,83,.4)}.ds-ver.featured>.col-inner{border:2px solid var(--v);box-shadow:0 24px 50px -22px rgba(47,134,235,.55)}.ds-ver .badge{position:absolute;top:18px;right:18px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--v);padding:5px 11px;border-radius:99px}.ds-ver img{width:56px;margin-bottom:16px}.ds-ver .count{font-size:46px;font-weight:800;line-height:1;color:var(--ink)}.ds-ver .count small{font-size:18px;font-weight:700;color:var(--muted);margin-left:6px}.ds-ver h3{font-size:20px;font-weight:800;margin:10px 0 4px}.ds-ver .meta{display:flex;gap:16px;font-size:14px;font-weight:600;color:var(--muted);margin-bottom:16px}.ds-ver ul{list-style:none;padding:0;margin:0 0 22px;flex:1}.ds-ver li{position:relative;padding-left:28px;margin-bottom:10px;font-size:15px;color:var(--ink2)}.ds-ver li:before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--v);opacity:.15}.ds-ver li:after{content:"";position:absolute;left:6px;top:7px;width:5px;height:8px;border:solid var(--v);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}.ds-ver .tpx-btn{display:block;text-align:center;margin:0;border-radius:99px;font-weight:700;line-height:50px;background:#fff;color:var(--v);border:2px solid var(--v)}.ds-ver.featured .tpx-btn{background:var(--v);color:#fff}.ds-panel>.col-inner{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 18px 40px -18px rgba(29,43,83,.35)}.ds-s h3.ds-h3{font-size:19px;font-weight:700;margin:18px 0 6px}.ds-type>.col-inner{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 22px;height:100%;border-top:6px solid var(--t)}.ds-type .head{display:flex;align-items:center;gap:14px;margin-bottom:14px}.ds-type .head img{width:52px}.ds-type .letter{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--t)}.ds-type h3{font-size:19px;font-weight:800;margin:2px 0 0}.ds-type p{font-size:15px;color:var(--muted);margin:0 0 12px}.ds-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.ds-chips span{font-size:12px;font-weight:700;color:var(--t);background:#f6f8fc;border:1px solid var(--line);border-radius:99px;padding:3px 10px}.ds-type .row2{font-size:14px;color:var(--ink2);line-height:1.6}.ds-type .row2 b{color:var(--ink)}.ds-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;font-size:15px}.ds-table th,.ds-table td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line);color:var(--ink2)}.ds-table thead th{background:#1d2b53;color:#fff;font-weight:700}.ds-table tbody th{color:var(--ink);font-weight:700;background:#fafbfe}.ds-table tr:last-child th,.ds-table tr:last-child td{border-bottom:0}.ds-table .hl{background:#eef5ff;color:var(--ink);font-weight:600}.ds-tablewrap{overflow-x:auto;border-radius:20px}.ds-card>.col-inner{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px;height:100%}.ds-card img{width:56px;margin-bottom:16px}.ds-card h3{font-size:18px;font-weight:700;margin:0 0 8px}.ds-card p{font-size:15px;color:var(--muted);margin:0}.ds-faq .accordion-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}.ds-faq .accordion-title{font-weight:700;font-size:16px;padding:16px 20px 16px 48px;color:var(--ink)}.ds-faq .accordion-title.active{background:#f6f8fc}.ds-faq .accordion-inner{padding:4px 20px 18px 48px}.ds-faq .accordion-inner p{color:var(--muted);margin:0}.ds-cta{background:#1d2b53;position:relative}.ds-cta:before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--rainbow)}.ds-cta h2,.ds-cta p{color:#fff!important}.ds-cta p{opacity:.85}@media(max-width:849px){.ds-stats{gap:22px}.ds-center{margin-bottom:22px}}.ds-s .tpx-btn{text-transform:none;letter-spacing:0;font-family:inherit}.ds-s .accordion-title{border:0!important;display:block;position:relative}.ds-s .accordion-title .toggle{left:12px}.ds-s p:empty{display:none}.ds-s .col-inner>div>img:first-child{margin-bottom:0}.ds-v1{--v:#17b47a}.ds-v2{--v:#2f86eb}.ds-v3{--v:#7c5cff}.ds-v4{--t:#ef4b4b}.ds-v5{--t:#e09000}.ds-v6{--t:#17b47a}.ds-v7{--t:#2f86eb}.ds-ver .ds-wrap{display:flex;flex-direction:column;flex:1}</style>[/ux_html]
+[section label="Test DISC – Khám phá nhóm tính cách D · " class="ds-s ds-hero" padding="70px" padding__sm="40px"]
+[row v_align="middle"]
+[col span="6" span__sm="12"]
+
+<div class="ds-wrap"><span class="ds-eyebrow">✦ Trắc nghiệm tính cách · Miễn phí</span> <h1>Test DISC – Khám phá nhóm tính cách <span class="ds-letters"><span class="d">D</span>·<span class="i">I</span>·<span class="s">S</span>·<span class="c">C</span></span> của bạn</h1> <p class="lead">Hiểu phong cách hành vi, cách giao tiếp và làm việc của bạn qua mô hình DISC. Chọn bài test 20, 30 hoặc 40 câu tuỳ thời gian bạn có.</p> <a class="tpx-btn ds-btn" href="#chon-bai-test">Chọn bài test DISC ↓</a> <a class="tpx-btn ds-btn-ghost" href="#disc-la-gi">DISC là gì?</a> <div class="ds-stats"><div><b>4</b>nhóm tính cách</div><div><b>3</b>phiên bản bài test</div><div><b>0đ</b>miễn phí</div></div></div>
+
+[/col]
+[col span="6" span__sm="12" class="ds-float"]
+
+<div class="ds-wrap"><img alt="Minh hoạ mô hình DISC" src="https://tracnghiemplus.com/wp-content/uploads/disc-hero.png"/></div>
+
+[/col]
+
+[/row]
+
+[/section]
+[scroll_to title="chon-bai-test" link="#chon-bai-test" bullet="false"]
+[section label="Chọn bài test DISC phù hợp với bạn" class="ds-s" padding="70px" padding__sm="40px"]
+[row]
+[col span="12" span__sm="12"]
+
+<div class="ds-wrap"><div class="ds-center"> <span class="ds-eyebrow">Chọn bài test</span> <h2 class="ds-h2">Chọn bài test DISC phù hợp với bạn</h2> <p>Cả 3 phiên bản đều cho ra nhóm tính cách DISC. Bài càng dài thì kết quả càng chi tiết và ổn định hơn.</p> </div></div>
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+[col span="4" span__sm="12" class="ds-ver ds-v1"]
+
+<div class="ds-wrap"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-v20.png"/> <div class="count">20<small>câu hỏi</small></div> <h3>DISC rút gọn</h3> <div class="meta"><span>⏱ ~5 phút</span><span>⚡ Nhanh</span></div> <ul><li>Biết nhóm tính cách nổi trội</li><li>Phù hợp khi bạn có ít thời gian</li><li>Kết quả tóm tắt, dễ hiểu</li></ul> <a class="tpx-btn" href="#tnp-test=test-disc-20-cau">Làm bài 20 câu</a></div>
+
+[/col]
+[col span="4" span__sm="12" class="ds-ver featured ds-v2"]
+
+<div class="ds-wrap"><span class="badge">Khuyên dùng</span> <img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-v30.png"/> <div class="count">30<small>câu hỏi</small></div> <h3>DISC tiêu chuẩn</h3> <div class="meta"><span>⏱ ~8 phút</span><span>★ Phổ biến</span></div> <ul><li>Biểu đồ tỉ lệ 4 nhóm D, I, S, C</li><li>Cân bằng giữa thời gian và độ chính xác</li><li>Gợi ý cách giao tiếp, làm việc</li></ul> <a class="tpx-btn" href="#tnp-test=test-disc">Làm bài 30 câu</a></div>
+
+[/col]
+[col span="4" span__sm="12" class="ds-ver ds-v3"]
+
+<div class="ds-wrap"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-v40.png"/> <div class="count">40<small>câu hỏi</small></div> <h3>DISC chuyên sâu</h3> <div class="meta"><span>⏱ ~12 phút</span><span>◎ Chi tiết</span></div> <ul><li>Phân tích nhóm chính và nhóm phụ</li><li>Điểm mạnh, điểm cần cải thiện</li><li>Gợi ý nghề nghiệp phù hợp</li></ul> <a class="tpx-btn" href="#tnp-test=test-disc-40-cau">Làm bài 40 câu</a></div>
+
+[/col]
+
+[/row]
+
+[/section]
+[scroll_to title="disc-la-gi" link="#disc-la-gi" bullet="false"]
+[section label="DISC là gì?" class="ds-s ds-soft" padding="70px" padding__sm="40px"]
+[row v_align="middle"]
+[col span="6" span__sm="12"]
+
+<div class="ds-wrap"><span class="ds-eyebrow">Kiến thức nền</span> <h2 class="ds-h2">DISC là gì?</h2> <h3 class="ds-h3">Nguồn gốc của mô hình DISC</h3> <p>DISC dựa trên lý thuyết của nhà tâm lý học William Moulton Marston (1928), mô tả cách con người phản ứng và hành xử trong môi trường xung quanh.</p> <h3 class="ds-h3">DISC đo lường điều gì?</h3> <p>DISC xếp hành vi theo 2 trục: nhịp độ (nhanh – chậm) và định hướng (công việc – con người), tạo thành 4 nhóm D, I, S, C.</p> <h3 class="ds-h3">DISC khác gì với MBTI?</h3> <p>MBTI mô tả cách bạn suy nghĩ và tiếp nhận thông tin, còn DISC tập trung vào hành vi quan sát được khi làm việc và giao tiếp.</p></div>
+
+[/col]
+[col span="6" span__sm="12" class="ds-panel"]
+
+<div class="ds-wrap"><img alt="Mô hình DISC theo 2 trục" src="https://tracnghiemplus.com/wp-content/uploads/disc-model.png"/></div>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="4 nhóm tính cách DISC" class="ds-s" padding="70px" padding__sm="40px"]
+[row]
+[col span="12" span__sm="12"]
+
+<div class="ds-wrap"><div class="ds-center"> <span class="ds-eyebrow">4 nhóm</span> <h2 class="ds-h2">4 nhóm tính cách DISC</h2> <p>Ai cũng có cả 4 yếu tố, nhưng thường có 1–2 nhóm nổi trội quyết định phong cách hành vi.</p> </div></div>
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+[col span="3" span__sm="12" span__md="6" class="ds-type ds-v4"]
+
+<div class="ds-wrap"><div class="head"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-d.png"/><div><span class="letter">D · Dominance</span><h3>Thủ lĩnh</h3></div></div> <p>Quyết đoán, thích thử thách và tập trung vào kết quả.</p> <div class="ds-chips"><span>Quyết đoán</span><span>Cạnh tranh</span><span>Thẳng thắn</span></div> <div class="row2"><b>Cần cải thiện:</b> kiên nhẫn, lắng nghe người khác.</div></div>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="ds-type ds-v5"]
+
+<div class="ds-wrap"><div class="head"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-i.png"/><div><span class="letter">I · Influence</span><h3>Người truyền cảm hứng</h3></div></div> <p>Hoạt ngôn, lạc quan, giỏi thuyết phục và kết nối.</p> <div class="ds-chips"><span>Nhiệt tình</span><span>Lạc quan</span><span>Hoà đồng</span></div> <div class="row2"><b>Cần cải thiện:</b> theo dõi chi tiết, quản lý thời gian.</div></div>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="ds-type ds-v6"]
+
+<div class="ds-wrap"><div class="head"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-s.png"/><div><span class="letter">S · Steadiness</span><h3>Người kiên định</h3></div></div> <p>Điềm tĩnh, đáng tin, hỗ trợ và giữ hoà khí tập thể.</p> <div class="ds-chips"><span>Kiên nhẫn</span><span>Trung thành</span><span>Hợp tác</span></div> <div class="row2"><b>Cần cải thiện:</b> thích nghi với thay đổi, nói “không”.</div></div>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="ds-type ds-v7"]
+
+<div class="ds-wrap"><div class="head"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-c.png"/><div><span class="letter">C · Compliance</span><h3>Người cẩn trọng</h3></div></div> <p>Chính xác, logic, coi trọng tiêu chuẩn và chất lượng.</p> <div class="ds-chips"><span>Tỉ mỉ</span><span>Phân tích</span><span>Kỷ luật</span></div> <div class="row2"><b>Cần cải thiện:</b> linh hoạt, bớt cầu toàn.</div></div>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Nên chọn bài test DISC 20, 30 hay 40 câu" class="ds-s ds-soft" padding="70px" padding__sm="40px"]
+[row h_align="center"]
+[col span="10" span__sm="12"]
+
+<div class="ds-wrap"><div class="ds-center"><span class="ds-eyebrow">So sánh</span><h2 class="ds-h2">Nên chọn bài test DISC 20, 30 hay 40 câu?</h2></div> <div class="ds-tablewrap"><table class="ds-table"> <thead><tr><th></th><th>20 câu</th><th>30 câu</th><th>40 câu</th></tr></thead> <tbody> <tr><th>Thời gian</th><td>~5 phút</td><td class="hl">~8 phút</td><td>~12 phút</td></tr> <tr><th>Kết quả</th><td>Nhóm nổi trội</td><td class="hl">Tỉ lệ 4 nhóm</td><td>Nhóm chính + nhóm phụ</td></tr> <tr><th>Độ chi tiết</th><td>Cơ bản</td><td class="hl">Vừa đủ</td><td>Chuyên sâu</td></tr> <tr><th>Phù hợp</th><td>Tìm hiểu nhanh</td><td class="hl">Đa số người dùng</td><td>Định hướng nghề, tuyển dụng</td></tr> </tbody> </table></div></div>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Ứng dụng của DISC trong công việc và cuộ" class="ds-s" padding="70px" padding__sm="40px"]
+[row]
+[col span="12" span__sm="12"]
+
+<div class="ds-wrap"><div class="ds-center"> <span class="ds-eyebrow">Ứng dụng</span> <h2 class="ds-h2">Ứng dụng của DISC trong công việc và cuộc sống</h2> </div></div>
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+[col span="3" span__sm="12" span__md="6" class="ds-card"]
+
+<div class="ds-wrap"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-recruit.png"/><h3>Tuyển dụng nhân sự</h3><p>Đánh giá mức phù hợp giữa ứng viên và vị trí, văn hoá đội nhóm.</p></div>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="ds-card"]
+
+<div class="ds-wrap"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-team.png"/><h3>Xây dựng đội nhóm</h3><p>Phân công đúng người đúng việc, giảm xung đột trong nhóm.</p></div>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="ds-card"]
+
+<div class="ds-wrap"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-lead.png"/><h3>Phát triển lãnh đạo</h3><p>Điều chỉnh phong cách quản lý theo từng thành viên.</p></div>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="ds-card"]
+
+<div class="ds-wrap"><img alt="" src="https://tracnghiemplus.com/wp-content/uploads/disc-icon-talk.png"/><h3>Giao tiếp và bán hàng</h3><p>Nhận diện nhóm DISC của đối phương để trò chuyện thuyết phục hơn.</p></div>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Câu hỏi thường gặp về test DISC" class="ds-s ds-soft" padding="70px" padding__sm="40px"]
+[row h_align="center"]
+[col span="9" span__sm="12" class="ds-faq"]
+
+<div class="ds-wrap"><div class="ds-center"><span class="ds-eyebrow">Hỏi đáp</span><h2 class="ds-h2">Câu hỏi thường gặp về test DISC</h2></div></div>
+
+[accordion]
+
+[accordion-item title="Test DISC có mất phí không?"]
+
+<p>Không. Cả 3 bài test 20, 30 và 40 câu đều miễn phí và có kết quả ngay sau khi nộp bài.</p>
+
+[/accordion-item]
+[accordion-item title="Nên làm bài 20, 30 hay 40 câu?"]
+
+<p>Bài 20 câu giúp biết nhanh nhóm nổi trội. Bài 30 câu phù hợp với đa số người dùng. Bài 40 câu cho kết quả chi tiết nhất khi bạn cần định hướng nghề nghiệp.</p>
+
+[/accordion-item]
+[accordion-item title="Kết quả DISC có thay đổi theo thời gian không?"]
+
+<p>Phong cách hành vi khá ổn định nhưng có thể thay đổi theo vai trò, môi trường làm việc và giai đoạn sống. Bạn có thể làm lại để so sánh.</p>
+
+[/accordion-item]
+[accordion-item title="Có nhóm DISC nào tốt hơn nhóm nào không?"]
+
+<p>Không. Mỗi nhóm có điểm mạnh riêng. Hiệu quả phụ thuộc vào việc bạn hiểu và vận dụng phong cách của mình phù hợp với từng tình huống.</p>
+
+[/accordion-item]
+[accordion-item title="Doanh nghiệp dùng DISC để làm gì?"]
+
+<p>DISC hỗ trợ tuyển dụng, phân công đội nhóm, đào tạo lãnh đạo và cải thiện giao tiếp nội bộ. Để định hướng nghề nghiệp, bạn có thể kết hợp với <a href="https://tracnghiemplus.com/test-holland/">test Holland</a> và <a href="https://tracnghiemplus.com/test-mbti/">test MBTI</a>.</p>
+
+[/accordion-item]
+
+[/accordion]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Bạn thuộc nhóm D, I, S hay C?" class="ds-s ds-cta" padding="60px" padding__sm="40px"]
+[row h_align="center"]
+[col span="8" span__sm="12" align="center"]
+
+<div class="ds-wrap"><h2 class="ds-h2">Bạn thuộc nhóm D, I, S hay C?</h2> <p>Chọn bài test 20, 30 hoặc 40 câu và khám phá phong cách hành vi của bạn ngay hôm nay.</p> <a class="tpx-btn ds-btn-white" href="#chon-bai-test">Chọn bài test DISC ↑</a></div>
+
+[/col]
+
+[/row]
+
+[/section]
