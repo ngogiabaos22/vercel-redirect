@@ -1,75 +1,4 @@
-[ux_html label="CSS Test IQ"]
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
-.iq-s{--iq-ink:#1d1640;--iq-ink2:#4b4570;--iq-muted:#6b6688;--iq-line:#e7e4f5;--iq-brand:#6d5dfc;--iq-brand2:#b14cf0;--iq-sun:#ffd166;--iq-grad:linear-gradient(135deg,#6d5dfc,#b14cf0);font-family:"Be Vietnam Pro",sans-serif;color:var(--iq-ink)}
-.iq-s h1,.iq-s h2,.iq-s h3,.iq-s p,.iq-s li,.iq-s .button{font-family:"Be Vietnam Pro",sans-serif}
-.iq-s h1,.iq-s h2,.iq-s h3{color:var(--iq-ink);letter-spacing:-.01em}
-.iq-s p{color:var(--iq-ink2);line-height:1.7}
-.iq-s h2.iq-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.25;margin:10px 0 14px}
-.iq-s .iq-center{text-align:center;max-width:680px;margin:0 auto 34px}
-.iq-s .iq-center p{color:var(--iq-muted)}
-.iq-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--iq-brand);background:#ece9ff;padding:5px 14px;border-radius:99px}
-.iq-grad{background:var(--iq-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.iq-soft{background:#f7f6fd!important}
-
-/* nút */
-.iq-s .button.iq-btn{background:var(--iq-grad)!important;color:#fff!important;border:0!important;border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0;box-shadow:0 14px 30px -12px rgba(109,93,252,.8);transition:transform .15s}
-.iq-s .button.iq-btn:hover{transform:translateY(-2px)}
-.iq-s .button.iq-btn-ghost{background:#fff!important;color:var(--iq-ink)!important;border:1.5px solid var(--iq-line)!important;border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0}
-.iq-s .button.iq-btn-white{background:#fff!important;color:var(--iq-brand)!important;border:0!important;border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0}
-
-/* hero */
-.iq-hero{background:linear-gradient(135deg,#f3f0ff 0%,#fdf0ff 100%)!important;overflow:hidden}
-.iq-hero h1{font-size:clamp(32px,4.6vw,54px);font-weight:800;line-height:1.15;margin:16px 0 18px}
-.iq-hero .lead{font-size:18px;color:var(--iq-ink2);max-width:520px}
-.iq-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:26px}
-.iq-stats b{display:block;font-size:28px;font-weight:800;color:var(--iq-ink);line-height:1.2}
-.iq-stats span{font-size:14px;color:var(--iq-muted)}
-.iq-float img{animation:iqFloat 6s ease-in-out infinite}
-@keyframes iqFloat{50%{transform:translateY(-10px)}}
-
-/* thẻ */
-.iq-card>.col-inner{background:#fff;border:1px solid var(--iq-line);border-radius:20px;padding:28px 24px;height:100%;transition:transform .2s,box-shadow .2s}
-.iq-card>.col-inner:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(59,42,158,.35)}
-.iq-card h3{font-size:18px;font-weight:700;margin:4px 0 8px}
-.iq-card p{font-size:15px;color:var(--iq-muted);margin:0}
-.iq-card .icon-box-img{margin-bottom:16px}
-.iq-card .icon-box-text{padding-left:0}
-.iq-num{display:block;font-size:42px;font-weight:800;line-height:1;margin-bottom:14px;background:var(--iq-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.iq-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--iq-brand);background:#ece9ff;border-radius:99px;padding:3px 12px;margin-bottom:12px}
-.iq-panel>.col-inner{background:#fff;border:1px solid var(--iq-line);border-radius:28px;padding:28px;box-shadow:0 18px 40px -18px rgba(59,42,158,.35)}
-
-/* thang điểm */
-.iq-level{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--iq-line);border-left:6px solid var(--c);border-radius:14px;padding:14px 18px;margin-bottom:12px}
-.iq-level h3{font-size:16px;font-weight:700;margin:0 0 2px}
-.iq-level p{font-size:14px;margin:0;color:var(--iq-muted)}
-
-/* danh sách lợi ích / mẹo */
-.iq-check{position:relative;padding-left:40px;margin-bottom:18px}
-.iq-check:before{content:"";position:absolute;left:0;top:2px;width:26px;height:26px;border-radius:50%;background:#e3faf1 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='%2317b47a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
-.iq-check h3{font-size:17px;font-weight:700;margin:0 0 4px}
-.iq-check p{font-size:15px;margin:0;color:var(--iq-muted)}
-
-/* FAQ */
-.iq-faq .accordion-item{background:#fff;border:1px solid var(--iq-line);border-radius:14px;margin-bottom:12px;overflow:hidden}
-.iq-faq .accordion-title{border:0!important;font-weight:700;font-size:16px;padding:16px 20px 16px 48px;color:var(--iq-ink)}
-.iq-faq .accordion-title.active{color:var(--iq-brand);background:#f7f6fd}
-.iq-faq .accordion-inner{padding:4px 20px 18px 48px}
-.iq-faq .accordion-inner p{color:var(--iq-muted);margin:0}
-
-/* CTA */
-.iq-cta{background:linear-gradient(135deg,#6d5dfc,#b14cf0)!important}
-.iq-cta h2,.iq-cta p{color:#fff!important}
-.iq-cta p{opacity:.9}
-
-@media (max-width:849px){
-  .iq-s .iq-center{margin-bottom:22px}
-  .iq-hero .col{text-align:left}
-  .iq-stats{gap:22px}
-}
-@media (prefers-reduced-motion:reduce){.iq-float img{animation:none}}
-</style>
-[/ux_html]
+[ux_html label="CSS Test IQ"]<style>@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');.iq-s{--iq-ink:#1d1640;--iq-ink2:#4b4570;--iq-muted:#6b6688;--iq-line:#e7e4f5;--iq-brand:#6d5dfc;--iq-brand2:#b14cf0;--iq-sun:#ffd166;--iq-grad:linear-gradient(135deg,#6d5dfc,#b14cf0);font-family:"Be Vietnam Pro",sans-serif;color:var(--iq-ink)}.iq-s h1,.iq-s h2,.iq-s h3,.iq-s p,.iq-s li,.iq-s .button{font-family:"Be Vietnam Pro",sans-serif}.iq-s h1,.iq-s h2,.iq-s h3{color:var(--iq-ink);letter-spacing:-.01em}.iq-s p{color:var(--iq-ink2);line-height:1.7}.iq-s h2.iq-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.25;margin:10px 0 14px}.iq-s .iq-center{text-align:center;max-width:680px;margin:0 auto 34px}.iq-s .iq-center p{color:var(--iq-muted)}.iq-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--iq-brand);background:#ece9ff;padding:5px 14px;border-radius:99px}.iq-grad{background:var(--iq-grad);-webkit-background-clip:text;background-clip:text;color:transparent}.iq-soft{background:#f7f6fd!important}.iq-s .button.iq-btn{background:var(--iq-grad)!important;color:#fff!important;border:0!important;border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0;box-shadow:0 14px 30px -12px rgba(109,93,252,.8);transition:transform .15s}.iq-s .button.iq-btn:hover{transform:translateY(-2px)}.iq-s .button.iq-btn-ghost{background:#fff!important;color:var(--iq-ink)!important;border:1.5px solid var(--iq-line)!important;border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0}.iq-s .button.iq-btn-white{background:#fff!important;color:var(--iq-brand)!important;border:0!important;border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0}.iq-hero{background:linear-gradient(135deg,#f3f0ff 0%,#fdf0ff 100%)!important;overflow:hidden}.iq-hero h1{font-size:clamp(32px,4.6vw,54px);font-weight:800;line-height:1.15;margin:16px 0 18px}.iq-hero .lead{font-size:18px;color:var(--iq-ink2);max-width:520px}.iq-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:26px}.iq-stats b{display:block;font-size:28px;font-weight:800;color:var(--iq-ink);line-height:1.2}.iq-stats span{font-size:14px;color:var(--iq-muted)}.iq-float img{animation:iqFloat 6s ease-in-out infinite}@keyframes iqFloat{50%{transform:translateY(-10px)}}.iq-card>.col-inner{background:#fff;border:1px solid var(--iq-line);border-radius:20px;padding:28px 24px;height:100%;transition:transform .2s,box-shadow .2s}.iq-card>.col-inner:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(59,42,158,.35)}.iq-card h3{font-size:18px;font-weight:700;margin:4px 0 8px}.iq-card p{font-size:15px;color:var(--iq-muted);margin:0}.iq-card .icon-box-img{margin-bottom:16px}.iq-card .icon-box-text{padding-left:0}.iq-num{display:block;font-size:42px;font-weight:800;line-height:1;margin-bottom:14px;background:var(--iq-grad);-webkit-background-clip:text;background-clip:text;color:transparent}.iq-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--iq-brand);background:#ece9ff;border-radius:99px;padding:3px 12px;margin-bottom:12px}.iq-panel>.col-inner{background:#fff;border:1px solid var(--iq-line);border-radius:28px;padding:28px;box-shadow:0 18px 40px -18px rgba(59,42,158,.35)}.iq-level{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--iq-line);border-left:6px solid var(--c);border-radius:14px;padding:14px 18px;margin-bottom:12px}.iq-level h3{font-size:16px;font-weight:700;margin:0 0 2px}.iq-level p{font-size:14px;margin:0;color:var(--iq-muted)}.iq-check{position:relative;padding-left:40px;margin-bottom:18px}.iq-check:before{content:"";position:absolute;left:0;top:2px;width:26px;height:26px;border-radius:50%;background:#e3faf1 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='%2317b47a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}.iq-check h3{font-size:17px;font-weight:700;margin:0 0 4px}.iq-check p{font-size:15px;margin:0;color:var(--iq-muted)}.iq-faq .accordion-item{background:#fff;border:1px solid var(--iq-line);border-radius:14px;margin-bottom:12px;overflow:hidden}.iq-faq .accordion-title{border:0!important;font-weight:700;font-size:16px;padding:16px 20px 16px 48px;color:var(--iq-ink)}.iq-faq .accordion-title.active{color:var(--iq-brand);background:#f7f6fd}.iq-faq .accordion-inner{padding:4px 20px 18px 48px}.iq-faq .accordion-inner p{color:var(--iq-muted);margin:0}.iq-cta{background:linear-gradient(135deg,#6d5dfc,#b14cf0)!important}.iq-cta h2,.iq-cta p{color:#fff!important}.iq-cta p{opacity:.9}.iq-s .icon-box-top .icon-box-img{margin:0 0 16px!important}.iq-s .icon-box-top .icon-box-text{text-align:left}.iq-stats>div{font-size:14px;color:var(--iq-muted)}.iq-s .button.iq-btn,.iq-s .button.iq-btn-white{padding:0 30px;line-height:52px;min-height:52px}.iq-s .iq-center:empty,.iq-s p:empty{display:none}.iq-faq .accordion-title .toggle{left:12px}@media (max-width:849px){.iq-s .iq-center{margin-bottom:22px}.iq-hero .col{text-align:left}.iq-stats{gap:22px}}@media (prefers-reduced-motion:reduce){.iq-float img{animation:none}}</style>[/ux_html]
 [section label="Hero - Test IQ" class="iq-s iq-hero" padding="70px" padding__sm="40px"]
 
 [row v_align="middle"]
@@ -77,17 +6,15 @@
 [col span="6" span__sm="12"]
 
 <span class="iq-eyebrow">✦ Miễn phí · Không cần đăng ký</span>
-<h1>Test IQ Online Miễn Phí – Kiểm Tra Chỉ Số IQ <span class="iq-grad">Chính Xác Nhất 2026</span></h1>
+<h1>Test IQ <span class="iq-grad">Miễn Phí</span></h1>
 <p class="lead">Bài trắc nghiệm IQ chuẩn quốc tế gồm các dạng logic, dãy số, không gian và trí nhớ. Hoàn thành là có ngay điểm IQ và phân tích chi tiết.</p>
 
-[button text="Bắt Đầu Test IQ Ngay →" color="primary" size="large" radius="99" class="iq-btn" link="/bai-thi/test-iq"]
-
-[button text="Xem thang điểm IQ" style="outline" size="large" radius="99" class="iq-btn-ghost" link="#thang-diem-iq"]
+[button text="Bắt Đầu Test IQ Ngay →" size="large" radius="99" class="iq-btn" link="/bai-thi/test-iq"]
 
 <div class="iq-stats">
-<div><b>30</b><span>câu hỏi</span></div>
-<div><b>15'</b><span>thời gian làm</span></div>
-<div><b>6</b><span>dạng tư duy</span></div>
+<div><b>60</b>câu hỏi</div>
+<div><b>15'</b>thời gian làm</div>
+<div><b>6</b>dạng tư duy</div>
 </div>
 
 [/col]
@@ -148,7 +75,7 @@
 
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="4084" img_width="56" pos="top"]
+[featured_box img="4084" img_width="56"]
 
 <h3>Tư duy logic</h3>
 <p>Tìm quy luật, suy luận đúng sai từ các mệnh đề cho trước.</p>
@@ -158,7 +85,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="4085" img_width="56" pos="top"]
+[featured_box img="4085" img_width="56"]
 
 <h3>Toán học và dãy số</h3>
 <p>Nhận ra quy luật của dãy số, tỉ lệ và phép biến đổi.</p>
@@ -168,7 +95,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="4086" img_width="56" pos="top"]
+[featured_box img="4086" img_width="56"]
 
 <h3>Tư duy hình học – không gian</h3>
 <p>Xoay, gấp và ghép các hình khối trong trí tưởng tượng.</p>
@@ -178,7 +105,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="4087" img_width="56" pos="top"]
+[featured_box img="4087" img_width="56"]
 
 <h3>Ngôn ngữ và từ vựng</h3>
 <p>Tìm từ đồng nghĩa, trái nghĩa và mối liên hệ giữa các khái niệm.</p>
@@ -188,7 +115,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="4088" img_width="56" pos="top"]
+[featured_box img="4088" img_width="56"]
 
 <h3>Trí nhớ ngắn hạn</h3>
 <p>Ghi nhớ và xử lý thông tin trong thời gian giới hạn.</p>
@@ -198,7 +125,7 @@
 [/col]
 [col span="4" span__sm="12" span__md="6" class="iq-card"]
 
-[featured_box img="4089" img_width="56" pos="top"]
+[featured_box img="4089" img_width="56"]
 
 <h3>Ma trận hình ảnh (Raven)</h3>
 <p>Chọn hình còn thiếu để hoàn thành quy luật của ma trận 3×3.</p>
@@ -260,7 +187,7 @@
 
 [col span__sm="12" align="center"]
 
-[button text="Bắt Đầu Làm Bài →" color="primary" size="large" radius="99" class="iq-btn" link="/bai-thi/test-iq"]
+[button text="Bắt Đầu Làm Bài →" size="large" radius="99" class="iq-btn" link="/bai-thi/test-iq"]
 
 
 [/col]
@@ -424,7 +351,7 @@
 
 [col span="4" span__sm="12" class="iq-card"]
 
-[featured_box img="4090" img_width="56" pos="top"]
+[featured_box img="4090" img_width="56"]
 
 <p><span class="iq-tag">IQ · Trí tuệ</span></p>
 <p><strong>Thông minh lý trí:</strong> khả năng suy luận, tính toán, giải quyết vấn đề logic.</p>
@@ -434,7 +361,7 @@
 [/col]
 [col span="4" span__sm="12" class="iq-card"]
 
-[featured_box img="4091" img_width="56" pos="top"]
+[featured_box img="4091" img_width="56"]
 
 <p><span class="iq-tag">EQ · Cảm xúc</span></p>
 <p><strong>Thông minh cảm xúc:</strong> hiểu và điều tiết cảm xúc của mình, thấu cảm với người khác.</p>
@@ -444,7 +371,7 @@
 [/col]
 [col span="4" span__sm="12" class="iq-card"]
 
-[featured_box img="4092" img_width="56" pos="top"]
+[featured_box img="4092" img_width="56"]
 
 <p><span class="iq-tag">CQ · Sáng tạo</span></p>
 <p><strong>Thông minh sáng tạo:</strong> nghĩ ra ý tưởng mới và cách làm khác biệt.</p>
