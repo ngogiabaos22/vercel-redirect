@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 520" role="img" aria-label="Minh hoạ mô hình DISC với 4 nhóm tính cách D, I, S, C">
+<defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1ea"/><stop offset="1" stop-color="#eaf2ff"/></linearGradient>
+<filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#1d2b53" flood-opacity=".22"/></filter></defs>
+<path d="M90 120C150 30 340 10 450 75s120 215 55 305-225 135-330 95S30 210 90 120z" fill="url(#bl)"/>
+<g filter="url(#sh)"><circle cx="290" cy="265" r="186" fill="#fff"/><path d="M120.1 259.1A170 170 0 0 1 284.1 95.1L287.6 195.0A70 70 0 0 0 220.0 262.6Z" fill="#ef4b4b"/><path d="M295.9 95.1A170 170 0 0 1 459.9 259.1L360.0 262.6A70 70 0 0 0 292.4 195.0Z" fill="#f5a524"/><path d="M459.9 270.9A170 170 0 0 1 295.9 434.9L292.4 335.0A70 70 0 0 0 360.0 267.4Z" fill="#17b47a"/><path d="M284.1 434.9A170 170 0 0 1 120.1 270.9L220.0 267.4A70 70 0 0 0 287.6 335.0Z" fill="#2f86eb"/></g><text x="205" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="46" font-weight="800" fill="#fff">D</text><text x="375" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-size="46" font-weight="800" fill="#fff">I</text><text x="375" y="366" text-anchor="middle" font-family="Arial,sans-serif" font-size="46" font-weight="800" fill="#fff">S</text><text x="205" y="366" text-anchor="middle" font-family="Arial,sans-serif" font-size="46" font-weight="800" fill="#fff">C</text>
+<circle cx="290" cy="265" r="58" fill="#1d2b53"/>
+<circle cx="290" cy="251" r="13" fill="#ffd166"/><path d="M266 295c0-15 11-26 24-26s24 11 24 26" fill="#ffd166"/>
+<g font-family="Arial,sans-serif" font-weight="700" font-size="14" filter="url(#sh)">
+<g transform="translate(18 60)"><rect width="128" height="40" rx="20" fill="#fff"/><circle cx="22" cy="20" r="7" fill="#ef4b4b"/><text x="38" y="25" fill="#1d2b53">Quyết đoán</text></g>
+<g transform="translate(420 70)"><rect width="128" height="40" rx="20" fill="#fff"/><circle cx="22" cy="20" r="7" fill="#f5a524"/><text x="38" y="25" fill="#1d2b53">Cởi mở</text></g>
+<g transform="translate(430 430)"><rect width="118" height="40" rx="20" fill="#fff"/><circle cx="22" cy="20" r="7" fill="#17b47a"/><text x="38" y="25" fill="#1d2b53">Kiên định</text></g>
+<g transform="translate(14 440)"><rect width="118" height="40" rx="20" fill="#fff"/><circle cx="22" cy="20" r="7" fill="#2f86eb"/><text x="38" y="25" fill="#1d2b53">Cẩn trọng</text></g>
+</g></svg>

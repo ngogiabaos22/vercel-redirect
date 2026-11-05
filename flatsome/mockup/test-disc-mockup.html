@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup Test DISC</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ---- Flatsome grid shim (mockup only) ---- */
+body{margin:0;background:#fff;color:#777}*{box-sizing:border-box}img{max-width:100%;height:auto;display:block}
+.row{display:flex;flex-wrap:wrap;max-width:1110px;margin:0 auto;width:100%}.align-middle{align-items:center}.align-center{justify-content:center}.align-equal>.col{display:flex}.align-equal>.col>.col-inner{width:100%}
+.col{padding:0 15px 30px;width:100%}.text-center{text-align:center}
+@media(min-width:850px){.large-3{flex-basis:25%;max-width:25%}.large-4{flex-basis:33.33%;max-width:33.33%}.large-6{flex-basis:50%;max-width:50%}.large-8{flex-basis:66.66%;max-width:66.66%}.large-9{flex-basis:75%;max-width:75%}.large-10{flex-basis:83.33%;max-width:83.33%}.large-12{flex-basis:100%;max-width:100%}}
+@media(min-width:550px) and (max-width:849px){.medium-6{flex-basis:50%;max-width:50%}}
+h1,h2,h3{margin:0 0 .5em}p{margin:0 0 1.2em}
+.button{display:inline-block;margin:0 1em 1em 0;text-decoration:none}
+.accordion-title{display:block;position:relative;text-decoration:none}.accordion-title .toggle{position:absolute;left:12px;top:.9em;border:0;background:none;color:inherit}.accordion-inner{display:none}.accordion-item.open .accordion-inner{display:block}
+
+/* ---- DISC design ---- */
+.ds-s{--ink:#1d2b53;--ink2:#46507a;--muted:#6b7393;--line:#e4e8f3;--D:#ef4b4b;--I:#f5a524;--S:#17b47a;--C:#2f86eb;--rainbow:linear-gradient(90deg,#ef4b4b,#f5a524,#17b47a,#2f86eb);font-family:"Be Vietnam Pro",sans-serif;color:var(--ink)}
+.ds-s h1,.ds-s h2,.ds-s h3{color:var(--ink);letter-spacing:-.01em;font-family:inherit}
+.ds-s p{color:var(--ink2);line-height:1.7}
+.ds-s h2.ds-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.25;margin:10px 0 14px}
+.ds-center{text-align:center;max-width:720px;margin:0 auto 34px}.ds-center p{color:var(--muted)}
+.ds-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#2f6bd8;background:#e8f0ff;padding:5px 14px;border-radius:99px}
+.ds-letters span{font-weight:800}.ds-letters .d{color:var(--D)}.ds-letters .i{color:var(--I)}.ds-letters .s{color:var(--S)}.ds-letters .c{color:var(--C)}
+.ds-soft{background:#f6f8fc}
+.ds-s .button.ds-btn,.ds-s .button.ds-btn-ghost,.ds-s .button.ds-btn-white{border-radius:99px;font-weight:700;padding:0 30px;line-height:52px;min-height:52px}
+.ds-s .button.ds-btn{background:var(--ink);color:#fff;box-shadow:0 14px 30px -12px rgba(29,43,83,.7)}
+.ds-s .button.ds-btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);line-height:49px}
+.ds-s .button.ds-btn-white{background:#fff;color:var(--ink)}
+.ds-hero{background:linear-gradient(135deg,#fff4ee 0%,#edf3ff 100%);position:relative}
+.ds-hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--rainbow)}
+.ds-hero h1{font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.18;margin:16px 0 18px}
+.ds-hero .lead{font-size:17px;max-width:540px}
+.ds-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--muted)}
+.ds-stats b{display:block;font-size:26px;font-weight:800;color:var(--ink);line-height:1.2}
+.ds-float img{animation:dsFloat 6s ease-in-out infinite}@keyframes dsFloat{50%{transform:translateY(-10px)}}
+/* version cards */
+.ds-ver>.col-inner{position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 26px;height:100%;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.ds-ver>.col-inner:before{content:"";position:absolute;left:24px;right:24px;top:0;height:5px;border-radius:0 0 6px 6px;background:var(--v)}
+.ds-ver>.col-inner:hover{transform:translateY(-6px);box-shadow:0 24px 50px -22px rgba(29,43,83,.4)}
+.ds-ver.featured>.col-inner{border:2px solid var(--v);box-shadow:0 24px 50px -22px rgba(47,134,235,.55)}
+.ds-ver .badge{position:absolute;top:18px;right:18px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--v);padding:5px 11px;border-radius:99px}
+.ds-ver img{width:56px;margin-bottom:16px}
+.ds-ver .count{font-size:46px;font-weight:800;line-height:1;color:var(--ink)}.ds-ver .count small{font-size:18px;font-weight:700;color:var(--muted);margin-left:6px}
+.ds-ver h3{font-size:20px;font-weight:800;margin:10px 0 4px}
+.ds-ver .meta{display:flex;gap:16px;font-size:14px;font-weight:600;color:var(--muted);margin-bottom:16px}
+.ds-ver ul{list-style:none;padding:0;margin:0 0 22px;flex:1}
+.ds-ver li{position:relative;padding-left:28px;margin-bottom:10px;font-size:15px;color:var(--ink2)}
+.ds-ver li:before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--v);opacity:.15}
+.ds-ver li:after{content:"";position:absolute;left:6px;top:7px;width:5px;height:8px;border:solid var(--v);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.ds-ver .button{display:block;text-align:center;margin:0;border-radius:99px;font-weight:700;line-height:50px;background:#fff;color:var(--v);border:2px solid var(--v)}
+.ds-ver.featured .button{background:var(--v);color:#fff}
+.mock-quiz{max-width:1080px;margin:6px auto 0;border:2px dashed #c3cdea;border-radius:18px;padding:22px;text-align:center;font-size:14px;color:var(--muted);background:repeating-linear-gradient(135deg,#fff,#fff 12px,#f6f8fc 12px,#f6f8fc 24px)}
+.mock-quiz b{color:var(--ink)}
+/* panel + text */
+.ds-panel>.col-inner{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 18px 40px -18px rgba(29,43,83,.35)}
+.ds-s h3.ds-h3{font-size:19px;font-weight:700;margin:18px 0 6px}
+/* type cards */
+.ds-type>.col-inner{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 22px;height:100%;border-top:6px solid var(--t)}
+.ds-type .head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.ds-type .head img{width:52px}
+.ds-type .letter{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--t)}
+.ds-type h3{font-size:19px;font-weight:800;margin:2px 0 0}
+.ds-type p{font-size:15px;color:var(--muted);margin:0 0 12px}
+.ds-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.ds-chips span{font-size:12px;font-weight:700;color:var(--t);background:#f6f8fc;border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+.ds-type .row2{font-size:14px;color:var(--ink2);line-height:1.6}.ds-type .row2 b{color:var(--ink)}
+/* compare table */
+.ds-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;font-size:15px}
+.ds-table th,.ds-table td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line);color:var(--ink2)}
+.ds-table thead th{background:#1d2b53;color:#fff;font-weight:700}
+.ds-table tbody th{color:var(--ink);font-weight:700;background:#fafbfe}
+.ds-table tr:last-child th,.ds-table tr:last-child td{border-bottom:0}
+.ds-table .hl{background:#eef5ff;color:var(--ink);font-weight:600}
+.ds-tablewrap{overflow-x:auto;border-radius:20px}
+/* generic card */
+.ds-card>.col-inner{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px;height:100%}
+.ds-card img{width:56px;margin-bottom:16px}.ds-card h3{font-size:18px;font-weight:700;margin:0 0 8px}.ds-card p{font-size:15px;color:var(--muted);margin:0}
+/* faq */
+.ds-faq .accordion-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.ds-faq .accordion-title{font-weight:700;font-size:16px;padding:16px 20px 16px 48px;color:var(--ink)}
+.ds-faq .accordion-item.open .accordion-title{background:#f6f8fc}
+.ds-faq .accordion-inner{padding:4px 20px 18px 48px}.ds-faq .accordion-inner p{color:var(--muted);margin:0}
+/* cta */
+.ds-cta{background:#1d2b53;position:relative}
+.ds-cta:before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--rainbow)}
+.ds-cta h2,.ds-cta p{color:#fff!important}.ds-cta p{opacity:.85}
+@media(max-width:849px){.ds-stats{gap:22px}.ds-center{margin-bottom:22px}}
+</style>
+</head>
+<body>
+
+<!-- 1. HERO -->
+<section class="ds-s ds-hero" style="padding:70px 0">
+  <div class="row align-middle">
+    <div class="col large-6"><div class="col-inner">
+      <span class="ds-eyebrow">✦ Trắc nghiệm tính cách · Miễn phí</span>
+      <h1>Test DISC – Khám phá nhóm tính cách <span class="ds-letters"><span class="d">D</span>·<span class="i">I</span>·<span class="s">S</span>·<span class="c">C</span></span> của bạn</h1>
+      <p class="lead">Hiểu phong cách hành vi, cách giao tiếp và làm việc của bạn qua mô hình DISC. Chọn bài test 20, 30 hoặc 40 câu tuỳ thời gian bạn có.</p>
+      <a class="button ds-btn" href="#chon-bai-test">Chọn bài test DISC ↓</a>
+      <a class="button ds-btn-ghost" href="#disc-la-gi">DISC là gì?</a>
+      <div class="ds-stats"><div><b>4</b>nhóm tính cách</div><div><b>3</b>phiên bản bài test</div><div><b>0đ</b>miễn phí</div></div>
+    </div></div>
+    <div class="col large-6 ds-float"><div class="col-inner"><img src="../../public/disc-test/disc-hero.svg" alt="Minh hoạ mô hình DISC"></div></div>
+  </div>
+</section>
+
+<!-- 2. CHỌN BÀI TEST -->
+<section class="ds-s" id="chon-bai-test" style="padding:70px 0 50px">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="ds-center">
+    <span class="ds-eyebrow">Chọn bài test</span>
+    <h2 class="ds-h2">Chọn bài test DISC phù hợp với bạn</h2>
+    <p>Cả 3 phiên bản đều cho ra nhóm tính cách DISC. Bài càng dài thì kết quả càng chi tiết và ổn định hơn.</p>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-4 ds-ver" style="--v:#17b47a"><div class="col-inner">
+      <img src="../../public/disc-test/disc-icon-v20.svg" alt="">
+      <div class="count">20<small>câu hỏi</small></div>
+      <h3>DISC rút gọn</h3>
+      <div class="meta"><span>⏱ ~5 phút</span><span>⚡ Nhanh</span></div>
+      <ul><li>Biết nhóm tính cách nổi trội</li><li>Phù hợp khi bạn có ít thời gian</li><li>Kết quả tóm tắt, dễ hiểu</li></ul>
+      <a class="button" href="#disc-20">Làm bài 20 câu</a>
+    </div></div>
+    <div class="col large-4 ds-ver featured" style="--v:#2f86eb"><div class="col-inner">
+      <span class="badge">Khuyên dùng</span>
+      <img src="../../public/disc-test/disc-icon-v30.svg" alt="">
+      <div class="count">30<small>câu hỏi</small></div>
+      <h3>DISC tiêu chuẩn</h3>
+      <div class="meta"><span>⏱ ~8 phút</span><span>★ Phổ biến</span></div>
+      <ul><li>Biểu đồ tỉ lệ 4 nhóm D, I, S, C</li><li>Cân bằng giữa thời gian và độ chính xác</li><li>Gợi ý cách giao tiếp, làm việc</li></ul>
+      <a class="button" href="#disc-30">Làm bài 30 câu</a>
+    </div></div>
+    <div class="col large-4 ds-ver" style="--v:#7c5cff"><div class="col-inner">
+      <img src="../../public/disc-test/disc-icon-v40.svg" alt="">
+      <div class="count">40<small>câu hỏi</small></div>
+      <h3>DISC chuyên sâu</h3>
+      <div class="meta"><span>⏱ ~12 phút</span><span>◎ Chi tiết</span></div>
+      <ul><li>Phân tích nhóm chính và nhóm phụ</li><li>Điểm mạnh, điểm cần cải thiện</li><li>Gợi ý nghề nghiệp phù hợp</li></ul>
+      <a class="button" href="#disc-40">Làm bài 40 câu</a>
+    </div></div>
+  </div>
+  <div class="row"><div class="col large-12"><div class="col-inner">
+    <div class="mock-quiz"><b>Khu vực bài trắc nghiệm</b> – bạn sẽ gắn bài test 20 / 30 / 40 câu tại đây (anchor <b>#disc-20</b>, <b>#disc-30</b>, <b>#disc-40</b>) hoặc trỏ nút sang trang làm bài riêng.</div>
+  </div></div></div>
+</section>
+
+<!-- 3. DISC LÀ GÌ -->
+<section class="ds-s ds-soft" id="disc-la-gi" style="padding:70px 0">
+  <div class="row align-middle">
+    <div class="col large-6"><div class="col-inner">
+      <span class="ds-eyebrow">Kiến thức nền</span>
+      <h2 class="ds-h2">DISC là gì?</h2>
+      <h3 class="ds-h3">Nguồn gốc của mô hình DISC</h3>
+      <p>DISC dựa trên lý thuyết của nhà tâm lý học William Moulton Marston (1928), mô tả cách con người phản ứng và hành xử trong môi trường xung quanh.</p>
+      <h3 class="ds-h3">DISC đo lường điều gì?</h3>
+      <p>DISC xếp hành vi theo 2 trục: nhịp độ (nhanh – chậm) và định hướng (công việc – con người), tạo thành 4 nhóm D, I, S, C.</p>
+      <h3 class="ds-h3">DISC khác gì với MBTI?</h3>
+      <p>MBTI mô tả cách bạn suy nghĩ và tiếp nhận thông tin, còn DISC tập trung vào hành vi quan sát được khi làm việc và giao tiếp.</p>
+    </div></div>
+    <div class="col large-6 ds-panel"><div class="col-inner"><img src="../../public/disc-test/disc-model.svg" alt="Mô hình DISC theo 2 trục"></div></div>
+  </div>
+</section>
+
+<!-- 4. 4 NHÓM -->
+<section class="ds-s" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="ds-center">
+    <span class="ds-eyebrow">4 nhóm</span>
+    <h2 class="ds-h2">4 nhóm tính cách DISC</h2>
+    <p>Ai cũng có cả 4 yếu tố, nhưng thường có 1–2 nhóm nổi trội quyết định phong cách hành vi.</p>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-3 medium-6 ds-type" style="--t:#ef4b4b"><div class="col-inner">
+      <div class="head"><img src="../../public/disc-test/disc-icon-d.svg" alt=""><div><span class="letter">D · Dominance</span><h3>Thủ lĩnh</h3></div></div>
+      <p>Quyết đoán, thích thử thách và tập trung vào kết quả.</p>
+      <div class="ds-chips"><span>Quyết đoán</span><span>Cạnh tranh</span><span>Thẳng thắn</span></div>
+      <div class="row2"><b>Cần cải thiện:</b> kiên nhẫn, lắng nghe người khác.</div>
+    </div></div>
+    <div class="col large-3 medium-6 ds-type" style="--t:#e09000"><div class="col-inner">
+      <div class="head"><img src="../../public/disc-test/disc-icon-i.svg" alt=""><div><span class="letter">I · Influence</span><h3>Người truyền cảm hứng</h3></div></div>
+      <p>Hoạt ngôn, lạc quan, giỏi thuyết phục và kết nối.</p>
+      <div class="ds-chips"><span>Nhiệt tình</span><span>Lạc quan</span><span>Hoà đồng</span></div>
+      <div class="row2"><b>Cần cải thiện:</b> theo dõi chi tiết, quản lý thời gian.</div>
+    </div></div>
+    <div class="col large-3 medium-6 ds-type" style="--t:#17b47a"><div class="col-inner">
+      <div class="head"><img src="../../public/disc-test/disc-icon-s.svg" alt=""><div><span class="letter">S · Steadiness</span><h3>Người kiên định</h3></div></div>
+      <p>Điềm tĩnh, đáng tin, hỗ trợ và giữ hoà khí tập thể.</p>
+      <div class="ds-chips"><span>Kiên nhẫn</span><span>Trung thành</span><span>Hợp tác</span></div>
+      <div class="row2"><b>Cần cải thiện:</b> thích nghi với thay đổi, nói “không”.</div>
+    </div></div>
+    <div class="col large-3 medium-6 ds-type" style="--t:#2f86eb"><div class="col-inner">
+      <div class="head"><img src="../../public/disc-test/disc-icon-c.svg" alt=""><div><span class="letter">C · Compliance</span><h3>Người cẩn trọng</h3></div></div>
+      <p>Chính xác, logic, coi trọng tiêu chuẩn và chất lượng.</p>
+      <div class="ds-chips"><span>Tỉ mỉ</span><span>Phân tích</span><span>Kỷ luật</span></div>
+      <div class="row2"><b>Cần cải thiện:</b> linh hoạt, bớt cầu toàn.</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 5. SO SÁNH 3 PHIÊN BẢN -->
+<section class="ds-s ds-soft" style="padding:70px 0">
+  <div class="row align-center"><div class="col large-10"><div class="col-inner">
+    <div class="ds-center"><span class="ds-eyebrow">So sánh</span><h2 class="ds-h2">Nên chọn bài test DISC 20, 30 hay 40 câu?</h2></div>
+    <div class="ds-tablewrap"><table class="ds-table">
+      <thead><tr><th></th><th>20 câu</th><th>30 câu</th><th>40 câu</th></tr></thead>
+      <tbody>
+        <tr><th>Thời gian</th><td>~5 phút</td><td class="hl">~8 phút</td><td>~12 phút</td></tr>
+        <tr><th>Kết quả</th><td>Nhóm nổi trội</td><td class="hl">Tỉ lệ 4 nhóm</td><td>Nhóm chính + nhóm phụ</td></tr>
+        <tr><th>Độ chi tiết</th><td>Cơ bản</td><td class="hl">Vừa đủ</td><td>Chuyên sâu</td></tr>
+        <tr><th>Phù hợp</th><td>Tìm hiểu nhanh</td><td class="hl">Đa số người dùng</td><td>Định hướng nghề, tuyển dụng</td></tr>
+      </tbody>
+    </table></div>
+  </div></div></div>
+</section>
+
+<!-- 6. ỨNG DỤNG -->
+<section class="ds-s" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="ds-center">
+    <span class="ds-eyebrow">Ứng dụng</span>
+    <h2 class="ds-h2">Ứng dụng của DISC trong công việc và cuộc sống</h2>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-3 medium-6 ds-card"><div class="col-inner"><img src="../../public/disc-test/disc-icon-recruit.svg" alt=""><h3>Tuyển dụng nhân sự</h3><p>Đánh giá mức phù hợp giữa ứng viên và vị trí, văn hoá đội nhóm.</p></div></div>
+    <div class="col large-3 medium-6 ds-card"><div class="col-inner"><img src="../../public/disc-test/disc-icon-team.svg" alt=""><h3>Xây dựng đội nhóm</h3><p>Phân công đúng người đúng việc, giảm xung đột trong nhóm.</p></div></div>
+    <div class="col large-3 medium-6 ds-card"><div class="col-inner"><img src="../../public/disc-test/disc-icon-lead.svg" alt=""><h3>Phát triển lãnh đạo</h3><p>Điều chỉnh phong cách quản lý theo từng thành viên.</p></div></div>
+    <div class="col large-3 medium-6 ds-card"><div class="col-inner"><img src="../../public/disc-test/disc-icon-talk.svg" alt=""><h3>Giao tiếp và bán hàng</h3><p>Nhận diện nhóm DISC của đối phương để trò chuyện thuyết phục hơn.</p></div></div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="ds-s ds-soft" style="padding:70px 0">
+  <div class="row align-center"><div class="col large-9 ds-faq"><div class="col-inner">
+    <div class="ds-center"><span class="ds-eyebrow">Hỏi đáp</span><h2 class="ds-h2">Câu hỏi thường gặp về test DISC</h2></div>
+    <div class="accordion">
+      <div class="accordion-item open"><a class="accordion-title"><button class="toggle">⌄</button><span>Test DISC có mất phí không?</span></a><div class="accordion-inner"><p>Không. Cả 3 bài test 20, 30 và 40 câu đều miễn phí và có kết quả ngay sau khi nộp bài.</p></div></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Nên làm bài 20, 30 hay 40 câu?</span></a></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Kết quả DISC có thay đổi theo thời gian không?</span></a></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Có nhóm DISC nào tốt hơn nhóm nào không?</span></a></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Doanh nghiệp dùng DISC để làm gì?</span></a></div>
+    </div>
+  </div></div></div>
+</section>
+
+<!-- 8. CTA -->
+<section class="ds-s ds-cta" style="padding:60px 0">
+  <div class="row align-center"><div class="col large-8"><div class="col-inner text-center">
+    <h2 class="ds-h2">Bạn thuộc nhóm D, I, S hay C?</h2>
+    <p>Chọn bài test 20, 30 hoặc 40 câu và khám phá phong cách hành vi của bạn ngay hôm nay.</p>
+    <a class="button ds-btn-white" href="#chon-bai-test">Chọn bài test DISC ↑</a>
+  </div></div></div>
+</section>
+
+</body>
+</html>

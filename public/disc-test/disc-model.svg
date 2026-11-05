@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 400" role="img" aria-label="Mô hình DISC theo 2 trục: nhịp độ và định hướng">
+<g font-family="Arial,sans-serif">
+<rect x="70" y="40" width="160" height="150" rx="20" fill="#ef4b4b" opacity=".14"/><rect x="230" y="40" width="160" height="150" rx="20" fill="#f5a524" opacity=".18"/>
+<rect x="230" y="190" width="160" height="150" rx="20" fill="#17b47a" opacity=".14"/><rect x="70" y="190" width="160" height="150" rx="20" fill="#2f86eb" opacity=".14"/>
+<text x="150" y="120" text-anchor="middle" font-size="54" font-weight="800" fill="#ef4b4b">D</text><text x="150" y="148" text-anchor="middle" font-size="13" fill="#46507a">Thủ lĩnh</text>
+<text x="310" y="120" text-anchor="middle" font-size="54" font-weight="800" fill="#f5a524">I</text><text x="310" y="148" text-anchor="middle" font-size="13" fill="#46507a">Truyền cảm hứng</text>
+<text x="310" y="275" text-anchor="middle" font-size="54" font-weight="800" fill="#17b47a">S</text><text x="310" y="303" text-anchor="middle" font-size="13" fill="#46507a">Kiên định</text>
+<text x="150" y="275" text-anchor="middle" font-size="54" font-weight="800" fill="#2f86eb">C</text><text x="150" y="303" text-anchor="middle" font-size="13" fill="#46507a">Cẩn trọng</text>
+<g stroke="#1d2b53" stroke-width="2.5" fill="#1d2b53"><line x1="230" y1="20" x2="230" y2="360"/><line x1="50" y1="190" x2="410" y2="190"/>
+<path d="M230 12l-6 12h12z"/><path d="M230 368l-6-12h12z"/><path d="M42 190l12-6v12z"/><path d="M418 190l-12-6v12z"/></g>
+<g font-size="12" font-weight="700" fill="#1d2b53"><text x="240" y="16">Nhịp nhanh, chủ động</text><text x="240" y="392">Nhịp chậm, điềm tĩnh</text>
+<text x="10" y="214">Hướng</text><text x="10" y="228">công việc</text><text x="418" y="214" text-anchor="start">Hướng</text><text x="418" y="228">con người</text></g>
+</g></svg>
