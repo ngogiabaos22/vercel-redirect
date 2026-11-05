@@ -33,8 +33,9 @@ pages = {
    "Có nhóm DISC nào tốt hơn nhóm nào không?": "Không. Mỗi nhóm có điểm mạnh riêng. Hiệu quả phụ thuộc vào việc bạn hiểu và vận dụng phong cách của mình phù hợp với từng tình huống.",
    "Doanh nghiệp dùng DISC để làm gì?": f"DISC hỗ trợ tuyển dụng, phân công đội nhóm, đào tạo lãnh đạo và cải thiện giao tiếp nội bộ. Để định hướng nghề nghiệp, bạn có thể kết hợp với {L('test-holland')}test Holland</a> và {L('test-mbti')}test MBTI</a>."}),
 }
-for name, cfg in pages.items():
-    c = build(cfg["src"], cfg["prefix"], cfg["links"], cfg["faq"], cfg.get("extra_css",""), cfg.get("after_faq",""))
-    check(c)
-    open(f"test-{name}.txt", "w").write(c)
-    print(name, len(c), "tnp links:", c.count("#tnp-test="))
+if __name__ == "__main__":
+  for name, cfg in pages.items():
+      c = build(cfg["src"], cfg["prefix"], cfg["links"], cfg["faq"], cfg.get("extra_css",""), cfg.get("after_faq",""))
+      check(c)
+      open(f"test-{name}.txt", "w").write(c)
+      print(name, len(c), "tnp links:", c.count("#tnp-test="))

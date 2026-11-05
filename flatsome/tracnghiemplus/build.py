@@ -11,7 +11,7 @@ def minify_css(css):
     css = re.sub(r'\s*([{};,>])\s*', r'\1', css).replace(';}', '}')
     return css.strip()
 
-def build(src, prefix, links, faq_answers, extra_css="", after_faq=""):
+def build(src, prefix, links, faq_answers, extra_css="", after_faq="", up=UP, anchors_after=None):
     html = open(src, encoding="utf-8").read()
     style = re.search(r'<style>(.*?)</style>', html, re.S).group(1)
     design = style.split('design ----')[1].split('*/', 1)[1]
@@ -105,8 +105,12 @@ def build(src, prefix, links, faq_answers, extra_css="", after_faq=""):
     body = "".join(out)
     body = re.sub(r'\[row\]\n\[col span="12" span__sm="12"\]\n\n\[/col\]\n\n\[/row\]\n', '', body)
     # images -> uploaded PNGs, links -> live quiz hashes
-    body = re.sub(r'\.\./\.\./public/[a-z-]+/([a-z0-9-]+)\.svg', lambda m: UP + m.group(1) + ".png", body)
+    body = re.sub(r'\.\./\.\./public/[a-z-]+/([a-z0-9-]+)\.svg', lambda m: up + m.group(1) + ".png", body)
     body = re.sub(r'class="button( |")', lambda m: 'class="tpx-btn' + m.group(1), body)
+    if anchors_after:
+        for after_label, anchor in anchors_after:
+            i = body.index('[/section]', body.index(after_label)) + len('[/section]')
+            body = body[:i] + f'\n[scroll_to title="{anchor}" link="#{anchor}" bullet="false"]' + body[i:]
     for old, new in links:
         assert old in body, f"link anchor not found: {old}"
         body = body.replace(old, new)
