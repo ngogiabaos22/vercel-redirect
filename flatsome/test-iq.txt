@@ -1,0 +1,526 @@
+[ux_html label="CSS Test IQ"]
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
+.iq-s{--iq-ink:#1d1640;--iq-ink2:#4b4570;--iq-muted:#6b6688;--iq-line:#e7e4f5;--iq-brand:#6d5dfc;--iq-brand2:#b14cf0;--iq-sun:#ffd166;--iq-grad:linear-gradient(135deg,#6d5dfc,#b14cf0);font-family:"Be Vietnam Pro",sans-serif;color:var(--iq-ink)}
+.iq-s h1,.iq-s h2,.iq-s h3,.iq-s p,.iq-s li,.iq-s .button{font-family:"Be Vietnam Pro",sans-serif}
+.iq-s h1,.iq-s h2,.iq-s h3{color:var(--iq-ink);letter-spacing:-.01em}
+.iq-s p{color:var(--iq-ink2);line-height:1.7}
+.iq-s h2.iq-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.25;margin:10px 0 14px}
+.iq-s .iq-center{text-align:center;max-width:680px;margin:0 auto 34px}
+.iq-s .iq-center p{color:var(--iq-muted)}
+.iq-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--iq-brand);background:#ece9ff;padding:5px 14px;border-radius:99px}
+.iq-grad{background:var(--iq-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.iq-soft{background:#f7f6fd!important}
+
+/* nút */
+.iq-s .button.iq-btn{background:var(--iq-grad)!important;color:#fff!important;border:0!important;border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0;box-shadow:0 14px 30px -12px rgba(109,93,252,.8);transition:transform .15s}
+.iq-s .button.iq-btn:hover{transform:translateY(-2px)}
+.iq-s .button.iq-btn-ghost{background:#fff!important;color:var(--iq-ink)!important;border:1.5px solid var(--iq-line)!important;border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0}
+.iq-s .button.iq-btn-white{background:#fff!important;color:var(--iq-brand)!important;border:0!important;border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0}
+
+/* hero */
+.iq-hero{background:linear-gradient(135deg,#f3f0ff 0%,#fdf0ff 100%)!important;overflow:hidden}
+.iq-hero h1{font-size:clamp(32px,4.6vw,54px);font-weight:800;line-height:1.15;margin:16px 0 18px}
+.iq-hero .lead{font-size:18px;color:var(--iq-ink2);max-width:520px}
+.iq-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:26px}
+.iq-stats b{display:block;font-size:28px;font-weight:800;color:var(--iq-ink);line-height:1.2}
+.iq-stats span{font-size:14px;color:var(--iq-muted)}
+.iq-float img{animation:iqFloat 6s ease-in-out infinite}
+@keyframes iqFloat{50%{transform:translateY(-10px)}}
+
+/* thẻ */
+.iq-card>.col-inner{background:#fff;border:1px solid var(--iq-line);border-radius:20px;padding:28px 24px;height:100%;transition:transform .2s,box-shadow .2s}
+.iq-card>.col-inner:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(59,42,158,.35)}
+.iq-card h3{font-size:18px;font-weight:700;margin:4px 0 8px}
+.iq-card p{font-size:15px;color:var(--iq-muted);margin:0}
+.iq-card .icon-box-img{margin-bottom:16px}
+.iq-card .icon-box-text{padding-left:0}
+.iq-num{display:block;font-size:42px;font-weight:800;line-height:1;margin-bottom:14px;background:var(--iq-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.iq-tag{display:inline-block;font-size:12px;font-weight:700;color:var(--iq-brand);background:#ece9ff;border-radius:99px;padding:3px 12px;margin-bottom:12px}
+.iq-panel>.col-inner{background:#fff;border:1px solid var(--iq-line);border-radius:28px;padding:28px;box-shadow:0 18px 40px -18px rgba(59,42,158,.35)}
+
+/* thang điểm */
+.iq-level{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--iq-line);border-left:6px solid var(--c);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.iq-level h3{font-size:16px;font-weight:700;margin:0 0 2px}
+.iq-level p{font-size:14px;margin:0;color:var(--iq-muted)}
+
+/* danh sách lợi ích / mẹo */
+.iq-check{position:relative;padding-left:40px;margin-bottom:18px}
+.iq-check:before{content:"";position:absolute;left:0;top:2px;width:26px;height:26px;border-radius:50%;background:#e3faf1 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='%2317b47a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.iq-check h3{font-size:17px;font-weight:700;margin:0 0 4px}
+.iq-check p{font-size:15px;margin:0;color:var(--iq-muted)}
+
+/* FAQ */
+.iq-faq .accordion-item{background:#fff;border:1px solid var(--iq-line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.iq-faq .accordion-title{border:0!important;font-weight:700;font-size:16px;padding:16px 20px 16px 48px;color:var(--iq-ink)}
+.iq-faq .accordion-title.active{color:var(--iq-brand);background:#f7f6fd}
+.iq-faq .accordion-inner{padding:4px 20px 18px 48px}
+.iq-faq .accordion-inner p{color:var(--iq-muted);margin:0}
+
+/* CTA */
+.iq-cta{background:linear-gradient(135deg,#6d5dfc,#b14cf0)!important}
+.iq-cta h2,.iq-cta p{color:#fff!important}
+.iq-cta p{opacity:.9}
+
+@media (max-width:849px){
+  .iq-s .iq-center{margin-bottom:22px}
+  .iq-hero .col{text-align:left}
+  .iq-stats{gap:22px}
+}
+@media (prefers-reduced-motion:reduce){.iq-float img{animation:none}}
+</style>
+[/ux_html]
+[section label="Hero - Test IQ" class="iq-s iq-hero" padding="70px" padding__sm="40px"]
+
+[row v_align="middle"]
+
+[col span="6" span__sm="12"]
+
+<span class="iq-eyebrow">✦ Miễn phí · Không cần đăng ký</span>
+<h1>Test IQ Online Miễn Phí – Kiểm Tra Chỉ Số IQ <span class="iq-grad">Chính Xác Nhất 2026</span></h1>
+<p class="lead">Bài trắc nghiệm IQ chuẩn quốc tế gồm các dạng logic, dãy số, không gian và trí nhớ. Hoàn thành là có ngay điểm IQ và phân tích chi tiết.</p>
+
+[button text="Bắt Đầu Test IQ Ngay →" color="primary" size="large" radius="99" class="iq-btn" link="/bai-thi/test-iq"]
+
+[button text="Xem thang điểm IQ" style="outline" size="large" radius="99" class="iq-btn-ghost" link="#thang-diem-iq"]
+
+<div class="iq-stats">
+<div><b>30</b><span>câu hỏi</span></div>
+<div><b>15'</b><span>thời gian làm</span></div>
+<div><b>6</b><span>dạng tư duy</span></div>
+</div>
+
+[/col]
+[col span="6" span__sm="12" class="iq-float"]
+
+[ux_image id="IMG_HERO" image_size="original"]
+
+
+[/col]
+
+[/row]
+
+[/section]
+[scroll_to title="Bắt đầu test IQ" link="#bat-dau-test" bullet="false"]
+
+[section label="Test IQ là gì" class="iq-s" padding="70px" padding__sm="40px"]
+
+[row v_align="middle"]
+
+[col span="6" span__sm="12" class="iq-panel"]
+
+[ux_image id="IMG_RADAR" image_size="original"]
+
+
+[/col]
+[col span="6" span__sm="12"]
+
+<span class="iq-eyebrow">Kiến thức nền</span>
+<h2 class="iq-h2">Test IQ Là Gì?</h2>
+<h3>Chỉ số IQ (Intelligence Quotient) là gì?</h3>
+<p>IQ là chỉ số thông minh, ước lượng khả năng suy luận, giải quyết vấn đề và học hỏi của một người so với những người cùng độ tuổi. Điểm IQ được chuẩn hoá với trung bình 100, độ lệch chuẩn 15.</p>
+<h3>Bài test IQ đo lường những khả năng nào?</h3>
+<p>Bài test đánh giá tư duy logic, khả năng tính toán, hình dung không gian, vốn từ và trí nhớ ngắn hạn – những năng lực nền tảng của trí thông minh lý trí.</p>
+<h3>Bài test IQ online có chính xác không?</h3>
+<p>Test IQ online cho kết quả tham khảo khá sát nếu bạn làm nghiêm túc. Để có đánh giá chính thức, bạn cần làm bài chuẩn hoá dưới sự hướng dẫn của chuyên gia tâm lý.</p>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Dạng câu hỏi" class="iq-s iq-soft" padding="70px" padding__sm="40px"]
+
+[row]
+
+[col span__sm="12"]
+
+<div class="iq-center">
+<span class="iq-eyebrow">Nội dung bài test</span>
+<h2 class="iq-h2">Các Dạng Câu Hỏi Trong Bài Test IQ</h2>
+<p>Câu hỏi được sắp xếp từ dễ đến khó, cân bằng giữa các nhóm để kết quả phản ánh đầy đủ cách bạn suy luận.</p>
+</div>
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+
+[col span="4" span__sm="12" span__md="6" class="iq-card"]
+
+[featured_box img="IMG_ICON_LOGIC" img_width="56" pos="top"]
+
+<h3>Tư duy logic</h3>
+<p>Tìm quy luật, suy luận đúng sai từ các mệnh đề cho trước.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6" class="iq-card"]
+
+[featured_box img="IMG_ICON_NUMBER" img_width="56" pos="top"]
+
+<h3>Toán học và dãy số</h3>
+<p>Nhận ra quy luật của dãy số, tỉ lệ và phép biến đổi.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6" class="iq-card"]
+
+[featured_box img="IMG_ICON_SPATIAL" img_width="56" pos="top"]
+
+<h3>Tư duy hình học – không gian</h3>
+<p>Xoay, gấp và ghép các hình khối trong trí tưởng tượng.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6" class="iq-card"]
+
+[featured_box img="IMG_ICON_LANGUAGE" img_width="56" pos="top"]
+
+<h3>Ngôn ngữ và từ vựng</h3>
+<p>Tìm từ đồng nghĩa, trái nghĩa và mối liên hệ giữa các khái niệm.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6" class="iq-card"]
+
+[featured_box img="IMG_ICON_MEMORY" img_width="56" pos="top"]
+
+<h3>Trí nhớ ngắn hạn</h3>
+<p>Ghi nhớ và xử lý thông tin trong thời gian giới hạn.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6" class="iq-card"]
+
+[featured_box img="IMG_ICON_MATRIX" img_width="56" pos="top"]
+
+<h3>Ma trận hình ảnh (Raven)</h3>
+<p>Chọn hình còn thiếu để hoàn thành quy luật của ma trận 3×3.</p>
+
+[/featured_box]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Cách làm bài" class="iq-s" padding="70px" padding__sm="40px"]
+
+[row]
+
+[col span__sm="12"]
+
+<div class="iq-center">
+<span class="iq-eyebrow">Cách hoạt động</span>
+<h2 class="iq-h2">Hướng Dẫn Làm Bài Test IQ Online</h2>
+</div>
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+
+[col span="3" span__sm="12" span__md="6" class="iq-card"]
+
+<span class="iq-num">01</span>
+<h3>Bước 1: Nhấn “Bắt đầu test”</h3>
+<p>Không cần tạo tài khoản, bài thi mở ngay trên điện thoại hoặc máy tính.</p>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="iq-card"]
+
+<span class="iq-num">02</span>
+<h3>Bước 2: Trả lời lần lượt các câu hỏi</h3>
+<p>Chọn một đáp án cho mỗi câu. Câu khó có thể bỏ qua và quay lại sau.</p>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="iq-card"]
+
+<span class="iq-num">03</span>
+<h3>Bước 3: Hoàn thành trong thời gian quy định</h3>
+<p>Đồng hồ đếm ngược giúp bạn phân bổ thời gian hợp lý cho cả bài.</p>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="iq-card"]
+
+<span class="iq-num">04</span>
+<h3>Bước 4: Nhận kết quả và phân tích chỉ số IQ</h3>
+<p>Xem điểm IQ, vị trí trên thang phân bố và điểm mạnh theo từng nhóm.</p>
+
+[/col]
+
+[/row]
+[row h_align="center"]
+
+[col span__sm="12" align="center"]
+
+[button text="Bắt Đầu Làm Bài →" color="primary" size="large" radius="99" class="iq-btn" link="/bai-thi/test-iq"]
+
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Thang điểm IQ" class="iq-s iq-soft" padding="70px" padding__sm="40px"]
+
+[ux_html]<span id="thang-diem-iq"></span>[/ux_html]
+[row v_align="middle"]
+
+[col span="6" span__sm="12"]
+
+<span class="iq-eyebrow">Thang điểm</span>
+<h2 class="iq-h2">Thang Điểm IQ Và Ý Nghĩa Từng Mức Điểm</h2>
+<div class="iq-level" style="--c:#6d5dfc">
+<div><h3>IQ trên 140 – Thiên tài</h3><p>Rất hiếm gặp, tư duy trừu tượng và sáng tạo vượt trội.</p></div>
+</div>
+<div class="iq-level" style="--c:#2f86eb">
+<div><h3>IQ từ 120 – 139 – Rất thông minh</h3><p>Nắm bắt nhanh vấn đề phức tạp, học tốt các lĩnh vực chuyên sâu.</p></div>
+</div>
+<div class="iq-level" style="--c:#3ddc97">
+<div><h3>IQ từ 110 – 119 – Thông minh trên trung bình</h3><p>Suy luận tốt, thích nghi nhanh với kiến thức và môi trường mới.</p></div>
+</div>
+<div class="iq-level" style="--c:#ffd166">
+<div><h3>IQ từ 90 – 109 – Trung bình</h3><p>Mức phổ biến nhất, đáp ứng tốt học tập và hầu hết công việc.</p></div>
+</div>
+<div class="iq-level" style="--c:#ff8a3d">
+<div><h3>IQ từ 80 – 89 – Dưới trung bình</h3><p>Học hiệu quả hơn với hướng dẫn cụ thể, trực quan, từng bước.</p></div>
+</div>
+<div class="iq-level" style="--c:#e5484d">
+<div><h3>IQ dưới 80 – Thấp</h3><p>Có thể cần thêm hỗ trợ trong học tập và các tình huống phức tạp.</p></div>
+</div>
+
+[/col]
+[col span="6" span__sm="12" class="iq-panel"]
+
+[ux_image id="IMG_GAUGE" image_size="original"]
+
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="IQ trung bình" class="iq-s" padding="70px" padding__sm="40px"]
+
+[row v_align="middle"]
+
+[col span="6" span__sm="12" class="iq-panel"]
+
+[ux_image id="IMG_BELL" image_size="original"]
+
+
+[/col]
+[col span="6" span__sm="12"]
+
+<span class="iq-eyebrow">Mức trung bình</span>
+<h2 class="iq-h2">Chỉ Số IQ Trung Bình Là Bao Nhiêu?</h2>
+<h3>Chỉ số IQ trung bình của thế giới</h3>
+<p>Theo cách chuẩn hoá của các bài test hiện đại, IQ trung bình là 100. Khoảng 68% dân số có IQ từ 85 đến 115 và khoảng 95% nằm trong khoảng 70 – 130.</p>
+<h3>Chỉ số IQ trung bình của người Việt Nam</h3>
+<p>Các khảo sát quốc tế xếp Việt Nam quanh mức trung bình thế giới. Số liệu khác nhau tuỳ nghiên cứu, mẫu khảo sát và bài test được dùng.</p>
+<h3>Chỉ số IQ trung bình theo độ tuổi</h3>
+<p>Điểm IQ luôn được so với người cùng độ tuổi, nên mức trung bình ở mọi lứa tuổi đều là 100. Trẻ em và người lớn làm các phiên bản bài test khác nhau.</p>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Các bài test phổ biến" class="iq-s iq-soft" padding="70px" padding__sm="40px"]
+
+[row]
+
+[col span__sm="12"]
+
+<div class="iq-center">
+<span class="iq-eyebrow">Tham khảo</span>
+<h2 class="iq-h2">Các Bài Test IQ Phổ Biến Hiện Nay</h2>
+</div>
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+
+[col span="3" span__sm="12" span__md="6" class="iq-card"]
+
+<span class="iq-tag">Hội IQ cao</span>
+<h3>Test IQ Mensa</h3>
+<p>Bài kiểm tra đầu vào của hội Mensa, dành cho người có IQ thuộc nhóm 2% cao nhất.</p>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="iq-card"]
+
+<span class="iq-tag">Phi ngôn ngữ</span>
+<h3>Test IQ Raven</h3>
+<p>Dùng ma trận hình ảnh, ít phụ thuộc ngôn ngữ và văn hoá người làm bài.</p>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="iq-card"]
+
+<span class="iq-tag">Lâm sàng</span>
+<h3>Thang đo Wechsler (WAIS, WISC)</h3>
+<p>Bộ test chuyên sâu cho người lớn (WAIS) và trẻ em (WISC), do chuyên gia thực hiện.</p>
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="iq-card"]
+
+<span class="iq-tag">Lâu đời</span>
+<h3>Thang đo Stanford-Binet</h3>
+<p>Một trong những thang đo IQ đầu tiên, vẫn được dùng để đánh giá trẻ em và người lớn.</p>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Lợi ích & mẹo" class="iq-s" padding="70px" padding__sm="40px"]
+
+[row v_align="equal"]
+
+[col span="6" span__sm="12" class="iq-card"]
+
+<h2 class="iq-h2">Vì Sao Nên Test IQ?</h2>
+<div class="iq-check"><h3>Hiểu rõ điểm mạnh, điểm yếu trong tư duy</h3><p>Biết mình giỏi logic, số học hay không gian để phát huy đúng chỗ.</p></div>
+<div class="iq-check"><h3>Định hướng học tập và nghề nghiệp phù hợp</h3><p>Chọn phương pháp học, ngành nghề hợp với kiểu tư duy của bạn.</p></div>
+<div class="iq-check"><h3>Rèn luyện khả năng tư duy mỗi ngày</h3><p>Giải các dạng câu hỏi IQ là cách luyện não thú vị và hiệu quả.</p></div>
+
+[/col]
+[col span="6" span__sm="12" class="iq-card"]
+
+<h2 class="iq-h2">Mẹo Đạt Điểm Cao Khi Làm Bài Test IQ</h2>
+<div class="iq-check"><h3>Chuẩn bị tinh thần thoải mái, tập trung</h3><p>Chọn nơi yên tĩnh, tắt thông báo và làm bài khi tỉnh táo.</p></div>
+<div class="iq-check"><h3>Phân bổ thời gian hợp lý cho từng câu</h3><p>Đừng sa đà một câu khó, bỏ qua trước và quay lại sau.</p></div>
+<div class="iq-check"><h3>Luyện tập thường xuyên với các dạng câu hỏi</h3><p>Làm quen ma trận, dãy số, xoay hình giúp bạn phản xạ nhanh hơn.</p></div>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="IQ và EQ" class="iq-s iq-soft" padding="70px" padding__sm="40px"]
+
+[row]
+
+[col span__sm="12"]
+
+<div class="iq-center">
+<span class="iq-eyebrow">So sánh</span>
+<h2 class="iq-h2">Phân Biệt Chỉ Số IQ, EQ Và CQ</h2>
+<p>Ba chỉ số bổ sung cho nhau: thông minh lý trí, thông minh cảm xúc và thông minh sáng tạo.</p>
+</div>
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+
+[col span="4" span__sm="12" class="iq-card"]
+
+[featured_box img="IMG_ICON_IQ" img_width="56" pos="top"]
+
+<p><span class="iq-tag">IQ · Trí tuệ</span></p>
+<p><strong>Thông minh lý trí:</strong> khả năng suy luận, tính toán, giải quyết vấn đề logic.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" class="iq-card"]
+
+[featured_box img="IMG_ICON_EQ" img_width="56" pos="top"]
+
+<p><span class="iq-tag">EQ · Cảm xúc</span></p>
+<p><strong>Thông minh cảm xúc:</strong> hiểu và điều tiết cảm xúc của mình, thấu cảm với người khác.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" class="iq-card"]
+
+[featured_box img="IMG_ICON_CQ" img_width="56" pos="top"]
+
+<p><span class="iq-tag">CQ · Sáng tạo</span></p>
+<p><strong>Thông minh sáng tạo:</strong> nghĩ ra ý tưởng mới và cách làm khác biệt.</p>
+
+[/featured_box]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="FAQ" class="iq-s" padding="70px" padding__sm="40px"]
+
+[row h_align="center"]
+
+[col span="9" span__sm="12" class="iq-faq"]
+
+<div class="iq-center">
+<span class="iq-eyebrow">Hỏi đáp</span>
+<h2 class="iq-h2">Câu Hỏi Thường Gặp Về Test IQ</h2>
+</div>
+
+[accordion]
+
+[accordion-item title="Test IQ online có miễn phí không?"]
+
+<p>Có. Bạn làm bài và xem điểm IQ hoàn toàn miễn phí, không cần đăng ký tài khoản.</p>
+
+[/accordion-item]
+[accordion-item title="Làm bài test IQ mất bao lâu?"]
+
+<p>Khoảng 15 phút cho 30 câu hỏi. Bạn nên dành trọn thời gian này để tập trung làm bài.</p>
+
+[/accordion-item]
+[accordion-item title="Trẻ em bao nhiêu tuổi có thể test IQ?"]
+
+<p>Bài test online phù hợp từ khoảng 12 tuổi trở lên. Với trẻ nhỏ hơn, nên dùng các bài đánh giá chuyên biệt như WISC do chuyên gia thực hiện.</p>
+
+[/accordion-item]
+[accordion-item title="Chỉ số IQ có thay đổi theo thời gian không?"]
+
+<p>IQ khá ổn định ở tuổi trưởng thành nhưng vẫn có thể thay đổi nhẹ nhờ học tập, rèn luyện, sức khoẻ và môi trường sống.</p>
+
+[/accordion-item]
+[accordion-item title="Có thể làm lại bài test IQ nhiều lần không?"]
+
+<p>Được. Tuy nhiên làm lại cùng một bộ câu hỏi sẽ khiến điểm cao hơn thực tế do bạn đã quen đề.</p>
+
+[/accordion-item]
+[accordion-item title="IQ bao nhiêu là thông minh?"]
+
+<p>IQ từ 110 trở lên được xem là trên trung bình, từ 120 là rất thông minh và trên 140 thuộc nhóm thiên tài.</p>
+
+[/accordion-item]
+
+[/accordion]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="CTA cuối trang" class="iq-s iq-cta" dark="true" padding="60px" padding__sm="40px"]
+
+[row h_align="center"]
+
+[col span="8" span__sm="12" align="center"]
+
+<h2 class="iq-h2">Sẵn Sàng Kiểm Tra Chỉ Số IQ Của Bạn?</h2>
+<p>Dành 15 phút tập trung, tìm một chỗ yên tĩnh và bắt đầu. Kết quả có ngay khi bạn nộp bài.</p>
+
+[button text="Làm Bài Test IQ Miễn Phí →" size="large" radius="99" class="iq-btn-white" link="/bai-thi/test-iq"]
+
+
+[/col]
+
+[/row]
+
+[/section]
