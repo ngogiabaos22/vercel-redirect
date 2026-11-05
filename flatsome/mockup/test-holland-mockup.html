@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup Test Holland</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ---- Flatsome grid shim (mockup only) ---- */
+body{margin:0;background:#fff;color:#777}*{box-sizing:border-box}img{max-width:100%;height:auto;display:block}
+.row{display:flex;flex-wrap:wrap;max-width:1110px;margin:0 auto;width:100%}.align-middle{align-items:center}.align-center{justify-content:center}.align-equal>.col{display:flex}.align-equal>.col>.col-inner{width:100%}
+.col{padding:0 15px 30px;width:100%}.text-center{text-align:center}
+@media(min-width:850px){.large-4{flex-basis:33.33%;max-width:33.33%}.large-6{flex-basis:50%;max-width:50%}.large-8{flex-basis:66.66%;max-width:66.66%}.large-9{flex-basis:75%;max-width:75%}.large-10{flex-basis:83.33%;max-width:83.33%}.large-12{flex-basis:100%;max-width:100%}}
+@media(min-width:550px) and (max-width:849px){.medium-6{flex-basis:50%;max-width:50%}}
+h1,h2,h3{margin:0 0 .5em}p{margin:0 0 1.2em}
+.button{display:inline-block;margin:0 1em 1em 0;text-decoration:none}
+.accordion-title{display:block;position:relative;text-decoration:none}.accordion-title .toggle{position:absolute;left:12px;top:.9em;border:0;background:none;color:inherit}.accordion-inner{display:none}.accordion-item.open .accordion-inner{display:block}
+
+/* ---- Holland design ---- */
+.ho-s{--ink:#0b2a3a;--ink2:#3d5566;--muted:#64788a;--line:#dfece8;--grad:linear-gradient(135deg,#10b981,#0ea5e9);font-family:"Be Vietnam Pro",sans-serif;color:var(--ink)}
+.ho-s h1,.ho-s h2,.ho-s h3{color:var(--ink);letter-spacing:-.01em;font-family:inherit}
+.ho-s p{color:var(--ink2);line-height:1.7}
+.ho-s h2.ho-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.25;margin:10px 0 14px}
+.ho-center{text-align:center;max-width:720px;margin:0 auto 34px}.ho-center p{color:var(--muted)}
+.ho-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0b8f66;background:#e3f8ef;padding:5px 14px;border-radius:99px}
+.ho-grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ho-soft{background:#f5faf8}
+.ho-s .button.ho-btn,.ho-s .button.ho-btn-ghost,.ho-s .button.ho-btn-white{border-radius:99px;font-weight:700;padding:0 30px;line-height:52px;min-height:52px}
+.ho-s .button.ho-btn{background:var(--grad);color:#fff;box-shadow:0 14px 30px -12px rgba(16,185,129,.75)}
+.ho-s .button.ho-btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);line-height:49px}
+.ho-s .button.ho-btn-white{background:#fff;color:#0b8f66}
+.ho-hero{background:linear-gradient(135deg,#ecfbf4 0%,#eaf6ff 100%)}
+.ho-hero h1{font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.18;margin:16px 0 18px}
+.ho-hero .lead{font-size:17px;max-width:540px}
+.ho-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--muted)}
+.ho-stats b{display:block;font-size:26px;font-weight:800;color:var(--ink);line-height:1.2}
+.ho-float img{animation:hoFloat 6s ease-in-out infinite}@keyframes hoFloat{50%{transform:translateY(-10px)}}
+.mock-quiz{border:2px dashed #b8dccf;border-radius:22px;padding:34px 24px;text-align:center;background:repeating-linear-gradient(135deg,#fff,#fff 12px,#f5faf8 12px,#f5faf8 24px)}
+.mock-quiz h2{font-size:22px!important;margin:0 0 6px!important}.mock-quiz p{margin:0;color:var(--muted);font-size:14px}
+.ho-panel>.col-inner{background:#fff;border:1px solid var(--line);border-radius:28px;padding:20px;box-shadow:0 18px 40px -18px rgba(11,59,74,.3)}
+.ho-s h3.ho-h3{font-size:19px;font-weight:700;margin:18px 0 6px}
+/* type cards */
+.ho-type>.col-inner{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 22px;height:100%;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.ho-type>.col-inner:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(11,59,74,.35)}
+.ho-type .big{position:absolute;right:14px;top:-6px;font-size:96px;font-weight:800;line-height:1;color:var(--t);opacity:.09}
+.ho-type .head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.ho-type .head img{width:52px}
+.ho-type .letter{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--t)}
+.ho-type h3{font-size:19px;font-weight:800;margin:2px 0 0}
+.ho-type p{font-size:15px;color:var(--muted);margin:0 0 14px}
+.ho-type .jobs-label{font-size:12px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.ho-chips{display:flex;flex-wrap:wrap;gap:6px}
+.ho-chips span{font-size:13px;font-weight:600;color:var(--ink2);background:#f5faf8;border:1px solid var(--line);border-radius:99px;padding:4px 11px}
+/* code explainer */
+.ho-code{display:flex;justify-content:center;gap:14px;margin:4px 0 30px;flex-wrap:wrap}
+.ho-code .l{width:110px;border-radius:22px;padding:18px 10px;text-align:center;color:#fff;box-shadow:0 18px 40px -18px rgba(11,59,74,.45)}
+.ho-code .l b{display:block;font-size:46px;line-height:1;font-weight:800}
+.ho-code .l span{display:block;font-size:12px;font-weight:700;margin-top:8px;opacity:.95}
+.ho-step>.col-inner{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 22px;height:100%}
+.ho-num{display:block;font-size:40px;font-weight:800;line-height:1;margin-bottom:12px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ho-step h3{font-size:18px;font-weight:700;margin:0 0 6px}.ho-step p{font-size:15px;color:var(--muted);margin:0}
+/* audience */
+.ho-card>.col-inner{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px;height:100%}
+.ho-card img{width:56px;margin-bottom:16px}.ho-card h3{font-size:18px;font-weight:700;margin:0 0 8px}.ho-card p{font-size:15px;color:var(--muted);margin:0}
+/* faq */
+.ho-faq .accordion-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.ho-faq .accordion-title{font-weight:700;font-size:16px;padding:16px 20px 16px 48px;color:var(--ink)}
+.ho-faq .accordion-item.open .accordion-title{color:#0b8f66;background:#f5faf8}
+.ho-faq .accordion-inner{padding:4px 20px 18px 48px}.ho-faq .accordion-inner p{color:var(--muted);margin:0}
+.ho-cta{background:linear-gradient(135deg,#10b981,#0ea5e9)}
+.ho-cta h2,.ho-cta p{color:#fff!important}.ho-cta p{opacity:.92}
+@media(max-width:849px){.ho-stats{gap:22px}.ho-center{margin-bottom:22px}.ho-code .l{width:92px}}
+</style>
+</head>
+<body>
+
+<!-- 1. HERO -->
+<section class="ho-s ho-hero" style="padding:70px 0">
+  <div class="row align-middle">
+    <div class="col large-6"><div class="col-inner">
+      <span class="ho-eyebrow">✦ Định hướng nghề nghiệp · Miễn phí</span>
+      <h1>Test Holland – Trắc nghiệm <span class="ho-grad">định hướng nghề nghiệp</span> phù hợp</h1>
+      <p class="lead">Tìm ra mã Holland 3 chữ cái của bạn trong 6 nhóm sở thích nghề nghiệp R-I-A-S-E-C, từ đó chọn ngành học và công việc hợp với bản thân.</p>
+      <a class="button ho-btn" href="#bat-dau-test">Làm test Holland ngay ↓</a>
+      <a class="button ho-btn-ghost" href="#">Xem 6 nhóm nghề</a>
+      <div class="ho-stats"><div><b>6</b>nhóm sở thích</div><div><b>3</b>chữ cái mã Holland</div><div><b>0đ</b>miễn phí</div></div>
+    </div></div>
+    <div class="col large-6 ho-float"><div class="col-inner"><img src="../../public/holland-test/holland-hero.svg" alt="Minh hoạ mô hình Holland RIASEC"></div></div>
+  </div>
+</section>
+
+<!-- 2. QUIZ PLACEHOLDER -->
+<section class="ho-s" id="bat-dau-test" style="padding:50px 0 20px">
+  <div class="row align-center"><div class="col large-10"><div class="col-inner">
+    <div class="mock-quiz"><h2>Bắt đầu trắc nghiệm Holland</h2><p>Khu vực bài trắc nghiệm – bạn sẽ gắn bài test vào đây sau (anchor <b>#bat-dau-test</b>).</p></div>
+  </div></div></div>
+</section>
+
+<!-- 3. HOLLAND LÀ GÌ -->
+<section class="ho-s" style="padding:50px 0 70px">
+  <div class="row align-middle">
+    <div class="col large-6 ho-panel"><div class="col-inner"><img src="../../public/holland-test/holland-model.svg" alt="Mô hình lục giác Holland RIASEC"></div></div>
+    <div class="col large-6"><div class="col-inner">
+      <span class="ho-eyebrow">Kiến thức nền</span>
+      <h2 class="ho-h2">Trắc nghiệm Holland là gì?</h2>
+      <h3 class="ho-h3">Nguồn gốc lý thuyết Holland</h3>
+      <p>Lý thuyết do nhà tâm lý học John L. Holland phát triển, cho rằng con người làm việc hiệu quả và hài lòng nhất khi môi trường nghề nghiệp phù hợp với tính cách.</p>
+      <h3 class="ho-h3">Mô hình lục giác RIASEC</h3>
+      <p>6 nhóm sở thích được xếp trên một hình lục giác. Hai nhóm càng gần nhau thì càng tương đồng, hai nhóm đối diện thì khác biệt nhiều nhất.</p>
+      <h3 class="ho-h3">Mã Holland là gì?</h3>
+      <p>Kết quả là 3 chữ cái của 3 nhóm nổi trội nhất, ví dụ SAE hay RIC, dùng để tra cứu các ngành nghề phù hợp.</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- 4. 6 NHÓM -->
+<section class="ho-s ho-soft" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="ho-center">
+    <span class="ho-eyebrow">6 nhóm RIASEC</span>
+    <h2 class="ho-h2">6 nhóm sở thích nghề nghiệp Holland</h2>
+    <p>Mỗi người là sự kết hợp của nhiều nhóm, nhưng thường có 2–3 nhóm nổi trội quyết định lựa chọn nghề nghiệp.</p>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-4 medium-6 ho-type" style="--t:#ef6c3a"><div class="col-inner"><span class="big">R</span>
+      <div class="head"><img src="../../public/holland-test/holland-icon-r.svg" alt=""><div><span class="letter">R · Realistic</span><h3>Nhóm Kỹ thuật</h3></div></div>
+      <p>Thích làm việc với máy móc, công cụ, vận động tay chân và kết quả hữu hình.</p>
+      <div class="jobs-label">Nghề phù hợp</div><div class="ho-chips"><span>Kỹ sư cơ khí</span><span>Kỹ thuật viên</span><span>Kiến trúc sư</span><span>Nông nghiệp</span></div>
+    </div></div>
+    <div class="col large-4 medium-6 ho-type" style="--t:#2f86eb"><div class="col-inner"><span class="big">I</span>
+      <div class="head"><img src="../../public/holland-test/holland-icon-i.svg" alt=""><div><span class="letter">I · Investigative</span><h3>Nhóm Nghiên cứu</h3></div></div>
+      <p>Tò mò, thích quan sát, phân tích và giải quyết vấn đề bằng tư duy logic.</p>
+      <div class="jobs-label">Nghề phù hợp</div><div class="ho-chips"><span>Nhà khoa học</span><span>Bác sĩ</span><span>Lập trình viên</span><span>Dược sĩ</span></div>
+    </div></div>
+    <div class="col large-4 medium-6 ho-type" style="--t:#b14cf0"><div class="col-inner"><span class="big">A</span>
+      <div class="head"><img src="../../public/holland-test/holland-icon-a.svg" alt=""><div><span class="letter">A · Artistic</span><h3>Nhóm Nghệ thuật</h3></div></div>
+      <p>Giàu trí tưởng tượng, thích tự do sáng tạo và thể hiện bản thân.</p>
+      <div class="jobs-label">Nghề phù hợp</div><div class="ho-chips"><span>Nhà thiết kế</span><span>Nhà văn</span><span>Nhạc sĩ</span><span>Đạo diễn</span></div>
+    </div></div>
+    <div class="col large-4 medium-6 ho-type" style="--t:#17b47a"><div class="col-inner"><span class="big">S</span>
+      <div class="head"><img src="../../public/holland-test/holland-icon-s.svg" alt=""><div><span class="letter">S · Social</span><h3>Nhóm Xã hội</h3></div></div>
+      <p>Thân thiện, thích giúp đỡ, giảng dạy và chăm sóc người khác.</p>
+      <div class="jobs-label">Nghề phù hợp</div><div class="ho-chips"><span>Giáo viên</span><span>Điều dưỡng</span><span>Tư vấn tâm lý</span><span>Công tác xã hội</span></div>
+    </div></div>
+    <div class="col large-4 medium-6 ho-type" style="--t:#e09000"><div class="col-inner"><span class="big">E</span>
+      <div class="head"><img src="../../public/holland-test/holland-icon-e.svg" alt=""><div><span class="letter">E · Enterprising</span><h3>Nhóm Quản lý</h3></div></div>
+      <p>Năng động, tự tin, thích thuyết phục, lãnh đạo và kinh doanh.</p>
+      <div class="jobs-label">Nghề phù hợp</div><div class="ho-chips"><span>Doanh nhân</span><span>Quản lý</span><span>Marketing</span><span>Luật sư</span></div>
+    </div></div>
+    <div class="col large-4 medium-6 ho-type" style="--t:#0fa5a0"><div class="col-inner"><span class="big">C</span>
+      <div class="head"><img src="../../public/holland-test/holland-icon-c.svg" alt=""><div><span class="letter">C · Conventional</span><h3>Nhóm Nghiệp vụ</h3></div></div>
+      <p>Cẩn thận, ngăn nắp, thích công việc có quy trình và làm với số liệu.</p>
+      <div class="jobs-label">Nghề phù hợp</div><div class="ho-chips"><span>Kế toán</span><span>Kiểm toán</span><span>Thư ký</span><span>Ngân hàng</span></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- 5. ĐỌC KẾT QUẢ -->
+<section class="ho-s" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="ho-center">
+    <span class="ho-eyebrow">Kết quả</span>
+    <h2 class="ho-h2">Cách đọc kết quả mã Holland</h2>
+    <p>Ví dụ bạn nhận được mã <b>SAE</b>:</p>
+  </div>
+  <div class="ho-code">
+    <div class="l" style="background:#17b47a"><b>S</b><span>Nổi trội nhất</span></div>
+    <div class="l" style="background:#b14cf0"><b>A</b><span>Thứ hai</span></div>
+    <div class="l" style="background:#f5a524"><b>E</b><span>Thứ ba</span></div>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-4 ho-step"><div class="col-inner"><span class="ho-num">01</span><h3>Chữ cái đầu tiên</h3><p>Nhóm sở thích mạnh nhất, định hướng chính cho lựa chọn nghề nghiệp của bạn.</p></div></div>
+    <div class="col large-4 ho-step"><div class="col-inner"><span class="ho-num">02</span><h3>Hai chữ cái tiếp theo</h3><p>Bổ sung sắc thái, giúp thu hẹp ngành nghề cụ thể hơn trong nhóm chính.</p></div></div>
+    <div class="col large-4 ho-step"><div class="col-inner"><span class="ho-num">03</span><h3>Tra cứu ngành nghề</h3><p>Ngành nào trùng càng nhiều chữ cái trong mã của bạn thì càng phù hợp.</p></div></div>
+  </div>
+</section>
+
+<!-- 6. AI NÊN LÀM -->
+<section class="ho-s ho-soft" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="ho-center">
+    <span class="ho-eyebrow">Đối tượng</span>
+    <h2 class="ho-h2">Ai nên làm trắc nghiệm Holland?</h2>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-4 ho-card"><div class="col-inner"><img src="../../public/holland-test/holland-icon-student.svg" alt=""><h3>Học sinh THPT</h3><p>Chọn khối thi, ngành học đại học phù hợp với sở thích và năng lực.</p></div></div>
+    <div class="col large-4 ho-card"><div class="col-inner"><img src="../../public/holland-test/holland-icon-college.svg" alt=""><h3>Sinh viên</h3><p>Định hướng chuyên ngành, chọn nơi thực tập và công việc đầu tiên.</p></div></div>
+    <div class="col large-4 ho-card"><div class="col-inner"><img src="../../public/holland-test/holland-icon-switch.svg" alt=""><h3>Người muốn chuyển nghề</h3><p>Hiểu lý do chưa hài lòng với công việc hiện tại và tìm hướng đi mới.</p></div></div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="ho-s" style="padding:70px 0">
+  <div class="row align-center"><div class="col large-9 ho-faq"><div class="col-inner">
+    <div class="ho-center"><span class="ho-eyebrow">Hỏi đáp</span><h2 class="ho-h2">Câu hỏi thường gặp về test Holland</h2></div>
+    <div class="accordion">
+      <div class="accordion-item open"><a class="accordion-title"><button class="toggle">⌄</button><span>Test Holland có mất phí không?</span></a><div class="accordion-inner"><p>Không. Bạn làm bài và nhận mã Holland cùng gợi ý ngành nghề hoàn toàn miễn phí.</p></div></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Mã Holland có thay đổi theo thời gian không?</span></a></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Nếu điểm các nhóm gần bằng nhau thì sao?</span></a></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Holland khác gì với MBTI và DISC?</span></a></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Có nên chọn ngành chỉ dựa vào test Holland?</span></a></div>
+    </div>
+  </div></div></div>
+</section>
+
+<!-- 8. CTA -->
+<section class="ho-s ho-cta" style="padding:60px 0">
+  <div class="row align-center"><div class="col large-8"><div class="col-inner text-center">
+    <h2 class="ho-h2">Nghề nghiệp nào sinh ra dành cho bạn?</h2>
+    <p>Làm trắc nghiệm Holland để tìm mã 3 chữ cái và danh sách ngành nghề phù hợp với chính bạn.</p>
+    <a class="button ho-btn-white" href="#bat-dau-test">Làm test Holland ngay ↑</a>
+  </div></div></div>
+</section>
+
+</body>
+</html>
