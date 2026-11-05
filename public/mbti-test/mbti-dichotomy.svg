@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 340" role="img" aria-label="4 cặp xu hướng tính cách MBTI: E/I, S/N, T/F, J/P">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0fb5a6"/><stop offset="1" stop-color="#4f6bff"/></linearGradient></defs>
+<g font-family="Arial,sans-serif"><text x="40" y="46" font-size="22" font-weight="800" fill="#0fb5a6" text-anchor="middle">E</text><text x="40" y="66" font-size="11" fill="#6b7393" text-anchor="middle">Hướng ngoại</text>
+<rect x="80" y="34" width="300" height="14" rx="7" fill="#eef1fb"/><rect x="80" y="34" width="179" height="14" rx="7" fill="url(#g)"/>
+<circle cx="259" cy="41" r="12" fill="#fff" stroke="#4f6bff" stroke-width="4"/>
+<text x="420" y="46" font-size="22" font-weight="800" fill="#4f6bff" text-anchor="middle">I</text><text x="420" y="66" font-size="11" fill="#6b7393" text-anchor="middle">Hướng nội</text><text x="40" y="126" font-size="22" font-weight="800" fill="#0fb5a6" text-anchor="middle">S</text><text x="40" y="146" font-size="11" fill="#6b7393" text-anchor="middle">Giác quan</text>
+<rect x="80" y="114" width="300" height="14" rx="7" fill="#eef1fb"/><rect x="80" y="114" width="112" height="14" rx="7" fill="url(#g)"/>
+<circle cx="192" cy="121" r="12" fill="#fff" stroke="#4f6bff" stroke-width="4"/>
+<text x="420" y="126" font-size="22" font-weight="800" fill="#4f6bff" text-anchor="middle">N</text><text x="420" y="146" font-size="11" fill="#6b7393" text-anchor="middle">Trực giác</text><text x="40" y="206" font-size="22" font-weight="800" fill="#0fb5a6" text-anchor="middle">T</text><text x="40" y="226" font-size="11" fill="#6b7393" text-anchor="middle">Lý trí</text>
+<rect x="80" y="194" width="300" height="14" rx="7" fill="#eef1fb"/><rect x="80" y="194" width="128" height="14" rx="7" fill="url(#g)"/>
+<circle cx="208" cy="201" r="12" fill="#fff" stroke="#4f6bff" stroke-width="4"/>
+<text x="420" y="206" font-size="22" font-weight="800" fill="#4f6bff" text-anchor="middle">F</text><text x="420" y="226" font-size="11" fill="#6b7393" text-anchor="middle">Cảm xúc</text><text x="40" y="286" font-size="22" font-weight="800" fill="#0fb5a6" text-anchor="middle">J</text><text x="40" y="306" font-size="11" fill="#6b7393" text-anchor="middle">Nguyên tắc</text>
+<rect x="80" y="274" width="300" height="14" rx="7" fill="#eef1fb"/><rect x="80" y="274" width="198" height="14" rx="7" fill="url(#g)"/>
+<circle cx="278" cy="281" r="12" fill="#fff" stroke="#4f6bff" stroke-width="4"/>
+<text x="420" y="286" font-size="22" font-weight="800" fill="#4f6bff" text-anchor="middle">P</text><text x="420" y="306" font-size="11" fill="#6b7393" text-anchor="middle">Linh hoạt</text></g></svg>

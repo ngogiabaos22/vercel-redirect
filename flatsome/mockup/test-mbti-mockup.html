@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup Test MBTI</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ---- Flatsome grid shim (mockup only) ---- */
+body{margin:0;background:#fff;color:#777}*{box-sizing:border-box}img{max-width:100%;height:auto;display:block}
+.row{display:flex;flex-wrap:wrap;max-width:1110px;margin:0 auto;width:100%}.align-middle{align-items:center}.align-center{justify-content:center}.align-equal>.col{display:flex}.align-equal>.col>.col-inner{width:100%}
+.col{padding:0 15px 30px;width:100%}.text-center{text-align:center}
+@media(min-width:850px){.large-3{flex-basis:25%;max-width:25%}.large-4{flex-basis:33.33%;max-width:33.33%}.large-6{flex-basis:50%;max-width:50%}.large-8{flex-basis:66.66%;max-width:66.66%}.large-9{flex-basis:75%;max-width:75%}.large-12{flex-basis:100%;max-width:100%}}
+@media(min-width:550px) and (max-width:849px){.medium-6{flex-basis:50%;max-width:50%}}
+h1,h2,h3{margin:0 0 .5em}p{margin:0 0 1.2em}
+.button{display:inline-block;margin:0 1em 1em 0;text-decoration:none}
+.accordion-title{display:block;position:relative;text-decoration:none}.accordion-title .toggle{position:absolute;left:12px;top:.9em;border:0;background:none;color:inherit}.accordion-inner{display:none}.accordion-item.open .accordion-inner{display:block}
+
+/* ---- MBTI design ---- */
+.mb-s{--ink:#1b2347;--ink2:#46507a;--muted:#6b7393;--line:#e3e8f5;--grad:linear-gradient(135deg,#0fb5a6,#4f6bff);font-family:"Be Vietnam Pro",sans-serif;color:var(--ink)}
+.mb-s h1,.mb-s h2,.mb-s h3{color:var(--ink);letter-spacing:-.01em;font-family:inherit}
+.mb-s p{color:var(--ink2);line-height:1.7}
+.mb-s h2.mb-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.25;margin:10px 0 14px}
+.mb-center{text-align:center;max-width:700px;margin:0 auto 34px}.mb-center p{color:var(--muted)}
+.mb-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0c8f84;background:#e3f8f5;padding:5px 14px;border-radius:99px}
+.mb-grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mb-soft{background:#f6f8fe}
+.mb-s .button.mb-btn,.mb-s .button.mb-btn-ghost,.mb-s .button.mb-btn-white{border-radius:99px;font-weight:700;padding:0 30px;line-height:52px;min-height:52px}
+.mb-s .button.mb-btn{background:var(--grad);color:#fff;box-shadow:0 14px 30px -12px rgba(79,107,255,.75)}
+.mb-s .button.mb-btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);line-height:49px}
+.mb-s .button.mb-btn-white{background:#fff;color:#3a55e6}
+.mb-hero{background:linear-gradient(135deg,#ecfbf8 0%,#eef1ff 100%)}
+.mb-hero h1{font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.18;margin:16px 0 18px}
+.mb-hero .lead{font-size:17px;max-width:540px}
+.mb-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--muted)}
+.mb-stats b{display:block;font-size:26px;font-weight:800;color:var(--ink);line-height:1.2}
+.mb-float img{animation:mbFloat 6s ease-in-out infinite}@keyframes mbFloat{50%{transform:translateY(-10px)}}
+.mb-card>.col-inner{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px;height:100%;transition:transform .2s,box-shadow .2s}
+.mb-card>.col-inner:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(27,58,122,.35)}
+.mb-card img.ico{width:56px;margin-bottom:16px}
+.mb-card h3{font-size:18px;font-weight:700;margin:0 0 8px}
+.mb-card p{font-size:15px;color:var(--muted);margin:0}
+.mb-panel>.col-inner{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 40px -18px rgba(27,58,122,.35)}
+.mb-s h3.mb-h3{font-size:19px;font-weight:700;margin:18px 0 6px}
+/* dichotomy */
+.mb-pair .letters{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.mb-pair .letters b{font-size:28px;font-weight:800;line-height:1}
+.mb-pair .letters b:first-child{color:#0fb5a6}.mb-pair .letters b:last-child{color:#4f6bff}
+.mb-pair .letters span{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.mb-pair .bar{height:8px;border-radius:9px;background:var(--grad);margin-bottom:16px;opacity:.85}
+/* 16 types */
+.mb-group{display:flex;align-items:center;gap:14px;margin:6px 0 18px}
+.mb-group img{width:48px}
+.mb-group h3{font-size:20px;font-weight:800;margin:0}
+.mb-group p{margin:0;font-size:14px;color:var(--muted)}
+.mb-type>.col-inner{background:#fff;border:1px solid var(--line);border-top:5px solid var(--c);border-radius:18px;padding:18px;height:100%;transition:transform .2s,box-shadow .2s}
+.mb-type>.col-inner:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(27,58,122,.35)}
+.mb-type .code{display:inline-block;font-weight:800;font-size:15px;letter-spacing:.06em;color:#fff;background:var(--c);border-radius:8px;padding:3px 10px;margin-bottom:10px}
+.mb-type h3{font-size:16px;font-weight:700;margin:0 0 4px}
+.mb-type p{font-size:14px;margin:0;color:var(--muted);line-height:1.55}
+.mb-num{display:block;font-size:42px;font-weight:800;line-height:1;margin-bottom:14px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* faq */
+.mb-faq .accordion-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.mb-faq .accordion-title{font-weight:700;font-size:16px;padding:16px 20px 16px 48px;color:var(--ink)}
+.mb-faq .accordion-item.open .accordion-title{color:#3a55e6;background:#f6f8fe}
+.mb-faq .accordion-inner{padding:4px 20px 18px 48px}
+.mb-faq .accordion-inner p{color:var(--muted);margin:0}
+/* cta */
+.mb-cta{background:linear-gradient(135deg,#0fb5a6,#4f6bff)}
+.mb-cta h2,.mb-cta p{color:#fff!important}.mb-cta p{opacity:.92}
+/* mockup notes */
+.mock-note{max-width:1080px;margin:0 auto 18px;padding:12px 16px;border:2px dashed #b9c4ea;border-radius:14px;font:500 13px/1.5 "Be Vietnam Pro",sans-serif;color:#46507a;background:#fff}
+@media(max-width:849px){.mb-stats{gap:22px}.mb-center{margin-bottom:22px}}
+</style>
+</head>
+<body>
+
+<!-- 1. HERO -->
+<section class="mb-s mb-hero" style="padding:70px 0">
+  <div class="row align-middle">
+    <div class="col large-6"><div class="col-inner">
+      <span class="mb-eyebrow">✦ 16 nhóm tính cách · Miễn phí</span>
+      <h1>Test MBTI – Trắc nghiệm <span class="mb-grad">16 nhóm tính cách</span> chuẩn 2026</h1>
+      <p class="lead">Khám phá bạn thuộc nhóm tính cách nào trong 16 nhóm MBTI, hiểu rõ điểm mạnh, cách giao tiếp và nghề nghiệp phù hợp với chính mình.</p>
+      <a class="button mb-btn" href="#">Làm test MBTI ngay →</a>
+      <a class="button mb-btn-ghost" href="#">Xem 16 nhóm tính cách</a>
+      <div class="mb-stats"><div><b>16</b>nhóm tính cách</div><div><b>4</b>cặp xu hướng</div><div><b>0đ</b>miễn phí</div></div>
+    </div></div>
+    <div class="col large-6 mb-float"><div class="col-inner"><img src="../../public/mbti-test/mbti-hero.svg" alt="Minh hoạ trắc nghiệm MBTI"></div></div>
+  </div>
+</section>
+
+<!-- 2. MBTI LÀ GÌ -->
+<section class="mb-s" style="padding:70px 0">
+  <div class="row align-middle">
+    <div class="col large-6 mb-panel"><div class="col-inner"><img src="../../public/mbti-test/mbti-dichotomy.svg" alt="4 cặp xu hướng tính cách MBTI"></div></div>
+    <div class="col large-6"><div class="col-inner">
+      <span class="mb-eyebrow">Kiến thức nền</span>
+      <h2 class="mb-h2">MBTI là gì?</h2>
+      <h3 class="mb-h3">Nguồn gốc của MBTI</h3>
+      <p>MBTI (Myers-Briggs Type Indicator) được Isabel Briggs Myers và mẹ là Katharine Cook Briggs phát triển dựa trên lý thuyết phân loại tâm lý của Carl Jung.</p>
+      <h3 class="mb-h3">MBTI đo lường điều gì?</h3>
+      <p>MBTI xác định xu hướng tự nhiên của bạn trên 4 cặp đối lập. Kết hợp 4 chữ cái tạo thành 1 trong 16 nhóm tính cách.</p>
+      <h3 class="mb-h3">Test MBTI online có chính xác không?</h3>
+      <p>Kết quả online mang tính tham khảo và khá sát nếu bạn trả lời trung thực theo con người thật của mình, không theo hình mẫu mong muốn.</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- 3. 4 CẶP XU HƯỚNG -->
+<section class="mb-s mb-soft" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="mb-center">
+    <span class="mb-eyebrow">Cấu trúc</span>
+    <h2 class="mb-h2">4 cặp xu hướng tính cách trong MBTI</h2>
+    <p>Mỗi người nghiêng về một phía trong từng cặp. Không có phía nào tốt hơn, chỉ là cách bạn vận hành khác nhau.</p>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-3 medium-6 mb-card mb-pair"><div class="col-inner"><div class="letters"><b>E</b><span>năng lượng</span><b>I</b></div><div class="bar"></div><h3>Hướng ngoại (E) – Hướng nội (I)</h3><p>Bạn nạp năng lượng từ thế giới bên ngoài, con người, hay từ suy ngẫm nội tâm.</p></div></div>
+    <div class="col large-3 medium-6 mb-card mb-pair"><div class="col-inner"><div class="letters"><b>S</b><span>thông tin</span><b>N</b></div><div class="bar"></div><h3>Giác quan (S) – Trực giác (N)</h3><p>Bạn tin vào dữ kiện cụ thể, thực tế hay vào ý tưởng, khả năng và bức tranh lớn.</p></div></div>
+    <div class="col large-3 medium-6 mb-card mb-pair"><div class="col-inner"><div class="letters"><b>T</b><span>quyết định</span><b>F</b></div><div class="bar"></div><h3>Lý trí (T) – Cảm xúc (F)</h3><p>Bạn ra quyết định dựa trên logic khách quan hay giá trị cá nhân và cảm xúc con người.</p></div></div>
+    <div class="col large-3 medium-6 mb-card mb-pair"><div class="col-inner"><div class="letters"><b>J</b><span>lối sống</span><b>P</b></div><div class="bar"></div><h3>Nguyên tắc (J) – Linh hoạt (P)</h3><p>Bạn thích kế hoạch rõ ràng, có tổ chức hay thích để ngỏ và thích nghi theo tình huống.</p></div></div>
+  </div>
+</section>
+
+<!-- 4. 16 NHÓM -->
+<section class="mb-s" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="mb-center">
+    <span class="mb-eyebrow">16 nhóm</span>
+    <h2 class="mb-h2">16 nhóm tính cách MBTI</h2>
+    <p>16 nhóm được chia thành 4 họ tính cách lớn theo cách họ nhìn nhận thế giới.</p>
+  </div></div></div></div>
+
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="mb-group"><img src="../../public/mbti-test/mbti-icon-analyst.svg" alt=""><div><h3>Nhóm Phân tích (NT)</h3><p>Lý trí, độc lập, thích chiến lược và ý tưởng mới.</p></div></div></div></div></div>
+  <div class="row align-equal" style="--c:#7c5cff">
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">INTJ</span><h3>Nhà chiến lược</h3><p>Tầm nhìn xa, độc lập, luôn có kế hoạch cho mọi thứ.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">INTP</span><h3>Nhà tư duy</h3><p>Tò mò, thích phân tích và đặt câu hỏi “tại sao”.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ENTJ</span><h3>Nhà lãnh đạo</h3><p>Quyết đoán, giỏi tổ chức và dẫn dắt mục tiêu lớn.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ENTP</span><h3>Nhà đổi mới</h3><p>Nhanh trí, thích tranh luận và thử thách lối mòn.</p></div></div>
+  </div>
+
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="mb-group"><img src="../../public/mbti-test/mbti-icon-diplomat.svg" alt=""><div><h3>Nhóm Lý tưởng (NF)</h3><p>Giàu cảm xúc, sống vì giá trị và kết nối con người.</p></div></div></div></div></div>
+  <div class="row align-equal" style="--c:#17b47a">
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">INFJ</span><h3>Người thấu cảm</h3><p>Sâu sắc, giàu lý tưởng, thấu hiểu người khác.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">INFP</span><h3>Người mơ mộng</h3><p>Nhạy cảm, sáng tạo, trung thành với giá trị bản thân.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ENFJ</span><h3>Người truyền lửa</h3><p>Ấm áp, có sức hút, thích giúp người khác phát triển.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ENFP</span><h3>Người nhiệt huyết</h3><p>Năng động, nhiều ý tưởng, dễ kết bạn.</p></div></div>
+  </div>
+
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="mb-group"><img src="../../public/mbti-test/mbti-icon-sentinel.svg" alt=""><div><h3>Nhóm Bảo vệ (SJ)</h3><p>Trách nhiệm, đáng tin, coi trọng trật tự và truyền thống.</p></div></div></div></div></div>
+  <div class="row align-equal" style="--c:#2f86eb">
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ISTJ</span><h3>Người kỷ luật</h3><p>Cẩn thận, đúng hẹn, làm việc theo quy trình rõ ràng.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ISFJ</span><h3>Người chăm sóc</h3><p>Tận tụy, chu đáo, luôn nghĩ cho người thân.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ESTJ</span><h3>Người quản lý</h3><p>Thực tế, quyết đoán, giỏi điều phối công việc.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ESFJ</span><h3>Người kết nối</h3><p>Hòa đồng, chu đáo, giữ không khí tập thể ấm áp.</p></div></div>
+  </div>
+
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="mb-group"><img src="../../public/mbti-test/mbti-icon-explorer.svg" alt=""><div><h3>Nhóm Khám phá (SP)</h3><p>Linh hoạt, thích trải nghiệm và hành động tức thời.</p></div></div></div></div></div>
+  <div class="row align-equal" style="--c:#e09000">
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ISTP</span><h3>Người thợ giỏi</h3><p>Bình tĩnh, khéo tay, giải quyết vấn đề thực tế nhanh.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ISFP</span><h3>Người nghệ sĩ</h3><p>Nhẹ nhàng, tinh tế, cảm nhận cái đẹp quanh mình.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ESTP</span><h3>Người hành động</h3><p>Táo bạo, ứng biến tốt, thích thử thách mới.</p></div></div>
+    <div class="col large-3 medium-6 mb-type"><div class="col-inner"><span class="code">ESFP</span><h3>Người truyền niềm vui</h3><p>Vui vẻ, tự nhiên, thích là trung tâm của cuộc vui.</p></div></div>
+  </div>
+</section>
+
+<!-- 5. CÁCH LÀM BÀI -->
+<section class="mb-s mb-soft" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="mb-center">
+    <span class="mb-eyebrow">Hướng dẫn</span>
+    <h2 class="mb-h2">Cách làm bài test MBTI chính xác</h2>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-3 medium-6 mb-card"><div class="col-inner"><span class="mb-num">01</span><h3>Chọn lúc thoải mái</h3><p>Làm bài khi tâm trạng bình thường, không vội vàng hay căng thẳng.</p></div></div>
+    <div class="col large-3 medium-6 mb-card"><div class="col-inner"><span class="mb-num">02</span><h3>Trả lời theo con người thật</h3><p>Chọn điều bạn thường làm, không phải điều bạn muốn trở thành.</p></div></div>
+    <div class="col large-3 medium-6 mb-card"><div class="col-inner"><span class="mb-num">03</span><h3>Đừng nghĩ quá lâu</h3><p>Phản xạ đầu tiên thường phản ánh đúng xu hướng tự nhiên của bạn.</p></div></div>
+    <div class="col large-3 medium-6 mb-card"><div class="col-inner"><span class="mb-num">04</span><h3>Đọc kỹ kết quả</h3><p>Xem mức nghiêng của từng cặp và mô tả chi tiết nhóm tính cách.</p></div></div>
+  </div>
+</section>
+
+<!-- 6. ỨNG DỤNG -->
+<section class="mb-s" style="padding:70px 0">
+  <div class="row"><div class="col large-12"><div class="col-inner"><div class="mb-center">
+    <span class="mb-eyebrow">Ứng dụng</span>
+    <h2 class="mb-h2">Ứng dụng của MBTI trong cuộc sống</h2>
+  </div></div></div></div>
+  <div class="row align-equal">
+    <div class="col large-3 medium-6 mb-card"><div class="col-inner"><img class="ico" src="../../public/mbti-test/mbti-icon-self.svg" alt=""><h3>Hiểu rõ bản thân</h3><p>Nhận ra điểm mạnh, điểm mù và cách bạn phản ứng trước áp lực.</p></div></div>
+    <div class="col large-3 medium-6 mb-card"><div class="col-inner"><img class="ico" src="../../public/mbti-test/mbti-icon-career.svg" alt=""><h3>Chọn ngành nghề phù hợp</h3><p>Gợi ý môi trường và công việc hợp với cách bạn tư duy, làm việc.</p></div></div>
+    <div class="col large-3 medium-6 mb-card"><div class="col-inner"><img class="ico" src="../../public/mbti-test/mbti-icon-team.svg" alt=""><h3>Làm việc nhóm hiệu quả</h3><p>Hiểu đồng nghiệp để phân công và giao tiếp trơn tru hơn.</p></div></div>
+    <div class="col large-3 medium-6 mb-card"><div class="col-inner"><img class="ico" src="../../public/mbti-test/mbti-icon-love.svg" alt=""><h3>Cải thiện các mối quan hệ</h3><p>Thấu hiểu khác biệt tính cách để ứng xử tinh tế với người thân.</p></div></div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="mb-s mb-soft" style="padding:70px 0">
+  <div class="row align-center"><div class="col large-9 mb-faq"><div class="col-inner">
+    <div class="mb-center"><span class="mb-eyebrow">Hỏi đáp</span><h2 class="mb-h2">Câu hỏi thường gặp về test MBTI</h2></div>
+    <div class="accordion">
+      <div class="accordion-item open"><a class="accordion-title"><button class="toggle">⌄</button><span>Test MBTI có mất phí không?</span></a><div class="accordion-inner"><p>Không. Bạn làm bài và xem kết quả nhóm tính cách hoàn toàn miễn phí.</p></div></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Kết quả MBTI có thay đổi theo thời gian không?</span></a></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Nhóm tính cách nào hiếm nhất?</span></a></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>MBTI khác gì với Big Five?</span></a></div>
+      <div class="accordion-item"><a class="accordion-title"><button class="toggle">⌄</button><span>Có nên dùng MBTI để chọn nghề?</span></a></div>
+    </div>
+  </div></div></div>
+</section>
+
+<!-- 8. CTA -->
+<section class="mb-s mb-cta" style="padding:60px 0">
+  <div class="row align-center"><div class="col large-8"><div class="col-inner text-center">
+    <h2 class="mb-h2">Bạn thuộc nhóm tính cách nào?</h2>
+    <p>Chỉ vài phút để khám phá 4 chữ cái mô tả con người bạn và nhận phân tích chi tiết.</p>
+    <a class="button mb-btn-white" href="#">Làm test MBTI miễn phí →</a>
+  </div></div></div>
+</section>
+
+</body>
+</html>
