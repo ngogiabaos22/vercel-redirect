@@ -1,0 +1,283 @@
+[ux_html label="CSS Test EQ"]<style>@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');.eq-s{--ink:#2a1230;--ink2:#5a3b52;--muted:#7a6272;--line:#f3dfe7;--grad:linear-gradient(135deg,#ff5f8f,#ff8a5c);font-family:"Be Vietnam Pro",sans-serif;color:var(--ink)}.eq-s h1,.eq-s h2,.eq-s h3,.eq-s p,.eq-s li,.eq-s .button{font-family:"Be Vietnam Pro",sans-serif}.eq-s h1,.eq-s h2,.eq-s h3{color:var(--ink);letter-spacing:-.01em}.eq-s p{color:var(--ink2);line-height:1.7}.eq-s p:empty{display:none}.eq-s h2.eq-h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;line-height:1.25;margin:10px 0 14px}.eq-s .eq-center{text-align:center;max-width:700px;margin:0 auto 34px}.eq-s .eq-center p{color:var(--muted)}.eq-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#e5487a;background:#ffe8ef;padding:5px 14px;border-radius:99px}.eq-grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.eq-soft{background:#fff7f9!important}.eq-s .button.eq-btn,.eq-s .button.eq-btn-ghost,.eq-s .button.eq-btn-white{border-radius:99px;font-weight:700;text-transform:none;letter-spacing:0;padding:0 30px;line-height:52px;min-height:52px}.eq-s .button.eq-btn{background:var(--grad)!important;color:#fff!important;border:0!important;box-shadow:0 14px 30px -12px rgba(255,95,143,.8);transition:transform .15s}.eq-s .button.eq-btn:hover{transform:translateY(-2px)}.eq-s .button.eq-btn-ghost{background:#fff!important;color:var(--ink)!important;border:1.5px solid var(--line)!important}.eq-s .button.eq-btn-white{background:#fff!important;color:#e5487a!important;border:0!important}.eq-hero{background:linear-gradient(135deg,#fff0f4 0%,#fff6ec 100%)!important;overflow:hidden}.eq-hero h1{font-size:clamp(30px,4.2vw,50px);font-weight:800;line-height:1.18;margin:16px 0 18px}.eq-hero .lead{font-size:17px;max-width:540px}.eq-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:22px}.eq-stats>div{font-size:14px;color:var(--muted)}.eq-stats b{display:block;font-size:26px;font-weight:800;color:var(--ink);line-height:1.2}.eq-float img{animation:eqFloat 6s ease-in-out infinite}@keyframes eqFloat{50%{transform:translateY(-10px)}}.eq-card>.col-inner{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px;height:100%;transition:transform .2s,box-shadow .2s}.eq-card>.col-inner:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(154,43,85,.35)}.eq-card h3{font-size:18px;font-weight:700;margin:0 0 8px}.eq-card p{font-size:15px;color:var(--muted);margin:0}.eq-s .icon-box-top .icon-box-img{margin:0 0 16px!important}.eq-s .icon-box-top .icon-box-text{text-align:left;padding-left:0}.eq-en{display:block;font-size:12px;font-weight:700;color:#e5487a;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}.eq-panel>.col-inner{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 18px 40px -18px rgba(154,43,85,.35)}.eq-level{background:#fff;border:1px solid var(--line);border-left:6px solid var(--c);border-radius:14px;padding:14px 18px;margin-bottom:12px}.eq-level h3{font-size:16px;font-weight:700;margin:0 0 2px}.eq-level p{font-size:14px;margin:0;color:var(--muted)}.eq-check{position:relative;padding-left:40px;margin-bottom:16px}.eq-check:before{content:"";position:absolute;left:0;top:2px;width:26px;height:26px;border-radius:50%;background:#ffe8ef url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='%23e5487a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}.eq-check h3{font-size:17px;font-weight:700;margin:0 0 4px}.eq-check p{font-size:15px;margin:0;color:var(--muted)}.eq-check.plain p{color:var(--ink2);font-weight:500;padding-top:2px}.eq-faq .accordion-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}.eq-faq .accordion-title{border:0!important;font-weight:700;font-size:16px;padding:16px 20px 16px 48px;color:var(--ink)}.eq-faq .accordion-title .toggle{left:12px}.eq-faq .accordion-title.active{color:#e5487a;background:#fff7f9}.eq-faq .accordion-inner{padding:4px 20px 18px 48px}.eq-faq .accordion-inner p{color:var(--muted);margin:0}.eq-cta{background:linear-gradient(135deg,#ff5f8f,#ff8a5c)!important}.eq-cta h2,.eq-cta p{color:#fff!important}.eq-cta p{opacity:.92}@media (max-width:849px){.eq-s .eq-center{margin-bottom:22px}.eq-stats{gap:22px}}@media (prefers-reduced-motion:reduce){.eq-float img{animation:none}}</style>[/ux_html]
+[section label="Hero - Test EQ" class="eq-s eq-hero" padding="70px" padding__sm="40px"]
+
+[row v_align="middle"]
+
+[col span="6" span__sm="12"]
+
+<p><span class="eq-eyebrow">✦ Trí tuệ cảm xúc · Miễn phí</span></p>
+<h1>Bài Test EQ – Kiểm tra <span class="eq-grad">trí tuệ cảm xúc</span> mới nhất 2026</h1>
+<p class="lead">Trong thế giới hiện đại, trí tuệ cảm xúc (EQ) ngày càng được đánh giá cao, không chỉ trong công việc mà còn trong các mối quan hệ cá nhân. Khác với IQ, EQ đo lường khả năng nhận biết, hiểu và quản lý cảm xúc của bản thân cũng như người khác.</p>
+
+[button text="Làm bài test EQ ngay ↓" size="large" radius="99" class="eq-btn" link="#bat-dau-test"]
+
+[button text="EQ là gì?" style="outline" size="large" radius="99" class="eq-btn-ghost" link="#eq-la-gi"]
+
+<div class="eq-stats"><div><b>5</b>yếu tố EQ</div><div><b>0đ</b>miễn phí</div><div><b>Ngay</b>có kết quả</div></div>
+
+[/col]
+[col span="6" span__sm="12" class="eq-float"]
+
+[ux_image id="4097" image_size="original"]
+
+
+[/col]
+
+[/row]
+
+[/section]
+[scroll_to title="Bắt đầu test EQ" link="#bat-dau-test" bullet="false"]
+
+[scroll_to title="EQ là gì" link="#eq-la-gi" bullet="false"]
+
+[section label="EQ là gì" class="eq-s eq-soft" padding="70px" padding__sm="40px"]
+
+[row v_align="middle"]
+
+[col span="6" span__sm="12"]
+
+<p><span class="eq-eyebrow">Kiến thức nền</span></p>
+<h2 class="eq-h2">EQ là gì?</h2>
+<p>EQ, hay Emotional Quotient, là chỉ số thể hiện khả năng cảm nhận, kiểm soát và biểu đạt cảm xúc của một cá nhân. Theo Daniel Goleman, nhà tâm lý học nổi tiếng, EQ gồm 5 yếu tố cơ bản.</p>
+
+[/col]
+[col span="6" span__sm="12" class="eq-panel"]
+
+[ux_image id="4098" image_size="original"]
+
+
+[/col]
+
+[/row]
+[row v_align="equal" h_align="center"]
+
+[col span="4" span__sm="12" span__md="6" class="eq-card"]
+
+[featured_box img="4100" img_width="56" pos="top"]
+
+<span class="eq-en">Self-Awareness</span><h3>Tự nhận thức</h3>
+<p>Nhận biết cảm xúc của bản thân và hiểu tác động của chúng.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6" class="eq-card"]
+
+[featured_box img="4101" img_width="56" pos="top"]
+
+<span class="eq-en">Self-Management</span><h3>Tự quản lý</h3>
+<p>Điều tiết cảm xúc, giữ bình tĩnh và phản ứng phù hợp trong mọi tình huống.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6" class="eq-card"]
+
+[featured_box img="4102" img_width="56" pos="top"]
+
+<span class="eq-en">Motivation</span><h3>Động lực</h3>
+<p>Năng lực tự thúc đẩy bản thân, kiên trì hướng tới mục tiêu.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6" class="eq-card"]
+
+[featured_box img="4103" img_width="56" pos="top"]
+
+<span class="eq-en">Empathy</span><h3>Đồng cảm</h3>
+<p>Nhận biết và thấu hiểu cảm xúc của người khác.</p>
+
+[/featured_box]
+
+[/col]
+[col span="4" span__sm="12" span__md="6" class="eq-card"]
+
+[featured_box img="4104" img_width="56" pos="top"]
+
+<span class="eq-en">Social Skills</span><h3>Kỹ năng xã hội</h3>
+<p>Giao tiếp, hợp tác và giải quyết xung đột để xây dựng các mối quan hệ tốt.</p>
+
+[/featured_box]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Tại sao EQ quan trọng" class="eq-s" padding="70px" padding__sm="40px"]
+
+[row]
+
+[col span__sm="12"]
+
+<div class="eq-center"><span class="eq-eyebrow">Vai trò</span>
+<h2 class="eq-h2">Tại sao trí tuệ cảm xúc EQ lại quan trọng?</h2>
+<p>Trí tuệ cảm xúc không chỉ là một kỹ năng “mềm” mà còn ảnh hưởng trực tiếp đến thành công trong cuộc sống và công việc.</p>
+</div>
+
+[/col]
+
+[/row]
+[row v_align="equal"]
+
+[col span="3" span__sm="12" span__md="6" class="eq-card"]
+
+[featured_box img="4105" img_width="56" pos="top"]
+
+<h3>Cải thiện mối quan hệ cá nhân</h3>
+<p>Người có EQ cao thường hiểu và đồng cảm với người khác, giúp xây dựng các mối quan hệ bền vững.</p>
+
+[/featured_box]
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="eq-card"]
+
+[featured_box img="4106" img_width="56" pos="top"]
+
+<h3>Quản lý căng thẳng và xung đột hiệu quả</h3>
+<p>EQ giúp bạn điều tiết cảm xúc, giữ bình tĩnh và ra quyết định sáng suốt.</p>
+
+[/featured_box]
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="eq-card"]
+
+[featured_box img="4107" img_width="56" pos="top"]
+
+<h3>Tăng hiệu suất công việc</h3>
+<p>Nghiên cứu cho thấy nhân viên có EQ cao làm việc nhóm tốt hơn, lãnh đạo hiệu quả và dễ thích nghi với thay đổi.</p>
+
+[/featured_box]
+
+[/col]
+[col span="3" span__sm="12" span__md="6" class="eq-card"]
+
+[featured_box img="4108" img_width="56" pos="top"]
+
+<h3>Hỗ trợ phát triển bản thân</h3>
+<p>Khi hiểu rõ cảm xúc của mình, bạn có thể cải thiện hành vi, tạo động lực và đạt mục tiêu dài hạn.</p>
+
+[/featured_box]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Thang điểm EQ" class="eq-s eq-soft" padding="70px" padding__sm="40px"]
+
+[row v_align="middle"]
+
+[col span="6" span__sm="12"]
+
+<p><span class="eq-eyebrow">Thang điểm</span></p>
+<h2 class="eq-h2">Thang điểm EQ và ý nghĩa</h2>
+<div class="eq-level" style="--c:#ff5f8f"><h3>EQ từ 130 trở lên – Rất cao</h3><p>Thấu hiểu người khác sâu sắc, dẫn dắt cảm xúc tập thể tốt.</p></div>
+<div class="eq-level" style="--c:#3ddc97"><h3>EQ từ 115 – 129 – Cao</h3><p>Giao tiếp khéo léo, giữ bình tĩnh tốt trước áp lực.</p></div>
+<div class="eq-level" style="--c:#ffd166"><h3>EQ từ 85 – 114 – Trung bình</h3><p>Kiểm soát cảm xúc ổn trong đa số tình huống thường ngày.</p></div>
+<div class="eq-level" style="--c:#ff8a3d"><h3>EQ từ 70 – 84 – Dưới trung bình</h3><p>Đôi khi khó nhận ra hoặc kiềm chế cảm xúc khi căng thẳng.</p></div>
+<div class="eq-level" style="--c:#e5484d"><h3>EQ dưới 70 – Thấp</h3><p>Nên rèn luyện thêm kỹ năng tự nhận thức và đồng cảm.</p></div>
+
+[/col]
+[col span="6" span__sm="12" class="eq-panel"]
+
+[ux_image id="4099" image_size="original"]
+
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="Lợi ích & cải thiện" class="eq-s" padding="70px" padding__sm="40px"]
+
+[row v_align="equal"]
+
+[col span="5" span__sm="12" class="eq-card"]
+
+<p><span class="eq-eyebrow">Lợi ích</span></p>
+<h2 class="eq-h2">Lợi ích khi làm bài test EQ</h2>
+<div class="eq-check plain"><p>Hiểu rõ điểm mạnh và điểm cần cải thiện.</p></div>
+<div class="eq-check plain"><p>Cải thiện hiệu quả giao tiếp và lãnh đạo.</p></div>
+<div class="eq-check plain"><p>Tăng khả năng thích nghi với môi trường thay đổi.</p></div>
+<div class="eq-check plain"><p>Định hướng nghề nghiệp phù hợp với khả năng cảm xúc.</p></div>
+
+[/col]
+[col span="7" span__sm="12" class="eq-card"]
+
+<p><span class="eq-eyebrow">Rèn luyện</span></p>
+<h2 class="eq-h2">Cách cải thiện trí tuệ cảm xúc</h2>
+<div class="eq-check"><h3>Tăng khả năng tự nhận thức</h3><p>Ghi nhật ký cảm xúc, tự đặt câu hỏi về phản ứng của bản thân.</p></div>
+<div class="eq-check"><h3>Học cách tự quản lý cảm xúc</h3><p>Thực hành thiền, kỹ thuật thở và quản lý căng thẳng.</p></div>
+<div class="eq-check"><h3>Phát triển đồng cảm</h3><p>Lắng nghe chủ động, đặt mình vào vị trí của người khác.</p></div>
+<div class="eq-check"><h3>Rèn kỹ năng xã hội</h3><p>Tham gia các hoạt động nhóm, học cách giao tiếp và giải quyết xung đột.</p></div>
+<div class="eq-check"><h3>Tạo động lực bản thân</h3><p>Đặt mục tiêu rõ ràng, theo dõi tiến độ và tự thưởng khi đạt được.</p></div>
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="FAQ" class="eq-s eq-soft" padding="70px" padding__sm="40px"]
+
+[row h_align="center"]
+
+[col span="9" span__sm="12" class="eq-faq"]
+
+<div class="eq-center"><span class="eq-eyebrow">Hỏi đáp</span>
+<h2 class="eq-h2">Câu hỏi thường gặp về test EQ</h2>
+</div>
+
+[accordion]
+
+[accordion-item title="Test EQ có mất phí không?"]
+
+<p>Không. Bạn làm bài test EQ và xem kết quả hoàn toàn miễn phí ngay trên trang này.</p>
+
+[/accordion-item]
+[accordion-item title="EQ và IQ khác nhau thế nào?"]
+
+<p>IQ đo khả năng suy luận, tính toán và giải quyết vấn đề logic. EQ đo khả năng nhận biết, điều tiết cảm xúc của bản thân và thấu hiểu người khác. Hai chỉ số bổ sung cho nhau.</p>
+
+[/accordion-item]
+[accordion-item title="EQ có thay đổi được không?"]
+
+<p>Có. Khác với IQ khá ổn định, EQ có thể rèn luyện và nâng cao qua tự quan sát cảm xúc, lắng nghe chủ động và thực hành kỹ năng giao tiếp.</p>
+
+[/accordion-item]
+[accordion-item title="Bao nhiêu điểm EQ là cao?"]
+
+<p>Trên thang điểm trung bình 100, EQ từ 115 trở lên được xem là cao và từ 130 trở lên là rất cao.</p>
+
+[/accordion-item]
+[accordion-item title="Kết quả test EQ online có chính xác không?"]
+
+<p>Kết quả mang tính tham khảo và khá sát nếu bạn trả lời trung thực. Đánh giá chuyên sâu cần các công cụ chuẩn hoá do chuyên gia tâm lý thực hiện.</p>
+
+[/accordion-item]
+
+[/accordion]
+
+[/col]
+
+[/row]
+
+[/section]
+[section label="CTA cuối trang" class="eq-s eq-cta" dark="true" padding="60px" padding__sm="40px"]
+
+[row h_align="center"]
+
+[col span="8" span__sm="12" align="center"]
+
+<h2 class="eq-h2">Sẵn sàng đo trí tuệ cảm xúc của bạn?</h2>
+<p>Bài test EQ chuẩn quốc tế giúp bạn nhận diện khả năng cảm xúc, phát triển kỹ năng và xây dựng các mối quan hệ bền vững.</p>
+
+[button text="Làm bài test EQ ngay ↑" size="large" radius="99" class="eq-btn-white" link="#bat-dau-test"]
+
+
+[/col]
+
+[/row]
+
+[/section]
